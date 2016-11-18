@@ -8,8 +8,8 @@
 
   @include media( $third-break ) {
     justify-content: space-between;
-    align-items: flex-start;
-    align-content: flex-start;
+    align-items: stretch;
+    align-content: stretch;
   }
 }
 
@@ -58,6 +58,7 @@
     @include media( $third-break ) {
       border: 0;
 
+      box-shadow: $box-shadow;
     }
 
     &:nth-child( 1 ) {
@@ -69,6 +70,7 @@
 
         margin-right: flex-gutter( 12 );
         margin-bottom: 0;
+
       }
 
       .entry-header {
@@ -77,7 +79,10 @@
 
       .entry-hero {
         @include media( $third-break ) {
+          height: 550px;
           max-height: 550px;
+          margin-left: 0;
+          margin-right: 0;
         }
       }
 
@@ -86,20 +91,48 @@
     &:nth-child( 2 ) {
 
       @include media( $third-break ) {
-        flex: 0 1 auto;
+        flex: 1 1 50%;
         //flex: 1 1 auto; // needs ad
 
         width: flex-grid( 4 );
+      }
+
+      .entry-hero {
+        @include media( $third-break ) {
+          height: 270px;
+        }
       }
     }
   }
 
   .ad {
     @include media( $third-break ) {
-      flex: 0 1 auto;
+      flex: 1 1 auto;
       //flex: 1 1 auto; // needs ad
 
       width: flex-grid( 4 );
+    }
+  }
+}
+
+.news-posts,
+.art-posts,
+.culture-posts {
+
+  margin-top: 2em;
+
+  @include media( $third-break ) {
+    box-shadow: $box-shadow;
+  }
+
+  .section-header {
+    position: relative;
+
+    height: 0;
+
+    .section-title {
+      transform: translateY(-100%);
+
     }
   }
 }

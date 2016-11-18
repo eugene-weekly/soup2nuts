@@ -33,6 +33,12 @@
     .genericon {
       color: color( black );
 
+      font-size: em( 24, 16 );
+
+      @include media( $tall-enough ) {
+        font-size: em( 28, 16 );
+      }
+
       &:hover,
       &:focus {
         color: color( red );

@@ -22,14 +22,14 @@ html {
 body {
   background: color( white ); /* Fallback for when there is no custom background color defined. */
 
-  @include media( $third-break ) {
-    background: color( background-body ); /* Fallback for when there is no custom background color defined. */
+  &.home {
+    @include media( $third-break ) {
+      background: color( background-body ); /* Fallback for when there is no custom background color defined. */
+    }
   }
 
   &.show-nav {
     overflow: hidden;
-
-    outline: 5px solid red;
   }
 }
 

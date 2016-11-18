@@ -4,6 +4,37 @@
 
 .site-content {
   @include container;
+
+  .single & {
+    display: flex;
+    flex-wrap: wrap;
+
+    @include media( $third-break ) {
+      flex-wrap: nowrap;
+    }
+
+    .content-area,
+    .widget-area {
+      flex: 1 1 100%;
+    }
+
+    .content-area {
+      @include media( $third-break ) {
+        flex: 1 1 flex-grid( 8 );
+
+        padding-left: flex-gutter();
+        padding-right: flex-gutter();
+      }
+    }
+
+    .widget-area {
+      @include media( $third-break ) {
+        flex: 0 1 flex-grid( 4 );
+
+        margin-left: flex-gutter();
+      }
+    }
+  }
 }
 
 .hentry {
@@ -30,6 +61,7 @@
 
   @include media( $third-break ) {
     flex-direction: column;
+    flex-wrap: nowrap;
     align-items: stretch;
     align-content: stretch;
   }
@@ -39,7 +71,7 @@
     order: 2;
 
     @include media( $third-break ) {
-      flex: 0 1 100%;
+      flex: 0 1 auto;
 
       padding: 1em flex-gutter();
     }
@@ -56,9 +88,9 @@
     overflow: hidden;
 
     @include media( $third-break ) {
-      flex: 1 1 100%;
+      flex: 1 1 auto;
 
-      width: 100%;
+      //width: 100%;
       max-height: 270px;
       margin-left: 0;
       margin-right: 0;
@@ -84,8 +116,6 @@
 
   @include media( $third-break ) {
     padding-bottom: 0;
-    
-    box-shadow: 5 5px 10px rgba( 26, 25, 25, 0.4);
   }
 
   &:last-of-type {

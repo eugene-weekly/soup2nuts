@@ -79,6 +79,8 @@
     }
   }
 
+  .widget { margin-bottom: 0; }
+
   .widget_wpcom_social_media_icons_widget {
     display: none;
 
@@ -98,8 +100,6 @@
     justify-content: center;
     align-items: stretch;
     align-content: stretch;
-
-    margin-bottom: 0;
 
     @include media( $third-break ) {
       flex: 0 1 100%;

@@ -308,10 +308,19 @@
     border-top: 1px solid color( grey );
     border-bottom: 1px solid color( grey );
 
+    @include media( $third-break ) {
+      flex-wrap: nowrap;
+      justify-content: space-around;
+    }
+
     .menu-item {
       flex: 0 1 50%;
 
       text-align: left;
+
+      @include media( $third-break ) {
+        flex: 0 1 auto;
+      }
 
       &:nth-child( 2n ) {
         text-align: right;
