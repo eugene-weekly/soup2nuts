@@ -158,8 +158,8 @@ if ( ! function_exists( 'soup2nuts_nav_menu_item_title' ) ) :
   function soup2nuts_nav_menu_item_title( $title, $item, $args, $depth ) {
 
     $title = '<span class="menu-item-title">' . $title . '</span>';
-
-    if ( in_array( $item->post_title, array( 'Events', 'Calendar' )) ) {
+    //  pre_printr( $item );
+    if ( in_array( $item->object, array( 'events', 'calendar', 'tribe_events' )) ) {
       $title .= get_the_icon( 'icon-calendar' );
     }
 
