@@ -28,6 +28,9 @@
     align-content: stretch;
 
     height: 50px;
+    padding-left: 0;
+    padding-right: 0;
+    overflow: visible;
 
     @include media( $third-break ) {
       flex-direction: column;
@@ -42,7 +45,6 @@
     @include media( $tall-enough ) {
       height: 225px;
     }
-
   }
 
   .site-branding {
