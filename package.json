@@ -1,0 +1,41 @@
+{
+  "name": "soup2nuts",
+  "title": "Eugene Weekly 2017",
+  "description": "A custom WordPress theme for Eugene Weekly 2017.",
+  "version": "0.1.0",
+  "homepage": "http://eugeneweekly.com",
+  "license": "GPL-2.0",
+  "main": "Gruntfile.js",
+  "author": "Nate <nate@oknoway.com> (http://oknoway.com)",
+  "repository": "https://github.com/eugene-weekly/eugene-weekly-2017",
+  "bugs": "https://github.com/eugene-weekly/eugene-weekly-2017/issues",
+  "scripts": {
+    "start": "grunt"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "autoprefixer": "^6.5.2",
+    "cssnano": "^3.8.0",
+    "grunt": "^1.0.1",
+    "grunt-autoprefixer": "^3.0.4",
+    "grunt-bower-task": "^0.4.0",
+    "grunt-browser-sync": "^2.2.0",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-nodeunit": "^1.0.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-image": "^2.2.2",
+    "grunt-imageoptim": "^1.4.1",
+    "grunt-modernizr": "^1.0.2",
+    "grunt-notify": "^0.4.5",
+    "grunt-phantom-rasterize": "^2.1.0",
+    "grunt-postcss": "^0.8.0",
+    "grunt-sass": "^1.2.1",
+    "grunt-scss-lint": "^0.5.0",
+    "grunt-svg-sprite": "^1.3.6",
+    "grunt-svg2png": "github:pascalduez/grunt-svg2png",
+    "matchdep": "^1.0.1"
+  }
+}

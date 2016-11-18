@@ -1,0 +1,51 @@
+<?php
+/**
+ * The template for displaying the Home Posts module.
+ *
+ * Learn more: http://codex.wordpress.org/Template_Hierarchy
+ *
+ * @package soup2nuts
+ */
+
+$excludedPosts = array();
+
+foreach( array( 'features', 'news', 'art', 'culture' ) as $home_section ) :
+
+  $posts = home_posts( $home_section, $excludedPosts );
+
+  if ( $posts->have_posts() ) :
+
+    $excludedPosts = array_merge( $excludedPosts, wp_list_pluck( $posts->posts, 'ID' ) ); ?>
+
+    <section class="<?php echo $home_section; ?>-posts home-posts">
+
+      <?php if ( $home_section !== 'features' ) : ?>
+
+      <header class="section-header news-header">
+        <h5 class="section-title"><?php echo ucwords( $home_section ); ?></h5>
+      </header>
+
+      <?php endif;
+
+      while ( $posts->have_posts() ) : $posts->the_post();
+
+        get_template_part( 'partials/content', 'excerpt' );
+
+        if (( $home_section == 'features' ) && ( $posts->current_post == 1 ))
+          get_template_part( 'partials/module', 'ad' );
+
+      endwhile; ?>
+
+      <?php if ( $home_section !== 'features' ) : ?>
+
+      <footer class="section-footer news-footer">
+        <a href="<?php the_category_link( $home_section ); ?>" class="archive-link" rel="archive">Explore <span class="category-name"><?php echo ucwords( $home_section ); ?></span></a>
+      </footer>
+
+      <?php endif; ?>
+
+
+    </section><!-- featured posts -->
+  <?php endif;
+
+endforeach;

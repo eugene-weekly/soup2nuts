@@ -1,0 +1,232 @@
+/**
+ * Mixins
+ */
+
+@import "bourbon/bourbon";
+@import "grid-settings";
+@import "neat/neat";
+
+// =Site Mixins
+
+@mixin container {
+  max-width: $max-width;
+  padding-left: flex-gutter();
+  padding-right: flex-gutter();
+  overflow: hidden;
+  
+  @include media( $max-width ) {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  @at-root .no-mediaqueries & {
+    padding-right: flex-gutter();
+    padding-left: flex-gutter();
+  }
+}
+
+@mixin fake-img {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  line-height: 0;
+
+  img {
+    border: 0;
+    clip: none;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    padding: 0;
+    position: static;
+    width: auto;
+
+    .js & {
+      @include visuallyhidden;
+    }
+  }
+}
+
+// =Utility Classes
+
+// Color Map Util
+@function color($key) {
+  @if map-has-key($colors, $key) {
+    @return map-get($colors, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $colors.";
+  @return null;
+}
+
+// Center Block
+@mixin center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Antialias fonts
+@mixin antialias {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Image Replacement
+@mixin ir {
+  overflow: hidden;
+
+  background-color: transparent;
+  background-repeat: no-repeat;
+
+  border: 0;
+
+  /* IE 6/7 fallback */
+  *text-indent: -9999px;
+
+}
+
+// Hide from both screenreaders and browsers: h5bp.com/u
+@mixin hidden {
+  display: none !important;
+  visibility: hidden;
+}
+
+// Hide only visually, but have it available for screenreaders: h5bp.com/v
+@mixin visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+
+// Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p
+@mixin focusable {
+  &:active,
+  &:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+
+    @include visuallyhidden;
+  }
+}
+
+
+// Hide visually and from screenreaders, but maintain layout
+@mixin invisible {
+  visibility: hidden;
+}
+
+
+// Clearfix
+@mixin clearfix() {
+  content: '';
+  display: table;
+}
+
+// Clear after (not all clearfix need this also)
+@mixin clearfix-after() {
+  clear: both;
+}
+
+
+// Make elements appear clickable
+@mixin clickable {
+  cursor: pointer;
+}
+
+@mixin no-list {
+  &,
+  & ul {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+    -webkit-padding-start: 0;
+
+    li { list-style-type: none; }
+  }
+}
+
+@mixin yes-list {
+  & ul,
+  & ol {
+    margin-bottom: 2em;
+    padding-left: 25px;
+  }
+
+  & ul li {
+    list-style-type: disc;
+  }
+
+  & ol li {
+    list-style-type: decimal;
+  }
+}
+
+@mixin no-button {
+  padding: 0;
+
+  background-color: transparent;
+
+  font-size: 1em;
+  text-shadow: none;
+
+  border: 0;
+  border-radius: 0;
+
+  box-shadow: none;
+
+  &:hover,
+  &:active,
+  &:focus { box-shadow: none; }
+}
+
+
+// Helper class to fix some Mozilla Flexbox issues. See _flexbox.scss
+@-moz-document url-prefix() {
+  %mozbox {
+    width: 100%;
+    -moz-box-sizing: border-box;
+  }
+}
+
+// Display list as columns
+@mixin list-columns {
+  margin-bottom: 2em;
+
+  @include no-list;
+  @include columns( 2 );
+
+  @include media( $third-break ) {
+    @include columns( 4 );
+  }
+
+  @at-root .no-csscolumns {
+    li {
+      display: inline-block;
+      width: 33%;
+    }
+  }
+}

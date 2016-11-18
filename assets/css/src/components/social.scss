@@ -1,0 +1,76 @@
+/**
+ * Social
+ */
+
+.widget_wpcom_social_media_icons_widget {
+
+  ul { @include no-list; }
+
+  .genericon {
+    font-size: em( 28, 16 );
+    line-height: 1;
+
+    color: color( black );
+
+    transition: all 0.25s ease-out;
+  }
+
+  .site-header & {
+
+    .widgettitle { display: none; }
+
+    ul {
+      display: flex;
+      flex-wrap: nowrap;
+      flex-direction: column;
+      justify-content: space-around;
+
+      li {
+        flex: 0 1 auto;
+      }
+    }
+
+    .genericon {
+      color: color( black );
+
+      &:hover,
+      &:focus {
+        color: color( red );
+      }
+    }
+  }
+
+  .site-footer & {
+
+    @include media( $third-break ) {
+      max-width: 75vh;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    ul {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-around;
+
+      li {
+        flex: 1 1 auto;
+      }
+    }
+
+    .genericon {
+      padding: 0.5em;
+
+      background-color: color( white );
+      color: color( black );
+
+      border-radius: 50%;
+
+      &:hover,
+      &:focus {
+        background-color: color( red );
+      }
+    }
+  }
+
+}

@@ -1,0 +1,33 @@
+{
+  "name": "soup2nuts",
+  "version": "0.1.0",
+  "dependencies": {
+    "wp-normalize-scss": "wp-normalize.scss#^2.0.0",
+    "bourbon": "^4.2.7",
+    "neat": "^1.8.0",
+    "svg4everybody": "^2.1.2",
+    "fitvids": "jquery.fitvids#^1.2.0"
+  },
+  "ignore": [
+    "node_modules",
+    "components",
+    "lib"
+  ],
+  "exportsOverride": {
+    "wp-normalize-scss": {
+      "scss": "_wp-normalize.scss"
+    },
+    "bourbon": {
+      "scss": "app/assets/stylesheets"
+    },
+    "neat": {
+      "scss": "app/assets/stylesheets"
+    },
+    "svg4everybody": {
+      "js": "dist/svg4everybody.js"
+    },
+    "fitvids": {
+      "js": "jquery.fitvids.js"
+    }
+  }
+}

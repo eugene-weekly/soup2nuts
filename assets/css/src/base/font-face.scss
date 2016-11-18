@@ -1,0 +1,59 @@
+/**
+ * Font Face
+ */
+
+@font-face {
+  font-family: 'Alianza';
+  src: url(#{$fonts}/alianzaslab300-webfont.woff2) format('woff2'),
+       url(#{$fonts}/alianzaslab300-webfont.woff) format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Alianza';
+  src: url(#{$fonts}/alianzaitalic300-webfont.woff2) format('woff2'),
+       url(#{$fonts}/alianzaitalic300-webfont.woff) format('woff');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Alianza';
+  src: url(#{$fonts}/alianzaslab400-webfont.woff2) format('woff2'),
+       url(#{$fonts}/alianzaslab400-webfont.woff) format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Alianza';
+  src: url(#{$fonts}/alianzaitalic400-webfont.woff2) format('woff2'),
+       url(#{$fonts}/alianzaitalic400-webfont.woff) format('woff');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Alianza';
+  src: url(#{$fonts}/alianzaitalic700-webfont.woff2) format('woff2'),
+       url(#{$fonts}/alianzaitalic700-webfont.woff) format('woff');
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Alianza';
+  src: url(#{$fonts}/alianzaslab900-webfont.woff2) format('woff2'),
+       url(#{$fonts}/alianzaslab900-webfont.woff) format('woff');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Alianza';
+  src: url(#{$fonts}/alianzaitalic900-webfont.woff2) format('woff2'),
+       url(#{$fonts}/alianzaitalic900-webfont.woff) format('woff');
+  font-weight: 900;
+  font-style: italic;
+}

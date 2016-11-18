@@ -1,0 +1,92 @@
+@mixin icon {
+	background: url(#{$svg}/sprite.view.svg) no-repeat;
+
+	@at-root .no-svg & {
+		background: url(#{$img}/sprite.view.png) no-repeat;
+	}
+}
+
+%icon-calendar, .icon-calendar {
+	@include icon;
+	background-position: 37.95049934867564% 98.37493499739989%;
+	width: 39.76px;
+	height: 42.16px;
+}
+
+%icon-close, .icon-close {
+	@include icon;
+	background-position: 99.80523094045633% 29.934167215273206%;
+	width: 44.3px;
+	height: 44.1px;
+}
+
+%icon-hamburger, .icon-hamburger {
+	@include icon;
+	background-position: 14.499750291326786% 98.93443158789306%;
+	width: 43.79px;
+	height: 43.03px;
+}
+
+%icon-label, .icon-label {
+	@include icon;
+	background-position: 0 29.790872024200972%;
+	width: 92.55px;
+	height: 43.94px;
+}
+
+%icon-next, .icon-next {
+	@include icon;
+	background-position: 0 99.52650269630409%;
+	width: 26.13px;
+	height: 43.94px;
+}
+
+%icon-pause, .icon-pause {
+	@include icon;
+	background-position: 41.55666038059317% 60.71161303490033%;
+	width: 49.01px;
+	height: 49.01px;
+}
+
+%icon-play, .icon-play {
+	@include icon;
+	background-position: 68.82845188284517% 59.94894531774821%;
+	width: 47.14px;
+	height: 47.14px;
+}
+
+%icon-previous, .icon-previous {
+	@include icon;
+	background-position: 90.64031940162732% 58.904379850059186%;
+	width: 26.13px;
+	height: 43.94px;
+}
+
+%icon-search, .icon-search {
+	@include icon;
+	background-position: 99.84968266340051% 0;
+	width: 44.38px;
+	height: 45.47px;
+}
+
+%logo-backbeat, .logo-backbeat {
+	@include icon;
+	background-position: 71.19354838709677% 0;
+	width: 69px;
+	height: 75.7px;
+}
+
+%logo-ew-mark, .logo-ew-mark {
+	@include icon;
+	background-position: 0 66.64675130694548%;
+	width: 72.72px;
+	height: 62.1px;
+}
+
+%logo-ew-type, .logo-ew-type {
+	@include icon;
+	background-position: 0 0;
+	width: 110.35px;
+	height: 45.3px;
+}
+

@@ -1,0 +1,49 @@
+/**
+ * Site Branding
+ */
+
+.site-branding {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  align-content: stretch;
+
+  @include media( $third-break ) {
+    height: 75px;
+  }
+
+  @include media( $tall-enough ) {
+    height: 150px;
+
+  }
+
+  .site-title {
+    flex: 1 1 auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    align-content: stretch;
+
+    margin: 0 auto;
+
+    a {
+      flex: 1 1 auto;
+
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      align-content: stretch;
+
+      padding: 5px;
+
+      svg {
+        flex: 1 1 auto;
+      }
+    }
+  }
+
+  .site-description {
+    @include visuallyhidden;
+  }
+}

@@ -1,0 +1,208 @@
+/**
+ * Base
+ */
+
+@import "font-face";
+@import "typography";
+@import "forms";
+@import "copy";
+@import "content-area";
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after { /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+  box-sizing: inherit;
+}
+
+// Elements
+body {
+  background: color( white ); /* Fallback for when there is no custom background color defined. */
+
+  @include media( $third-break ) {
+    background: color( background-body ); /* Fallback for when there is no custom background color defined. */
+  }
+
+  &.show-nav {
+    overflow: hidden;
+
+    outline: 5px solid red;
+  }
+}
+
+nav { @include no-list; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+
+  clear: both;
+}
+
+blockquote,
+q {
+  quotes: "" "";
+
+  &:before,
+  &:after {
+    content: "";
+  }
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  margin-bottom: 1.5em;
+}
+
+img,
+svg,
+svg use,
+iframe,
+embed,
+object,
+figure {
+  height: auto; /* Make sure images are scaled correctly. */
+  max-height: 100%;
+  max-width: 100%; /* Adhere to container width. */
+}
+
+figure {
+  margin: 0;
+}
+
+table {
+  margin: 0 0 1.5em;
+  width: 100%;
+}
+
+a {
+  color: color( link );
+
+  &:visited { color: color( link-visited ); }
+
+  &:hover,
+  &:focus,
+  &:active { color: color( link-hover ); }
+
+  &:focus { outline: thin dotted; }
+
+  &:hover,
+  &:active { outline: 0; }
+
+  transition: 0.25s all ease-out;
+
+  nav & {
+    color: inherit;
+
+    &:hover,
+    &:focus,
+    &:active { color: color( red ); }
+
+  }
+}
+
+// Classes
+
+.container {
+  @include container();
+}
+
+.fake-img {
+  @include fake-img();
+}
+
+.hidden {
+  @include hidden;
+}
+
+.visuallyhidden {
+  @include visuallyhidden;
+}
+
+.clearfix {
+  @include clearfix;
+}
+
+// Text meant only for screen readers.
+.screen-reader-text {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+
+  &:hover,
+  &:active,
+  &:focus {
+    top: 5px;
+    left: 5px;
+    display: block;
+    height: auto;
+    width: auto;
+    padding: 15px 23px 14px;
+    clip: auto !important;
+    z-index: 100000; /* Above WP toolbar. */
+
+    background-color: color( background-screen );
+    color: color( text-screen );
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+
+    font-weight: bold;
+    font-size: 0.875em;
+    line-height: normal;
+    text-decoration: none;
+
+    border-radius: 3px;
+  }
+}
+
+// Alignment
+.alignleft {
+  display: inline;
+  float: left;
+  margin-right: 1.5em;
+}
+
+.alignright {
+  display: inline;
+  float: right;
+  margin-left: 1.5em;
+}
+
+.aligncenter {
+  @include center-block;
+}
+
+// Clearing
+.clear:before,
+.clear:after,
+.entry-content:before,
+.entry-content:after,
+.comment-content:before,
+.comment-content:after,
+.site-header:before,
+.site-header:after,
+.site-content:before,
+.site-content:after,
+.site-footer:before,
+.site-footer:after {
+  @include clearfix;
+}
+
+.clear:after,
+.entry-content:after,
+.comment-content:after,
+.site-header:after,
+.site-content:after,
+.site-footer:after {
+  @include clearfix-after;
+}

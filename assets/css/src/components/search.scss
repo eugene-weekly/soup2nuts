@@ -1,0 +1,156 @@
+/**
+ * Search
+ */
+
+.search-form {
+
+  .widget_search & {
+    flex: 1 1 auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    align-content: stretch;
+
+    position: relative;
+
+    .search-trigger {
+      flex: 1 1 auto;
+
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      align-content: center;
+
+      position: relative;
+
+      padding: 8px;
+
+      @include media( $third-break ) {
+        display: none;
+      }
+
+      .icon {
+
+        position: absolute;
+        top: 8px;
+        right: 8px;
+
+        width: 35px;
+        height: 35px;
+
+        transition: all 0.25s ease-out;
+
+        pointer-events: none;
+      }
+
+      .icon-search {
+        opacity: 1;
+        transform: scale( 1 );
+
+        @at-root .show-search & {
+          opacity: 0;
+          transform: scale( 0 );
+        }
+      }
+
+      .icon-close {
+        opacity: 0;
+        transform: scale( 0 );
+
+        @at-root .show-search & {
+          opacity: 1;
+          transform: scale( 1 );
+        }
+      }
+    }
+
+    .search-wrapper {
+      display: flex;
+      flex-wrap: nowrap;
+
+      position: absolute;
+      top: 100%;
+      right: 0;
+      width: 0vw;
+      height: 76px;
+      overflow: hidden;
+
+      background-color: color( white );
+
+      border-top: 1px solid color( grey );
+
+      box-shadow: 0;
+
+      //transform: translateX( 100% );
+
+      transition: all 0.25s ease-out;
+
+      @include media( $third-break ) {
+        position: relative;
+        top: auto;
+        right: auto;
+
+        width: auto;
+        //height: auto;
+        overflow: visible;
+
+        border-top: 0;
+      }
+
+      @at-root .show-search & {
+        width: 100vw;
+
+        box-shadow: 5px 10px 10px rgba( 26, 25, 25, 0.4);
+
+        //transform: translateX( 0 );
+      }
+
+      .search-label {
+        flex: 1 1 auto;
+
+        display: flex;
+        align-items: stretch;
+        padding: 16px 8px;
+
+        .search-field {
+          flex: 1 1 100%;
+        }
+      }
+
+      .submit-wrapper {
+        flex: 0 0 50px;
+
+        position: relative;
+
+        display: inline-block;
+      }
+
+      .search-submit {
+        position: relative;
+
+        display: block;
+        height: 76px;
+        width: 50px;
+        padding: 8px;
+
+        background: transparent;
+
+        border: 0;
+        border-radius: 0;
+
+        box-shadow: none;
+
+        .icon {
+          display: block;
+
+          opacity: 1;
+        }
+      }
+
+
+    }
+
+
+  }
+}

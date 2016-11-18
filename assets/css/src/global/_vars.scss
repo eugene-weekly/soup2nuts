@@ -1,0 +1,47 @@
+/**
+ * Vars
+ */
+
+/* colors */
+$colors: (
+  background-body: #EDECEB,
+  background-screen: #f1f1f1,
+  background-hr: #ccc,
+  background-button: #e6e6e6,
+  background-pre: #eee,
+  background-ins: #fff9c0,
+
+  text-screen: #1A1918,
+  text-input: #9E9F9E,
+  text-input-focus: #111,
+  link: #BD252B,
+  link-visited: #BD252B,
+  link-hover: midnightblue,
+  text-main: #1A1918,
+
+  border-button: #ccc #ccc #bbb,
+  border-button-hover: #ccc #bbb #aaa,
+  border-button-focus: #aaa #bbb #bbb,
+  border-input: #ccc,
+  border-abbr: #666,
+
+  black: #1A1918,
+  red: #BD252B,
+  white: #ffffff,
+  grey: #9E9F9E
+);
+
+/* frameworks */
+$em-base: 18px;
+$base-font-size: em( $em-base );
+$base-line-height: 30px;
+
+
+/* font-face */
+$alianza: 'Alianza', serif;
+
+
+/* paths */
+$img: '../img';
+$svg: '../svg';
+$fonts: '../fonts';

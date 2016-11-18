@@ -1,0 +1,44 @@
+/**
+ * Nav Menu
+ */
+
+.main-navigation {
+
+  .menu-toggle {
+    position: relative;
+    padding: 8px;
+    background: color( white );
+
+    border: 0;
+    border-radius: 0;
+
+    box-shadow: none;
+
+    .icon {
+      position: absolute;
+      top: 8px;
+
+      transition: all 0.25s ease-out;
+    }
+
+    .icon-hamburger {
+      opacity: 1;
+      transform: scale( 1 );
+
+      @at-root .show-nav & {
+        opacity: 0;
+        transform: scale( 0 );
+      }
+    }
+
+    .icon-close {
+      opacity: 0;
+      transform: scale( 0 );
+
+      @at-root .show-nav & {
+        opacity: 1;
+        transform: scale( 1 );
+      }
+    }
+  }
+}

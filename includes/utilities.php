@@ -1,0 +1,571 @@
+<?php
+/**
+ *  Utility functions.
+ *
+ * @package WordPress
+ * @subpackage Eugene Weekly 2017
+ */
+
+
+
+if ( ! function_exists( 'get_the_subhead' ) ) :
+/**
+* Retrieve the subhead.
+*
+* @param int|WP_Post $post Optional. Post ID or WP_Post object. Default is global $post.
+* @return string
+*/
+function get_the_subhead( $post = 0 ) {
+
+  $post = get_post( $post );
+
+  $id = isset( $post->ID ) ? $post->ID : 0;
+
+  $post_meta = get_post_meta( $id, 'post_details', true );
+
+  $subhead = isset( $post_meta['subhead'] ) ? $post_meta['subhead'] : '';
+
+  /**
+  * Filter the post title.
+  *
+  * @since 0.71
+  *
+  * @param string $subhead The post subhead.
+  * @param int    $id    The post ID.
+  */
+  return apply_filters( 'the_subhead', $subhead, $id );
+
+}
+endif;
+
+
+if ( ! function_exists( 'get_the_icon' ) ) :
+/**
+* Retrieve the icon.
+*
+* @param string $icon icon slug
+* @return string
+*/
+function get_the_icon( $icon ) {
+
+  $use_href = get_stylesheet_directory_uri() . '/assets/svg/sprite.symbol.svg#' . $icon;
+
+  return '<svg class="icon ' . $icon . '"><use xlink:href="' . $use_href . '" /></svg>';
+
+}
+endif;
+
+
+if ( ! function_exists( 'get_the_hero_image' ) ) :
+/** @TODO: Update this
+ *
+ * Retrieve the hero image.
+ *
+ * @param string $before Optional. Content to prepend to the description. Default empty.
+ * @param string $after  Optional. Content to append to the description. Default empty.
+ */
+function get_the_hero_image( $size, $hero_origin = false ) {
+
+  if ( empty( $size ) )
+    return;
+
+  if ( !$hero_origin )
+    $hero_origin = get_hero_origin();
+
+  $heroImgID = get_post_thumbnail_id( $hero_origin );
+  //$heroImgID = $heroImgObject['ID'];
+  $heroImgSrc = wp_get_attachment_image( $heroImgID, $size );
+  $heroImgSrc = add_credit_to_img_src( $heroImgSrc, $heroImgID );
+  $heroImgMeta = wp_get_attachment_metadata( $heroImgID );
+  $heroImg = wp_image_add_srcset_and_sizes( $heroImgSrc, $heroImgMeta, $heroImgID );
+
+  /*
+  $credit = get_the_photo_credit( $heroImgID );
+
+  if ( $credit )
+    $credit = '<span class="photo-credit">' . $credit . '</span>';
+  */
+
+  //return $heroImg . $credit;
+  return $heroImg;
+
+}
+endif;
+
+
+if ( ! function_exists( 'noscript_image' ) ) :
+/** @TODO: Update this
+ * Shim for `the_archive_description()`.
+ *
+ * Display category, tag, or term description.
+ *
+ * @todo Remove this function when WordPress 4.3 is released.
+ *
+ * @param string $before Optional. Content to prepend to the description. Default empty.
+ * @param string $after  Optional. Content to append to the description. Default empty.
+ */
+function noscript_image( $size = 'hero' ) {
+
+  $heroImg = get_the_hero_image( $size );
+
+  if ( strlen( $heroImg ) == 0 )
+    return;
+
+  echo '<noscript>' .  $heroImg . '</noscript>';
+
+}
+endif;
+
+
+
+
+if ( ! function_exists( 'get_the_responsive_bg_img_styles' ) ) :
+/** @TODO: Update this
+ * Shim for `the_archive_description()`.
+ *
+ * Display category, tag, or term description.
+ *
+ * @todo Remove this function when WordPress 4.3 is released.
+ *
+ * @param string $before Optional. Content to prepend to the description. Default empty.
+ * @param string $after  Optional. Content to append to the description. Default empty.
+ */
+function get_the_responsive_bg_img_styles( $size, $selector, $field, $post = '' ) {
+
+  if ( empty( $size ) || empty( $selector ) )
+    return;
+
+  if ( empty( $post ) )
+    global $post;
+
+  if ( empty( $post ) )
+    return;
+
+  $heroImgObject = get_field( $field, $post );
+
+  $heroImgSrc = wp_get_attachment_image( $heroImgObject['ID'], $size );
+  $heroImgMeta = wp_get_attachment_metadata( $heroImgObject['ID'] );
+  //$imgSizes = wp_calculate_image_sizes( $size, $heroImgSrc, $heroImgMeta, $heroImgObject['ID'] );
+
+  $imgSizes = array(
+    absint( $heroImgObject['sizes'][$size . '-width'] ),
+    absint( $heroImgObject['sizes'][$size . '-height'] ),
+  );
+
+  $imgSrcSet = calculate_responsive_bg_img_styles( $imgSizes, $heroImgSrc, $heroImgMeta, $heroImgObject['ID'], $selector );
+
+  return $imgSrcSet;
+
+}
+endif;
+
+
+if ( ! function_exists( 'the_responsive_bg_img_styles' ) ) :
+/** @TODO: Update this
+ * Shim for `the_archive_description()`.
+ *
+ * Display category, tag, or term description.
+ *
+ * @todo Remove this function when WordPress 4.3 is released.
+ *
+ * @param string $before Optional. Content to prepend to the description. Default empty.
+ * @param string $after  Optional. Content to append to the description. Default empty.
+ */
+function the_responsive_bg_img_styles( $size, $selector, $field = 'hero_image', $post = '' ) {
+
+  if ( empty( $size ) || empty( $selector ) )
+    return;
+
+  if ( empty( $post ) )
+    global $post;
+
+  if ( empty( $post ) )
+    return;
+
+  $styles = get_the_responsive_bg_img_styles( $size, $selector, $field, $post );
+
+  if ( strlen( $styles ) == 0 )
+    return;
+
+  echo $styles;
+
+}
+endif;
+
+
+/** @TODO: Update this
+ * Bastardized hack of wp_calculate_image_srcset
+ *
+ * Display category, tag, or term description.
+ *
+ * @todo Remove this function when WordPress 4.3 is released.
+ *
+ * @param string $before Optional. Content to prepend to the description. Default empty.
+ * @param string $after  Optional. Content to append to the description. Default empty.
+ */
+
+function calculate_responsive_bg_img_styles( $size_array, $image_src, $image_meta, $attachment_id = 0, $selector ) {
+
+    if ( empty( $image_meta['sizes'] ) ) {
+      return false;
+    }
+
+    $image_sizes = $image_meta['sizes'];
+
+    // Get the width and height of the image.
+    $image_width = (int) $size_array[0];
+    $image_height = (int) $size_array[1];
+
+    // Bail early if error/no width.
+    if ( $image_width < 1 ) {
+      return false;
+    }
+
+    $image_basename = wp_basename( $image_meta['file'] );
+    $image_baseurl = wp_get_upload_dir();
+    $upload_dir = wp_upload_dir();
+
+    /*
+     * WordPress flattens animated GIFs into one frame when generating intermediate sizes.
+     * To avoid hiding animation in user content, if src is a full size GIF, a srcset attribute is not generated.
+     * If src is an intermediate size GIF, the full size is excluded from srcset to keep a flattened GIF from becoming animated.
+     */
+    if ( ! isset( $image_sizes['thumbnail']['mime-type'] ) || 'image/gif' !== $image_sizes['thumbnail']['mime-type'] ) {
+      $image_sizes['full'] = array(
+        'width'  => $image_meta['width'],
+        'height' => $image_meta['height'],
+        'file'   => $image_basename,
+      );
+    } elseif ( strpos( $image_src, $image_meta['file'] ) ) {
+      return false;
+    }
+
+    // Uploads are (or have been) in year/month sub-directories.
+    if ( $image_basename !== $image_meta['file'] ) {
+      $dirname = dirname( $image_meta['file'] );
+
+      if ( $dirname !== '.' ) {
+        $image_baseurl = trailingslashit( $image_baseurl ) . $dirname;
+      }
+    }
+
+    $image_baseurl = trailingslashit( $image_baseurl );
+
+    // Calculate the image aspect ratio.
+    $image_ratio = $image_height / $image_width;
+
+    /*
+     * Images that have been edited in WordPress after being uploaded will
+     * contain a unique hash. Look for that hash and use it later to filter
+     * out images that are leftovers from previous versions.
+     */
+    $image_edited = preg_match( '/-e[0-9]{13}/', wp_basename( $image_src ), $image_edit_hash );
+
+    /**
+     * Filter the maximum image width to be included in a 'srcset' attribute.
+     *
+     * @since 4.4.0
+     *
+     * @param int   $max_width  The maximum image width to be included in the 'srcset'. Default '1600'.
+     * @param array $size_array Array of width and height values in pixels (in that order).
+     */
+    $max_srcset_image_width = apply_filters( 'max_srcset_image_width', 1600, $size_array );
+
+    // Array to hold URL candidates.
+    $sources = array();
+
+    // holder for largest img value
+    $biggestImg = 0;
+
+    /*
+     * Loop through available images. Only use images that are resized
+     * versions of the same edit.
+     */
+    foreach ( $image_sizes as $image ) {
+
+      // Filter out images that are from previous edits.
+      if ( $image_edited && ! strpos( $image['file'], $image_edit_hash[0] ) ) {
+        continue;
+      }
+
+      // Filter out images that are wider than '$max_srcset_image_width'.
+      if ( $max_srcset_image_width && $image['width'] > $max_srcset_image_width ) {
+        continue;
+      }
+
+      // Calculate the new image ratio.
+      if ( $image['width'] ) {
+        $image_ratio_compare = $image['height'] / $image['width'];
+      } else {
+        $image_ratio_compare = 0;
+      }
+
+      // If the new ratio differs by less than 0.002, use it.
+      if ( abs( $image_ratio - $image_ratio_compare ) < 0.1 ) {
+        // Add the URL, descriptor, and value to the sources array to be returned.
+        $sources[ $image['width'] ] = array(
+          'url'        => $image_baseurl . $image['file'],
+          'descriptor' => 'max-width',
+          'value'      => $image['width'],
+        );
+
+        // Replace the biggestImg value if this one is bigger
+        if ( $image['width'] > $biggestImg )
+          $biggestImg = $image['width'];
+      }
+    }
+
+    // Adjust last value & descriptor
+    $lastSource = array_pop( $sources );
+
+    $lastSource['descriptor'] = 'min-width';
+    $lastSource['original-value'] = $lastSource['value'];
+
+    if ( count( $sources ) > 1 ) {
+      $secondLastSource = array_pop( $sources );
+
+      $lastSource['value'] = $secondLastSource['value'];
+      $sources[ $secondLastSource['value'] ] = $secondLastSource;
+
+    } else {
+
+      $lastSource['value'] = 767;
+
+    }
+
+    $sources[ $lastSource['original-value'] ] = $lastSource;
+
+    /**
+     * Filter an image's 'srcset' sources.
+     *
+     * @since 4.4.0
+     *
+     * @param array  $sources {
+     *     One or more arrays of source data to include in the 'srcset'.
+     *
+     *     @type array $width {
+     *         @type string $url        The URL of an image source.
+     *         @type string $descriptor The descriptor type used in the image candidate string,
+     *                                  either 'w' or 'x'.
+     *         @type int    $value      The source width if paired with a 'w' descriptor, or a
+     *                                  pixel density value if paired with an 'x' descriptor.
+     *     }
+     * }
+     * @param array  $size_array    Array of width and height values in pixels (in that order).
+     * @param string $image_src     The 'src' of the image.
+     * @param array  $image_meta    The image meta data as returned by 'wp_get_attachment_metadata()'.
+     * @param int    $attachment_id Image attachment ID or 0.
+     */
+    $sources = apply_filters( 'calculate_responsive_bg_img_styles', $sources, $size_array, $image_src, $image_meta, $attachment_id );
+
+    // Only return a 'srcset' value if there is more than one source.
+    if ( count( $sources ) < 2 ) {
+      //return false;
+    }
+
+    ksort( $sources );
+
+    $styles = '<style>';
+
+    foreach ( $sources as $i=>$source ) {
+
+      $styles .= '@media screen and (' . $source['descriptor'] . ':' . $source['value'] . 'px ) { ';
+      $styles .= $selector . '{ background-image: url(' . $upload_dir['baseurl'] . $source['url'] . '); }';
+      $styles .= ' }' . "\n";
+    }
+
+    $styles .= '</style>';
+
+    return $styles;
+}
+
+
+function add_credit_to_img_src( $html, $id ) {
+  //@TODO: write this.
+
+  $credit = get_the_photo_credit( $id );
+
+  if ( $credit ) {
+    $html = str_replace('<img', '<img data-photo-credit="' . $credit . '" '  , $html);
+    $html = str_replace('class="', 'class="has-photo-credit '  , $html);
+  }
+
+  return $html;
+
+}
+
+function get_the_photo_credit( $id ) {
+  //@TODO: write this.
+
+  $credit = $id;
+  //$credit = ( get_field( 'photo_credit', $id ) ) ? get_field( 'photo_credit', $id ) : false;
+
+  return $credit;
+}
+
+
+function get_hero_origin() {
+  //@TODO: write this.
+
+  global $post;
+
+  $heroOwner = false;
+
+  if ( !in_the_loop() ) {
+
+    if ( is_category() ) {
+
+      $heroOwner = 'category_' . get_cat_ID( single_cat_title( '', false ) );
+
+    } elseif ( is_tag() ) {
+
+      $tag = get_queried_object();
+      $heroOwner = $tag->taxonomy . '_' . $tag->term_id;
+    }
+
+  } else {
+
+    $heroOwner = $post->ID;
+
+  }
+
+  return $heroOwner;
+}
+
+function get_hero_title() {
+  //@TODO: write this.
+
+  global $post;
+
+  $heroTitle = false;
+
+  if ( !in_the_loop() ) {
+
+    if ( is_category() ) {
+
+      $heroTitle = single_cat_title( '', false );
+
+    } elseif ( is_tag() ) {
+
+      $tag = get_queried_object();
+      $heroTitle = $tag->name;
+    }
+
+  } else {
+
+    $heroTitle = get_the_title( $post->ID );
+
+  }
+
+  return $heroTitle;
+}
+
+
+
+
+
+if ( ! function_exists( 'get_all_the_terms' ) ):
+
+  /**
+   * Get a list of all terms across all taxonomies
+   *
+   * @param $post (object or ID)
+   *
+   * @return array of terms
+   *
+   * @since 0.1.0
+   */
+  function get_all_the_terms( $post = 0 ) {
+
+    $post = get_post( $post );
+
+    if ( !$post )
+      return false;
+
+    $taxonomies = get_object_taxonomies( $post->post_type, 'objects' );
+
+    $output = array();
+
+    foreach ( $taxonomies as $taxonomy_slug => $taxonomy ) :
+
+      $terms = get_the_terms( $post->ID, $taxonomy_slug );
+
+      if ( !empty( $terms ) ) :
+
+        foreach ( $terms as $term ) :
+
+          $output[] = $term->name;
+
+        endforeach;
+
+      endif;
+
+    endforeach;
+
+    return $output;
+  }
+
+endif; // get_all_the_terms
+
+if ( ! function_exists( 'get_page_id_by_slug' ) ) :
+
+  /**
+   * Quick way to get a page ID from a slug
+   *
+   * @param $slug
+   *
+   * @return int
+   *
+   * @since 0.1.0
+   */
+
+  function get_page_id_by_slug( $slug ) {
+    $page = get_page_by_path( $slug );
+
+    $id = ( !empty($page ) ) ? $page->ID : null;
+
+    return $id;
+  }
+
+endif; // get_page_id_by_slug
+
+
+if ( ! function_exists( 'get_the_slug' ) ) :
+
+  /**
+   * Quick way to get a slug from a post object
+   *
+   * @param $post
+   *
+   * @return string
+   *
+   * @since 0.1.0
+   */
+
+  function get_the_slug( $post ) {
+
+    if ( $post == null )
+      global $post;
+
+    $slug = basename( get_permalink( $post ) );
+
+    do_action('before_slug', $slug);
+
+    $slug = apply_filters('slug_filter', $slug);
+
+    do_action('after_slug', $slug);
+
+    return $slug;
+  }
+
+endif; // get_the_slug
+
+function pre_printr( $output ) {
+
+   if ( empty( $output ) )
+    return;
+
+  echo '<pre>';
+  print_r( $output );
+  echo '</pre>';
+}
