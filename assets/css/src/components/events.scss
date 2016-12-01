@@ -1,0 +1,31 @@
+/**
+ * Events
+ */
+
+.tribe_events {
+
+  .entry-hero {
+    position: relative;
+
+
+    .hero-caption {
+      position: absolute;
+
+      top: 0.25em;
+      left: 0.5em;
+
+      max-width: 25%;
+
+      color: color( white );
+
+      .event-date,
+      .event-month { display: block; }
+    }
+  }
+
+  &.excerpted-post {
+    .entry-footer {
+      display: block;
+    }
+  }
+}

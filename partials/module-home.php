@@ -9,9 +9,11 @@
 
 $excludedPosts = array();
 
-foreach( array( 'features', 'news', 'art', 'culture' ) as $home_section ) :
+foreach( array( 'features', 'news', 'art', 'culture', 'events', 'promotions' ) as $home_section ) :
 
   $posts = home_posts( $home_section, $excludedPosts );
+
+  //pre_printr( $posts );
 
   if ( $posts->have_posts() ) :
 
@@ -19,7 +21,7 @@ foreach( array( 'features', 'news', 'art', 'culture' ) as $home_section ) :
 
     <section class="<?php echo $home_section; ?>-posts home-posts">
 
-      <?php if ( $home_section !== 'features' ) : ?>
+      <?php if ( !in_array( $home_section, array( 'features', 'events' ) ) ) : ?>
 
       <header class="section-header news-header">
         <h5 class="section-title"><?php echo ucwords( $home_section ); ?></h5>
@@ -36,14 +38,13 @@ foreach( array( 'features', 'news', 'art', 'culture' ) as $home_section ) :
 
       endwhile; ?>
 
-      <?php if ( $home_section !== 'features' ) : ?>
+      <?php if ( !in_array( $home_section, array( 'features', 'events' ) ) ) : ?>
 
       <footer class="section-footer news-footer">
         <a href="<?php the_category_link( $home_section ); ?>" class="archive-link" rel="archive">Explore <span class="category-name"><?php echo ucwords( $home_section ); ?></span></a>
       </footer>
 
       <?php endif; ?>
-
 
     </section><!-- featured posts -->
   <?php endif;

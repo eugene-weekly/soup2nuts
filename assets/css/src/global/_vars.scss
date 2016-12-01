@@ -28,7 +28,9 @@ $colors: (
   black: #1A1918,
   red: #BD252B,
   white: #ffffff,
-  grey: #9E9F9E
+  grey: #9E9F9E,
+
+  alpha-black: rgba( 0, 0, 0, 0.78)
 );
 
 /* frameworks */
@@ -42,6 +44,7 @@ $alianza: 'Alianza', serif;
 
 /* style defaults */
 $box-shadow: 5px 5px 10px rgba( 26, 25, 25, 0.4);
+$fake-stroke: -1px -1px 0 color( alpha-black ), 1px -1px 0 color( alpha-black ), -1px 1px 0 color( alpha-black ), 1px 1px 0 color( alpha-black );
 
 
 /* paths */

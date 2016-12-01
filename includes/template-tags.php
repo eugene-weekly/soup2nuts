@@ -71,8 +71,9 @@ if ( ! function_exists( 'soup2nuts_excerpt_meta' ) ) :
  * Prints HTML with meta information for the current post-date/time and author.
  */
 function soup2nuts_excerpt_meta() {
+  $id = get_the_ID();
 
-  if ( 'post' == get_post_type() ) {
+  if ( in_array( get_post_type( $id ), array( 'post', 'promotion' )) ) {
     /* translators: used between list items, there is a space after the comma */
     $categories = get_the_category( );
 
@@ -84,7 +85,7 @@ function soup2nuts_excerpt_meta() {
         if ( $i < 0 )
           echo ' / ';
 
-        printf( '<a href="%2$s" class="post-category">%2$s</a>', esc_url( get_category_link( $category->term_id ) ), esc_html__( $category->name ) );
+        printf( '<a href="%1$s" class="post-category">%2$s</a>', esc_url( get_category_link( $category->term_id ) ), esc_html__( $category->name ) );
 
 
       }
@@ -93,8 +94,20 @@ function soup2nuts_excerpt_meta() {
       //printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'soup2nuts' ) . '</span>', $categories_list ); // WPCS: XSS OK.
     }
 
-  }
 
+  } elseif ( tribe_is_event() ) {
+
+    echo '<span class="excerpt-meta-item meta-item post-categories event-categories">';
+    printf( '<a href="%1$s" class="post-category event-category">Calendar</a>', esc_url( tribe_get_events_link() ) );
+
+    echo tribe_get_event_taxonomy( $id, array(
+      'before'   => '',
+      'sep'      => ' / ',
+      'after'    => ' / ',
+    ) );
+
+    echo '</span>';
+  }
 
   $time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s ago</time>';
 
@@ -149,19 +162,8 @@ if ( ! function_exists( 'soup2nuts_entry_footer' ) ) :
  * Prints HTML with meta information for the categories, tags and comments.
  */
 function soup2nuts_entry_footer() {
-  // Hide category and tag text for pages.
-  if ( 'post' == get_post_type() ) {
-    /* translators: used between list items, there is a space after the comma */
-    $categories_list = get_the_category_list( esc_html__( ', ', 'soup2nuts' ) );
-    if ( $categories_list ) {
-      printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'soup2nuts' ) . '</span>', $categories_list ); // WPCS: XSS OK.
-    }
-
-    /* translators: used between list items, there is a space after the comma */
-    $tags_list = get_the_tag_list( '', esc_html__( ', ', 'soup2nuts' ) );
-    if ( $tags_list ) {
-      printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'soup2nuts' ) . '</span>', $tags_list ); // WPCS: XSS OK.
-    }
+  if ( ('tribe_events' == get_post_type()) &&  ( is_front_page() || is_home() ) ) {
+    printf( '<span class="featured-event">Featured Event</span>' );
   }
 
   if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {

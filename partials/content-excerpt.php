@@ -21,7 +21,13 @@
   </header><!-- .entry-header -->
 
   <figure class="entry-hero">
-    <a href="<?php esc_url( get_permalink() ); ?>" rel="bookmark"><?php the_hero_image(); ?></a>
+    <a href="<?php esc_url( get_permalink() ); ?>" rel="bookmark">
+      <?php the_hero_image(); ?>
+    </a>
   </figure><!-- .entry-hero -->
+
+  <footer class="entry-footer">
+    <?php soup2nuts_entry_footer(); ?>
+  </footer>
 
 </article><!-- #post-## -->

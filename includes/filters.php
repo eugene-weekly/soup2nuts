@@ -20,15 +20,28 @@ if ( ! function_exists( 'soup2nuts_pre_get_posts' ) ) :
  function soup2nuts_pre_get_posts( $query ) {
 
   if ( is_admin() )
-   return $query;
+    return $query;
 
 
   if ( !$query->is_main_query() )
-   return $query;
+    return $query;
+
+  // Filter Expired Promotions
+  if ( get_query_var( 'post_type' ) == 'promotion' ) {
+
+    $existingMetaQuery = $query->meta_query;
+    $existingMetaQuery[ 'relation' ] = 'AND';
+    $expiredMetaQuery = array(
+      'key' => 'expiration-date',
+      'value' => date( time() ),
+      'type' => 'DATE',
+      'compare' => 'EXISTS'
+    );
+  }
+
 
   if ( $query->is_home() || $query->is_front_page() ) {
 
-    $existingMetaQuery = $query->meta_query;
 
     $thumbnailMetaQuery = array(
       'key' => '_thumbnail_id',
@@ -36,18 +49,48 @@ if ( ! function_exists( 'soup2nuts_pre_get_posts' ) ) :
     );
 
     $existingMetaQuery[] = $thumbnailMetaQuery;
-    $existingMetaQuery[ 'relation' ] = 'AND';
 
-    $query->set( 'meta_query', $existingMetaQuery );
     //pre_printr( $query );
 
   }
+
+  $query->set( 'meta_query', $existingMetaQuery );
 
    return $query;
  }
 endif; // soup2nuts_pre_get_posts
 
 add_filter( 'pre_get_posts', 'soup2nuts_pre_get_posts' );
+
+
+if ( ! function_exists( 'soup2nuts_title_filter' ) ) :
+  /**
+   * Filter the title, optionally to replace with Alternate Title.
+   *
+   * @param $title
+   * @param $id
+   *
+   * @return $title
+   *
+   * @since 0.1.0
+   */
+
+  function soup2nuts_title_filter( $title, $id = null ) {
+
+    if ( is_single( $id ) || is_admin() )
+      return $title;
+
+    $alt_title = get_post_meta( $id, 'alt-title', true );
+
+    if ( !empty( $alt_title) )
+      return $alt_title;
+
+    return $title;
+
+  }
+endif; // soup2nuts_title_filter
+
+add_filter( 'the_title', 'soup2nuts_title_filter', 10, 2 );
 
 
 if ( ! function_exists( 'soup2nuts_body_class' ) ) :

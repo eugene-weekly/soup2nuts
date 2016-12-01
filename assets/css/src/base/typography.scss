@@ -61,7 +61,6 @@ h6,
 .site-header .menu-item {
   @extend %h4;
 
-
   font-weight: 900;
   font-size: em( 18, 16 );
   text-transform: uppercase;
@@ -78,6 +77,37 @@ h6,
   font-size: em( 12, 16 );
   text-transform: none;
 }
+
+.excerpted-post {
+
+  .entry-footer {
+    @extend %h5;
+  }
+}
+
+.tribe_events {
+  .hero-caption {
+    @extend %h3;
+
+    line-height: 0.8;
+    text-transform: uppercase;
+    text-shadow: $fake-stroke;
+
+    .event-month,
+    .event-date {
+      white-space: nowrap;
+    }
+
+    .event-month {
+      font-size: em( 32, 36 );
+    }
+
+    .event-date {
+      font-size: em( 56, 36 );
+    }
+  }
+}
+
 
 .section-footer .archive-link {
   @extend %h5;

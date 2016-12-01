@@ -23,7 +23,24 @@ function get_the_subhead( $post = 0 ) {
 
   $post_meta = get_post_meta( $id, 'post_details', true );
 
-  $subhead = isset( $post_meta['subhead'] ) ? $post_meta['subhead'] : '';
+  if ( in_array( get_post_type( $id ), array( 'post', 'promotion' )) ) {
+
+    $subhead = isset( $post_meta['subhead'] ) ? $post_meta['subhead'] : '';
+
+  } elseif ( 'tribe_events' == get_post_type( $id ) ) {
+
+    $eventInfo = array(
+      'venue' => tribe_get_venue( $id ),
+      'time' => tribe_get_start_time( $id ),
+    );
+
+    if ( !empty( tribe_get_event_website_url( $id ) ) )
+      $eventInfo['tickets'] = '<a href="' . tribe_get_event_website_url( $id ) . '" class="ticket-link">Tickets&rarr;</a>';
+
+    $subhead = implode( ' &bull; ', $eventInfo );
+
+  }
+
 
   /**
   * Filter the post title.
@@ -75,19 +92,17 @@ function get_the_hero_image( $size, $hero_origin = false ) {
   $heroImgID = get_post_thumbnail_id( $hero_origin );
   //$heroImgID = $heroImgObject['ID'];
   $heroImgSrc = wp_get_attachment_image( $heroImgID, $size );
-  $heroImgSrc = add_credit_to_img_src( $heroImgSrc, $heroImgID );
+  //$heroImgSrc = add_credit_to_img_src( $heroImgSrc, $heroImgID );
   $heroImgMeta = wp_get_attachment_metadata( $heroImgID );
   $heroImg = wp_image_add_srcset_and_sizes( $heroImgSrc, $heroImgMeta, $heroImgID );
 
-  /*
-  $credit = get_the_photo_credit( $heroImgID );
+  $figcaption = get_the_photo_caption( $hero_origin );
 
-  if ( $credit )
-    $credit = '<span class="photo-credit">' . $credit . '</span>';
-  */
+  if ( $figcaption )
+    $figcaption = '<figcaption class="hero-caption">' . $figcaption . '</figcaption>';
 
-  //return $heroImg . $credit;
-  return $heroImg;
+  return $heroImg . $figcaption;
+  //return $heroImg;
 
 }
 endif;
@@ -383,7 +398,7 @@ function calculate_responsive_bg_img_styles( $size_array, $image_src, $image_met
 function add_credit_to_img_src( $html, $id ) {
   //@TODO: write this.
 
-  $credit = get_the_photo_credit( $id );
+  $credit = get_the_photo_caption( $id );
 
   if ( $credit ) {
     $html = str_replace('<img', '<img data-photo-credit="' . $credit . '" '  , $html);
@@ -394,13 +409,22 @@ function add_credit_to_img_src( $html, $id ) {
 
 }
 
-function get_the_photo_credit( $id ) {
+function get_the_photo_caption( $id ) {
   //@TODO: write this.
 
-  $credit = $id;
-  //$credit = ( get_field( 'photo_credit', $id ) ) ? get_field( 'photo_credit', $id ) : false;
+  $caption = false;
 
-  return $credit;
+  if ( tribe_is_event( $id ) ) {
+    //$event_month = space_string( tribe_get_start_date( $id, false, 'M' ) );
+    //$event_day = space_string( tribe_get_start_date( $id, false, 'j' ) );
+    $event_month = tribe_get_start_date( $id, false, 'M' );
+    $event_day = tribe_get_start_date( $id, false, 'j' );
+
+    $caption = sprintf('<span class="event-month">%1$s</span><span class="event-date">%2$s</span>', $event_month, $event_day );
+
+  }
+
+  return $caption;
 }
 
 
@@ -411,23 +435,10 @@ function get_hero_origin() {
 
   $heroOwner = false;
 
-  if ( !in_the_loop() ) {
-
-    if ( is_category() ) {
-
-      $heroOwner = 'category_' . get_cat_ID( single_cat_title( '', false ) );
-
-    } elseif ( is_tag() ) {
-
-      $tag = get_queried_object();
-      $heroOwner = $tag->taxonomy . '_' . $tag->term_id;
-    }
-
-  } else {
-
+  if ( !empty( $post ) ) {
     $heroOwner = $post->ID;
-
   }
+
 
   return $heroOwner;
 }
@@ -459,8 +470,6 @@ function get_hero_title() {
 
   return $heroTitle;
 }
-
-
 
 
 
@@ -559,6 +568,21 @@ if ( ! function_exists( 'get_the_slug' ) ) :
   }
 
 endif; // get_the_slug
+
+/**
+ * Insert a space between every character
+ *
+ * @param $string
+ *
+ * @return string
+ *
+ * @since 0.1.0
+ */
+
+function space_string( $str ) {
+  return implode( ' ', str_split( $str, 1 ) );
+}
+
 
 function pre_printr( $output ) {
 
