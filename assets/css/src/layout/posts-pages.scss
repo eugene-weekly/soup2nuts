@@ -166,3 +166,52 @@
 
   }
 }
+
+// Singular
+
+.single,
+.singular,
+.page {
+
+  .entry-header,
+  .entry-content,
+  .entry-footer {
+    padding-left: flex-gutter( 4 );
+    padding-right: flex-gutter( 4 );
+
+    @include media( $third-break ) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  .entry-hero {
+    margin-bottom: 1.25em;
+  }
+
+  .entry-title {
+    margin-bottom: 0.25em;
+  }
+
+  .entry-subhead {
+    margin-bottom: 0.5em;
+  }
+
+  .entry-content {
+    > p:first-child {
+
+      &:first-letter {
+        float: left;
+        margin-right: flex-gutter( 8 );
+        margin-top: 0.1em;
+        margin-bottom: 0;
+
+        @include media( $third-break ) {
+          margin-right: flex-gutter(18);
+        }
+      }
+    }
+  }
+
+
+}

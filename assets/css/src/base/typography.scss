@@ -74,8 +74,20 @@ h6,
 .entry-meta {
   @extend %h5;
 
+  font-weight: 700;
   font-size: em( 12, 16 );
-  text-transform: none;
+  text-transform: uppercase;
+}
+
+.entry-content {
+  > p:first-child {
+
+    &:first-letter {
+      font-weight: 900;
+      font-size: em( 108, 18 );
+      line-height: 0.66;
+    }
+  }
 }
 
 .excerpted-post {
@@ -91,7 +103,7 @@ h6,
 
     line-height: 0.8;
     text-transform: uppercase;
-    text-shadow: $fake-stroke;
+    text-shadow: $text-shadow;
 
     .event-month,
     .event-date {

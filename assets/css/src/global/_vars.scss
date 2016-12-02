@@ -35,7 +35,7 @@ $colors: (
 
 /* frameworks */
 $em-base: 18px;
-$base-font-size: em( $em-base );
+$base-font-size: em( $em-base, 16);
 $base-line-height: 30px;
 
 
@@ -45,6 +45,7 @@ $alianza: 'Alianza', serif;
 /* style defaults */
 $box-shadow: 5px 5px 10px rgba( 26, 25, 25, 0.4);
 $fake-stroke: -1px -1px 0 color( alpha-black ), 1px -1px 0 color( alpha-black ), -1px 1px 0 color( alpha-black ), 1px 1px 0 color( alpha-black );
+$text-shadow: 5px 5px 15px rgba( 0, 0, 0, 0.1);
 
 
 /* paths */

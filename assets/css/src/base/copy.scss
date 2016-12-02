@@ -59,7 +59,15 @@ big {
 }
 
 .section-title {
-  
+  text-align: center;
+  letter-spacing: 0.125em;
+  font-weight: 800;
+
+  text-shadow: -1px -1px 0 rgba( color( red ), 0.95 );
+
+  @include media( $third-break ) {
+    //font-size: em( 17, 16 );
+  }
 }
 
 .entry-header {
