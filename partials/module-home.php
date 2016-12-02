@@ -31,7 +31,8 @@ foreach( array( 'features', 'news', 'art', 'culture', 'events', 'promotions' ) a
 
       while ( $posts->have_posts() ) : $posts->the_post();
 
-        get_template_part( 'partials/content', 'excerpt' );
+        //get_template_part( 'partials/content', 'excerpt' );
+        include( locate_template( 'partials/content-excerpt.php', false ) );
 
         if (( $home_section == 'features' ) && ( $posts->current_post == 1 ))
           get_template_part( 'partials/module', 'ad' );
@@ -48,5 +49,12 @@ foreach( array( 'features', 'news', 'art', 'culture', 'events', 'promotions' ) a
 
     </section><!-- featured posts -->
   <?php endif;
+
+  if (( $home_section == 'events' ))
+    get_template_part( 'partials/module', 'ad-large' );
+
+  if (( $home_section == 'promotions' ))
+    get_template_part( 'partials/module', 'ad' );
+
 
 endforeach;

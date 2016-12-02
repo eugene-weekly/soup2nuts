@@ -150,9 +150,10 @@ if ( ! function_exists( 'featured_events' ) ) :
     $featuredEventsArgs = array(
       'posts_per_page' => $count,
       'post__not_in' => $excludedPosts,
+      'eventDisplay' => 'list',
       'order' => 'DESC',
       'orderby' => 'meta_value_num',
-    	'meta_key' => 'featured-event-quotient',
+      'meta_key' => 'featured-event-quotient',
       'meta_query' => array(
         array(
           'key' => '_thumbnail_id',

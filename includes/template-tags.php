@@ -163,7 +163,9 @@ if ( ! function_exists( 'soup2nuts_entry_footer' ) ) :
  */
 function soup2nuts_entry_footer() {
   if ( ('tribe_events' == get_post_type()) &&  ( is_front_page() || is_home() ) ) {
-    printf( '<span class="featured-event">Featured Event</span>' );
+
+    $sponsored = ( get_post_meta( get_the_ID(), 'sponsored', true ) ) ? 'Sponsored' : 'Featured';
+    printf( '<span class="featured-event">%1$s Event</span>', $sponsored );
   }
 
   if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {

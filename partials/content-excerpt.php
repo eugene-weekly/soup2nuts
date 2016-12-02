@@ -21,8 +21,8 @@
   </header><!-- .entry-header -->
 
   <figure class="entry-hero">
-    <a href="<?php esc_url( get_permalink() ); ?>" rel="bookmark">
-      <?php the_hero_image(); ?>
+    <a href="<?php the_permalink(); ?>" rel="bookmark">
+      <?php the_hero_image( guess_hero_size() ); ?>
     </a>
   </figure><!-- .entry-hero -->
 

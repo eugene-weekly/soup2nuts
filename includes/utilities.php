@@ -72,6 +72,37 @@ function get_the_icon( $icon ) {
 }
 endif;
 
+function guess_hero_size( $home_section = '', $position = 0 ) {
+
+  $deduced_size = null;
+
+  switch ($home_section) {
+    case 'features':
+
+      $deduced_size = ( $position == 0 ) ? 'large' : 'medium';
+      break;
+
+    case 'news':
+    case 'art':
+    case 'culture':
+
+      $deduced_size = ( $position == 0 ) ? 'medium' : 'thumbnail';
+      break;
+
+
+    case 'events':
+
+      $deduced_size = 'medium';
+      break;
+
+    default:
+      $deduced_size = 'thumbnail';
+      break;
+  }
+
+  return $deduced_size;
+}
+
 
 if ( ! function_exists( 'get_the_hero_image' ) ) :
 /** @TODO: Update this
@@ -416,9 +447,9 @@ function get_the_photo_caption( $id ) {
 
   if ( tribe_is_event( $id ) ) {
     //$event_month = space_string( tribe_get_start_date( $id, false, 'M' ) );
-    //$event_day = space_string( tribe_get_start_date( $id, false, 'j' ) );
+    //$event_day = space_string( tribe_get_start_date( $id, false, 'd' ) );
     $event_month = tribe_get_start_date( $id, false, 'M' );
-    $event_day = tribe_get_start_date( $id, false, 'j' );
+    $event_day = tribe_get_start_date( $id, false, 'd' );
 
     $caption = sprintf('<span class="event-month">%1$s</span><span class="event-date">%2$s</span>', $event_month, $event_day );
 

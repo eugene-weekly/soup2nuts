@@ -26,10 +26,12 @@ if ( ! function_exists( 'soup2nuts_pre_get_posts' ) ) :
   if ( !$query->is_main_query() )
     return $query;
 
+
+  $existingMetaQuery = $query->meta_query;
+
   // Filter Expired Promotions
   if ( get_query_var( 'post_type' ) == 'promotion' ) {
 
-    $existingMetaQuery = $query->meta_query;
     $existingMetaQuery[ 'relation' ] = 'AND';
     $expiredMetaQuery = array(
       'key' => 'expiration-date',

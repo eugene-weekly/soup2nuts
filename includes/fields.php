@@ -34,6 +34,12 @@ function meta_fields() {
     )
   ) );
 
+  $sponsored_event = new Fieldmanager_Checkbox( array(
+    'name' => 'sponsored',
+    'label' => 'Mark this event as sponsored.',
+
+  ) );
+
   $expiration_date = new Fieldmanager_Datepicker( array(
    'name' => 'expiration-date',
    'label' => 'Expires On',
@@ -104,11 +110,12 @@ function meta_fields() {
 
 
   $event_details = new Fieldmanager_Group( array(
-    'name' => 'promotion_details',
+    'name' => 'event_details',
     'serialize_data' => false,
     'add_to_prefix' => false,
     'children' => array(
       'featured-event-quotient' => $featured_event,
+      'sponsored' => $sponsored_event,
     ),
   ) );
   $event_details->add_meta_box( 'Event Details', 'tribe_events' );
