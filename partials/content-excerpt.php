@@ -22,7 +22,7 @@
 
   <figure class="entry-hero">
     <a href="<?php the_permalink(); ?>" rel="bookmark">
-      <?php the_hero_image( guess_hero_size() ); ?>
+      <?php the_hero_image( guess_hero_size( $home_section, $posts->current_post ) ); ?>
     </a>
   </figure><!-- .entry-hero -->
 

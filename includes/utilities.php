@@ -37,6 +37,8 @@ function get_the_subhead( $post = 0 ) {
     if ( !empty( tribe_get_event_website_url( $id ) ) )
       $eventInfo['tickets'] = '<a href="' . tribe_get_event_website_url( $id ) . '" class="ticket-link">Tickets&rarr;</a>';
 
+    $eventInfo = array_filter( $eventInfo );
+
     $subhead = implode( ' &bull; ', $eventInfo );
 
   }
@@ -72,7 +74,7 @@ function get_the_icon( $icon ) {
 }
 endif;
 
-function guess_hero_size( $home_section = '', $position = 0 ) {
+function guess_hero_size( $home_section, $position = 0 ) {
 
   $deduced_size = null;
 

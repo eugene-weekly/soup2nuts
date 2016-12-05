@@ -142,8 +142,7 @@ if ( ! function_exists( 'soup2nuts_post_class' ) ) :
     global $post;
     $fields = ( function_exists( 'get_fields' ) ) ? get_fields( $post->ID ) : null;
 
-    if ( !empty( $fields[ 'gallery' ] ) || has_post_thumbnail( $post->ID ) )
-      $classes[] = 'has-post-img';
+    $classes[] = ( !empty( $fields[ 'gallery' ] ) || has_post_thumbnail( $post->ID ) ) ? 'has-post-img' : 'no-post-img';
 
     return $classes;
   }

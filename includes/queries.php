@@ -16,17 +16,18 @@ if ( ! function_exists( 'home_posts' ) ) :
 
   function home_posts( $section = 'features', $excludedPosts = array() ) {
 
+    $thumbnailMetaQuery = array(
+      'key' => '_thumbnail_id',
+      'compare' => 'EXISTS'
+    );
+
     $home_posts_args = array(
       'posts_per_page' => 3,
       'post__not_in' => $excludedPosts,
       'meta_query' => array(
-        array(
-          'key' => '_thumbnail_id',
-          'compare' => 'EXISTS'
-        )
+        // $thumbnailMetaQuery NOTE: Remove this to require thumbnails
       )
     );
-
 
     if ( $section == 'features' ) {
 
@@ -37,7 +38,11 @@ if ( ! function_exists( 'home_posts' ) ) :
       $home_posts_args['post__in'] = array_merge( $featured_post_id, $featured_event_id );
       $home_posts_args['orderby'] = 'post__in';
       $home_posts_args['post_type'] = array( 'post', 'tribe_events' );
+    }
 
+    // Require thumbnails in certain sections
+    if ( in_array( $section, array( 'art', 'culture' ) ) ) {
+      $home_posts_args[ 'meta_query' ][] = $thumbnailMetaQuery;
     }
 
     if ( $section == 'events' ) {
@@ -45,6 +50,8 @@ if ( ! function_exists( 'home_posts' ) ) :
       return featured_events( 3, $excludedPosts, 'posts' );
 
     }
+
+
 
     if ( $section == 'promotions' ) {
       $home_posts_args['post_type'] = 'promotion';
@@ -91,17 +98,10 @@ if ( ! function_exists( 'one_featured_post' ) ) :
       $backupPostArgs = array(
         'posts_per_page' => 1,
         'post__not_in' => $excludedPosts,
-        'meta_query' => array(
-          array(
-            'key' => '_thumbnail_id',
-            'compare' => 'EXISTS'
-          )
-        )
       );
 
       $featured_post = new WP_Query( $backupPostArgs );
     }
-
 
     if ( $featured_post->have_posts() ) {
 
@@ -147,28 +147,37 @@ if ( ! function_exists( 'featured_events' ) ) :
     if ( ! function_exists( 'tribe_get_events' ) )
       return array( 0 );
 
-    $featuredEventsArgs = array(
+    $baseEventArgs = array(
       'posts_per_page' => $count,
       'post__not_in' => $excludedPosts,
       'eventDisplay' => 'list',
-      'order' => 'DESC',
-      'orderby' => 'meta_value_num',
-      'meta_key' => 'featured-event-quotient',
-      'meta_query' => array(
-        array(
-          'key' => '_thumbnail_id',
-          'compare' => 'EXISTS'
-        ),
-        array(
-          'key' => 'featured-event-quotient',
-          'value' => 1,
-          'compare' => '>=',
-          'type' => 'NUMERIC'
+    );
+
+    $featuredEventsArgs = array_merge(
+      $baseEventArgs,
+      array(
+        'order' => 'DESC',
+        'orderby' => 'meta_value_num',
+        'meta_key' => 'featured-event-quotient',
+        'meta_query' => array(
+          array(
+            'key' => 'featured-event-quotient',
+            'value' => 1,
+            'compare' => '>=',
+            'type' => 'NUMERIC'
+          )
         )
       )
     );
 
     $featuredEvents = tribe_get_events( $featuredEventsArgs );
+
+    // No events marked as featured, get most recent instead.
+    if ( empty( $featuredEvents ) ) {
+
+      $featuredEventsArgs = $baseEventArgs;
+      $featuredEvents = tribe_get_events( $featuredEventsArgs );
+    }
 
     if ( $return == 'ids' ) {
 
