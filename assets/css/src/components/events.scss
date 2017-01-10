@@ -28,6 +28,7 @@
     &:after { display: none; }
 
     .entry-footer {
+      flex: 0 0 auto;
       z-index: 2;
       display: block;
 
