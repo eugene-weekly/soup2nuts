@@ -87,6 +87,7 @@ if ( ! function_exists( 'one_featured_post' ) ) :
 
     $featuredPostArgs = array(
       'posts_per_page' => 1,
+      'post_type' => 'post',
       'post__not_in' => $excludedPosts,
     );
 
