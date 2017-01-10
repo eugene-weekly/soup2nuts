@@ -37,6 +37,7 @@ if ( ! function_exists( 'home_posts' ) ) :
       $home_posts_args['posts_per_page'] = 2;
       $home_posts_args['post__in'] = array_merge( $featured_post_id, $featured_event_id );
       $home_posts_args['orderby'] = 'post__in';
+      $home_posts_args['suppress_filters'] = true;
       $home_posts_args['post_type'] = array( 'post', 'tribe_events' );
     }
 
