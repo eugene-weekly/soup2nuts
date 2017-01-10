@@ -10,10 +10,10 @@
 
 @mixin container {
   max-width: $max-width;
-  padding-left: flex-gutter();
-  padding-right: flex-gutter();
+  //padding-left: flex-gutter();
+  //padding-right: flex-gutter();
   overflow: hidden;
-  
+
   @include media( $max-width ) {
     margin-left: auto;
     margin-right: auto;

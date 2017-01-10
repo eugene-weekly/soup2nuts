@@ -5,6 +5,7 @@
 @import "font-face";
 @import "typography";
 @import "forms";
+@import "icons";
 @import "copy";
 @import "content-area";
 
@@ -30,6 +31,10 @@ body {
 
   &.show-nav {
     overflow: hidden;
+
+    #content {
+      pointer-events: none;
+    }
   }
 }
 

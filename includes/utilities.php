@@ -74,18 +74,18 @@ function get_the_icon( $icon ) {
 }
 endif;
 
-function guess_hero_size( $home_section, $position = 0 ) {
+function guess_hero_size( $origin, $position = 0 ) {
 
   $deduced_size = null;
 
-  switch ($home_section) {
+  switch ($origin) {
     case 'features':
 
       $deduced_size = ( $position == 0 ) ? 'large' : 'medium';
       break;
 
     case 'news':
-    case 'art':
+    case 'arts':
     case 'culture':
 
       $deduced_size = ( $position == 0 ) ? 'medium' : 'thumbnail';

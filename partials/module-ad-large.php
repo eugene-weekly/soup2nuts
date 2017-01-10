@@ -7,4 +7,4 @@
  * @package soup2nuts
  */
 
-?><div class="ad fake-ad huge-add"><img src="http://fillmurray.com/g/1200/250" class="ad-img"/></div>
+?><div class="ad fake-ad huge-ad"><img src="http://fillmurray.com/g/1200/250" class="ad-img"/></div>

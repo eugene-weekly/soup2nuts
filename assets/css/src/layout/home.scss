@@ -16,15 +16,13 @@
 .home-posts {
   flex: 1 1 100%;
 
-  margin-bottom: 2em;
-  padding-left: flex-gutter();
-  padding-right: flex-gutter();
 
   @include media( $third-break ) {
     flex: 0 1 flex-grid( 4 );
 
     //margin-left: flex-gutter();
     //margin-right: flex-gutter();
+    margin-bottom: 2em;
 
     background-color: color( white );
   }
@@ -48,8 +46,6 @@
     width: 100%;
     margin-left: 0;
     margin-right: 0;
-    padding-left: 0;
-    padding-right: 0;
 
     background-color: transparent;
 
@@ -68,8 +64,7 @@
 .features-posts, {
 
   @include media( $third-break ) {
-
-    height: 625px;
+    height: 620px;
   }
 
   .excerpted-post {
@@ -104,7 +99,7 @@
     &:nth-child( 2 ) {
 
       @include media( $third-break ) {
-        flex: 1 1 50%;
+        flex: 0 1 auto;
         //flex: 1 1 auto; // needs ad
 
         width: flex-grid( 4 );
@@ -112,7 +107,7 @@
 
       .entry-hero {
         @include media( $third-break ) {
-          min-height: 270px;
+          min-height: 200px;
         }
       }
     }
@@ -120,7 +115,7 @@
 
   .ad {
     @include media( $third-break ) {
-      flex: 1 1 auto;
+      flex: 0 1 auto;
       //flex: 1 1 auto; // needs ad
 
       width: flex-grid( 4 );
@@ -129,7 +124,7 @@
 }
 
 .news-posts,
-.art-posts,
+.arts-posts,
 .culture-posts {
 
   margin-top: 2em;
@@ -146,6 +141,13 @@
     .section-title {
       transform: translateY(-1em);
 
+    }
+  }
+
+  .excerpted-post {
+    &:nth-of-type( n+2 ) {
+      margin-left: flex-gutter();
+      margin-right: flex-gutter();
     }
   }
 }
@@ -173,8 +175,17 @@
   @include media( $third-break ) {
 
     flex: 0 1 flex-grid( 8 );
+    padding-left: flex-gutter();
+    padding-right: flex-gutter();
 
     box-shadow: $box-shadow;
 
+  }
+
+  .excerpted-post {
+    &:nth-of-type( n+2 ) {
+      margin-left: flex-gutter();
+      margin-right: flex-gutter();
+    }
   }
 }

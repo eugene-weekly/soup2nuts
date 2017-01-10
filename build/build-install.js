@@ -48,9 +48,6 @@ module.exports = function( grunt ) {
     clean: {
       vendor: [ '<%= dirs.vendor %>' ]
     }
-
-
-
   } );
 
   // Install Dependencies.

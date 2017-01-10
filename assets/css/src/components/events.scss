@@ -25,6 +25,8 @@
   }
 
   &.excerpted-post {
+    &:after { display: none; }
+    
     .entry-footer {
       display: block;
     }

@@ -41,9 +41,17 @@
   /**
    * Mobile Nav
    */
+
+  function hideNav( e ) {
+    e.preventDefault();
+    jQuery( 'body' ).removeClass('show-nav');
+  }
+
   jQuery( '.menu-toggle' ).on( 'click', function() {
     jQuery( 'body' ).removeClass('show-search').toggleClass('show-nav');
+    //jQuery( '.show-nav #page' ).on( 'click', hideNav( e ) );
   });
+
 
   /**
    * Search

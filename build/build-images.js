@@ -54,7 +54,6 @@ module.exports = function( grunt ) {
               }
           }
         }
-
       }
     },
     svg2png: {
@@ -76,6 +75,9 @@ module.exports = function( grunt ) {
         src: ['<%= dirs.assets %>/img']
       }
     },
+    clean: {
+      images: ['<%= dirs.sass %>/base/sprite.view.scss', '<%= dirs.svg %>/sprite.*.svg']
+    },
     watch:  {
       images: {
         files: [ '<%= dirs.svg %>/src/**/*.svg' ],
@@ -85,5 +87,5 @@ module.exports = function( grunt ) {
   } );
 
   // Process Scripts.
-  grunt.registerTask( 'images', [ 'svg_sprite' ] );
+  grunt.registerTask( 'images', [ 'clean:images', 'svg_sprite' ] );
 };

@@ -129,6 +129,8 @@
       transition: all 0.25s ease-out;
 
       @at-root .show-nav & {
+        padding-bottom: 3em;
+
         transform: translateX( 0 );
 
         box-shadow: 5px 10px 10px rgba( 26, 25, 25, 0.4);
@@ -160,7 +162,7 @@
     }
   }
 
-  .navigation-menu .menu {
+  .main-navigation .menu {
     display: flex;
     flex-wrap: wrap;
     align-content: stretch;
@@ -192,6 +194,8 @@
         justify-content: center;
         align-items: stretch;
         align-content: stretch;
+
+        flex: 1 1 auto;
       }
 
       &:hover,
@@ -199,7 +203,6 @@
       &:active {
 
         > .sub-menu {
-
 
           @include media( $third-break ) {
 
@@ -210,8 +213,9 @@
       &.menu-item-calendar {
         order: 1;
 
+
         @include media( $third-break ) {
-          order: 2;
+          order: 3;
         }
       }
 
@@ -236,6 +240,10 @@
 
       .menu-item-title {
         flex: 1 1 auto;
+
+        @include media( $third-break ) {
+          text-align: center;
+        }
       }
 
       .icon {
@@ -256,7 +264,6 @@
       @include media( $third-break ) {
         display: none;
       }
-
 
       .menu-item {
 
@@ -287,11 +294,22 @@
       }
     }
   }
-
-
-
 }
 
+.right-column .navigation-menu {
+  ul {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: space-around;
+
+    li {
+      flex: 0 1 auto;
+
+      margin-right: 0;
+    }
+  }
+}
 
 .site-footer {
 
@@ -332,7 +350,6 @@
       padding: 0.5em 1em;
 
       text-decoration: none;
-
     }
   }
 }

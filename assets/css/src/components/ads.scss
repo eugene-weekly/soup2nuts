@@ -1,3 +1,23 @@
 /**
  * Ads
  */
+
+.ad {
+  padding-left: flex-gutter();
+  padding-right: flex-gutter();
+
+  text-align: center;
+  line-height: 0;
+
+}
+
+.huge-ad {
+  min-height: 75vh;
+  margin-bottom: 2em;
+  padding-left: 0;
+  padding-right: 0;
+
+  &.fake-ad img {
+    min-height: 100%;
+  }
+}

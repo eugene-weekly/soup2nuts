@@ -3,6 +3,11 @@
  */
 
 .site-header {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: stretch;
+  align-content: stretch;
 
   position: sticky;
   top: 0;
@@ -10,41 +15,29 @@
   left: 0;
   z-index: 100;
 
-  margin-bottom: 10px;
+  height: 50px;
 
   background-color: color( white );
 
   box-shadow: 0 5px 10px rgba( 26, 25, 25, 0.4);
 
   @include media( $third-break ) {
+    flex-direction: column;
+    flex-wrap: wrap;
+    //justify-content: space-between;
+    align-content: stretch;
+    align-items: stretch;
+
     position: static;
+
+    height: 125px;
+    margin-bottom: 10px;
+    padding-left: $half-gutter;
+    padding-right: $half-gutter;;
   }
 
-  .container {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-around;
-    align-items: stretch;
-    align-content: stretch;
-
-    height: 50px;
-    padding-left: 0;
-    padding-right: 0;
-    overflow: visible;
-
-    @include media( $third-break ) {
-      flex-direction: column;
-      flex-wrap: wrap;
-      //justify-content: space-between;
-      align-content: stretch;
-      align-items: stretch;
-
-      height: 125px;
-    }
-
-    @include media( $tall-enough ) {
-      height: 225px;
-    }
+  @include media( $tall-enough ) {
+    height: 225px;
   }
 
   .site-branding {
@@ -58,7 +51,7 @@
   }
 
   .main-navigation,
-  .widget_search {
+  .right-column {
     flex: 0 1 33%;
   }
 
@@ -93,7 +86,7 @@
     }
   }
 
-  .widget_search {
+  .right-column {
     order: 3;
 
     display: flex;
@@ -101,13 +94,57 @@
     align-items: stretch;
     align-content: stretch;
 
+    //outline: 1px dotted green;
+
     @include media( $third-break ) {
       flex: 0 1 100%;
-      order: 4;
+      order: 5;
       align-self: flex-end;
 
       display: flex;
+      flex-wrap: nowrap;
+      flex-direction: column;
+      justify-content: space-around;
+    }
 
+    > * {
+      flex: 1 1 33%;
+
+      //outline: 1px solid blue;
+    }
+
+    .widget {
+      flex: 1 1 auto;
+
+      display: flex;
+
+      @include media( $third-break ) {
+        flex: 1 1 33%;
+        order: 1;
+      }
+    }
+
+    .navigation-menu {
+      display: none;
+
+      @include media( $third-break ) {
+        order: 2;
+
+        display: flex;
+      }
+
+      &:last-of-type {
+        @include media( $third-break ) {
+        }
+      }
+
+      .menu-item-title {
+        @include visuallyhidden;
+      }
     }
   }
+
+  .widget_search {
+  }
+
 }

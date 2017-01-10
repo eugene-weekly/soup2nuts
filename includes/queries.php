@@ -25,7 +25,7 @@ if ( ! function_exists( 'home_posts' ) ) :
       'posts_per_page' => 3,
       'post__not_in' => $excludedPosts,
       'meta_query' => array(
-        // $thumbnailMetaQuery NOTE: Remove this to require thumbnails
+        // $thumbnailMetaQuery // NOTE: Uncomment this to require thumbnails
       )
     );
 
@@ -41,8 +41,14 @@ if ( ! function_exists( 'home_posts' ) ) :
     }
 
     // Require thumbnails in certain sections
-    if ( in_array( $section, array( 'art', 'culture' ) ) ) {
-      $home_posts_args[ 'meta_query' ][] = $thumbnailMetaQuery;
+    if ( in_array( $section, array( 'news', 'arts', 'culture' ) ) ) {
+      //$home_posts_args[ 'meta_query' ][] = $thumbnailMetaQuery; // NOTE: Uncomment this to require thumbnails
+
+      $home_posts_args[ 'tax_query' ][] = array(
+        'taxonomy' => 'category',
+        'field'    => 'slug',
+        'terms'    => $section,
+      );
     }
 
     if ( $section == 'events' ) {
@@ -50,7 +56,6 @@ if ( ! function_exists( 'home_posts' ) ) :
       return featured_events( 3, $excludedPosts, 'posts' );
 
     }
-
 
 
     if ( $section == 'promotions' ) {
@@ -150,7 +155,7 @@ if ( ! function_exists( 'featured_events' ) ) :
     $baseEventArgs = array(
       'posts_per_page' => $count,
       'post__not_in' => $excludedPosts,
-      'eventDisplay' => 'list',
+      'eventDisplay' => 'custom',
     );
 
     $featuredEventsArgs = array_merge(
@@ -171,12 +176,14 @@ if ( ! function_exists( 'featured_events' ) ) :
     );
 
     $featuredEvents = tribe_get_events( $featuredEventsArgs );
-
     // No events marked as featured, get most recent instead.
     if ( empty( $featuredEvents ) ) {
 
       $featuredEventsArgs = $baseEventArgs;
+
+      pre_printr($featuredEventsArgs);
       $featuredEvents = tribe_get_events( $featuredEventsArgs );
+      var_dump($featuredEvents);
     }
 
     if ( $return == 'ids' ) {

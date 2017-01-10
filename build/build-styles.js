@@ -1,5 +1,5 @@
 module.exports = function( grunt ) {
-  
+
   'use strict';
 
   // Project configuration
@@ -61,6 +61,6 @@ module.exports = function( grunt ) {
   } );
 
   // Process Styles.
-  grunt.registerTask( 'styles', [ 'sass', 'postcss', 'clean' ] );
+  grunt.registerTask( 'styles', [ 'sass', 'postcss', 'clean:maps' ] );
 
 };

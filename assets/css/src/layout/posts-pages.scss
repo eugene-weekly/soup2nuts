@@ -52,18 +52,29 @@
   margin: 0 0 1.5em;
 }
 
-.entry-hero {}
+.entry-hero {
+  a {
+    display: block;
+
+    line-height: 0;
+  }
+}
 
 /* Featured Excerpts */
 %featured-excerpt {
 
   flex-wrap: wrap;
 
+  padding-bottom: 0;
+  border-bottom: 0;
+
   @include media( $third-break ) {
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: stretch;
     align-content: stretch;
+
+    padding-bottom: 0.5em;
   }
 
   &.no-post-img {
@@ -83,32 +94,56 @@
         max-width: 50%;
 
         text-align: center;
-        
+
         transform: translate( -50%, -50% );
       }
     }
+  }
+
+  &:after {
+    flex: 1 1 auto;
+    order: 5;
+
+    content: '';
+
+    display: block;
+    height: 0px;
+    width: 100%;
+    max-width: 100%;
+    margin-left: flex-gutter();
+    margin-right: flex-gutter();
+
+    border-bottom: 1px solid color( red );
+
+    @include media( $third-break ) {
+      width: auto
+    }
+
+    .features-posts & { display: none; }
   }
 
   .entry-header {
     flex: 1 1 100%;
     order: 3;
 
+    margin: 0 flex-gutter() 0.5em;
+
     @include media( $third-break ) {
       flex: 0 1 auto;
-
-      padding: 1em flex-gutter();
     }
   }
 
   .entry-hero {
-    flex: 1 1 100 + flex-gutter( 2 ) + flex-gutter( 2 );
-    order: 2;
+    flex: 1 1 100%;
+    order: 1;
 
+
+    min-height: 200px;
     max-height: 50vh;
-    max-width: 100 + flex-gutter( 2 ) + flex-gutter( 2 );
-    margin-left: 0 - flex-gutter( 2 );
-    margin-right: 0 - flex-gutter( 2 );
+    max-width: 100%;
+    margin-bottom: 0.5em;
     overflow: hidden;
+
 
     @include media( $third-break ) {
       flex: 1 1 auto;
@@ -116,8 +151,6 @@
       //width: 100%;
       min-height: 270px;
       max-height: 270px;
-      margin-left: 0;
-      margin-right: 0;
     }
 
     img {
@@ -129,12 +162,15 @@
     }
   }
 
-  .entry-hero {
-    flex: 1 1 100 + flex-gutter( 2 ) + flex-gutter( 2 );
-    order: 1;
+  .entry-footer {
+    flex: 1 1 100%;
 
-    display: block;
-  }
+    display: none;
+
+    @include media( $third-break ) {
+      flex: 0 1 auto;
+    }
+   }
 }
 
 /* Excerpted Posts */
@@ -142,24 +178,28 @@
   display: flex;
   flex-wrap: nowrap;
 
-  margin-bottom: 1.5em;
-  padding-bottom: 1.5em;
+  margin-bottom: 0.5em;
+  padding-bottom: 0.5em;
 
   background-color: color( white );
 
   border-bottom: 1px solid color( red );
 
-  @include media( $third-break ) {
-    padding-bottom: 0;
-  }
+
+
+
 
   &:last-of-type {
     margin-bottom: 0.75em;
   }
 
+  &.promotion {
+    padding-bottom: 0.5em;
+  }
+
   .features-posts &,
   .news-posts &:first-of-type,
-  .art-posts &:first-of-type,
+  .arts-posts &:first-of-type,
   .culture-posts &:first-of-type,
   .events-posts & {
     @extend %featured-excerpt;
@@ -172,11 +212,9 @@
 
   .entry-hero {
     flex: 1 1 flex-grid( 4 );
-
   }
 
   .entry-footer {
-    display: none;
 
     .featured-event {
       display: block;

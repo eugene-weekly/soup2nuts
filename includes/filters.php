@@ -202,9 +202,15 @@ if ( ! function_exists( 'soup2nuts_nav_menu_item_title' ) ) :
   function soup2nuts_nav_menu_item_title( $title, $item, $args, $depth ) {
 
     $title = '<span class="menu-item-title">' . $title . '</span>';
-    //  pre_printr( $item );
-    if ( in_array( $item->object, array( 'events', 'calendar', 'tribe_events' )) ) {
+
+    //  Add the Calendar icon
+    if ( in_array( $item->post_title, array( 'Calendar', 'events', 'calendar', 'tribe_events' )) ) {
       $title .= get_the_icon( 'icon-calendar' );
+    }
+
+    // Add the Contact icon, but only for the Contact menu
+    if ( $args->theme_location == 'contact' ) {
+      $title .= get_the_icon( 'icon-contact' );
     }
 
     return $title;
@@ -232,7 +238,7 @@ if ( ! function_exists( 'soup2nuts_nav_menu_item_class' ) ) :
 
     $classes[] = 'menu-item-' . preg_replace('#[ -]+#', '-', strtolower( $item->title ));
 
-    if ( in_array( $item->post_title, array( 'Events', 'Calendar' )) ) {
+    if ( in_array( $item->post_title, array( 'Events', 'Calendar', 'Contact Us' )) ) {
       $classes[] = 'menu-item-has-icon';
     }
 

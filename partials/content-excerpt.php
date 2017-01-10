@@ -7,7 +7,8 @@
  * @package soup2nuts
  */
 
-?>
+$hero_origin = isset( $home_section ) ? $home_section : 'archive';
+$position = isset( $posts->current_post ) ? $posts->current_post : 0; ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'excerpted-post' ); ?>>
   <header class="entry-header">
@@ -22,7 +23,7 @@
 
   <figure class="entry-hero">
     <a href="<?php the_permalink(); ?>" rel="bookmark">
-      <?php the_hero_image( guess_hero_size( $home_section, $posts->current_post ) ); ?>
+      <?php the_hero_image( guess_hero_size( $hero_origin, $position ) ); ?>
     </a>
   </figure><!-- .entry-hero -->
 

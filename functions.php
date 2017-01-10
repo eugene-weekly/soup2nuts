@@ -53,6 +53,9 @@ function soup2nuts_setup() {
   // This theme uses wp_nav_menu() in one location.
   register_nav_menus( array(
     'primary' => esc_html__( 'Primary Menu', 'soup2nuts' ),
+    'footer' => esc_html__( 'Footer Menu', 'soup2nuts' ),
+    'calendar' => esc_html__( 'Calendar Menu', 'soup2nuts' ),
+    'contact' => esc_html__( 'Contact Menu', 'soup2nuts' ),
   ) );
 
   /*

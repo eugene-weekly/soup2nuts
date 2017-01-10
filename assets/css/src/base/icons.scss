@@ -1,0 +1,26 @@
+/**
+ * Icons
+ */
+
+ //@import "sprite.view.scss";
+
+
+svg {
+  &,
+  use {
+    transition: all ease-out 0.125s;
+  }
+}
+
+a,
+label {
+  &:hover,
+  &:focus {
+    svg {
+      *,
+      use {
+        fill: color( red );
+      }
+    }
+  }
+}

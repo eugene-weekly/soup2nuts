@@ -1,5 +1,6 @@
 @mixin icon {
 	background: url(#{$svg}/sprite.view.svg) no-repeat;
+  background-size: contain;
 
 	@at-root .no-svg & {
 		background: url(#{$img}/sprite.view.png) no-repeat;
@@ -8,77 +9,133 @@
 
 %icon-calendar, .icon-calendar {
 	@include icon;
-	background-position: 37.95049934867564% 98.37493499739989%;
+	background-position: 79.74624852470072% 75.73058446757406%;
 	width: 39.76px;
 	height: 42.16px;
 }
 
 %icon-close, .icon-close {
 	@include icon;
-	background-position: 99.80523094045633% 29.934167215273206%;
+	background-position: 99.82810485603783% 22.976250631632137%;
 	width: 44.3px;
 	height: 44.1px;
 }
 
+%icon-contact, .icon-contact {
+	@include icon;
+	background-position: 80.04909618388753% 0;
+	width: 52.95px;
+	height: 44.21px;
+}
+
+%icon-explore, .icon-explore {
+	@include icon;
+	background-position: 78.71061177916263% 47.14904636223296%;
+	width: 49.14px;
+	height: 41.19px;
+}
+
+%icon-facebook, .icon-facebook {
+	@include icon;
+	background-position: 20.618332244720225% 77.66601662732218%;
+	width: 47.35px;
+	height: 47.14px;
+}
+
+%icon-gallery-solid, .icon-gallery-solid {
+	@include icon;
+	background-position: 79.15526524847736% 23.08254581527698%;
+	width: 50.42px;
+	height: 50.47px;
+}
+
+%icon-gallery-stroke, .icon-gallery-stroke {
+	@include icon;
+	background-position: 32.789250608711335% 47.84217016029593%;
+	width: 55.22px;
+	height: 55.47px;
+}
+
 %icon-hamburger, .icon-hamburger {
 	@include icon;
-	background-position: 14.499750291326786% 98.93443158789306%;
+	background-position: 0 99.7537317183495%;
 	width: 43.79px;
 	height: 43.03px;
 }
 
+%icon-instagram, .icon-instagram {
+	@include icon;
+	background-position: 41.23666448944045% 77.66601662732218%;
+	width: 47.35px;
+	height: 47.14px;
+}
+
 %icon-label, .icon-label {
 	@include icon;
-	background-position: 0 29.790872024200972%;
+	background-position: 0 22.871857013026354%;
 	width: 92.55px;
 	height: 43.94px;
 }
 
 %icon-next, .icon-next {
 	@include icon;
-	background-position: 0 99.52650269630409%;
+	background-position: 92.59775979591024% 67.40886600020195%;
 	width: 26.13px;
 	height: 43.94px;
 }
 
 %icon-pause, .icon-pause {
 	@include icon;
-	background-position: 41.55666038059317% 60.71161303490033%;
-	width: 49.01px;
-	height: 49.01px;
+	background-position: 17.412223150025845% 92.11491158862023%;
+	width: 25.51px;
+	height: 26.53px;
 }
 
 %icon-play, .icon-play {
 	@include icon;
-	background-position: 68.82845188284517% 59.94894531774821%;
+	background-position: 61.79848603497782% 77.66601662732218%;
 	width: 47.14px;
 	height: 47.14px;
 }
 
 %icon-previous, .icon-previous {
 	@include icon;
-	background-position: 90.64031940162732% 58.904379850059186%;
+	background-position: 92.59775979591024% 45.2236695950722%;
 	width: 26.13px;
 	height: 43.94px;
 }
 
 %icon-search, .icon-search {
 	@include icon;
-	background-position: 99.84968266340051% 0;
+	background-position: 99.86243659186655% 0;
 	width: 44.38px;
 	height: 45.47px;
 }
 
+%icon-twitter, .icon-twitter {
+	@include icon;
+	background-position: 0 77.66601662732218%;
+	width: 47.35px;
+	height: 47.14px;
+}
+
+%icon-youtube, .icon-youtube {
+	@include icon;
+	background-position: 55.71086435880688% 45.7969824489377%;
+	width: 47.35px;
+	height: 47.14px;
+}
+
 %logo-backbeat, .logo-backbeat {
 	@include icon;
-	background-position: 71.19354838709677% 0;
+	background-position: 53.05288461538461% 0;
 	width: 69px;
 	height: 75.7px;
 }
 
 %logo-ew-mark, .logo-ew-mark {
 	@include icon;
-	background-position: 0 66.64675130694548%;
+	background-position: 0 49.6053362979433%;
 	width: 72.72px;
 	height: 62.1px;
 }
@@ -89,4 +146,3 @@
 	width: 110.35px;
 	height: 45.3px;
 }
-
