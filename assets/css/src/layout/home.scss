@@ -3,6 +3,8 @@
  */
 
 .home .site-main {
+  @include container;
+
   display: flex;
   flex-wrap: wrap;
 
@@ -82,7 +84,7 @@
       }
 
       .entry-header {
-
+        @include pad( 0 flex-gutter( 8 ) );
       }
 
       .entry-hero {
@@ -146,8 +148,8 @@
 
   .excerpted-post {
     &:nth-of-type( n+2 ) {
-      margin-left: flex-gutter();
-      margin-right: flex-gutter();
+      margin-left: flex-gutter( 4 );
+      margin-right: flex-gutter( 4 );
     }
   }
 }

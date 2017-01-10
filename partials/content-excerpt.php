@@ -27,6 +27,10 @@ $position = isset( $posts->current_post ) ? $posts->current_post : 0; ?>
     </a>
   </figure><!-- .entry-hero -->
 
+  <div class="entry-excerpt">
+    <?php the_excerpt(); ?>
+  </div>
+
   <footer class="entry-footer">
     <?php soup2nuts_entry_footer(); ?>
   </footer>

@@ -1,9 +1,19 @@
-/**
+©/**
  * Posts / Pages
  */
 
 .site-content {
   @include container;
+
+  @include media( $third-break ) {
+    padding-left: flex-gutter();
+    padding-right: flex-gutter();
+  }
+
+  @include media( $sixth-break ) {
+    padding-left: 0;
+    padding-right: 0;
+  }
 
   .single & {
     display: flex;
@@ -74,7 +84,7 @@
     align-items: stretch;
     align-content: stretch;
 
-    padding-bottom: 0.5em;
+    padding-bottom: 1em;
   }
 
   &.no-post-img {
@@ -110,8 +120,8 @@
     height: 0px;
     width: 100%;
     max-width: 100%;
-    margin-left: flex-gutter();
-    margin-right: flex-gutter();
+    margin-left: flex-gutter( 4 );
+    margin-right: flex-gutter( 4 );
 
     border-bottom: 1px solid color( red );
 
@@ -126,7 +136,8 @@
     flex: 1 1 100%;
     order: 3;
 
-    margin: 0 flex-gutter() 0.5em;
+    margin: 0 0 1em;
+    @include pad( 0 flex-gutter( 4 ) );
 
     @include media( $third-break ) {
       flex: 0 1 auto;
@@ -141,7 +152,7 @@
     min-height: 200px;
     max-height: 50vh;
     max-width: 100%;
-    margin-bottom: 0.5em;
+    margin-bottom: 1em;
     overflow: hidden;
 
 
@@ -178,23 +189,42 @@
   display: flex;
   flex-wrap: nowrap;
 
-  margin-bottom: 0.5em;
-  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+  padding-bottom: 1em;
 
   background-color: color( white );
 
   border-bottom: 1px solid color( red );
 
 
-
-
-
   &:last-of-type {
-    margin-bottom: 0.75em;
+    margin-bottom: 1.5em;
   }
 
   &.promotion {
-    padding-bottom: 0.5em;
+    padding-bottom: 1em;
+  }
+
+  &.no-post-img {
+    flex-wrap: wrap;
+
+    &.category-news {
+      .entry-hero {
+        display: none;
+      }
+
+      .entry-excerpt {
+        flex: 1 1 100%;
+
+        display: block;
+      }
+    }
+
+    .entry-header {
+      flex: 1 1 100%;
+    }
+
+
   }
 
   .features-posts &,
@@ -207,18 +237,21 @@
 
   .entry-header {
     flex: 1 1 flex-grid( 8 );
-
   }
 
   .entry-hero {
     flex: 1 1 flex-grid( 4 );
   }
 
+  .entry-excerpt {
+    display: none;
+  }
+
   .entry-footer {
 
     .featured-event {
       display: block;
-      padding: 0.5em flex-gutter( 6 );
+      padding: 1em flex-gutter( 4 );
 
       background-color: color( red );
       color: color( white );

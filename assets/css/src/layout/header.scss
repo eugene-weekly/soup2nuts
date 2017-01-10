@@ -83,6 +83,11 @@
       align-self: flex-start;
 
       display: flex;
+      width: 42px;
+    }
+
+    @include media( $tall-enough ) {
+      width: 66px;
     }
   }
 
@@ -105,6 +110,12 @@
       flex-wrap: nowrap;
       flex-direction: column;
       justify-content: space-around;
+
+      width: 42px;
+    }
+
+    @include media( $tall-enough ) {
+      width: 66px;
     }
 
     > * {

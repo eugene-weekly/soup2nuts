@@ -26,9 +26,12 @@
 
   &.excerpted-post {
     &:after { display: none; }
-    
+
     .entry-footer {
+      z-index: 2;
       display: block;
+
+      box-shadow: $box-shadow;
     }
   }
 }

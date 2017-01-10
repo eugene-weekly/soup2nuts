@@ -76,6 +76,11 @@
   .icon {
     height: 25px;
     width: 25px;
+
+    @include media( $tall-enough ) {
+      height: 40px;
+      width: 40px;
+    }
   }
 }
 
@@ -302,6 +307,8 @@
     flex-wrap: nowrap;
     flex-direction: column;
     justify-content: space-around;
+
+    margin: auto;
 
     li {
       flex: 0 1 auto;

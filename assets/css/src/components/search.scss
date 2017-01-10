@@ -14,6 +14,17 @@
 
     position: relative;
 
+    @include media( $third-break ) {
+      flex: 1 1 100%;
+
+      align-items: stretch;
+      align-content: stretch;
+      justify-content: center;
+    }
+
+    @include media( $tall-enough ) {
+    }
+
     .search-trigger {
       flex: 1 1 auto;
 
@@ -28,12 +39,41 @@
 
       cursor: pointer;
 
+      transition: all ease-out 0.25s;
+      transition-delay: 0.25s;
+
+
       @include media( $third-break ) {
+        flex: 0 1 43px;
 
-        padding: 0;
+        z-index: 6;
 
-        //outline: 1px solid red;
+        padding: 8px;
 
+        background-color: transparent;
+
+        border-left: 1px solid transparent;
+
+        box-shadow: none;
+      }
+
+      @include media( $tall-enough ) {
+        flex: 0 1 66px;
+
+        padding: 16px;
+      }
+
+      @at-root .show-search & {
+        @include media( $third-break ) {
+          background-color: color( white );
+
+          border-left: 1px solid color( red );
+
+          box-shadow: $box-shadow;
+        }
+
+        @include media( $tall-enough ) {
+        }
       }
 
       .icon {
@@ -42,16 +82,26 @@
         top: 8px;
         right: 8px;
 
-        width: 35px;
-        height: 35px;
+        width: 25px;
+        height: 25px;
 
         transition: all 0.25s ease-out;
 
         pointer-events: none;
 
         @include media( $third-break ) {
-          top: 3px;
-          right: 0px;
+          top: 8px;
+          right: 8px;
+
+          transition-delay: 0.25s;
+        }
+
+        @include media( $tall-enough ) {
+          top: 20px;
+          right: 16px;
+
+          width: 35px;
+          height: 35px;
         }
       }
 
@@ -99,24 +149,30 @@
 
       @include media( $third-break ) {
         position: absolute;
-        top: auto;
+        top: 0;
         right: 100%;
         z-index: 5;
 
         width: 450px;
-        max-width: 33vw;
+        max-width: 45vw;
         height: 100%;
         overflow: visible;
 
-        box-shadow: none;;
+        box-shadow: none;
 
         border-top: 0;
 
-        transform: scaleX(0);
-        transform-origin: right;
+        transition: all 0.25s ease-out;
+
+        transform: translateY(-100%);
+        transform-origin: top;
 
 
         //outline: 1px dotted blue;
+      }
+
+      @include media( $tall-enough ) {
+        right: 100%;
       }
 
       @at-root .show-search & {
@@ -127,9 +183,11 @@
         //transform: translateX( 0 );
 
         @include media( $third-break ) {
-          box-shadow: none;;
+          width: 450px;
 
-          transform: scaleX(1);
+          //box-shadow: none;
+
+          transform: translateY(0);
         }
       }
 
@@ -141,7 +199,11 @@
         padding: 16px 8px;
 
         @include media( $third-break ) {
-          padding: 8px 0;
+          padding: 4px 0 4px 16px;
+        }
+
+        @include media( $tall-enough ) {
+          padding: 16px 0 16px 16px;
         }
 
         .search-field {
@@ -155,6 +217,14 @@
         position: relative;
 
         display: inline-block;
+
+        @include media( $third-break ) {
+          flex: 0 0 41px;
+        }
+
+        @include media( $tall-enough ) {
+          flex: 0 0 66px;
+        }
       }
 
       .search-submit {
@@ -172,10 +242,17 @@
 
         box-shadow: none;
 
+        cursor: pointer;
+
         @include media( $third-break ) {
-          height: 41px;
+          height: 100%;
           width: 41px;
-          padding: 8px;
+          padding: 0 8px;
+        }
+
+        @include media( $tall-enough ) {
+          width: 66px;
+          padding: 0 16px;
         }
 
         .icon {

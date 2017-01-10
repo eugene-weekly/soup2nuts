@@ -151,6 +151,25 @@ endif; // soup2nuts_post_class
 add_filter( 'post_class', 'soup2nuts_post_class' );
 
 
+if ( ! function_exists( 'soup2nuts_excerpt_length' ) ) :
+  /**
+   * Excerpt Length.
+   *
+   * @param $length
+   *
+   * @return int
+   *
+   * @since 0.1.0
+   */
+
+  function soup2nuts_excerpt_length( $length ) {
+    return 40;
+  }
+endif; // soup2nuts_excerpt_length
+
+add_filter( 'excerpt_length', 'soup2nuts_excerpt_length' );
+
+
 if ( ! function_exists( 'soup2nuts_wp_nav_menu_args' ) ) :
 
   /**
@@ -248,3 +267,35 @@ if ( ! function_exists( 'soup2nuts_nav_menu_item_class' ) ) :
 endif; // excerpt_length
 
 add_filter( 'nav_menu_css_class', 'soup2nuts_nav_menu_item_class', 10, 2 );
+
+/**
+ * Returns a "Continue Reading" link for excerpts
+ */
+function soup2nuts_continue_reading_link() {
+	return ' <a href="'. esc_url( get_permalink() ) . '">' . __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'soup2nuts') . '</a>';
+}
+
+/**
+ * Replaces "[...]" (appended to automatically generated excerpts) with an ellipsis and soup2nuts_continue_reading_link().
+ *
+ * To override this in a child theme, remove the filter and add your own
+ * function tied to the excerpt_more filter hook.
+ */
+function soup2nuts_auto_excerpt_more( $more ) {
+	return ' &hellip;' . soup2nuts_continue_reading_link();
+}
+add_filter( 'excerpt_more', 'soup2nuts_auto_excerpt_more' );
+
+/**
+ * Adds a pretty "Continue Reading" link to custom post excerpts.
+ *
+ * To override this link in a child theme, remove the filter and add your own
+ * function tied to the get_the_excerpt filter hook.
+ */
+function soup2nuts_custom_excerpt_more( $output ) {
+	if ( has_excerpt() && ! is_attachment() ) {
+		$output .= soup2nuts_continue_reading_link();
+	}
+	return $output;
+}
+add_filter( 'get_the_excerpt', 'soup2nuts_custom_excerpt_more' );

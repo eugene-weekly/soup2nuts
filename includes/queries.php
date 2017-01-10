@@ -41,8 +41,12 @@ if ( ! function_exists( 'home_posts' ) ) :
     }
 
     // Require thumbnails in certain sections
+    if ( in_array( $section, array( 'arts', 'culture' ) ) ) {
+      $home_posts_args[ 'meta_query' ][] = $thumbnailMetaQuery; // NOTE: Uncomment this to require thumbnails
+    }
+
+    // Restrict posts to the appropriate categories
     if ( in_array( $section, array( 'news', 'arts', 'culture' ) ) ) {
-      //$home_posts_args[ 'meta_query' ][] = $thumbnailMetaQuery; // NOTE: Uncomment this to require thumbnails
 
       $home_posts_args[ 'tax_query' ][] = array(
         'taxonomy' => 'category',
