@@ -168,8 +168,6 @@ function soup2nuts_entry_footer() {
     comments_popup_link( esc_html__( 'Leave a comment', 'soup2nuts' ), esc_html__( '1 Comment', 'soup2nuts' ), esc_html__( '% Comments', 'soup2nuts' ) );
     echo '</span>';
   }
-
-  edit_post_link( esc_html__( 'Edit', 'soup2nuts' ), '<span class="edit-link">', '</span>' );
 }
 endif;
 
