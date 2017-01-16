@@ -298,3 +298,10 @@ function soup2nuts_custom_excerpt_more( $output ) {
 	return $output;
 }
 add_filter( 'get_the_excerpt', 'soup2nuts_custom_excerpt_more' );
+
+add_action( 'admin_head', 'showhiddencustomfields' );
+
+function showhiddencustomfields() {
+	echo "<style type='text/css'>#postcustom .hidden { display: table-row; }</style>
+";
+}

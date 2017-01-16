@@ -19,13 +19,21 @@ function get_the_subhead( $post = 0 ) {
 
   $post = get_post( $post );
 
-  $id = isset( $post->ID ) ? $post->ID : 0;
 
-  $post_meta = get_post_meta( $id, 'post_details', true );
+  $id = isset( $post->ID ) ? $post->ID : 0;
+  //$post_meta = get_post_meta( $id, 'post_details', true );
+  $post_meta = ( metadata_exists( 'post', $id, 'post_details' ) ) ? get_post_meta( $id, 'post_details', true ) : get_post_meta( $id, '', true );
+
+  //pre_printr($post_meta);
 
   if ( in_array( get_post_type( $id ), array( 'post', 'promotion' )) ) {
 
-    $subhead = isset( $post_meta['subhead'] ) ? $post_meta['subhead'] : '';
+    $subhead = '';
+
+    $subhead = isset( $post_meta['subhead'] ) ? $post_meta['subhead'] : $subhead;
+    $subhead = isset( $post_meta['sub-head'] ) ? $post_meta['sub-head'] : $subhead;
+
+    $subhead = ( gettype( $subhead ) == 'array' ) ? implode( $subhead ) : $subhead;
 
   } elseif ( 'tribe_events' == get_post_type( $id ) ) {
 

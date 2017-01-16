@@ -40,13 +40,18 @@
     height: 225px;
   }
 
+  //> * { outline: 1px solid red; }
+
   .site-branding {
     flex: 1 1 auto;
     order: 2;
 
     @include media( $third-break ) {
-      flex: 1 1 auto;
+      flex: 1 1 100%;
       order: 2;
+    }
+    @include media( $tall-enough ) {
+      flex: 1 1 66%;
     }
   }
 
@@ -64,11 +69,14 @@
     align-content: stretch;
 
     @include media( $third-break ) {
-      flex: 1 1 auto;
+      flex: 1 1 100%;
       order: 3;
 
       width: auto;
+    }
 
+    @include media( $tall-enough ) {
+      flex: 0 1 46px;
     }
   }
 

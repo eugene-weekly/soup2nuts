@@ -66,8 +66,14 @@
 .features-posts {
 
   @include media( $third-break ) {
-    height: 620px;
+    height: 720px;
   }
+
+  @include media( $tall-enough ) {
+    height: 720px;
+  }
+
+
 
   > .section-header {
 

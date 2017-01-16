@@ -37,13 +37,41 @@
 
       padding: 5px;
 
+      @include media( $third-break ) {
+        margin-top: flex-gutter();
+        margin-bottom: flex-gutter();
+        padding: 0 5px;
+      }
+
+      @include media( $tall-enough ) {
+        align-items: center;
+
+        padding-top: 20px;
+        padding-bottom: 0px;
+      }
+
       svg {
         flex: 1 1 auto;
+
+        @include media( $tall-enough ) {
+          max-height: 140px;
+        }
       }
     }
   }
 
   .site-description {
     @include visuallyhidden;
+  }
+
+  .site-header & {
+
+    .site-title {
+
+      @include media( $third-break ) {
+        max-width: 540px;
+
+      }
+    }
   }
 }
