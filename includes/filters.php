@@ -39,11 +39,12 @@ if ( ! function_exists( 'soup2nuts_pre_get_posts' ) ) :
       'type' => 'DATE',
       'compare' => 'EXISTS'
     );
+
+    $existingMetaQuery[] = $expiredMetaQuery;
   }
 
 
   if ( $query->is_home() || $query->is_front_page() ) {
-
 
     $thumbnailMetaQuery = array(
       'key' => '_thumbnail_id',
@@ -52,14 +53,12 @@ if ( ! function_exists( 'soup2nuts_pre_get_posts' ) ) :
 
     $existingMetaQuery[] = $thumbnailMetaQuery;
 
-    //pre_printr( $query );
-
   }
 
   $query->set( 'meta_query', $existingMetaQuery );
 
-   return $query;
- }
+  return $query;
+}
 endif; // soup2nuts_pre_get_posts
 
 add_filter( 'pre_get_posts', 'soup2nuts_pre_get_posts' );

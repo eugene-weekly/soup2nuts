@@ -1,4 +1,4 @@
-©/**
+/**
  * Posts / Pages
  */
 
@@ -231,7 +231,8 @@
   .news-posts &:first-of-type,
   .arts-posts &:first-of-type,
   .culture-posts &:first-of-type,
-  .events-posts & {
+  .events-posts &,
+  .more_features-posts & {
     @extend %featured-excerpt;
   }
 

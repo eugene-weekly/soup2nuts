@@ -12,41 +12,59 @@ get_header(); ?>
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
 
-    <?php if ( have_posts() ) : ?>
+      <?php $excludedPosts = array();
 
-      <header class="page-header">
-        <?php
-          the_archive_title( '<h1 class="page-title">', '</h1>' );
-          the_archive_description( '<div class="taxonomy-description">', '</div>' );
-        ?>
-      </header><!-- .page-header -->
+      $obj = get_queried_object();
 
-      <?php /* Start the Loop */ ?>
-      <?php while ( have_posts() ) : the_post(); ?>
+      foreach( array( 'features', 'latest', 'more_features', 'popular', 'promotions' ) as $tax_section ) :
 
-        <?php
+        $posts = tax_posts( $tax_section, $obj, $excludedPosts );
 
-          /*
-           * Include the Post-Format-specific template for the content.
-           * If you want to override this in a child theme, then include a file
-           * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-           */
-           //get_template_part( 'partials/content', get_post_format() );
-           get_template_part( 'partials/content', 'excerpt' );
-        ?>
+        //pre_printr( $posts );
 
-      <?php endwhile; ?>
+        if ( $posts->have_posts() ) :
 
-      <?php the_posts_navigation(); ?>
+          $excludedPosts = array_merge( $excludedPosts, wp_list_pluck( $posts->posts, 'ID' ) ); ?>
 
-    <?php else : ?>
+          <section class="<?php echo $tax_section; ?>-posts taxonomy-posts">
 
-      <?php get_template_part( 'partials/content', 'none' ); ?>
+            <?php if ( !in_array( $tax_section, array( 'features', 'more_features' ) ) ) : ?>
 
-    <?php endif; ?>
+            <header class="section-header news-header">
+              <h5 class="section-title"><?php echo ucwords( $tax_section ); ?></h5>
+            </header>
+
+            <?php endif;
+
+            while ( $posts->have_posts() ) : $posts->the_post();
+
+              //get_template_part( 'partials/content', 'excerpt' );
+              include( locate_template( 'partials/content-excerpt.php', false ) );
+
+              if (( $tax_section == 'features' ) && ( $posts->current_post == 1 ))
+                get_template_part( 'partials/module', 'ad' );
+
+            endwhile; ?>
+
+            <?php if ( !in_array( $tax_section, array( 'features', 'more_features' ) ) ) : ?>
+
+            <footer class="section-footer news-footer">
+              <a href="<?php the_category_link( $tax_section ); ?>" class="archive-link" rel="archive">Explore <span class="category-name"><?php echo ucwords( $tax_section ); ?></span><span class="svg_icon-explore"><?php icon_sprite( 'icon-explore' ); ?></span></a>
+            </footer>
+
+            <?php endif; ?>
+
+          </section><!-- featured posts -->
+        <?php endif;
+
+        if (( $tax_section == 'promotions' ))
+          get_template_part( 'partials/module', 'ad' );
+
+
+      endforeach; ?>
 
     </main><!-- #main -->
   </div><!-- #primary -->
 
-<?php get_sidebar(); ?>
+<?php //get_sidebar(); ?>
 <?php get_footer(); ?>

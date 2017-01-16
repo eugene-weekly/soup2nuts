@@ -63,15 +63,19 @@
   }
 }
 
-.features-posts, {
+.features-posts {
 
   @include media( $third-break ) {
     height: 620px;
   }
 
+  > .section-header {
+
+  }
+
   .excerpted-post {
 
-    &:nth-child( 1 ) {
+    &:nth-of-type( 1 ) {
 
       @include media( $third-break ) {
         flex: 1 1 100%;
@@ -95,10 +99,9 @@
           margin-right: 0;
         }
       }
-
     }
 
-    &:nth-child( 2 ) {
+    &:nth-of-type( 2 ) {
 
       @include media( $third-break ) {
         flex: 0 1 auto;

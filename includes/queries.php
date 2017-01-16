@@ -5,77 +5,156 @@
  * @package soup2nuts
  */
 
-if ( ! function_exists( 'home_posts' ) ) :
-  /**
-   * Return X posts.
-   *
-   * @uses WP_Query
-   *
-   * @since 0.1.0
-   */
+ if ( ! function_exists( 'home_posts' ) ) :
+   /**
+    * Return X posts.
+    *
+    * @uses WP_Query
+    *
+    * @since 0.1.0
+    */
 
-  function home_posts( $section = 'features', $excludedPosts = array() ) {
+   function home_posts( $section = 'features', $excludedPosts = array() ) {
 
-    $thumbnailMetaQuery = array(
-      'key' => '_thumbnail_id',
-      'compare' => 'EXISTS'
-    );
+     $thumbnailMetaQuery = array(
+       'key' => '_thumbnail_id',
+       'compare' => 'EXISTS'
+     );
 
-    $home_posts_args = array(
-      'posts_per_page' => 3,
-      'post__not_in' => $excludedPosts,
-      'meta_query' => array(
-        // $thumbnailMetaQuery // NOTE: Uncomment this to require thumbnails
-      )
-    );
+     $home_posts_args = array(
+       'posts_per_page' => 3,
+       'post__not_in' => $excludedPosts,
+       'meta_query' => array(
+         // $thumbnailMetaQuery // NOTE: Uncomment this to require thumbnails
+       )
+     );
 
-    if ( $section == 'features' ) {
+     if ( $section == 'features' ) {
 
-      $featured_post_id = one_featured_post( $home_posts_args, $excludedPosts, 'id' );
-      $featured_event_id = featured_events( 1, $excludedPosts, 'ids' );
+       $featured_post_id = featured_post( 1, $home_posts_args, $excludedPosts, 'id' );
+       $featured_event_id = featured_events( 1, $excludedPosts, 'ids' );
 
-      $home_posts_args['posts_per_page'] = 2;
-      $home_posts_args['post__in'] = array_merge( $featured_post_id, $featured_event_id );
-      $home_posts_args['orderby'] = 'post__in';
-      $home_posts_args['suppress_filters'] = true;
-      $home_posts_args['post_type'] = array( 'post', 'tribe_events' );
-    }
+       $home_posts_args['posts_per_page'] = 2;
+       $home_posts_args['post__in'] = array_merge( $featured_post_id, $featured_event_id );
+       $home_posts_args['orderby'] = 'post__in';
+       $home_posts_args['suppress_filters'] = true;
+       $home_posts_args['post_type'] = array( 'post', 'tribe_events' );
+     }
 
-    // Require thumbnails in certain sections
-    if ( in_array( $section, array( 'arts', 'culture' ) ) ) {
-      $home_posts_args[ 'meta_query' ][] = $thumbnailMetaQuery; // NOTE: Uncomment this to require thumbnails
-    }
+     // Require thumbnails in certain sections
+     if ( in_array( $section, array( 'arts', 'culture' ) ) ) {
+       $home_posts_args[ 'meta_query' ][] = $thumbnailMetaQuery; // NOTE: Uncomment this to require thumbnails
+     }
 
-    // Restrict posts to the appropriate categories
-    if ( in_array( $section, array( 'news', 'arts', 'culture' ) ) ) {
+     // Restrict posts to the appropriate categories
+     if ( in_array( $section, array( 'news', 'arts', 'culture' ) ) ) {
 
-      $home_posts_args[ 'tax_query' ][] = array(
-        'taxonomy' => 'category',
-        'field'    => 'slug',
-        'terms'    => $section,
-      );
-    }
+       $home_posts_args[ 'tax_query' ][] = array(
+         'taxonomy' => 'category',
+         'field'    => 'slug',
+         'terms'    => $section,
+       );
+     }
 
-    if ( $section == 'events' ) {
+     if ( $section == 'events' ) {
 
-      return featured_events( 3, $excludedPosts, 'posts' );
+       return featured_events( 3, $excludedPosts, 'posts' );
 
-    }
+     }
+
+     if ( $section == 'promotions' ) {
+       $home_posts_args['post_type'] = 'promotion';
+       $home_posts_args['posts_per_page'] = 4;
+     }
+
+     return new WP_Query( $home_posts_args );
+
+   }
+
+ endif; //home_posts
+
+ if ( ! function_exists( 'tax_posts' ) ) :
+   /**
+    * Return X posts.
+    *
+    * @uses WP_Query
+    *
+    * @since 0.1.0
+    */
+
+   function tax_posts( $section = 'features', $tax, $excludedPosts = array() ) {
+
+     if ( !isset( $tax ) )
+      return false;
+
+     $thumbnailMetaQuery = array(
+       'key' => '_thumbnail_id',
+       'compare' => 'EXISTS'
+     );
+
+     $tax_query = array(
+       'taxonomy' => $tax->taxonomy,
+       'field'    => 'slug',
+       'terms'    => array( $tax->slug ),
+     );
+
+     $tax_posts_args = array(
+       'posts_per_page' => 6,
+       'post__not_in' => $excludedPosts,
+       'tax_query' => array(
+         $tax_query
+       ),
+       'meta_query' => array(
+         // $thumbnailMetaQuery // NOTE: Uncomment this to require thumbnails
+       )
+     );
+
+     if ( in_array( $section, array( 'features', 'more_features' ) ) ) {
+
+       $featured_post_count = ( $section == 'features' ) ? 1 : 2;
+       $event_post_count = 1;
+
+       $featured_posts = featured_post( $featured_post_count, $tax_posts_args, $excludedPosts, 'id' );
+       $featured_events = featured_events( $event_post_count, $excludedPosts, 'ids' );
+
+       $featured_post_args = array();
 
 
-    if ( $section == 'promotions' ) {
-      $home_posts_args['post_type'] = 'promotion';
-      $home_posts_args['posts_per_page'] = 4;
-    }
+       if ( $section == 'features') {
+         $post__in = array_merge( $featured_posts, $featured_events );
+       } else {
+         $post__in = array( $featured_posts[0], $featured_events[0], $featured_posts[1] );
+       }
 
-    return new WP_Query( $home_posts_args );
+       $featured_post_args['posts_per_page'] = $featured_post_count + $event_post_count;
+       $featured_post_args['post__not_in'] = $excludedPosts;
+       $featured_post_args['post__in'] = $post__in;
+       $featured_post_args['orderby'] = 'post__in';
+       $featured_post_args['suppress_filters'] = true;
+       $featured_post_args['post_type'] = array( 'post', 'tribe_events' );
 
-  }
+       $tax_posts_args = $featured_post_args;
 
-endif; //home_posts
+     }
+
+     if ( $section == 'promotions' ) {
+       $promotions_args = array();
+
+       $promotions_args['post_type'] = 'promotion';
+       $promotions_args['posts_per_page'] = 4;
+       $promotions_args['post__in'] = $excludedPosts;
+
+       $tax_posts_args = $promotions_args;
+     }
+
+     return new WP_Query( $tax_posts_args );
+
+   }
+
+ endif; //tax_posts
 
 
-if ( ! function_exists( 'one_featured_post' ) ) :
+if ( ! function_exists( 'featured_post' ) ) :
  /**
   * Return 1 post, most featured.
   *
@@ -84,10 +163,10 @@ if ( ! function_exists( 'one_featured_post' ) ) :
   * @since 0.1.0
   */
 
-  function one_featured_post( $extantPostArgs = array(), $excludedPosts = array(), $return = 'posts' ) {
+  function featured_post( $count = 1, $extantPostArgs = array(), $excludedPosts = array(), $return = 'posts' ) {
 
     $featuredPostArgs = array(
-      'posts_per_page' => 1,
+      'posts_per_page' => $count,
       'post_type' => 'post',
       'post__not_in' => $excludedPosts,
     );
@@ -103,24 +182,30 @@ if ( ! function_exists( 'one_featured_post' ) ) :
     $featuredPostArgs['meta_query'][ 'relation' ] = 'AND';
 
     $featured_post = new WP_Query( $featuredPostArgs );
-
-    if ( !$featured_post->have_posts() ) {
+    if ( (!$featured_post->have_posts()) || ($featured_post->found_posts < $count) ) {
 
       $backupPostArgs = array(
-        'posts_per_page' => 1,
+        'posts_per_page' => $count,
         'post__not_in' => $excludedPosts,
       );
 
       $featured_post = new WP_Query( $backupPostArgs );
+
+      //pre_printr( $featured_post );
+      //pre_printr( $count );
     }
+
+
+    //pre_printr( $featured_post );
+
 
     if ( $featured_post->have_posts() ) {
 
-
       if ( $return == 'id' ) {
 
+
         // Return array of ids
-        return array( $featured_post->posts[0]->ID );
+        return wp_list_pluck( $featured_post->posts, 'ID' );
 
       } elseif ( $return == 'posts' ) {
 
@@ -141,7 +226,7 @@ if ( ! function_exists( 'one_featured_post' ) ) :
 
   }
 
-endif; //one_featured_post
+endif; //featured_post
 
 
 if ( ! function_exists( 'featured_events' ) ) :
@@ -182,14 +267,13 @@ if ( ! function_exists( 'featured_events' ) ) :
     );
 
     $featuredEvents = tribe_get_events( $featuredEventsArgs );
+
     // No events marked as featured, get most recent instead.
     if ( empty( $featuredEvents ) ) {
 
       $featuredEventsArgs = $baseEventArgs;
 
-      pre_printr($featuredEventsArgs);
       $featuredEvents = tribe_get_events( $featuredEventsArgs );
-      var_dump($featuredEvents);
     }
 
     if ( $return == 'ids' ) {

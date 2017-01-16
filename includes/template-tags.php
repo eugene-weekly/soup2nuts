@@ -78,7 +78,7 @@ function soup2nuts_excerpt_meta() {
     $categories = get_the_category( );
 
     if ( $categories ) {
-
+      //pre_printr( $categories );
       echo '<span class="excerpt-meta-item meta-item post-categories">';
 
       foreach ( $categories as $i=>$category ) {
@@ -86,7 +86,6 @@ function soup2nuts_excerpt_meta() {
           echo ' / ';
 
         printf( '<a href="%1$s" class="post-category">%2$s</a>', esc_url( get_category_link( $category->term_id ) ), esc_html__( $category->name ) );
-
 
       }
 

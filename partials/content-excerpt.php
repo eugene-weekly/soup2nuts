@@ -7,7 +7,17 @@
  * @package soup2nuts
  */
 
-$hero_origin = isset( $home_section ) ? $home_section : 'archive';
+$section = 'archive';
+
+if ( isset( $home_section ) ) {
+
+  $section = $home_section;
+
+} elseif ( isset( $tax_section ) ) {
+
+  $section = $tax_section;
+}
+
 $position = isset( $posts->current_post ) ? $posts->current_post : 0; ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'excerpted-post' ); ?>>
@@ -23,7 +33,7 @@ $position = isset( $posts->current_post ) ? $posts->current_post : 0; ?>
 
   <figure class="entry-hero">
     <a href="<?php the_permalink(); ?>" rel="bookmark">
-      <?php the_hero_image( guess_hero_size( $hero_origin, $position ) ); ?>
+      <?php the_hero_image( guess_hero_size( $section, $position ) ); ?>
     </a>
   </figure><!-- .entry-hero -->
 
