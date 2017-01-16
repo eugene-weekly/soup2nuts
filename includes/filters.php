@@ -162,7 +162,7 @@ if ( ! function_exists( 'soup2nuts_excerpt_length' ) ) :
    */
 
   function soup2nuts_excerpt_length( $length ) {
-    return 40;
+    return 25;
   }
 endif; // soup2nuts_excerpt_length
 

@@ -9,9 +9,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
   <figure class="entry-hero">
-    <a href="<?php the_permalink(); ?>" rel="bookmark">
-      <?php the_hero_image( 'hero' ); ?>
-    </a>
+    <?php the_hero_image( 'hero' ); ?>
   </figure><!-- .entry-hero -->
 
   <header class="entry-header">
@@ -26,6 +24,7 @@
   <div class="entry-content">
     <?php the_content(); ?>
   </div><!-- .entry-content -->
+  <!-- ad sidebar will go here -->
 
   <footer class="entry-footer">
     <?php soup2nuts_entry_footer(); ?>

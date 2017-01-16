@@ -18,7 +18,10 @@ textarea {
 
 h1,
 %h1 {
-
+  font-weight: 900;
+  font-size: em( 64 );
+  font-family: $alianza;
+  line-height: 0.9;
 }
 
 h2,
@@ -55,7 +58,13 @@ h5,
 
 h6,
 %h6 {
-
+  font-style: normal;
+  font-weight: 900;
+  font-size: em( 16 );
+  font-family: $alianza;
+  line-height: 1.25;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 .site-header .menu-item {
@@ -71,6 +80,7 @@ h6,
   }
 }
 
+
 .entry-meta {
   @extend %h5;
 
@@ -79,13 +89,15 @@ h6,
   text-transform: uppercase;
 }
 
-.entry-content {
-  > p:first-child {
+.hentry:not(.category-letters, .category-slant, .category-biz_beat, .category-spray-schedule, .category-pollution-update, .category-activist-alert ) {
+  .entry-content {
+    > p:first-child {
 
-    &:first-letter {
-      font-weight: 900;
-      font-size: em( 108, 18 );
-      line-height: 0.66;
+      &:first-letter {
+        font-weight: 900;
+        font-size: em( 108, 18 );
+        line-height: 0.66;
+      }
     }
   }
 }
@@ -97,8 +109,38 @@ h6,
   }
 }
 
+.single,
+.singular,
+.page {
+  .entry-title {
+
+  }
+
+  .entry-subhead {
+    font-size: em( 30, 18 );
+  }
+}
+
+
+.hero-caption {
+  @extend %h6;
+
+  font-size: em( 10, 16 );
+
+  @include media( $third-break ) {
+    font-size: em( 14, 16 );
+  }
+
+  .photo-credit {
+    font-style: italic;
+    font-weight: 400;
+    font-size: em( 12, 14 );
+    text-transform: none;
+  }
+}
+
 .tribe_events {
-  .hero-caption {
+  .event-caption {
     @extend %h3;
 
     line-height: 0.8;
@@ -125,7 +167,7 @@ h6,
   @extend %h5;
 
   font-style: normal;
-  line-height: 0.66;
+  line-height: 0.33;
 
   .category-name { font-style: italic; }
 }

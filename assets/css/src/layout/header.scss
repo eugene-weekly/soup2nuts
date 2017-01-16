@@ -19,7 +19,7 @@
 
   background-color: color( white );
 
-  box-shadow: 0 5px 10px rgba( 26, 25, 25, 0.4);
+  box-shadow: 0 3px 5px rgba( 26, 25, 25, 0.09);
 
   @include media( $third-break ) {
     flex-direction: column;

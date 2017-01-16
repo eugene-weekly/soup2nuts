@@ -133,14 +133,20 @@ function get_the_hero_image( $size, $hero_origin = false ) {
   $heroImgID = get_post_thumbnail_id( $hero_origin );
   //$heroImgID = $heroImgObject['ID'];
   $heroImgSrc = wp_get_attachment_image( $heroImgID, $size );
-  //$heroImgSrc = add_credit_to_img_src( $heroImgSrc, $heroImgID );
   $heroImgMeta = wp_get_attachment_metadata( $heroImgID );
   $heroImg = wp_image_add_srcset_and_sizes( $heroImgSrc, $heroImgMeta, $heroImgID );
 
-  $figcaption = get_the_photo_caption( $hero_origin );
+  $figcaption = get_the_photo_caption( $hero_origin, $heroImgID );
 
-  if ( $figcaption )
-    $figcaption = '<figcaption class="hero-caption">' . $figcaption . '</figcaption>';
+  if ( $figcaption ) {
+
+    if ( tribe_is_event( $hero_origin ) ) {
+      $figcaption = '<figcaption class="event-caption">' . $figcaption . '</figcaption>';
+    } else {
+      $figcaption = '<figcaption class="hero-caption">' . $figcaption . '</figcaption>';
+    }
+
+  }
 
   return $heroImg . $figcaption;
   //return $heroImg;
@@ -436,30 +442,26 @@ function calculate_responsive_bg_img_styles( $size_array, $image_src, $image_met
 }
 
 
-function add_credit_to_img_src( $html, $id ) {
-  //@TODO: write this.
-
-  $credit = get_the_photo_caption( $id );
-
-  if ( $credit ) {
-    $html = str_replace('<img', '<img data-photo-credit="' . $credit . '" '  , $html);
-    $html = str_replace('class="', 'class="has-photo-credit '  , $html);
-  }
-
-  return $html;
-
-}
-
-function get_the_photo_caption( $id ) {
+function get_the_photo_caption( $post_id, $img_id ) {
   //@TODO: write this.
 
   $caption = false;
 
-  if ( tribe_is_event( $id ) ) {
+  if ( $img_id && !is_home() && !is_front_page() && !is_archive() ) {
+    $img_content = get_post( $img_id );
+
+    $caption = ( isset( $img_content->post_excerpt ) ) ? $img_content->post_excerpt : $caption;
+    $description = ( isset( $img_content->post_content ) && ( $caption !== $img_content->post_content )) ? '<span class="photo-credit">' . $img_content->post_content . '</span>' : false;
+
+    $caption = $caption . $description;
+
+  }
+
+  if ( tribe_is_event( $post_id ) ) {
     //$event_month = space_string( tribe_get_start_date( $id, false, 'M' ) );
     //$event_day = space_string( tribe_get_start_date( $id, false, 'd' ) );
-    $event_month = tribe_get_start_date( $id, false, 'M' );
-    $event_day = tribe_get_start_date( $id, false, 'd' );
+    $event_month = tribe_get_start_date( $post_id, false, 'M' );
+    $event_day = tribe_get_start_date( $post_id, false, 'd' );
 
     $caption = sprintf('<span class="event-month">%1$s</span><span class="event-date">%2$s</span>', $event_month, $event_day );
 

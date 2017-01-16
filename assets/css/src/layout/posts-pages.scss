@@ -84,7 +84,7 @@
     align-items: stretch;
     align-content: stretch;
 
-    padding-bottom: 1em;
+    padding-bottom: 0em;
   }
 
   &.no-post-img {
@@ -137,7 +137,7 @@
     order: 3;
 
     margin: 0 0 1em;
-    @include pad( 0 flex-gutter( 4 ) );
+    @include pad( 0 flex-gutter( 4 ) 1em );
 
     @include media( $third-break ) {
       flex: 0 1 auto;
@@ -189,13 +189,12 @@
   display: flex;
   flex-wrap: nowrap;
 
-  margin-bottom: 1em;
-  padding-bottom: 1em;
+  margin-bottom: 2em;
+  padding-bottom: 2em;
 
   background-color: color( white );
 
   border-bottom: 1px solid color( red );
-
 
   &:last-of-type {
     margin-bottom: 1.5em;
@@ -240,6 +239,14 @@
     flex: 1 1 flex-grid( 8 );
   }
 
+  .entry-title {
+    margin-bottom: 0.15em;
+  }
+
+  .entry-subhead {
+    margin-bottom: 0.5em;
+  }
+
   .entry-hero {
     flex: 1 1 flex-grid( 4 );
   }
@@ -280,12 +287,31 @@
     }
   }
 
+  .entry-header {
+
+  }
+
   .entry-hero {
-    margin-bottom: 1.25em;
+    margin-bottom: 1.5em;
+
+    .hero-caption {
+      margin-left: flex-gutter();
+      margin-right: flex-gutter();
+
+      text-align: right;
+
+      .photo-credit {
+        display: inline-block;
+        margin-left: 1em;
+
+        color: color( grey );
+
+      }
+    }
   }
 
   .entry-title {
-    margin-bottom: 0.25em;
+    margin-bottom: 0.15em;
   }
 
   .entry-subhead {
@@ -293,20 +319,23 @@
   }
 
   .entry-content {
-    > p:first-child {
+  }
 
-      &:first-letter {
-        float: left;
-        margin-right: flex-gutter( 8 );
-        margin-top: 0.1em;
-        margin-bottom: 0;
+  .hentry:not(.category-letters, .category-slant, .category-biz_beat, .category-spray-schedule, .category-pollution-update, .category-activist-alert ) {
+    .entry-content {
+      > p:first-child {
 
-        @include media( $third-break ) {
-          margin-right: flex-gutter(18);
+        &:first-letter {
+          float: left;
+          margin-right: flex-gutter( 8 );
+          margin-top: 0.1em;
+          margin-bottom: 0;
+
+          @include media( $third-break ) {
+            margin-right: flex-gutter(18);
+          }
         }
       }
     }
   }
-
-
 }

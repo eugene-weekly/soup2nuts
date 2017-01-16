@@ -44,6 +44,7 @@
      // Require thumbnails in certain sections
      if ( in_array( $section, array( 'arts', 'culture' ) ) ) {
        $home_posts_args[ 'meta_query' ][] = $thumbnailMetaQuery; // NOTE: Uncomment this to require thumbnails
+       $home_posts_args['posts_per_page'] = 4;
      }
 
      // Restrict posts to the appropriate categories
