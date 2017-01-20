@@ -8,7 +8,7 @@
  */
 
 $section = '';
-$tag_code = '300x250_featured';
+$tag_code = 'div-gpt-ad-1484871111003-0';
 if ( isset( $home_section ) ) {
 
   $section = $home_section;
@@ -30,5 +30,5 @@ if ( !$tag_code )
   return;
 
 ?><div class="ad">
-  <?php do_action( 'acm_tag', $tag_code ); ?>
+  <?php do_action( 'acm_tag', 'div-gpt-ad-1484871111003-0' ); ?>
 </div>
