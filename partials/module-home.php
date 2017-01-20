@@ -35,7 +35,7 @@ foreach( array( 'features', 'news', 'arts', 'culture', 'events', 'promotions' ) 
         include( locate_template( 'partials/content-excerpt.php', false ) );
 
         if (( $home_section == 'features' ) && ( $posts->current_post == 1 ))
-          get_template_part( 'partials/module', 'ad' );
+          include( locate_template( 'partials/module-ad.php', false ) );
 
       endwhile; ?>
 
