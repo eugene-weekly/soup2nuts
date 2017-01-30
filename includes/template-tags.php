@@ -260,3 +260,23 @@ function icon_sprite( $icon ) {
 
 }
 endif;
+
+
+if ( ! function_exists( 'the_social_header' ) ) :
+/** @TODO: Update this
+ *
+ * Display category, tag, or term description.
+ *
+ * @param string $before Optional. Content to prepend to the description. Default empty.
+ * @param string $after  Optional. Content to append to the description. Default empty.
+ */
+function the_social_header( ) {
+
+  $social_widget_instance = get_option('widget_wpcom_social_media_icons_widget');
+  $social_widget_instance = array_shift( $social_widget_instance );
+  $social_widget_instance['youtube_username'] = '';
+
+  return the_widget( 'wpcom_social_media_icons_widget', $social_widget_instance );
+
+}
+endif;

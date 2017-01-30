@@ -36,24 +36,22 @@
     <div class="site-branding">
       <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><span class="visuallyhidden"><?php bloginfo( 'name' ); ?></span><?php icon_sprite( 'logo-ew-type' ); ?></a></h1>
       <p class="site-description"><?php bloginfo( 'description' ); ?></p>
+
+      <?php wp_nav_menu( array( 'theme_location' => 'category', 'menu_id' => 'category-menu' ) ); ?><!-- .category-nav -->
     </div><!-- .site-branding -->
 
     <nav id="site-navigation" class="main-navigation" role="navigation">
       <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+        <span class="menu-label">Menu</span>
         <?php icon_sprite( 'icon-hamburger' ); ?>
         <?php icon_sprite( 'icon-close' ); ?>
       </button>
       <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
     </nav><!-- #site-navigation -->
 
-    <?php $social_widget_instance = get_option('widget_wpcom_social_media_icons_widget');
-    $social_widget_instance = array_shift( $social_widget_instance );
-    $social_widget_instance['youtube_username'] = '';
-
-    the_widget( 'wpcom_social_media_icons_widget', $social_widget_instance ); ?>
+    <?php the_social_header(); ?>
 
     <div class="right-column">
-      <?php wp_nav_menu( array( 'theme_location' => 'calendar', 'menu_id' => 'calendar-menu' ) ); ?><!-- .calendar-icon -->
 
       <?php the_widget( 'WP_Widget_Search' ); ?><!-- .widget-search -->
 

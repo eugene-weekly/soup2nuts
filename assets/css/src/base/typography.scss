@@ -67,7 +67,9 @@ h6,
   text-transform: uppercase;
 }
 
-.site-header .menu-item {
+.site-header .menu-item,
+.menu-toggle .menu-label,
+.search-label {
   @extend %h4;
 
   font-weight: 900;

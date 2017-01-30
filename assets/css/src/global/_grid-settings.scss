@@ -33,5 +33,6 @@ $fifth-break: new-breakpoint( min-width $max-width 12 );
 $fourth-break: new-breakpoint( min-width $landscape 12 );
 $third-and-a-half-break: new-breakpoint( min-width $tablet max-width $tablet-and-a-half 12 );
 $third-break: new-breakpoint( min-width $tablet 12 );
+$less-than-third-break: new-breakpoint( max-width $tablet 12 );
 $second-break: new-breakpoint( min-width $mobile-wide 6 );
 $first-break: new-breakpoint( min-width $mobile 6 );

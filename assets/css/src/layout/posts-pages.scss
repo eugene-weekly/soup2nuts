@@ -205,7 +205,7 @@
   }
 
   &.no-post-img {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 
     &.category-news {
       .entry-hero {

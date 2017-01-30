@@ -51,10 +51,12 @@ foreach( array( 'features', 'news', 'arts', 'culture', 'events', 'promotions' ) 
   <?php endif;
 
   if (( $home_section == 'events' ))
-    get_template_part( 'partials/module', 'ad-large' );
+    //get_template_part( 'partials/module', 'ad-large' );
 
-  if (( $home_section == 'promotions' ))
-    get_template_part( 'partials/module', 'ad' );
+  if (( $home_section == 'promotions' )) {
+    include( locate_template( 'partials/module-ad.php', false ) );
+    include( locate_template( 'partials/module-ad.php', false ) );
+  }
 
 
 endforeach;

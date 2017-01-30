@@ -8,12 +8,13 @@
 svg {
   &,
   use {
-    transition: all ease-out 0.125s;
+    transition: all 0.25s ease-out;
   }
 }
 
 a,
-label {
+label,
+button {
   &:hover,
   &:focus {
     svg {

@@ -14,35 +14,83 @@
 
     box-shadow: none;
 
+    &:hover,
     &:focus,
     &:active {
       outline: 0;
+
+      color: color( red );
+
+      .icon {
+        //fill: color( red );
+      }
+    }
+
+    &:hover {
+      .menu-label { opacity: 1; }
+    }
+
+    @include media( $third-break ) {
+      padding: 8px 41px 8px 8px;
+    }
+
+    @include media( $third-break ) {
+      padding: 8px 49px 8px 8px;
+    }
+
+
+    .menu-label {
+      @include media( $less-than-third-break ) {
+        @include visuallyhidden;
+      }
+
+      @include media( $third-break ) {
+        display: block;
+        width: 100%;
+        opacity: 0;
+
+        font-size: em( 20.25, 13.5 );
+        text-align: right;
+
+        transition: all 0.25s ease-out;
+      }
     }
 
     .icon {
       position: absolute;
-      top: 8px;
+      top: 50%;
 
       transition: all 0.25s ease-out;
+
+      @include media( $third-break ) {
+        right: 8px;
+        max-height: 25px;
+        max-width: 25px;
+      }
+
+      @include media( $tall-enough ) {
+        max-width: 35px;
+        max-height: 35px;
+      }
     }
 
     .icon-hamburger {
       opacity: 1;
-      transform: scale( 1 );
+      transform: scale( 1 ) translateY(-50%);
 
       @at-root .show-nav & {
         opacity: 0;
-        transform: scale( 0 );
+        transform: scale( 0 ) translateY(-50%);
       }
     }
 
     .icon-close {
       opacity: 0;
-      transform: scale( 0 );
+      transform: scale( 0 ) translateY(-50%);
 
       @at-root .show-nav & {
         opacity: 1;
-        transform: scale( 1 );
+        transform: scale( 1 ) translateY(-50%);
       }
     }
   }

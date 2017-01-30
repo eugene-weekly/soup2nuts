@@ -14,7 +14,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "autoprefixer": "^6.6.1",
+    "autoprefixer": "^6.7.0",
     "cssnano": "^3.10.0",
     "grunt": "^1.0.1",
     "grunt-autoprefixer": "^3.0.4",

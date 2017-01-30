@@ -30,12 +30,21 @@ body {
   }
 
   &.show-nav {
-    overflow: hidden;
+    @include media( $less-than-third-break ) {
+      overflow: hidden;
+    }
 
     #content {
-      pointer-events: none;
+      @include media( $less-than-third-break ) {
+        pointer-events: none;
+      }
     }
   }
+}
+
+.site {
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 nav { @include no-list; }

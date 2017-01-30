@@ -7,9 +7,9 @@
 
 <form role="search" method="get" class="search-form" action="<?php echo home_url( '/' ); ?>">
   <label for="s" class="search-trigger">
+    <span class="search-label"><?php echo _x( 'Search', 'label' ) ?></span>
     <?php icon_sprite( 'icon-search' ); ?>
     <?php icon_sprite( 'icon-close' ); ?>
-    <span class="screen-reader-text"><?php echo _x( 'Search', 'label' ) ?></span>
   </label>
   <div class="search-wrapper">
     <label class="search-label">

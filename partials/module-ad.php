@@ -8,7 +8,6 @@
  */
 
 $section = '';
-$tag_code = '300x250';
 if ( isset( $home_section ) ) {
 
   $section = $home_section;
@@ -23,11 +22,20 @@ $position = isset( $posts->current_post ) ? $posts->current_post : 1;
 $position = ( $position < 1 ) ? 1 : $position;
 
 if ( !empty( $section ) ) {
+  switch ($section) {
+    case 'promotions':
+      $tag_code = '300x250_2';
+      break;
 
+    case 'features':
+    default:
+      $tag_code = '300x250_1';
+      break;
+  }
 }
 
 if ( !$tag_code )
-  return;
+  $tag_code = '300x250';
 
 ?><div class="ad">
   <?php do_action( 'acm_tag', $tag_code ); ?>

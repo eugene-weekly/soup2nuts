@@ -14,19 +14,19 @@
     ul {
 
       @include media( $third-break ) {
-        position: absolute;
-        top: 1.5em;
-        left: -999em;
-        z-index: 99999;
+        //position: absolute;
+        //top: 1.5em;
+        //left: -999em;
+        //z-index: 99999;
 
-        float: left;
+        //float: left;
       }
 
       ul {
 
         @include media( $third-break ) {
-          top: 0;
-          left: -999em;
+          //top: 0;
+          //left: -999em;
         }
       }
 
@@ -47,7 +47,7 @@
     li:hover > ul,
     li.focus > ul {
       @include media( $third-break ) {
-        left: auto;
+        //left: auto;
       }
     }
   }
@@ -95,7 +95,9 @@
 
   cursor: pointer;
 
-  @include media( $third-break ) { display: none; }
+  @include media( $third-break ) {
+
+  }
 
   .icon {
     flex: 0 1 auto;
@@ -133,37 +135,42 @@
       transform: translateX( -110% );
       transition: all 0.25s ease-out;
 
+      @include media( $third-break ) {
+        top: 100%;
+        left: auto;
+        right: 0 - $half-gutter;
+
+        width: auto;
+        min-width: 320px;
+        max-width: calc( 100vw - 43px );
+        max-height: calc( 100vh - 125px );
+
+        border-top: 0;
+
+        transform: translateX( 100% );
+      }
+
+      @include media( $tall-enough ) {
+
+      }
+
       @at-root .show-nav & {
         padding-bottom: 3em;
 
         transform: translateX( 0 );
 
         box-shadow: 5px 10px 10px rgba( 26, 25, 25, 0.4);
-      }
 
-      @include media( $third-break ) {
-        display: flex;
-        justify-content: center;
-        align-items: stretch;
-        align-content: stretch;
+        @include media( $third-break ) {
+          //width: calc( 100vw - 43px );
+          //max-width: 480px;
+          max-height: calc( 100vh - 125px );
+          transform: translateX( 0 );
+        }
 
-        position: relative;
-        top: auto;
-        left: auto;
+        @include media( $tall-enough ) {
 
-        width: 100%;
-        max-width: 540px;
-        height: auto;
-        margin-bottom: 0;
-        padding-left: 0;
-        padding-right: 0;
-        overflow: visible;
-
-        border-top: 0;
-
-        box-shadow: 0;
-
-        transform: translateX( 0 );
+        }
       }
     }
   }
@@ -177,13 +184,6 @@
     margin-right: flex-gutter();
 
     @include media( $third-break ) {
-      flex: 1 1 100%;
-
-      flex-wrap: nowrap;
-      justify-content: center;
-
-      margin-left: auto;
-      margin-right: auto;
     }
 
     .menu-item {
@@ -196,12 +196,6 @@
 
       @include media( $third-break ) {
 
-        display: flex;
-        justify-content: center;
-        align-items: stretch;
-        align-content: stretch;
-
-        flex: 1 1 auto;
       }
 
       &:hover,
@@ -219,10 +213,6 @@
       &.menu-item-calendar {
         order: 1;
 
-
-        @include media( $third-break ) {
-          order: 3;
-        }
       }
 
       a {
@@ -233,29 +223,15 @@
 
         @include media( $third-break ) {
 
-          flex: 1 1 100%;
-
-          display: flex;
-          justify-content: center;
-          align-items: stretch;
-          align-content: stretch;
-
-          border-bottom: 0;
         }
       }
 
       .menu-item-title {
         flex: 1 1 auto;
-
-        @include media( $third-break ) {
-          text-align: center;
-        }
       }
 
       .icon {
         flex: 0 1 40px;
-
-        @include media( $third-break ) { display: none; }
       }
     }
 
@@ -266,10 +242,6 @@
 
       display: block;
       margin-left: flex-gutter();
-
-      @include media( $third-break ) {
-        display: none;
-      }
 
       .menu-item {
 
@@ -302,19 +274,119 @@
   }
 }
 
-.right-column .navigation-menu {
+.category-menu-container {
+  @include media( $third-break ) {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    align-content: stretch;
+
+    width: 100%;
+    max-width: 540px;
+    height: auto;
+    margin-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    overflow: visible;
+  }
+
+  .menu {
+    flex: 1 1 100%;
+
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .menu-item {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    align-content: stretch;
+
+    flex: 1 1 auto;
+
+    color: color( red );
+  }
+
+  a {
+    flex: 1 1 100%;
+
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: stretch;
+    align-content: stretch;
+
+    text-decoration: none;
+  }
+
+  .sub-menu,
+  .icon {
+    display: none;
+  }
+}
+
+.contact-menu-container {
   ul {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: stretch;
 
-    margin: auto;
+    width: 100%;
+    margin: 0;
 
     li {
-      flex: 0 1 auto;
+      flex: 1 0 100%;
+
+      display: flex;
+      justify-content: stretch;
+      align-items: stretch;
 
       margin-right: 0;
+
+      a {
+        flex: 1 1 100%;
+
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: flex-end;
+        align-items: center;
+
+        text-decoration: none;
+
+        .menu-item-title {
+          flex: 0 1 auto;
+
+          opacity: 0;
+
+          color: color( red );
+
+          white-space: nowrap;
+
+          transition: all 0.25s ease-out;
+        }
+
+        .icon {
+          flex: 0 0 40px;
+
+          @include media( $tall-enough ) {
+            margin-right: 8px;
+            margin-left: 8px;
+          }
+        }
+
+        &:hover {
+          .menu-item-title {
+            opacity: 1;
+          }
+        }
+      }
     }
   }
 }

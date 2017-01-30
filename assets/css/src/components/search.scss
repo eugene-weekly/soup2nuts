@@ -19,7 +19,7 @@
 
       align-items: stretch;
       align-content: stretch;
-      justify-content: center;
+      justify-content: flex-end;
     }
 
     @include media( $tall-enough ) {
@@ -42,13 +42,12 @@
       transition: all ease-out 0.25s;
       transition-delay: 0.25s;
 
-
       @include media( $third-break ) {
-        flex: 0 1 43px;
+        flex: 0 1 auto;
 
         z-index: 6;
 
-        padding: 8px;
+        padding: 8px 41px 8px 8px;
 
         background-color: transparent;
 
@@ -58,9 +57,9 @@
       }
 
       @include media( $tall-enough ) {
-        flex: 0 1 66px;
+        flex: 0 1 auto;
 
-        padding: 16px;
+        padding: 16px 57px 16px 16px;
       }
 
       @at-root .show-search & {
@@ -73,6 +72,24 @@
         }
 
         @include media( $tall-enough ) {
+        }
+      }
+
+      &:hover .search-label {
+        opacity: 1;
+      }
+
+      .search-label {
+        opacity: 0;
+
+        @include media( $less-than-third-break ) {
+          @include visuallyhidden;
+        }
+
+        @include media( $third-break ) {
+          color: color( red );
+
+          transition: all 0.25s ease-out;
         }
       }
 

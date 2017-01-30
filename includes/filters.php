@@ -185,7 +185,7 @@ if ( ! function_exists( 'soup2nuts_wp_nav_menu_args' ) ) :
 
     // Always nav, never div
     $args['container'] = 'nav';
-    $args['container_class'] = 'navigation-menu';
+    $container_classes = array('navigation-menu');
 
     if ( isset($args['menu']->name) && 'Social' == $args['menu']->name ) :
 
@@ -193,6 +193,11 @@ if ( ! function_exists( 'soup2nuts_wp_nav_menu_args' ) ) :
       $args['container'] = 'div';
 
     endif;
+
+    if ( isset( $args['menu_id'] ) )
+      $container_classes[] = $args['menu_id'] . '-container';
+
+    $args['container_class'] = implode( ' ', $container_classes );
 
     return $args;
   }
