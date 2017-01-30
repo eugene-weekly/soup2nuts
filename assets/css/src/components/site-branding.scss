@@ -11,7 +11,12 @@
   @include media( $third-break ) {
     flex-wrap: wrap;
 
-    //max-width: 540px;
+    width: 60%;
+    max-width: 450px;
+  }
+
+  @include media( $fourth-break ) {
+    max-width: 60%;
   }
 
   .site-title {

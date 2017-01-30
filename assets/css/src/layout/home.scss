@@ -113,11 +113,12 @@
         //flex: 1 1 auto; // needs ad
 
         width: flex-grid( 4 );
+        max-height: 443px;
       }
 
       .entry-hero {
         @include media( $third-break ) {
-          min-height: 200px;
+          min-height: auto;
         }
       }
     }
