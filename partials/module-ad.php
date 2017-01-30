@@ -24,12 +24,12 @@ $position = ( $position < 1 ) ? 1 : $position;
 if ( !empty( $section ) ) {
   switch ($section) {
     case 'promotions':
-      $tag_code = '300x250_2';
+      $tag_code = '300x250';
       break;
 
     case 'features':
     default:
-      $tag_code = '300x250_1';
+      $tag_code = '300x250';
       break;
   }
 }

@@ -129,6 +129,8 @@
       //flex: 1 1 auto; // needs ad
 
       width: flex-grid( 4 );
+      min-width: 300px;
+      min-height: 250px;
     }
   }
 }
