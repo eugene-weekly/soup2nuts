@@ -156,7 +156,7 @@ if ( ! function_exists( 'soup2nuts_entry_footer' ) ) :
  * Prints HTML with meta information for the categories, tags and comments.
  */
 function soup2nuts_entry_footer() {
-  if ( ('tribe_events' == get_post_type()) &&  ( is_front_page() || is_home() ) ) {
+  if ( ('tribe_events' == get_post_type()) ) {
 
     $sponsored = ( get_post_meta( get_the_ID(), 'sponsored', true ) ) ? 'Sponsored' : 'Featured';
     printf( '<span class="featured-event">%1$s Event</span>', $sponsored );

@@ -305,3 +305,75 @@ if ( ! function_exists( 'featured_events' ) ) :
   }
 
 endif; //featured_events
+
+
+if ( ! function_exists( 'related_posts' ) ) :
+ /**
+  * Return Related Posts.
+  *
+  * @uses WP_Query
+  *
+  * @since 0.1.0
+  */
+
+  function related_posts( $count = 3, $related_to = null ) {
+
+    global $post;
+
+    $related_to = ( isset( $related_to ) ) ? $related_to : $post;
+
+    $related_post_ids = get_post_meta( $related_to->ID, 'related', true );
+    $related_post_ids = wp_list_pluck( $related_post_ids, 'related_post' );
+
+    // check if we have enough related posts
+    $backfill_needed = $count - count( $related_post_ids );
+
+    if ( $backfill_needed > 0 ) {
+
+      $backfill_query_args = array(
+        'post_type' => 'post',
+        'posts_per_page' => $backfill_needed,
+        'post__not_in' => array_merge( array( $related_to->ID ), $related_post_ids ),
+        'tax_query' => array(
+          'relation' => 'OR',
+        ),
+      );
+
+
+      foreach ( array( 'category', 'post_tag' ) as $tax ) :
+        $terms = get_the_terms( $related_to, $tax );
+
+        $term_tax_query = array();
+
+        if ( !empty( $terms )  && !is_wp_error( $terms ) ) {
+          $term_tax_query['taxonomy'] = $tax;
+          $term_tax_query['terms'] = wp_list_pluck( $terms, 'term_id' );
+        }
+
+        if ( !empty( $term_tax_query ) ) {
+          $backfill_query_args['tax_query'][] = $term_tax_query;
+        }
+
+      endforeach;
+
+      $backfill_posts = new WP_Query( $backfill_query_args );
+
+      if ( $backfill_posts->have_posts() )
+        $backfill_posts = wp_list_pluck( $backfill_posts->posts, 'ID' );
+    }
+
+    if ( isset($backfill_posts) )
+      $related_post_ids = array_merge( $related_post_ids, $backfill_posts );
+
+    $related_posts_args = array(
+      'post_type' => 'post',
+      'posts_per_page' => $count,
+      'post__not_in' => $related_to->ID,
+      'post__in' => $related_post_ids,
+      'orderby' => 'post__in',
+    );
+
+    return new WP_Query( $related_posts_args );
+  }
+
+endif; //related_posts

@@ -87,6 +87,12 @@ function soup2nuts_setup() {
    */
    add_image_size( 'hero', 1300, 844, true );
 
+   /**
+    * Aesop Styles
+    */
+    add_theme_support( "aesop-component-styles", array( "parallax", "image", "quote", "gallery", "content", "video", "audio", "collection", "chapter", "document", "character", "map", "timeline" ) );
+
+
   /**
    * Remove extraneous things
    */

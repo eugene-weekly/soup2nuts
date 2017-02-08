@@ -99,6 +99,7 @@ function guess_hero_size( $origin, $position = 0 ) {
       $deduced_size = ( $position == 0 ) ? 'medium' : 'thumbnail';
       break;
 
+    case 'sidebar':
     case 'more_features':
     case 'events':
 

@@ -1,0 +1,10 @@
+/**
+ * Related Posts
+ */
+
+.related_posts {
+  .hero-caption,
+  .entry-excerpt {
+    @include visuallyhidden;
+  }
+}

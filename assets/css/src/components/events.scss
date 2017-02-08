@@ -7,7 +7,6 @@
   .entry-hero {
     position: relative;
 
-
     .event-caption {
       position: absolute;
 
@@ -34,6 +33,11 @@
       max-height: 30px;
 
       box-shadow: $box-shadow;
+
+      @at-root .widget.most_featured_event & {
+        flex: 1 0 100%;
+        order: 0;
+      }
     }
   }
 }

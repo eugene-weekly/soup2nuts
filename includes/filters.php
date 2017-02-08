@@ -139,9 +139,22 @@ if ( ! function_exists( 'soup2nuts_post_class' ) ) :
 
   function soup2nuts_post_class( $classes ) {
     global $post;
+
     $fields = ( function_exists( 'get_fields' ) ) ? get_fields( $post->ID ) : null;
 
     $classes[] = ( !empty( $fields[ 'gallery' ] ) || has_post_thumbnail( $post->ID ) ) ? 'has-post-img' : 'no-post-img';
+
+    if ( get_post_meta( $post->ID, 'has-small-hero' ) )
+      $classes[] = 'has-small-hero';
+
+    if ( get_post_meta( $post->ID, 'has-small-hero' ) ) {
+      //$img_meta = wp_get_attachment_metadata( get_post_thumbnail_id( $post->ID ) );
+      //$sizes = wp_get_attachment_image_sizes( get_post_thumbnail_id( $post->ID ), 'large', $img_meta );
+
+      //$large_thumb = get_the_post_thumbnail( $post, 'large' );
+
+      //pre_printr( $sizes );
+    }
 
     return $classes;
   }

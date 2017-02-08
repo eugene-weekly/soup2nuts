@@ -7,7 +7,7 @@
  * @package soup2nuts
  */
 
-$section = 'archive';
+$section = ( isset( $section) ) ? $section : 'archive';
 
 if ( isset( $home_section ) ) {
 
@@ -16,6 +16,7 @@ if ( isset( $home_section ) ) {
 } elseif ( isset( $tax_section ) ) {
 
   $section = $tax_section;
+
 }
 
 $position = isset( $posts->current_post ) ? $posts->current_post : 0; ?>
@@ -31,12 +32,14 @@ $position = isset( $posts->current_post ) ? $posts->current_post : 0; ?>
     </div><!-- .entry-meta -->
   </header><!-- .entry-header -->
 
+  <?php if ( has_post_thumbnail() ) : ?>
   <figure class="entry-hero">
     <a href="<?php the_permalink(); ?>" rel="bookmark">
       <?php the_hero_image( guess_hero_size( $section, $position ) ); ?>
     </a>
   </figure><!-- .entry-hero -->
-
+  <?php endif; ?>
+  
   <div class="entry-excerpt">
     <?php the_excerpt(); ?>
   </div>

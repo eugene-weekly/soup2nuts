@@ -67,6 +67,14 @@ h6,
   text-transform: uppercase;
 }
 
+blockquote {
+  @extend %h3;
+
+  cite {
+    @extend %h5;
+  }
+}
+
 .site-header .menu-item,
 .menu-toggle .menu-label,
 .search-label {
@@ -164,6 +172,9 @@ h6,
   }
 }
 
+.widget-area .widget-title {
+  @extend %h5;
+}
 
 .section-footer .archive-link {
   @extend %h5;

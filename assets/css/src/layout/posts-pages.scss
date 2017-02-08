@@ -263,7 +263,6 @@
 
       background-color: color( red );
       color: color( white );
-
     }
 
   }
@@ -274,6 +273,17 @@
 .single,
 .singular,
 .page {
+
+
+  .hentry {
+    @include media( $third-break ) {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-content: stretch;
+      justify-content: space-between;
+    }
+  }
 
   .entry-header,
   .entry-content,
@@ -288,11 +298,28 @@
   }
 
   .entry-header {
+    @include media( $third-break ) {
+      flex: 1 1 100%;
+      order: 2;
+      align-self: stretch;
+    }
 
+    @include media( $fifth-break ) {
+      padding-left: flex-grid( 1 );
+    }
   }
 
   .entry-hero {
+    max-height: 90vh;
     margin-bottom: 1.5em;
+    overflow: hidden;
+
+    @include media( $third-break ) {
+      flex: 1 1 100%;
+      order: 1;
+      align-self: stretch;
+    }
+
 
     .hero-caption {
       margin-left: flex-gutter();
@@ -319,6 +346,39 @@
   }
 
   .entry-content {
+    @include media( $third-break ) {
+      flex: 0 1 60%;
+      order: 3;
+    }
+
+    @include media( $fifth-break ) {
+      padding-left: flex-grid( 1 );
+    }
+  }
+
+  .entry-content + .entry-footer {
+    @include media( $third-break ) {
+      flex: 0 1 60%;
+      order: 5;
+    }
+
+    @include media( $fifth-break ) {
+      padding-left: flex-grid( 1 );
+    }
+  }
+
+  .widget-area {
+
+    order: 5px dashed red;
+
+    @include media( $third-break ) {
+      flex: 0 1 40%;
+      order: 4;
+      align-self: flex-start;
+
+      max-width: 300px;
+      padding-top: 3em;
+    }
   }
 
   .hentry:not(.category-letters, .category-slant, .category-biz_beat, .category-spray-schedule, .category-pollution-update, .category-activist-alert ) {

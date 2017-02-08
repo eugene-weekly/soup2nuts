@@ -1,0 +1,60 @@
+/**
+ * Aesop
+ */
+
+.aesop-image-component {
+  .aesop-img-enlarge,
+  .aesop-image-component-caption
+   {
+    font-family: $alianza;
+  }
+  .aesop-img-enlarge {
+    font-style: italic;
+  }
+  .aesop-image-component-caption {
+    font-weight: 900;
+    font-size: em( 16 );
+    font-family: $alianza;
+    line-height: 1.25;
+    text-transform: uppercase;
+  }
+
+  .aesop-component-align-left {
+
+    @include media( $fifth-break ) {
+      margin-left: flex-grid( -1 );
+    }
+  }
+  .aesop-component-align-right {
+
+    @include media( $fifth-break ) {
+      margin-right: flex-grid( -1 );
+    }
+  }
+
+}
+
+.aesop-quote-component {
+
+  &.aesop-quote-type-pull {
+
+    font-weight: 400;
+
+    &.aesop-component-align-left {
+      border-left-width: 1px;
+      border-left-color: color( red );
+    }
+    &.aesop-component-align-right {
+      border-right-width: 1px;
+      border-right-color: color( red );
+    }
+
+    .aesop-quote-component-cite {
+      color: color( grey );
+    }
+  }
+
+
+}
+
+#swipebox-caption { font-family: $alianza; }
