@@ -102,22 +102,24 @@ function soup2nuts_excerpt_meta() {
     echo tribe_get_event_taxonomy( $id, array(
       'before'   => '',
       'sep'      => ' / ',
-      'after'    => ' / ',
+      'after'    => '',
     ) );
 
     echo '</span>';
   }
 
-  $time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s ago</time>';
+  if ( !tribe_is_event() ) {
+    $time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s ago</time>';
 
-  $time_string = sprintf( $time_string,
-    esc_attr( get_the_date( 'U' ) ),
-    esc_html( human_time_diff( get_the_date( 'U' ) ) )
-  );
+    $time_string = sprintf( $time_string,
+      esc_attr( get_the_date( 'U' ) ),
+      esc_html( human_time_diff( get_the_date( 'U' ) ) )
+    );
 
-  $time_string = '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>';
+    $time_string = '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>';
 
-  echo '<span class="excerpt-meta-item meta-item posted-on">' . $time_string . '</span>';
+    echo '<span class="excerpt-meta-item meta-item posted-on">' . $time_string . '</span>';
+  }
 
 }
 endif;

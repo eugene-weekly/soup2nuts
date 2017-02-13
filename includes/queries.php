@@ -241,13 +241,18 @@ if ( ! function_exists( 'featured_events' ) ) :
 
   function featured_events( $count = 3, $excludedPosts = array(), $return = 'posts' ) {
 
-    if ( ! function_exists( 'tribe_get_events' ) )
-      return array( 0 );
+    $upcomingEventsMetaQuery = array(
+      'key' => '_EventEndDate',
+      'value' => date( 'Y-m-d' ),
+      'compare' => '>=',
+      'type' => 'DATE,'
+    );
 
     $baseEventArgs = array(
+      'suppress_filters' => true,
       'posts_per_page' => $count,
       'post__not_in' => $excludedPosts,
-      'eventDisplay' => 'custom',
+      'post_type' => 'tribe_events',
     );
 
     $featuredEventsArgs = array_merge(
@@ -257,41 +262,48 @@ if ( ! function_exists( 'featured_events' ) ) :
         'orderby' => 'meta_value_num',
         'meta_key' => 'featured-event-quotient',
         'meta_query' => array(
+          'relation' => 'AND',
+          $upcomingEventsMetaQuery,
           array(
             'key' => 'featured-event-quotient',
             'value' => 1,
             'compare' => '>=',
             'type' => 'NUMERIC'
-          )
+          ),
         )
       )
     );
+    //pre_printr( $featuredEventsArgs );
 
-    $featuredEvents = tribe_get_events( $featuredEventsArgs );
+    $featuredEvents = new WP_Query( $featuredEventsArgs );
+
+    //pre_printr( $featuredEvents );
 
     // No events marked as featured, get most recent instead.
     if ( empty( $featuredEvents ) ) {
 
-      $featuredEventsArgs = $baseEventArgs;
+      $featuredEventsArgs = array_merge(
+        $featuredEventsArgs,
+        array(
+          'meta_query' => array(
+            $upcomingEventsMetaQuery
+          )
+        )
+      );
 
-      $featuredEvents = tribe_get_events( $featuredEventsArgs );
+
+      $featuredEvents = new WP_Query( $featuredEventsArgs );
     }
 
     if ( $return == 'ids' ) {
 
       // Return array of ids
-      return wp_list_pluck( $featuredEvents, 'ID' );
+      return wp_list_pluck( $featuredEvents->posts, 'ID' );
 
     } elseif ( $return == 'posts' ) {
 
-      $featuredEventQueryArgs = array(
-        'post__in' => wp_list_pluck( $featuredEvents, 'ID' ),
-        'orderby' => 'post__in',
-        'post_type' => array( 'posts', 'tribe_events' ),
-      );
-
       // Return posts
-      return new WP_Query( $featuredEventQueryArgs );
+      return $featuredEvents;
 
     } else {
 
