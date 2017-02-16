@@ -34,8 +34,6 @@ if ( !empty( $section ) ) {
   }
 }
 
-if ( !$tag_code )
-  $tag_code = '300x250';
 
 ?><div class="ad">
   <?php do_action( 'acm_tag', $tag_code ); ?>

@@ -38,8 +38,8 @@
     flex: 1 1 100%;
 
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+    flex-direction: row;
+    flex-wrap: nowrap;
     justify-content: space-between;
     align-items: stretch;
     align-content: stretch;
@@ -50,7 +50,6 @@
     margin-right: 0;
 
     background-color: transparent;
-
   }
 
   .excerpted-post {
@@ -69,51 +68,48 @@
     height: 720px;
   }
 
-  @include media( $tall-enough ) {
-    height: 720px;
-  }
+  > .section-header {}
 
+  > .excerpted-post {
 
-  > .section-header {
+    @include media( $third-break ) {
+      flex: 1 1 flex-grid( 8 );
 
-  }
+      margin-right: flex-gutter();
+      margin-bottom: 0;
 
-  .excerpted-post {
-
-    &:nth-of-type( 1 ) {
-
-      @include media( $third-break ) {
-        flex: 1 1 100%;
-
-        width: flex-grid( 8 );
-
-        margin-right: flex-gutter( 12 );
-        margin-bottom: 0;
-
-      }
-
-      .entry-header {
-        @include pad( 0 flex-gutter( 8 ) );
-      }
-
-      .entry-hero {
-        @include media( $third-break ) {
-          height: 550px;
-          max-height: 550px;
-          margin-left: 0;
-          margin-right: 0;
-        }
-      }
     }
 
-    &:nth-of-type( 2 ) {
+    .entry-header {
+      @include pad( 0 flex-gutter( 8 ) );
+    }
 
+    .entry-hero {
       @include media( $third-break ) {
-        flex: 0 1 auto;
+        height: 550px;
+        max-height: 550px;
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+  }
+
+  > .right-column {
+    flex: 1 1 flex-grid( 4 );
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+    align-content: stretch;
+
+    .excerpted-post {
+      @include media( $third-break ) {
+        flex: 1 1 auto;
         //flex: 1 1 auto; // needs ad
 
-        width: flex-grid( 4 );
-        max-height: 443px;
+        //max-height: 443px;
       }
 
       .entry-hero {
@@ -122,16 +118,23 @@
         }
       }
     }
-  }
 
-  .ad {
-    @include media( $third-break ) {
-      flex: 0 1 auto;
-      //flex: 1 1 auto; // needs ad
+    .ad {
+      @include media( $third-break ) {
+        flex: 0 1 250px;
 
-      width: flex-grid( 4 );
-      min-width: 300px;
-      min-height: 250px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+
+        min-width: 300px;
+        min-height: 250px;
+
+        > * {
+          flex: 0 0 auto;
+        }
+      }
     }
   }
 }
@@ -169,8 +172,6 @@
 
   @include media( $third-break ) {
 
-    flex-direction: row;
-    flex-wrap: nowrap;
 
     min-height: 400px;
 

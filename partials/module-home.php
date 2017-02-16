@@ -31,11 +31,18 @@ foreach( array( 'features', 'news', 'arts', 'culture', 'events', 'promotions' ) 
 
       while ( $posts->have_posts() ) : $posts->the_post();
 
-        //get_template_part( 'partials/content', 'excerpt' );
-        include( locate_template( 'partials/content-excerpt.php', false ) );
+        if (( $home_section == 'features' ) && ( $posts->current_post == 1 )) : ?>
 
-        if (( $home_section == 'features' ) && ( $posts->current_post == 1 ))
-          include( locate_template( 'partials/module-ad.php', false ) );
+          <div class="right-column">
+            <?php include( locate_template( 'partials/content-excerpt.php', false ) );
+            include( locate_template( 'partials/module-ad.php', false ) ); ?>
+          </div> <!-- right-column -->
+
+        <?php else :
+
+          include( locate_template( 'partials/content-excerpt.php', false ) );
+
+        endif;
 
       endwhile; ?>
 
@@ -50,13 +57,16 @@ foreach( array( 'features', 'news', 'arts', 'culture', 'events', 'promotions' ) 
     </section><!-- featured posts -->
   <?php endif;
 
-  if (( $home_section == 'events' ))
+  if (( $home_section == 'events' )) {
     //get_template_part( 'partials/module', 'ad-large' );
-
-  if (( $home_section == 'promotions' )) {
-    include( locate_template( 'partials/module-ad.php', false ) );
-    include( locate_template( 'partials/module-ad.php', false ) );
   }
+
+  if (( $home_section == 'promotions' )) { ?>
+    <div class="promotions-ad-column">
+      <?php include( locate_template( 'partials/module-ad.php', false ) );
+      include( locate_template( 'partials/module-ad.php', false ) ); ?>
+    </div>
+  <?php }
 
 
 endforeach;
