@@ -25,9 +25,9 @@
 
   &.excerpted-post {
     &:after { display: none; }
-    
+
     .entry-footer {
-      flex: 0 0 auto;
+      flex: 1 0 auto;
       z-index: 2;
       display: block;
       max-height: 30px;

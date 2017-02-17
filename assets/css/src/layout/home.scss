@@ -86,10 +86,31 @@
 
     .entry-hero {
       @include media( $third-break ) {
+        position: relative;
         height: 550px;
-        max-height: 550px;
+        max-height: none;
         margin-left: 0;
         margin-right: 0;
+        overflow: hidden;
+      }
+
+
+      img {
+        @include media( $third-break ) {
+          position: absolute;
+          top: -9999px;
+          right: -9999px;
+          bottom: -9999px;
+          left: -9999px;
+
+          height: auto;
+          max-height: none;
+          min-height: 100%;
+          width: auto;
+          max-width: none;
+          min-width: 100%;
+          margin: auto;
+        }
       }
     }
   }
@@ -120,20 +141,25 @@
     }
 
     .ad {
+
+      flex: 0 1 250px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+
+      min-width: 300px;
+      min-height: 250px;
+
+      > * {
+        flex: 0 0 auto;
+      }
+
+
+
+
       @include media( $third-break ) {
-        flex: 0 1 250px;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        align-content: center;
-
-        min-width: 300px;
-        min-height: 250px;
-
-        > * {
-          flex: 0 0 auto;
-        }
       }
     }
   }
