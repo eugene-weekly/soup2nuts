@@ -7,17 +7,17 @@
 
 
 if ( ! function_exists( 'soup2nuts_pre_get_posts' ) ) :
- /**
-  * Filter Queries.
-  *
-  * @param $query
-  *
-  * @return $query
-  *
-  * @since 0.1.0
-  */
+  /**
+   * Filter Queries.
+   *
+   * @param $query
+   *
+   * @return $query
+   *
+   * @since 0.1.0
+   */
 
- function soup2nuts_pre_get_posts( $query ) {
+  function soup2nuts_pre_get_posts( $query ) {
 
   if ( is_admin() )
     return $query;
@@ -62,6 +62,45 @@ if ( ! function_exists( 'soup2nuts_pre_get_posts' ) ) :
 endif; // soup2nuts_pre_get_posts
 
 add_filter( 'pre_get_posts', 'soup2nuts_pre_get_posts' );
+
+
+if ( ! function_exists( 'soup2nuts_template_include' ) ) :
+  /**
+   * Template Filters.
+   *
+   * @param $template
+   *
+   * @return $template
+   *
+   * @since 0.1.0
+   */
+
+  function soup2nuts_template_include( $template ) {
+
+    if ( is_category() ) {
+
+      if ( is_paged() ) {
+
+        $archive = locate_template( array( 'archive.php' ) );
+
+        $template = ( empty( $archive ) ) ? $template : $archive;
+
+      } else {
+
+        $taxonomy = locate_template( array( 'taxonomy.php' ) );
+
+        $template = ( empty( $taxonomy ) ) ? $template : $taxonomy;
+      }
+    }
+
+    return $template;
+
+  }
+endif; // soup2nuts_template_include
+
+add_filter( 'template_include', 'soup2nuts_template_include' );
+
+
 
 
 if ( ! function_exists( 'soup2nuts_title_filter' ) ) :

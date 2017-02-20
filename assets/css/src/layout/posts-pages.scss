@@ -142,6 +142,7 @@
     @include media( $third-break ) {
       flex: 0 1 auto;
     }
+
   }
 
   .entry-hero {
@@ -173,6 +174,18 @@
     }
   }
 
+  .entry-excerpt {
+    flex: 1 1 100%;
+    order: 4;
+
+    @include pad( 0 flex-gutter( 4 ) 1em );
+
+    @include media( $third-break ) {
+      flex: 1 1 auto;
+    }
+
+  }
+
   .entry-footer {
     flex: 1 1 100%;
 
@@ -181,7 +194,17 @@
     @include media( $third-break ) {
       flex: 0 1 auto;
     }
-   }
+  }
+
+  &.no-post-img {
+    
+    padding-top: 2em;
+
+    .entry-header {
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+  }
 }
 
 /* Excerpted Posts */

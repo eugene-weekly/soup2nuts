@@ -38,18 +38,25 @@ get_header(); ?>
 
             while ( $posts->have_posts() ) : $posts->the_post();
 
-              //get_template_part( 'partials/content', 'excerpt' );
-              include( locate_template( 'partials/content-excerpt.php', false ) );
+              if (( $tax_section == 'features' ) && ( $posts->current_post == 1 )) : ?>
 
-              if (( $tax_section == 'features' ) && ( $posts->current_post == 1 ))
-                get_template_part( 'partials/module', 'ad' );
+                <div class="right-column">
+                  <?php include( locate_template( 'partials/content-excerpt.php', false ) );
+                  include( locate_template( 'partials/module-ad.php', false ) ); ?>
+                </div> <!-- right-column -->
+
+              <?php else :
+
+                include( locate_template( 'partials/content-excerpt.php', false ) );
+
+              endif;
 
             endwhile; ?>
 
             <?php if ( !in_array( $tax_section, array( 'features', 'more_features' ) ) ) : ?>
 
             <footer class="section-footer news-footer">
-              <a href="<?php the_category_link( $tax_section ); ?>" class="archive-link" rel="archive">Explore <span class="category-name"><?php echo ucwords( $tax_section ); ?></span><span class="svg_icon-explore"><?php icon_sprite( 'icon-explore' ); ?></span></a>
+              <a href="<?php echo get_next_posts_page_link(); ?>" class="archive-link" rel="archive">Explore <span class="category-name"><?php echo ucwords( $tax_section ); ?></span><span class="svg_icon-explore"><?php icon_sprite( 'icon-explore' ); ?></span></a>
             </footer>
 
             <?php endif; ?>
