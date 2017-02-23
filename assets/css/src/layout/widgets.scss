@@ -42,3 +42,10 @@
     }
   }
 }
+
+
+.widget.most_featured_event {
+  .excerpted-post {
+    @extend %featured-excerpt;
+  }
+}

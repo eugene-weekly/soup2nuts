@@ -334,8 +334,10 @@ if ( ! function_exists( 'related_posts' ) ) :
 
     $related_to = ( isset( $related_to ) ) ? $related_to : $post;
 
+    pre_printr( $related_post_ids );
+
     $related_post_ids = get_post_meta( $related_to->ID, 'related', true );
-    $related_post_ids = wp_list_pluck( $related_post_ids, 'related_post' );
+    $related_post_ids = ( empty( $related_post_ids ) ) ? array() : wp_list_pluck( $related_post_ids, 'related_post' );
 
     // check if we have enough related posts
     $backfill_needed = $count - count( $related_post_ids );
@@ -350,7 +352,6 @@ if ( ! function_exists( 'related_posts' ) ) :
           'relation' => 'OR',
         ),
       );
-
 
       foreach ( array( 'category', 'post_tag' ) as $tax ) :
         $terms = get_the_terms( $related_to, $tax );

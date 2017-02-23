@@ -1,0 +1,34 @@
+/**
+ * Archive
+ */
+
+
+.archive {
+  .site-main {
+    @include container;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    @include media( $third-break ) {
+      justify-content: space-between;
+      align-items: stretch;
+      align-content: stretch;
+    }
+  }
+
+  &.paged {
+    .site-content {
+      display: flex;
+      flex: nowrap;
+    }
+
+    .content-area {
+      flex: 1 1 flex-grid( 8 );
+    }
+
+    .widget-area {
+      flex: 0 0 flex-grid( 4 );
+    }
+  }
+}

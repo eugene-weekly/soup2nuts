@@ -17,6 +17,10 @@ class RelatedPosts extends WP_Widget {
 
     $title = ( !empty( $instance[ 'title' ] ) ) ? $instance[ 'title' ] : null;
 
+    if ( is_page() && $title == 'Related Posts' ) {
+      $title = 'Recent Posts';
+    }
+
     $related_posts = related_posts();
 
     echo $before_widget; ?>

@@ -23,7 +23,8 @@ html {
 body {
   background: color( white ); /* Fallback for when there is no custom background color defined. */
 
-  &.home {
+  &.home,
+  &.archive {
     @include media( $third-break ) {
       background: color( background-body ); /* Fallback for when there is no custom background color defined. */
     }

@@ -5,11 +5,13 @@
  * @package soup2nuts
  */
 
-if ( ! is_active_sidebar( 'sidebar-1' ) ) {
+$sidebarType = ( is_archive() ) ? 'archive' : 'post';
+
+if ( ! is_active_sidebar( $sidebarType . '-sidebar' ) ) {
   return;
 }
 ?>
 
 <div id="secondary" class="widget-area" role="complementary">
-  <?php dynamic_sidebar( 'sidebar-1' ); ?>
+  <?php dynamic_sidebar( $sidebarType . '-sidebar' ); ?>
 </div><!-- #secondary -->

@@ -2,20 +2,6 @@
  * Taxonomy
  */
 
-
-.archive .site-main {
-  @include container;
-
-  display: flex;
-  flex-wrap: wrap;
-
-  @include media( $third-break ) {
-    justify-content: space-between;
-    align-items: stretch;
-    align-content: stretch;
-  }
-}
-
 .taxonomy-posts {
   flex: 1 1 100%;
 
@@ -32,14 +18,10 @@
 }
 
 .latest-posts,
-.more-featured-posts,
+.more_features-posts,
 .popular-posts {
 
   margin-top: 2em;
-
-  @include media( $third-break ) {
-    box-shadow: $box-shadow;
-  }
 
   .section-header {
     position: relative;
@@ -48,14 +30,35 @@
 
     .section-title {
       transform: translateY(-1em);
-
     }
+  }
+}
+
+
+.latest-posts,
+.popular-posts {
+
+  @include media( $third-break ) {
+    box-shadow: $box-shadow;
   }
 
   .excerpted-post {
     &:nth-of-type( n+2 ) {
       margin-left: flex-gutter( 4 );
       margin-right: flex-gutter( 4 );
+    }
+  }
+}
+
+
+.more_features-posts {
+  background-color: transparent;
+
+  .excerpted-post {
+    &:after { display: none; }
+
+    @include media( $third-break ) {
+      box-shadow: $box-shadow;
     }
   }
 }

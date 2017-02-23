@@ -15,6 +15,7 @@
     padding-right: 0;
   }
 
+  .page &,
   .single & {
     display: flex;
     flex-wrap: wrap;
@@ -39,7 +40,7 @@
 
     .widget-area {
       @include media( $third-break ) {
-        flex: 0 1 flex-grid( 4 );
+        flex: 0 1 430px;
 
         margin-left: flex-gutter();
       }
@@ -197,7 +198,7 @@
   }
 
   &.no-post-img {
-    
+
     padding-top: 2em;
 
     .entry-header {
@@ -228,7 +229,7 @@
   }
 
   &.no-post-img {
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
 
     &.category-news {
       .entry-hero {
@@ -253,6 +254,8 @@
   .news-posts &:first-of-type,
   .arts-posts &:first-of-type,
   .culture-posts &:first-of-type,
+  .latest-posts &:first-of-type,
+  .popular-posts &:first-of-type,
   .events-posts &,
   .more_features-posts & {
     @extend %featured-excerpt;
@@ -392,14 +395,14 @@
 
   .widget-area {
 
-    order: 5px dashed red;
+    //order: 5px dashed red;
 
     @include media( $third-break ) {
       flex: 0 1 40%;
       order: 4;
       align-self: flex-start;
 
-      max-width: 300px;
+      //max-width: 300px;
       padding-top: 3em;
     }
   }
