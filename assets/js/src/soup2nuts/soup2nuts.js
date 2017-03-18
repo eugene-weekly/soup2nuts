@@ -54,6 +54,15 @@
 
 
   /**
+   * Sub-Menu
+   */
+  jQuery( '.menu-item-more > a' ).on( 'click', function( e ) {
+    e.preventDefault();
+    jQuery( this ).parent( '.menu-item-more').toggleClass( 'show-sub-menu' );
+  });
+
+
+  /**
    * Search
    */
   jQuery( '.search-trigger' ).on( 'click', function() {

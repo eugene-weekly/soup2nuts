@@ -7,7 +7,6 @@
   width: 100%;
   clear: both;
 
-
   ul {
     @include no-list;
 
@@ -84,6 +83,24 @@
   }
 }
 
+.menu-item-more {
+
+  > a { color: color( black ); }
+
+  .sub-menu {
+    max-height: 0;
+    overflow: hidden;
+
+    transition: all 0.25s ease-out;
+  }
+
+  &.show-sub-menu {
+    .sub-menu {
+      max-height: 100rem;
+    }
+  }
+}
+
 
 .menu-toggle {
   flex: 1 1 auto;
@@ -121,8 +138,9 @@
       width: calc( 100vw - 43px );
       max-height: calc( 100vh - 50px );
       margin-bottom: 10vh;
-      padding-left: flex-gutter();
       padding-right: flex-gutter();
+      padding-bottom: 1em;
+      padding-left: flex-gutter();
       overflow: scroll;
       -webkit-overflow-scrolling: touch;
 
@@ -155,7 +173,7 @@
       }
 
       @at-root .show-nav & {
-        padding-bottom: 3em;
+        //padding-bottom: 3em;
 
         transform: translateX( 0 );
 
@@ -210,6 +228,15 @@
         }
       }
 
+      &.menu-item-has-icon {
+        a {
+
+          * {
+          }
+        }
+      }
+
+
       &.menu-item-calendar {
         order: 1;
 
@@ -218,11 +245,33 @@
       a {
         display: flex;
         flex-wrap: nowrap;
+        align-items: center;
 
         border-bottom: 1px solid color( red );
 
         @include media( $third-break ) {
 
+        }
+      }
+
+      &.menu-item-more {
+
+        .icon {
+          flex: 0 1 15px;
+
+          height: 15px;
+          width: 15px;
+
+          fill: color( grey );
+
+          transform: rotate(0);
+          transition: transform 0.25s ease-out;
+        }
+
+        &.show-sub-menu {
+          .icon {
+            transform: rotate(90deg);
+          }
         }
       }
 
@@ -236,11 +285,6 @@
     }
 
     .sub-menu {
-      position: relative;
-      top: 0;
-      left: 0;
-
-      display: block;
       margin-left: flex-gutter();
 
       .menu-item {
@@ -253,21 +297,8 @@
           border-bottom: 0;
         }
 
-        &.menu-item-has-icon {
-          a {
-
-            * {
-              vertical-align: center;
-            }
-          }
-        }
-
         a {
           border-color: color( black );
-        }
-
-        .sub-menu {
-          display: none;
         }
       }
     }

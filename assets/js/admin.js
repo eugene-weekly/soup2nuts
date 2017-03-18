@@ -2,5 +2,5 @@
  * http://eugeneweekly.com
  * Copyright (c) 2017; */
 
-!function(a,b){"use strict"}(this);
+!function(a,b){"use strict"}();
 //# sourceMappingURL=../maps/admin.js.map

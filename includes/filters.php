@@ -283,6 +283,13 @@ if ( ! function_exists( 'soup2nuts_nav_menu_item_title' ) ) :
       $title .= get_the_icon( 'icon-calendar' );
     }
 
+    //  Add the More icon
+    if ( $item->post_title == 'MORE') {
+      $title .= get_the_icon( 'icon-next' );
+
+    }
+
+
     // Add the Contact icon, but only for the Contact menu
     if ( $args->theme_location == 'contact' ) {
       $title .= get_the_icon( 'icon-contact' );
@@ -313,7 +320,7 @@ if ( ! function_exists( 'soup2nuts_nav_menu_item_class' ) ) :
 
     $classes[] = 'menu-item-' . preg_replace('#[ -]+#', '-', strtolower( $item->title ));
 
-    if ( in_array( $item->post_title, array( 'Events', 'Calendar', 'Contact Us' )) ) {
+    if ( in_array( $item->post_title, array( 'Events', 'Calendar', 'Contact Us', 'MORE' )) ) {
       $classes[] = 'menu-item-has-icon';
     }
 
