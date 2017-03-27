@@ -5,8 +5,8 @@
  * @package soup2nuts
  */
 
- if ( ! function_exists( 'home_posts' ) ) :
-   /**
+  if ( ! function_exists( 'home_posts' ) ) :
+  /**
     * Return X posts.
     *
     * @uses WP_Query
@@ -14,11 +14,18 @@
     * @since 0.1.0
     */
 
-   function home_posts( $section = 'features', $excludedPosts = array() ) {
+    function home_posts( $section = 'features', $excludedPosts = array() ) {
 
-     $thumbnailMetaQuery = array(
-       'key' => '_thumbnail_id',
-       'compare' => 'EXISTS'
+      $thumbnailMetaQuery = array(
+        'key' => '_thumbnail_id',
+        'compare' => 'EXISTS'
+     );
+
+     $termExclusionQuery = array(
+       'taxonomy' => 'category',
+       'field'    => 'slug',
+       'terms'    => array( 'slant', 'letters', 'pollution-update', 'biz-beat', 'spray-schedule', 'happening-people', 'savage-love' ),
+       'operator' => 'NOT IN',
      );
 
      $home_posts_args = array(
@@ -26,7 +33,10 @@
        'post__not_in' => $excludedPosts,
        'meta_query' => array(
          // $thumbnailMetaQuery // NOTE: Uncomment this to require thumbnails
-       )
+       ),
+       'tax_query' => array(
+         $termExclusionQuery
+       ),
      );
 
      if ( $section == 'features' ) {
