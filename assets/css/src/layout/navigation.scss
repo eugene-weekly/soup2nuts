@@ -340,7 +340,9 @@
 
     flex: 1 1 auto;
 
-    color: color( red );
+    &.current-menu-item {
+      a { color: color( red ); }
+    }
   }
 
   a {
@@ -460,7 +462,15 @@
       display: block;
       padding: 0.5em 1em;
 
+      color: color( white );
+
       text-decoration: none;
+
+      &:hover,
+      &:focus,
+      &:active {
+        color: color( red );
+      }
     }
   }
 }

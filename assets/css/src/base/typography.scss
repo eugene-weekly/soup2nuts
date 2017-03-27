@@ -172,6 +172,90 @@ blockquote {
   }
 }
 
+#tribe-bar-form {
+  label {
+    @extend %h5;
+
+    font-weight: 700;
+  }
+
+  input[type=text] {
+
+  }
+
+  .tribe-bar-submit input[type=submit] {
+    font-size: inherit;
+  }
+}
+
+
+#tribe-bar-views {
+  .tribe-bar-views-inner {
+    label {}
+
+    .tribe-bar-views-list {}
+  }
+}
+
+
+#tribe_events_filters_wrapper {
+
+  #tribe_events_filter_control {
+
+  }
+
+  .tribe-events-filters-content {
+    .tribe-events-filters-label {
+
+
+    }
+  }
+
+  .tribe_events_filter_item {
+
+
+  }
+
+  .tribe-events-filters-group-heading {
+
+
+  }
+
+  .tribe-events-filter-group {
+
+    label {
+
+      input[type=checkbox] {
+
+      }
+
+      span {
+
+      }
+    }
+  }
+}
+
+#tribe_events_filters_reset {
+
+
+}
+
+.tribe-events-page-title {}
+
+#tribe-events-header {
+
+
+  .tribe-events-sub-nav {}
+}
+
+.tribe-events-list-separator-month {
+
+  span {
+    @extend %h5;
+  }
+}
+
 .widget-area .widget-title {
   @extend %h5;
 }
