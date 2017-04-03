@@ -103,11 +103,21 @@
        'compare' => 'EXISTS'
      );
 
-     $tax_query = array(
+     $tax_query[] = array(
        'taxonomy' => $tax->taxonomy,
        'field'    => 'slug',
        'terms'    => array( $tax->slug ),
      );
+
+     if ( $tax->slug == 'news' ) {
+       $tax_query[] = array(
+         'taxonomy' => $tax->taxonomy,
+         'field'    => 'slug',
+         'terms'    => array( 'letters' ),
+         'operator' => 'NOT IN',
+       );
+     }
+
 
      $tax_posts_args = array(
        'posts_per_page' => 6,
