@@ -184,12 +184,6 @@
     @include media( $third-break ) {
       flex: 1 1 auto;
     }
-
-    @at-root .archive.paged & {
-      outline: 10px dashed red;
-      
-      p { margin-bottom: 0; }
-    }
   }
 
   .entry-footer {
