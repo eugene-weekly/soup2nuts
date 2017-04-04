@@ -28,10 +28,10 @@ get_header(); ?>
 
           <section class="<?php echo $tax_section; ?>-posts taxonomy-posts">
 
-            <?php if ( !in_array( $tax_section, array( 'features', 'more_features' ) ) ) : ?>
+            <?php if ( !in_array( $tax_section, array( 'more_features' ) ) ) : ?>
 
             <header class="section-header news-header">
-              <h5 class="section-title"><?php echo ucwords( $tax_section ); ?></h5>
+              <h5 class="section-title"><?php the_section_header( $tax_section ); ?></h5>
             </header>
 
             <?php endif;

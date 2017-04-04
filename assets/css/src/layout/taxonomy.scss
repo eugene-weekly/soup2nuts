@@ -50,6 +50,25 @@
   }
 }
 
+.features-posts {
+  position: relative;
+
+  > .section-header {
+    position: sticky;
+    top: 50px;
+    z-index: 3;
+
+    @include media( $less-than-third-break ) {
+      @include wide-triangle;
+    }
+
+    @include media( $third-break ) {
+      position: absolute;
+      top: -1px;
+      width: flex-grid( 8 );
+    }
+  }
+}
 
 .more_features-posts {
   background-color: transparent;

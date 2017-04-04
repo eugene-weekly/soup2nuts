@@ -41,3 +41,113 @@
     }
   }
 }
+
+#tribe-events-pg-template {
+  max-width: 100%;
+}
+
+#tribe-bar-form {
+  backround-color: color( light-grey );
+  
+  label {
+
+  }
+
+  input[type=text] {
+
+  }
+
+  .tribe-bar-date-filter,
+  .tribe-bar-search-filter,
+  .tribe-bar-submit {
+
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+
+
+  .tribe-bar-submit input[type=submit] {
+    background-color: color( red );
+  }
+}
+
+
+#tribe-bar-views {
+
+  @include media( $third-break ) {
+
+  }
+
+  .tribe-bar-views-inner {
+
+    background: color( red );
+    color: color( white );
+
+    label {
+      display: inline-block;
+      float: left;
+    }
+
+    .tribe-bar-views-list {
+      display: inline-block;
+    }
+  }
+}
+
+
+#tribe_events_filters_wrapper {
+
+  #tribe_events_filter_control {
+
+  }
+
+  .tribe-events-filters-content {
+    .tribe-events-filters-label {
+
+
+    }
+  }
+
+  .tribe_events_filter_item {
+  }
+
+  .tribe-events-filters-group-heading {
+  }
+
+  .tribe-events-filter-group {
+
+    label {
+
+      input[type=checkbox] {
+
+      }
+
+      span {
+
+      }
+    }
+  }
+}
+
+#tribe_events_filters_reset {
+
+
+}
+
+.tribe-events-page-title {}
+
+#tribe-events-header {
+
+
+  .tribe-events-sub-nav {}
+}
+
+.tribe-events-list-separator-month {
+  background-color: color( red );
+  color: color( white );
+
+  span {
+
+  }
+}

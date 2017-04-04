@@ -369,3 +369,29 @@ function showhiddencustomfields() {
 	echo "<style type='text/css'>#postcustom .hidden { display: table-row; }</style>
 ";
 }
+
+
+
+if ( ! function_exists( 'soup2nuts_archive_title' ) ) :
+
+  /**
+   * Filter archive_title
+   *
+   * @param $title (string)
+   *
+   * @return $title (string)
+   *
+   * @since 0.1.0
+   */
+
+  function soup2nuts_archive_title( $title ) {
+
+    if ( is_category() )
+      $title = single_cat_title( '', false );
+
+    return $title;
+  }
+
+endif; // excerpt_length
+
+add_filter( 'get_the_archive_title', 'soup2nuts_archive_title', 10, 2 );

@@ -27,7 +27,7 @@ $half-flex-gutter: ( flex-gutter() / 2 );
 $col-width: $column + $gutter;
 
 /* breakpoints */
-$tall-enough: new-breakpoint( min-height 1000px min-width $tablet 12 );
+$tall-enough: new-breakpoint( min-height 5000px min-width $tablet 12 );
 $sixth-break: new-breakpoint( min-width 1400px 12 );
 $fifth-break: new-breakpoint( min-width $max-width 12 );
 $fourth-break: new-breakpoint( min-width $landscape 12 );

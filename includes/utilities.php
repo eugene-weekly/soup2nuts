@@ -82,6 +82,28 @@ function get_the_icon( $icon ) {
 }
 endif;
 
+
+if ( ! function_exists( 'get_the_section_header' ) ) :
+/**
+* Get the section header.
+*
+* @param string $section section
+* @return string
+*/
+function get_the_section_header( $section ) {
+
+  $section_header = $section;
+
+  if ( is_archive() && $section == 'features' ) {
+    $section_header = get_the_archive_title();
+  }
+
+  return $section_header;
+
+}
+endif;
+
+
 function guess_hero_size( $origin, $position = 0 ) {
 
   $deduced_size = null;

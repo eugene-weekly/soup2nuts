@@ -243,6 +243,26 @@ function the_category_link( $category_name ) {
 endif;
 
 
+if ( ! function_exists( 'the_section_header' ) ) :
+/** @TODO: Update this
+ *
+ * Section header.
+ *
+ * @param string $before Optional. Content to prepend to the description. Default empty.
+ * @param string $after  Optional. Content to append to the description. Default empty.
+ */
+function the_section_header( $section ) {
+
+  if ( !isset( $section ) )
+    return;
+
+  $section_header = get_the_section_header( $section );
+
+  echo ucwords( $section_header );
+}
+endif;
+
+
 if ( ! function_exists( 'icon_sprite' ) ) :
 /** @TODO: Update this
  *

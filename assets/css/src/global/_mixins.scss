@@ -12,9 +12,9 @@
   max-width: $max-width;
   //padding-left: flex-gutter();
   //padding-right: flex-gutter();
-  overflow: hidden;
 
   @include media( $max-width ) {
+    overflow: hidden;
     margin-left: auto;
     margin-right: auto;
     padding-left: 0;
@@ -52,6 +52,29 @@
       @include visuallyhidden;
     }
   }
+}
+
+@mixin wide-triangle {
+  margin-bottom: -2em;
+
+  &:before {
+    content: '';
+
+    position: absolute;
+    right: 0;
+    left: 0;
+    z-index: -1;
+
+    height: 100%;
+    width: 100%;
+
+    border-left: 50vw solid transparent;
+    border-right: 50vw solid transparent;
+
+    border-top: 2em solid color( red );
+  }
+
+  > * { background-color: transparent; }
 }
 
 // =Utility Classes
