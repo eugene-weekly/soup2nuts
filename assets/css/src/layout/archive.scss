@@ -4,8 +4,12 @@
 
 
 .archive {
-  .site-main {
+
+  .site-content {
     @include container;
+  }
+
+  .site-main {
 
     display: flex;
     flex-wrap: wrap;
@@ -21,10 +25,57 @@
     .site-content {
       display: flex;
       flex: nowrap;
+
+      overflow: visible;
+
+      @include media( $third-break ) {
+        margin-top: 2em;
+      }
     }
 
     .content-area {
-      flex: 1 1 flex-grid( 8 );
+      flex: 1 1 flex-grid( 7 );
+      margin-right: flex-gutter();
+      margin-bottom: 2em;
+      padding-right: flex-gutter();
+      padding-left: flex-gutter();
+
+      background-color: color( white );
+
+      box-shadow: $box-shadow;
+    }
+
+    .site-main {
+      .section-header {
+        margin-top: -1em;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .excerpted-post {
+        @include media( $third-break ) {
+          flex: 1 0 100%;
+        }
+
+        > * {
+          @include media( $third-break ) {
+            order: 1;
+
+            max-width: flex-grid( 8 );
+          }
+        }
+
+        .entry-hero {
+          @include media( $third-break ) {
+            flex: 0 0 150px;
+            order: 0;
+
+            margin-right: flex-gutter();
+          }
+        }
+
+        .entry-excerpt { display: none; }
+      }
     }
 
     .widget-area {

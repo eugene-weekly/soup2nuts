@@ -386,8 +386,13 @@ if ( ! function_exists( 'soup2nuts_archive_title' ) ) :
 
   function soup2nuts_archive_title( $title ) {
 
-    if ( is_category() )
-      $title = single_cat_title( '', false );
+    if ( is_category() ) {
+      if ( is_paged() ) {
+        $title = single_cat_title( '', false ) . ' Archive';
+      } else {
+        $title = single_cat_title( '', false );
+      }
+    }
 
     return $title;
   }

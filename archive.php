@@ -13,12 +13,8 @@ get_header(); ?>
     <main id="main" class="site-main" role="main">
 
     <?php if ( have_posts() ) : ?>
-
-      <header class="page-header">
-        <?php
-          the_archive_title( '<h1 class="page-title">', '</h1>' );
-          the_archive_description( '<div class="taxonomy-description">', '</div>' );
-        ?>
+      <header class="section-header page-header archive-header">
+        <h5 class="section-title page-title"><?php the_archive_title(); ?></h5>
       </header><!-- .page-header -->
 
       <?php /* Start the Loop */ ?>
