@@ -164,13 +164,9 @@ function soup2nuts_entry_footer() {
     printf( '<span class="featured-event">%1$s Event</span>', $sponsored );
   }
 
-  /*
-  if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-    echo '<span class="comments-link">';
-    comments_popup_link( esc_html__( 'Leave a comment', 'soup2nuts' ), esc_html__( '1 Comment', 'soup2nuts' ), esc_html__( '% Comments', 'soup2nuts' ) );
-    echo '</span>';
+  if ( is_single() ) {
+
   }
-  */
 }
 endif;
 

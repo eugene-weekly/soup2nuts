@@ -24,7 +24,7 @@ body {
   background: color( white ); /* Fallback for when there is no custom background color defined. */
 
   &.home,
-  &.archive {
+  &.archive:not( .events-archive ) {
     @include media( $third-break ) {
       background: color( background-body ); /* Fallback for when there is no custom background color defined. */
     }

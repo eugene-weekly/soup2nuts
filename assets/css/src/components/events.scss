@@ -151,3 +151,43 @@
 
   }
 }
+
+.tribe-events-loop .type-tribe_events {
+  @extend .excerpted-post;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: stretch;
+
+  box-sizing: content-box;
+  margin-bottom: 1em;
+  padding-top: 0;
+  padding-bottom: 1em;
+
+  @include media( $third-break ) {
+    max-height: 150px;
+  }
+
+  > * {
+    flex: 0 1 auto;
+    order: 2;
+  }
+
+  .tribe-events-event-image {
+    flex: 1 1 150px;
+    order: 1;
+
+    max-width: 150px;
+
+    .wp-post-image {
+      max-height: 150px;
+      max-width: 150px;
+    }
+  }
+
+  .tribe-events-content { display: none; }
+
+}
