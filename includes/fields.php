@@ -26,10 +26,10 @@ function meta_fields() {
     'name' => 'featured-event-quotient',
     'label' => 'Feature this event on the home page.',
     'description' => 'Allows this post to be shown in Featured Events on the home page. A higher number moves the event higher up the page.',
-    'input_type' => 'range',
+    'input_type' => 'number',
     'default_value' => 0,
     'attributes' => array(
-      'min' => '1',
+      'min' => '0',
       'max' => '100'
     )
   ) );
