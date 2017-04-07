@@ -19,6 +19,12 @@
 
 
   /**
+   * FitVids
+   */
+   jQuery(".format-video > .entry-hero").fitVids();
+
+
+  /**
    * Lazy Loading
    */
 

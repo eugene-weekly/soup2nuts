@@ -216,8 +216,16 @@ function the_hero_image( $size = 'hero', $position = 'hero' ) {
     return;
 
   if ( is_singular() && has_post_format( 'gallery', $post->ID ) && $post_meta['hero-gallery'] ) {
+
+    // Aesop Gallery
     $heroImg = do_shortcode( '[aesop_gallery id="' . $post_meta['hero-gallery'][0] . '"]' );
+
+  } elseif ( is_singular() && has_post_format( 'video', $post->ID ) && $post_meta['hero-video'] ) {
+
+    // Video
+    $heroImg = apply_filters( 'the_content', $post_meta['hero-video'][0] );
   } else {
+    // Boring old hero image
     $heroImg = get_the_hero_image( $size );
   }
 

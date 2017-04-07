@@ -83,6 +83,18 @@ function meta_fields() {
    ) ),
   ) );
 
+  $hero_video = new Fieldmanager_Textfield( array(
+    'name' => 'hero-video',
+    'label' => 'Hero Video',
+    'description' => 'Show a video above the post. Ignored if Post Format is not Video',
+    'input_type' => 'url',
+    'attributes' => array(
+      'placeholder' => 'https://www.youtube.com/watch?v=4OZjma8iLtE',
+      'class' => 'widefat'
+    )
+  ) );
+
+
   $post_details = new Fieldmanager_Group( array(
     'name' => 'post_details',
     'tabbed' => true,
@@ -114,6 +126,14 @@ function meta_fields() {
         'add_to_prefix' => false,
         'children' => array(
           'hero-gallery' => $hero_gallery,
+        )
+      ) ),
+      'tab-4' => new Fieldmanager_Group( array(
+        'label' => 'Video',
+        'serialize_data' => false,
+        'add_to_prefix' => false,
+        'children' => array(
+          'hero-video' => $hero_video,
         )
       ) ),
     ),
