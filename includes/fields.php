@@ -19,7 +19,12 @@ function meta_fields() {
     'name' => 'featured',
     'label' => 'Feature this post on the home page.',
     'description' => 'Allows this post to be shown in the Featured position on the home page.',
+  ) );
 
+  $no_hero = new Fieldmanager_Checkbox( array(
+    'name' => 'no-hero',
+    'label' => 'Alternate Post Format.',
+    'description' => 'Don&rsquo;t show the Featured Image above the headline, show it in the post content.',
   ) );
 
   $featured_event = new Fieldmanager_Textfield( array(
@@ -81,6 +86,7 @@ function meta_fields() {
           'alt-title' => $alt_title,
           'sub-head' => $sub_head,
           'featured' => $featured,
+          'no-hero' => $no_hero,
         )
       ) ),
       'tab-2' => new Fieldmanager_Group( array(

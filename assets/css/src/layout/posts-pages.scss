@@ -346,6 +346,23 @@
       align-self: stretch;
     }
 
+    &.in-content-hero {
+      display: block;
+      max-height: calc( 333px + 3em );
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+
+      @include media( $less-than-third-break ) {
+        float: none;
+      }
+
+      @include media( $third-break ) {
+        display: inline-block;
+        margin-right: -50%;
+      }
+    }
+
 
     .hero-caption {
       margin-left: flex-gutter();
@@ -395,8 +412,6 @@
 
   .widget-area {
 
-    //order: 5px dashed red;
-
     @include media( $third-break ) {
       flex: 0 1 40%;
       order: 4;
@@ -404,6 +419,17 @@
 
       //max-width: 300px;
       padding-top: 3em;
+    }
+
+  }
+
+  .no-post-hero {
+
+    .widget-area {
+
+      @include media( $third-break ) {
+        margin-top: calc( 333px + 5em );
+      }
     }
   }
 

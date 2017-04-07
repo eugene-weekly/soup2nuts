@@ -268,6 +268,11 @@ if ( ! function_exists( 'featured_events' ) ) :
       'type' => 'DATE,'
     );
 
+    $thumbnailMetaQuery = array(
+      'key' => '_thumbnail_id',
+      'compare' => 'EXISTS'
+    );
+
     $baseEventArgs = array(
       'suppress_filters' => true,
       'posts_per_page' => $count,
@@ -284,6 +289,7 @@ if ( ! function_exists( 'featured_events' ) ) :
         'meta_query' => array(
           'relation' => 'AND',
           $upcomingEventsMetaQuery,
+          $thumbnailMetaQuery,
           array(
             'key' => 'featured-event-quotient',
             'value' => 1,

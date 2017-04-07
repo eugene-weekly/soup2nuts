@@ -86,6 +86,7 @@ function soup2nuts_setup() {
   /**
    * Custom image sizes
    */
+   add_image_size( 'in-content', 500, 333, true );
    add_image_size( 'hero', 1300, 844, true );
 
    /**

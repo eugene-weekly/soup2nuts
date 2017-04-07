@@ -470,6 +470,7 @@ function get_the_photo_caption( $post_id, $img_id ) {
 
   $caption = false;
 
+
   if ( $img_id && !is_home() && !is_front_page() && !is_archive() ) {
     $img_content = get_post( $img_id );
 
@@ -477,7 +478,6 @@ function get_the_photo_caption( $post_id, $img_id ) {
     $description = ( isset( $img_content->post_content ) && ( $caption !== $img_content->post_content )) ? '<span class="photo-credit">' . $img_content->post_content . '</span>' : false;
 
     $caption = $caption . $description;
-
   }
 
   if ( tribe_is_event( $post_id ) ) {

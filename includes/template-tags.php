@@ -207,7 +207,11 @@ if ( ! function_exists( 'the_hero_image' ) ) :
  * @param string $before Optional. Content to prepend to the description. Default empty.
  * @param string $after  Optional. Content to append to the description. Default empty.
  */
-function the_hero_image( $size = 'hero' ) {
+function the_hero_image( $size = 'hero', $position = 'hero' ) {
+  global $post;
+
+  if ( get_post_meta( $post->ID, 'no-hero' ) && ($position == 'hero') )
+    return;
 
   $heroImg = get_the_hero_image( $size );
 

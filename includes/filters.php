@@ -183,8 +183,8 @@ if ( ! function_exists( 'soup2nuts_post_class' ) ) :
 
     $classes[] = ( !empty( $fields[ 'gallery' ] ) || has_post_thumbnail( $post->ID ) ) ? 'has-post-img' : 'no-post-img';
 
-    if ( get_post_meta( $post->ID, 'has-small-hero' ) )
-      $classes[] = 'has-small-hero';
+    if ( get_post_meta( $post->ID, 'no-hero' ) )
+      $classes[] = 'no-post-hero';
 
     if ( get_post_meta( $post->ID, 'has-small-hero' ) ) {
       //$img_meta = wp_get_attachment_metadata( get_post_thumbnail_id( $post->ID ) );
@@ -200,6 +200,34 @@ if ( ! function_exists( 'soup2nuts_post_class' ) ) :
 endif; // soup2nuts_post_class
 
 add_filter( 'post_class', 'soup2nuts_post_class' );
+
+
+if ( ! function_exists( 'soup2nuts_the_content' ) ) :
+  /**
+   * The content.
+   *
+   * @param $length
+   *
+   * @return int
+   *
+   * @since 0.1.0
+   */
+
+  function soup2nuts_the_content( $content ) {
+    global $post;
+
+    if ( is_singular('post') && get_post_meta( $post->ID, 'no-hero' ) )
+      $content = sprintf(
+        '<figure class="entry-hero in-content-hero alignright">%s</figure>%s',
+        get_the_hero_image( 'in-content' ),
+        $content
+      );
+
+    return $content;
+  }
+endif; // soup2nuts_the_content
+
+add_filter( 'the_content', 'soup2nuts_the_content' );
 
 
 if ( ! function_exists( 'soup2nuts_excerpt_length' ) ) :
