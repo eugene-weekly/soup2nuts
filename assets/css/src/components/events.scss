@@ -37,6 +37,8 @@
       @at-root .widget.most_featured_event & {
         flex: 1 0 100%;
         order: 0;
+
+        display: block;
       }
     }
   }

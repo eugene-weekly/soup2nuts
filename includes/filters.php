@@ -179,21 +179,12 @@ if ( ! function_exists( 'soup2nuts_post_class' ) ) :
   function soup2nuts_post_class( $classes ) {
     global $post;
 
-    $fields = ( function_exists( 'get_fields' ) ) ? get_fields( $post->ID ) : null;
+    $post_meta = get_post_meta( $post->ID );
 
-    $classes[] = ( !empty( $fields[ 'gallery' ] ) || has_post_thumbnail( $post->ID ) ) ? 'has-post-img' : 'no-post-img';
+    $classes[] = ( has_post_thumbnail( $post->ID ) ) ? 'has-post-img' : 'no-post-img';
 
-    if ( get_post_meta( $post->ID, 'no-hero' ) )
+    if ( !empty( $post_meta[ 'no-hero' ][0] ))
       $classes[] = 'no-post-hero';
-
-    if ( get_post_meta( $post->ID, 'has-small-hero' ) ) {
-      //$img_meta = wp_get_attachment_metadata( get_post_thumbnail_id( $post->ID ) );
-      //$sizes = wp_get_attachment_image_sizes( get_post_thumbnail_id( $post->ID ), 'large', $img_meta );
-
-      //$large_thumb = get_the_post_thumbnail( $post, 'large' );
-
-      //pre_printr( $sizes );
-    }
 
     return $classes;
   }
@@ -216,7 +207,10 @@ if ( ! function_exists( 'soup2nuts_the_content' ) ) :
   function soup2nuts_the_content( $content ) {
     global $post;
 
-    if ( is_singular('post') && get_post_meta( $post->ID, 'no-hero' ) )
+    $post_meta = get_post_meta( $post->ID );
+
+
+    if ( is_singular('post') && array_filter( $post_meta[ 'no-hero' ] ) )
       $content = sprintf(
         '<figure class="entry-hero in-content-hero alignright">%s</figure>%s',
         get_the_hero_image( 'in-content' ),

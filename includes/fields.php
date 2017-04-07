@@ -52,24 +52,35 @@ function meta_fields() {
  ) );
 
 
-  $related_posts = new Fieldmanager_Group( array(
-    'label' => 'Related Post',
-    'limit' => 3,
-    'label_macro' => array( 'Post: %s', 'name'),
-    'add_more_label' => 'Add another post',
-    'sortable' => true,
-    'children' => array(
-      'related_post' => new Fieldmanager_Autocomplete( array(
-        'name' => 'related_post',
-        'label' => 'Related Post:',
-        'description' => 'Type to find a Related Post.',
-        'datasource' => new Fieldmanager_Datasource_Post( array(
-          'query_args' => array(
-            'post_type' => 'post'
-          )
-        ) ),
-      ) ),
-    )
+   $related_posts = new Fieldmanager_Group( array(
+     'label' => 'Related Post',
+     'limit' => 3,
+     'label_macro' => array( 'Post: %s', 'name'),
+     'add_more_label' => 'Add another post',
+     'sortable' => true,
+     'children' => array(
+       'related_post' => new Fieldmanager_Autocomplete( array(
+         'name' => 'related_post',
+         'label' => 'Related Post:',
+         'description' => 'Type to find a Related Post.',
+         'datasource' => new Fieldmanager_Datasource_Post( array(
+           'query_args' => array(
+             'post_type' => 'post'
+           )
+         ) ),
+       ) ),
+     )
+   ) );
+
+  $hero_gallery = new Fieldmanager_Autocomplete( array(
+   'name' => 'hero-gallery',
+   'label' => 'Hero Gallery:',
+   'description' => 'Type to find a Gallery. Ignored if Post Format is not Gallery.',
+   'datasource' => new Fieldmanager_Datasource_Post( array(
+     'query_args' => array(
+       'post_type' => 'ai_galleries'
+     )
+   ) ),
   ) );
 
   $post_details = new Fieldmanager_Group( array(
@@ -95,6 +106,14 @@ function meta_fields() {
         'add_to_prefix' => false,
         'children' => array(
           'related' => $related_posts,
+        )
+      ) ),
+      'tab-3' => new Fieldmanager_Group( array(
+        'label' => 'Gallery',
+        'serialize_data' => false,
+        'add_to_prefix' => false,
+        'children' => array(
+          'hero-gallery' => $hero_gallery,
         )
       ) ),
     ),

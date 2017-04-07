@@ -210,10 +210,16 @@ if ( ! function_exists( 'the_hero_image' ) ) :
 function the_hero_image( $size = 'hero', $position = 'hero' ) {
   global $post;
 
-  if ( get_post_meta( $post->ID, 'no-hero' ) && ($position == 'hero') )
+  $post_meta = get_post_meta( $post->ID );
+
+  if ( !empty( $post_meta[ 'no-hero' ][0] ) && ($position == 'hero') )
     return;
 
-  $heroImg = get_the_hero_image( $size );
+  if ( is_singular() && has_post_format( 'gallery', $post->ID ) && $post_meta['hero-gallery'] ) {
+    $heroImg = do_shortcode( '[aesop_gallery id="' . $post_meta['hero-gallery'][0] . '"]' );
+  } else {
+    $heroImg = get_the_hero_image( $size );
+  }
 
   if ( strlen( $heroImg ) == 0 )
     return;
