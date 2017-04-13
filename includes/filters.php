@@ -91,6 +91,12 @@ if ( ! function_exists( 'soup2nuts_template_include' ) ) :
 
         $template = ( empty( $taxonomy ) ) ? $template : $taxonomy;
       }
+    } elseif ( is_singular( 'post' ) ) {
+      if ( get_post_meta( get_the_ID(), 'full-screen', true ) ) {
+        $full_screen = locate_template( array( 'single-fullscreen.php' ) );
+
+        $template = ( empty( $full_screen ) ) ? $template : $full_screen;
+      }
     }
 
     return $template;
@@ -186,6 +192,9 @@ if ( ! function_exists( 'soup2nuts_post_class' ) ) :
     if ( !empty( $post_meta[ 'no-hero' ][0] ))
       $classes[] = 'no-post-hero';
 
+    if ( get_post_meta( get_the_ID(), 'full-screen', true ) )
+      $classes[] = 'full-screen';
+
     return $classes;
   }
 endif; // soup2nuts_post_class
@@ -212,7 +221,7 @@ if ( ! function_exists( 'soup2nuts_the_content' ) ) :
 
     if ( is_singular('post') && $post_meta[ 'no-hero' ][0] )
       $content = sprintf(
-        '<figure class="entry-hero in-content-hero alignright">%s</figure>%s',
+        '<figure class="entry-hero in-content-hero alignleft">%s</figure>%s',
         get_the_hero_image( 'in-content' ),
         $content
       );

@@ -348,18 +348,25 @@
 
     &.in-content-hero {
       display: block;
-      max-height: calc( 333px + 3em );
+      max-height: calc( 500px + 3em );
       max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
 
-      @include media( $less-than-third-break ) {
+      @include media( $less-than-wide ) {
         float: none;
+        margin-left: auto;
+        margin-right: auto;
       }
 
-      @include media( $third-break ) {
-        display: inline-block;
-        margin-right: -50%;
+      @include media( $fifth-break ) {
+        margin-top: 1em;
+        margin-left: flex-grid(-1);
+      }
+
+      .hero-caption {
+        margin-left: 0;
+        margin-right: 0;
+
+        text-align: left;
       }
     }
 
@@ -433,7 +440,7 @@
     .widget-area {
 
       @include media( $third-break ) {
-        margin-top: calc( 333px + 5em );
+        //margin-top: calc( 333px + 5em );
       }
     }
   }

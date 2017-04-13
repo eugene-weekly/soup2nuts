@@ -21,9 +21,15 @@ function meta_fields() {
     'description' => 'Allows this post to be shown in the Featured position on the home page.',
   ) );
 
+  $full_screen = new Fieldmanager_Checkbox( array(
+    'name' => 'full-screen',
+    'label' => 'Use &ldquo;Full Screen&rdquo; Post Format.',
+    'description' => 'Widescreen Hero, content in a center column.',
+  ) );
+
   $no_hero = new Fieldmanager_Checkbox( array(
     'name' => 'no-hero',
-    'label' => 'Alternate Post Format.',
+    'label' => '&ldquo;No Hero&rdquo; Post Format.',
     'description' => 'Don&rsquo;t show the Featured Image above the headline, show it in the post content.',
   ) );
 
@@ -109,6 +115,7 @@ function meta_fields() {
           'alt-title' => $alt_title,
           'sub-head' => $sub_head,
           'featured' => $featured,
+          'full-screen' => $full_screen,
           'no-hero' => $no_hero,
         )
       ) ),
