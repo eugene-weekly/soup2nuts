@@ -130,6 +130,42 @@ if ( ! function_exists( 'soup2nuts_posted_on' ) ) :
  * Prints HTML with meta information for the current post-date/time and author.
  */
 function soup2nuts_posted_on() {
+
+  if ( in_array( get_post_type( $id ), array( 'post', 'promotion' )) ) {
+    /* translators: used between list items, there is a space after the comma */
+    $categories = get_the_category( );
+
+    if ( $categories ) {
+      //pre_printr( $categories );
+      echo '<span class="excerpt-meta-item meta-item post-categories">';
+
+      foreach ( $categories as $i=>$category ) {
+        if ( $i < 0 )
+          echo ' / ';
+
+        printf( '<a href="%1$s" class="post-category">%2$s</a>', esc_url( get_category_link( $category->term_id ) ), esc_html__( $category->name ) );
+
+      }
+
+      echo '</span> ';
+      //printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'soup2nuts' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+    }
+
+
+  } elseif ( tribe_is_event() ) {
+
+    echo '<span class="excerpt-meta-item meta-item post-categories event-categories">';
+    printf( '<a href="%1$s" class="post-category event-category">Calendar</a>', esc_url( tribe_get_events_link() ) );
+
+    echo tribe_get_event_taxonomy( $id, array(
+      'before'   => '',
+      'sep'      => ' / ',
+      'after'    => '',
+    ) );
+
+    echo '</span>';
+  }
+
   $time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 
   $time_string = sprintf( $time_string,
@@ -165,7 +201,10 @@ function soup2nuts_entry_footer() {
   }
 
   if ( is_single() ) {
-
+    $tags_list = get_the_tag_list( '', esc_html__( ', ', 'soup2nuts' ) );
+    if ( $tags_list ) {
+      printf( '<span class="tags-links"><strong>Tags: </strong>' . esc_html__( '%1$s', 'soup2nuts' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+    }
   }
 }
 endif;
@@ -215,15 +254,20 @@ function the_hero_image( $size = 'hero', $position = 'hero' ) {
   if ( !empty( $post_meta[ 'no-hero' ][0] ) && ($position == 'hero') )
     return;
 
-  if ( is_singular() && has_post_format( 'gallery', $post->ID ) && $post_meta['hero-gallery'] ) {
+  if ( (is_singular() && $position == 'hero')|| $position == 'features' ) {
 
-    // Aesop Gallery
-    $heroImg = do_shortcode( '[aesop_gallery id="' . $post_meta['hero-gallery'][0] . '"]' );
+    if ( has_post_format( 'gallery', $post->ID ) && $post_meta['hero-gallery'] ) {
+      // Aesop Gallery
+      $heroImg = do_shortcode( '[aesop_gallery id="' . $post_meta['hero-gallery'][0] . '"]' );
 
-  } elseif ( is_singular() && has_post_format( 'video', $post->ID ) && $post_meta['hero-video'] ) {
+    } elseif ( has_post_format( 'video', $post->ID ) && $post_meta['hero-video'] ) {
 
-    // Video
-    $heroImg = apply_filters( 'the_content', $post_meta['hero-video'][0] );
+      // Video
+      $heroImg = apply_filters( 'the_content', $post_meta['hero-video'][0] );
+    } else {
+      // Boring old hero image
+      $heroImg = get_the_hero_image( $size );
+    }
   } else {
     // Boring old hero image
     $heroImg = get_the_hero_image( $size );
@@ -252,6 +296,25 @@ function the_category_link( $category_name ) {
     return;
 
   echo esc_url( get_category_link( get_cat_ID( $category_name ) ) );
+
+}
+endif;
+
+
+
+if ( ! function_exists( 'related_posts' ) ) :
+/** @TODO: Update this
+ *
+ * Display category, tag, or term description.
+ *
+ * @param string $before Optional. Content to prepend to the description. Default empty.
+ * @param string $after  Optional. Content to append to the description. Default empty.
+ */
+function related_posts() {
+
+  $related_posts = the_widget( 'related_posts', array('title' => 'Related Posts') );
+  pre_printr( $related_posts );
+  echo '<div class="related-posts">' . $related_posts . '</div>';
 
 }
 endif;

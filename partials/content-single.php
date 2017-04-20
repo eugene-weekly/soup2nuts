@@ -29,7 +29,9 @@
   <footer class="entry-footer">
     <?php soup2nuts_entry_footer(); ?>
   </footer><!-- .entry-footer -->
-  
+
+  <?php related_posts(); ?>
+
   <?php get_sidebar(); ?>
 
 </article><!-- #post-## -->

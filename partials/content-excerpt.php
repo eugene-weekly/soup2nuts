@@ -19,7 +19,8 @@ if ( isset( $home_section ) ) {
 
 }
 
-$position = isset( $posts->current_post ) ? $posts->current_post : 0; ?>
+$count = isset( $posts->current_post ) ? $posts->current_post : 0;
+$position = ( ($section == 'features') && ($count == 0)) ? $section : 'excerpt';?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'excerpted-post' ); ?>>
   <header class="entry-header">
@@ -35,7 +36,7 @@ $position = isset( $posts->current_post ) ? $posts->current_post : 0; ?>
   <?php if ( has_post_thumbnail() ) : ?>
   <figure class="entry-hero">
     <a href="<?php the_permalink(); ?>" rel="bookmark">
-      <?php the_hero_image( guess_hero_size( $section, $position ), 'excerpt' ); ?>
+      <?php the_hero_image( guess_hero_size( $section, $count ), $position ); ?>
     </a>
   </figure><!-- .entry-hero -->
   <?php endif; ?>

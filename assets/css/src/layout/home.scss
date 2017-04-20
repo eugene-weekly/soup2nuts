@@ -95,7 +95,7 @@
       }
 
 
-      img {
+      > img {
         @include media( $third-break ) {
           position: absolute;
           top: -9999px;

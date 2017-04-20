@@ -40,18 +40,27 @@ if ( ! function_exists( 'soup2nuts_pre_get_posts' ) ) :
       'compare' => 'EXISTS'
     );
 
-    $existingMetaQuery[] = $expiredMetaQuery;
+    //$existingMetaQuery[] = $expiredMetaQuery;
   }
 
 
   if ( $query->is_home() || $query->is_front_page() ) {
 
+    $existingMetaQuery[ 'relation' ] = 'AND';
     $thumbnailMetaQuery = array(
       'key' => '_thumbnail_id',
       'compare' => 'EXISTS'
     );
 
+    $expiredMetaQuery = array(
+      'key' => 'expiration-date',
+      'value' => date( time() ),
+      'type' => 'DATE',
+      'compare' => 'EXISTS'
+    );
+
     $existingMetaQuery[] = $thumbnailMetaQuery;
+    $existingMetaQuery[] = $expiredMetaQuery;
 
   }
 

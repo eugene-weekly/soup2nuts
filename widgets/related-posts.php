@@ -21,7 +21,7 @@ class RelatedPosts extends WP_Widget {
       $title = 'Recent Posts';
     }
 
-    $related_posts = related_posts();
+    $related_posts = get_related_posts();
 
     echo $before_widget; ?>
     <?php if ( !empty( $title ) ) : ?>

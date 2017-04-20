@@ -24,7 +24,7 @@
      $termExclusionQuery = array(
        'taxonomy' => 'category',
        'field'    => 'slug',
-       'terms'    => array( 'slant', 'letters', 'pollution-update', 'biz-beat', 'spray-schedule', 'happening-people', 'savage-love' ),
+       'terms'    => array( 'activist-alert', 'slant', 'letters', 'pollution-update', 'biz-beat', 'spray-schedule', 'happening-people', 'savage-love' ),
        'operator' => 'NOT IN',
      );
 
@@ -52,7 +52,7 @@
      }
 
      // Require thumbnails in certain sections
-     if ( in_array( $section, array( 'arts', 'culture' ) ) ) {
+     if ( in_array( $section, array( 'news', 'arts', 'culture' ) ) ) {
        $home_posts_args[ 'meta_query' ][] = $thumbnailMetaQuery; // NOTE: Uncomment this to require thumbnails
        $home_posts_args['posts_per_page'] = 4;
      }
@@ -283,18 +283,27 @@ if ( ! function_exists( 'featured_events' ) ) :
     $featuredEventsArgs = array_merge(
       $baseEventArgs,
       array(
-        'order' => 'DESC',
-        'orderby' => 'meta_value_num',
-        'meta_key' => 'featured-event-quotient',
+        'orderby' => array(
+          'sponsored_events' => 'DESC',
+        ),
         'meta_query' => array(
           'relation' => 'AND',
           $upcomingEventsMetaQuery,
           $thumbnailMetaQuery,
           array(
-            'key' => 'featured-event-quotient',
-            'value' => 1,
-            'compare' => '>=',
-            'type' => 'NUMERIC'
+            'relation' => 'OR',
+            'sponsored_events' => array(
+              'key' => 'sponsored',
+              'value' => 1,
+              'compare' => '=',
+              'type' => 'NUMERIC'
+            ),
+            'featured_events' => array(
+              'key' => 'featured-event-quotient',
+              'value' => 1,
+              'compare' => '>=',
+              'type' => 'NUMERIC'
+            )
           ),
         )
       )
@@ -345,7 +354,7 @@ if ( ! function_exists( 'featured_events' ) ) :
 endif; //featured_events
 
 
-if ( ! function_exists( 'related_posts' ) ) :
+if ( ! function_exists( 'get_related_posts' ) ) :
  /**
   * Return Related Posts.
   *
@@ -354,7 +363,7 @@ if ( ! function_exists( 'related_posts' ) ) :
   * @since 0.1.0
   */
 
-  function related_posts( $count = 3, $related_to = null ) {
+  function get_related_posts( $count = 3, $related_to = null ) {
 
     global $post;
 
@@ -415,4 +424,4 @@ if ( ! function_exists( 'related_posts' ) ) :
     return new WP_Query( $related_posts_args );
   }
 
-endif; //related_posts
+endif; //get_related_posts

@@ -101,7 +101,8 @@ blockquote {
 
 .hentry:not(.category-letters, .category-slant, .category-biz_beat, .category-spray-schedule, .category-pollution-update, .category-activist-alert ) {
   .entry-content {
-    > p:first-child {
+    > p:first-child,
+    > figure:first-child + p {
 
       &:first-letter {
         font-weight: 900;

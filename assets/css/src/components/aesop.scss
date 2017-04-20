@@ -2,6 +2,10 @@
  * Aesop
  */
 
+.entry-hero .aesop-component {
+  margin: 0 auto;
+}
+
 .aesop-image-component {
   .aesop-img-enlarge,
   .aesop-image-component-caption
@@ -53,7 +57,9 @@
       color: color( grey );
     }
   }
+}
 
+.aesop-gallery-component {
 
 }
 
