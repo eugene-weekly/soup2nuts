@@ -18,7 +18,15 @@ get_header(); ?>
         <div class="page-content">
           <p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'soup2nuts' ); ?></p>
 
-          <?php get_search_form(); ?>
+          <?php $category_list_args = array(
+            'exclude' => array( 1, 79, 102 ),
+            'hide_title_if_empty' => true,
+            'title_li' => '',
+          );
+
+          wp_list_categories( $category_list_args ); ?>
+
+          <?php //get_search_form(); ?>
 
         </div><!-- .page-content -->
       </section><!-- .error-404 -->

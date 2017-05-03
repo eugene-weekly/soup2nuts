@@ -32,7 +32,8 @@
 
 
 .features-posts,
-.events-posts {
+.events-posts,
+.video-posts {
 
   @include media( $third-break ) {
     flex: 1 1 100%;
@@ -62,7 +63,8 @@
   }
 }
 
-.features-posts {
+.features-posts,
+.video-posts {
 
   @include media( $third-break ) {
     height: 720px;
@@ -167,7 +169,9 @@
 
 .news-posts,
 .arts-posts,
-.culture-posts {
+.culture-posts,
+.galleries-posts,
+.video-posts {
 
   margin-top: 2em;
 
@@ -207,6 +211,31 @@
 
     @include media( $third-break ) {
       flex: 0 1 flex-grid( 4 );
+    }
+  }
+}
+
+.galleries-posts {
+  margin-top: 0;
+}
+
+.video-posts {
+  flex-direction: column;
+
+  @include media( $third-break ) {
+    flex: 0 1 flex-grid( 8 );
+  }
+
+  > .excerpted-post {
+    flex-direction: column;
+
+    .entry-header {
+      flex: 0 1 auto;
+      order: 2;
+    }
+    .entry-hero {
+      flex: 1 1 550px;
+      order: 1;
     }
   }
 }

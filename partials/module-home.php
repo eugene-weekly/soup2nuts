@@ -9,7 +9,7 @@
 
 $excludedPosts = array();
 
-foreach( array( 'features', 'news', 'arts', 'culture', 'events', 'promotions' ) as $home_section ) :
+foreach( array( 'features', 'news', 'arts', 'culture', 'events', 'galleries', 'video', 'promotions' ) as $home_section ) :
 
   $posts = home_posts( $home_section, $excludedPosts );
 

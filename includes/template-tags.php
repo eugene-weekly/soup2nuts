@@ -254,7 +254,7 @@ function the_hero_image( $size = 'hero', $position = 'hero' ) {
   if ( !empty( $post_meta[ 'no-hero' ][0] ) && ($position == 'hero') )
     return;
 
-  if ( (is_singular() && $position == 'hero')|| $position == 'features' ) {
+  if ( (is_singular() && $position == 'hero')|| in_array( $position, array( 'features', 'video' ) ) ) {
 
     if ( has_post_format( 'gallery', $post->ID ) && $post_meta['hero-gallery'] ) {
       // Aesop Gallery

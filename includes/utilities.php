@@ -110,6 +110,7 @@ function guess_hero_size( $origin, $position = 0 ) {
 
   switch ($origin) {
     case 'features':
+    case 'video':
 
       $deduced_size = ( $position == 0 ) ? 'large' : 'medium';
       break;
@@ -117,6 +118,7 @@ function guess_hero_size( $origin, $position = 0 ) {
     case 'news':
     case 'arts':
     case 'culture':
+    case 'galleries':
 
       $deduced_size = ( $position == 0 ) ? 'medium' : 'thumbnail';
       break;
@@ -155,7 +157,7 @@ function get_the_hero_image( $size, $hero_origin = false ) {
 
   $heroImgID = get_post_thumbnail_id( $hero_origin );
   //$heroImgID = $heroImgObject['ID'];
-  $heroImgSrc = wp_get_attachment_image( $heroImgID, $size );
+  $heroImgSrc = wp_get_attachment_image( $heroImgID, $size, false, array( 'class' => 'aesop-lazy-img_not-yet' ) );
   $heroImgMeta = wp_get_attachment_metadata( $heroImgID );
   $heroImg = wp_image_add_srcset_and_sizes( $heroImgSrc, $heroImgMeta, $heroImgID );
 

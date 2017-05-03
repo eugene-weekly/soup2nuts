@@ -73,6 +73,32 @@
 
      }
 
+    if ( $section == 'galleries' ) {
+
+      $home_posts_args[ 'tax_query' ][] = array(
+        'taxonomy' => 'post_format',
+        'field'    => 'slug',
+        'terms'    => 'post-format-gallery',
+      );
+
+      //$home_posts_args[ 'suppress_filters' ] = true;
+    }
+
+   if ( $section == 'video' ) {
+
+     $home_posts_args[ 'tax_query' ][] = array(
+       'taxonomy' => 'post_format',
+       'field'    => 'slug',
+       'terms'    => 'post-format-video',
+     );
+
+     $home_posts_args[ 'meta_query' ][] = $thumbnailMetaQuery; // NOTE: Uncomment this to require thumbnails
+     $home_posts_args['posts_per_page'] = 1;
+   }
+
+
+
+
      if ( $section == 'promotions' ) {
        $home_posts_args['post_type'] = 'promotion';
        $home_posts_args['posts_per_page'] = 4;
