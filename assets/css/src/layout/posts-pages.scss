@@ -64,8 +64,10 @@
 }
 
 .entry-hero {
-  a {
+  a,
+  p {
     display: block;
+    margin: 0;
 
     line-height: 0;
   }
@@ -301,7 +303,6 @@
 .singular,
 .page {
 
-
   .hentry {
     @include media( $third-break ) {
       display: flex;
@@ -333,6 +334,10 @@
 
     @include media( $fifth-break ) {
       padding-left: flex-grid( 1 );
+    }
+
+    .sd-sharing-enabled {
+      padding-top: 1em;
     }
   }
 
@@ -376,7 +381,6 @@
       }
     }
 
-
     .hero-caption {
       margin-left: flex-gutter();
       margin-right: flex-gutter();
@@ -411,7 +415,18 @@
     }
   }
 
-  .entry-content + .entry-footer {
+  .entry-content + .ad {
+    @include media( $third-break ) {
+      flex: 0 1 40%;
+      order: 4;
+      align-self: flex-start;
+
+      //max-width: 300px;
+      padding-top: 3em;
+    }
+  }
+
+  .entry-footer {
     @include media( $third-break ) {
       flex: 0 1 60%;
       order: 5;
@@ -423,16 +438,6 @@
   }
 
   .widget-area {
-
-    @include media( $third-break ) {
-      flex: 0 1 40%;
-      order: 4;
-      align-self: flex-start;
-
-      //max-width: 300px;
-      padding-top: 3em;
-    }
-
   }
 
   .format-gallery .entry-hero,

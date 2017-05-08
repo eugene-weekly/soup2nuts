@@ -185,6 +185,7 @@ function soup2nuts_posted_on() {
 
   echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
 
+  if ( function_exists( 'sharing_display' ) ) { echo sharing_display(); }
 }
 endif;
 
@@ -200,7 +201,7 @@ function soup2nuts_entry_footer() {
     printf( '<span class="featured-event">%1$s Event</span>', $sponsored );
   }
 
-  if ( is_single() ) {
+  if ( is_singular() ) {
     $tags_list = get_the_tag_list( '', esc_html__( ', ', 'soup2nuts' ) );
     if ( $tags_list ) {
       printf( '<span class="tags-links"><strong>Tags: </strong>' . esc_html__( '%1$s', 'soup2nuts' ) . '</span>', $tags_list ); // WPCS: XSS OK.

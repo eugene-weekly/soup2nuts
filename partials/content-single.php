@@ -24,14 +24,12 @@
   <div class="entry-content">
     <?php the_content(); ?>
   </div><!-- .entry-content -->
-  <!-- ad sidebar will go here -->
+  <?php include( locate_template( 'partials/module-ad.php', false ) ); ?>
 
   <footer class="entry-footer">
     <?php soup2nuts_entry_footer(); ?>
   </footer><!-- .entry-footer -->
 
-  <?php related_posts(); ?>
-
-  <?php get_sidebar(); ?>
-
 </article><!-- #post-## -->
+
+<?php get_sidebar(); ?>

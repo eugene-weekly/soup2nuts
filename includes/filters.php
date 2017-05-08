@@ -440,3 +440,27 @@ if ( ! function_exists( 'soup2nuts_archive_title' ) ) :
 endif; // excerpt_length
 
 add_filter( 'get_the_archive_title', 'soup2nuts_archive_title', 10, 2 );
+
+if ( ! function_exists( 'soup2nuts_sharing_filter' ) ) :
+
+  /**
+   * Filter sharing
+   *
+   * @param $title (string)
+   *
+   * @return $title (string)
+   *
+   * @since 0.1.0
+   */
+
+  function soup2nuts_sharing_filter( $title ) {
+
+    if ( is_singular( 'post' ) && function_exists( 'sharing_display' ) ) {
+        remove_filter( 'the_content', 'sharing_display', 19 );
+        remove_filter( 'the_excerpt', 'sharing_display', 19 );
+    }
+  }
+
+endif; // excerpt_length
+
+add_filter( 'loop_start', 'soup2nuts_sharing_filter' );

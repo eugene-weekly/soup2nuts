@@ -54,7 +54,7 @@ foreach( array( 'features', 'news', 'arts', 'culture', 'events', 'galleries', 'v
 
       <?php endif; ?>
 
-    </section><!-- featured posts -->
+    </section><!-- <?php echo $home_section; ?> posts -->
   <?php endif;
 
   if (( $home_section == 'events' )) {
@@ -63,8 +63,7 @@ foreach( array( 'features', 'news', 'arts', 'culture', 'events', 'galleries', 'v
 
   if (( $home_section == 'promotions' )) { ?>
     <div class="promotions-ad-column">
-      <?php include( locate_template( 'partials/module-ad.php', false ) );
-      include( locate_template( 'partials/module-ad.php', false ) ); ?>
+      <?php include( locate_template( 'partials/module-ad.php', false ) ); ?>
     </div>
   <?php }
 

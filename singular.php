@@ -16,8 +16,6 @@ get_header(); ?>
 
         <?php get_template_part( 'partials/content', 'single' ); ?>
 
-        <?php the_post_navigation(); ?>
-
       <?php endwhile; // End of the loop. ?>
 
     <?php else : ?>
@@ -29,5 +27,5 @@ get_header(); ?>
     </main><!-- #main -->
   </div><!-- #primary -->
 
-<?php get_sidebar( 'post-sidebar' ); ?>
+<?php //get_sidebar( 'post-sidebar' ); ?>
 <?php get_footer(); ?>

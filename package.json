@@ -10,7 +10,8 @@
   "repository": "https://github.com/eugene-weekly/soup2nuts",
   "bugs": "https://github.com/eugene-weekly/soup2nuts/issues",
   "scripts": {
-    "start": "grunt"
+    "start": "grunt live",
+    "build": "grunt"
   },
   "dependencies": {},
   "devDependencies": {

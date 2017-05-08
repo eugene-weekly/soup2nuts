@@ -15,6 +15,9 @@ if ( isset( $home_section ) ) {
 } elseif ( isset( $tax_section ) ) {
 
   $section = $tax_section;
+} elseif ( is_singular() ) {
+
+  $section = 'single';
 }
 
 $position = isset( $posts->current_post ) ? $posts->current_post : 1;
@@ -23,10 +26,11 @@ $position = ( $position < 1 ) ? 1 : $position;
 
 if ( !empty( $section ) ) {
   switch ($section) {
-    case 'promotions':
-      $tag_code = '300x250';
+    case 'single':
+      $tag_code = '300x600';
       break;
 
+    case 'promotions':
     case 'features':
     default:
       $tag_code = '300x250';
