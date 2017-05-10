@@ -6,6 +6,7 @@
  */
 
 $sidebarType = ( is_archive() ) ? 'archive' : 'post';
+$sidebarType = ( is_author() ) ? 'author' : $sidebarType;
 
 if ( ! is_active_sidebar( $sidebarType . '-sidebar' ) ) {
   return;

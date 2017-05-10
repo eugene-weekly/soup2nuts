@@ -209,6 +209,23 @@
   }
 }
 
+/* Small Excerpt */
+%small-excerpt {
+
+  .entry-header {
+    order: 1;
+
+    padding-left: flex-gutter();
+  }
+
+  .entry-hero {
+    flex: 0 0 150px;
+    order: 0;
+  }
+
+
+}
+
 /* Excerpted Posts */
 .excerpted-post {
   display: flex;
@@ -264,6 +281,10 @@
   .events-posts &,
   .more_features-posts & {
     @extend %featured-excerpt;
+  }
+
+  .archive.author & {
+    @extend %small-excerpt;
   }
 
   .entry-header {
