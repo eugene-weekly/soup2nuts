@@ -17,6 +17,30 @@
 
 
 .widget-area {
+
+  .single &,
+  .page & {
+    display: flex;
+
+    @include media( $third-break ) {
+      flex-wrap: nowrap;
+    }
+
+    .widget {
+      flex: 0 1 25%;
+
+      @include media( $third-break ) {
+        flex-wrap: nowrap;
+      }
+
+      &:not( :last-child ) {
+        @include media( $third-break ) {
+          margin-right: flex-gutter();
+        }
+      }
+    }
+  }
+
   .widget-title {
 
     display: block;

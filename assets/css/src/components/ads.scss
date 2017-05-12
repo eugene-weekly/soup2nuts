@@ -4,7 +4,12 @@
 
 .ad {
 
-
+  .single .entry-content + &,
+  .page .entry-content + & {
+    > * {
+      margin-left: auto;
+    }
+  }
 }
 
 .huge-ad {

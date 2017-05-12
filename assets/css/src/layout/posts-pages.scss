@@ -24,25 +24,14 @@
       flex-wrap: nowrap;
     }
 
-    .content-area,
-    .widget-area {
-      flex: 1 1 100%;
-    }
-
     .content-area {
+      flex: 1 1 100%;
+
       @include media( $third-break ) {
         flex: 1 1 flex-grid( 8 );
 
         padding-left: flex-gutter();
         padding-right: flex-gutter();
-      }
-    }
-
-    .widget-area {
-      @include media( $third-break ) {
-        flex: 0 1 430px;
-
-        margin-left: flex-gutter();
       }
     }
   }
@@ -447,7 +436,7 @@
     }
   }
 
-  .entry-footer {
+  .entry-footer:not( .widget .entry-footer ) {
     @include media( $third-break ) {
       flex: 0 1 60%;
       order: 5;
