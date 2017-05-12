@@ -1,0 +1,46 @@
+/**
+ * Author
+ */
+
+.archive.author {
+
+  .site-content {
+    margin-top: 2em;
+  }
+
+  .content-area {
+
+    @include media( $third-break ) {
+      @include span-columns( 8 );
+    }
+  }
+
+  .widget-area {
+
+    @include media( $third-break ) {
+      @include span-columns( 3 );
+
+      @include shift( 1 );
+    }
+  }
+
+  .site-main {
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 4em;
+    padding: 2em flex-gutter();
+
+    background-color: color( white );
+
+    box-shadow: $box-shadow;
+
+    > * {
+      flex: 1 0 100%;
+    }
+  }
+
+  .archive-header {
+    @include visuallyhidden();
+  }
+}
