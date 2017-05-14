@@ -35,6 +35,7 @@ module.exports = function( grunt ) {
 
   // Default task.
   grunt.registerTask( 'default', [ 'install', 'images', 'styles', 'scripts' ] );
+  grunt.registerTask( 'build', 'default' );
 
   grunt.util.linefeed = '\n';
 

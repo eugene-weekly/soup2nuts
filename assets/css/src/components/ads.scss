@@ -10,6 +10,13 @@
       margin-left: auto;
     }
   }
+
+  .events-posts + & {
+    > div {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
 }
 
 .huge-ad {

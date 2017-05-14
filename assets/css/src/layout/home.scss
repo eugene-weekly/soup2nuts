@@ -213,6 +213,12 @@
       flex: 0 1 flex-grid( 4 );
     }
   }
+
+  & + .ad {
+    flex: 1 0 100%;
+
+    margin-bottom: 4em;
+  }
 }
 
 .galleries-posts {

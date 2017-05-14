@@ -58,7 +58,7 @@ foreach( array( 'features', 'news', 'arts', 'culture', 'events', 'galleries', 'v
   <?php endif;
 
   if (( $home_section == 'events' )) {
-    //get_template_part( 'partials/module', 'ad-large' );
+    include( locate_template( 'partials/module-ad.php', false ) );
   }
 
   if (( $home_section == 'promotions' )) { ?>

@@ -30,6 +30,10 @@ if ( !empty( $section ) ) {
       $tag_code = '300x600';
       break;
 
+    case 'events':
+      $tag_code = '728x90';
+      break;
+
     case 'promotions':
     case 'features':
     default:
