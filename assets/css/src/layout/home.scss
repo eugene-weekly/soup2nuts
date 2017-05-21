@@ -211,6 +211,8 @@
 
     @include media( $third-break ) {
       flex: 0 1 flex-grid( 4 );
+
+      margin-bottom: 0;
     }
   }
 

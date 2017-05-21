@@ -4,7 +4,15 @@
 
 .related_posts {
   .hero-caption,
-  .entry-excerpt {
+  .entry-subhead,
+  .entry-excerpt,
+  .entry-footer {
     @include visuallyhidden;
+  }
+
+  .excerpted-post:nth-of-type(2),
+  .excerpted-post:nth-of-type(3) {
+    @extend %small-excerpt;
+
   }
 }

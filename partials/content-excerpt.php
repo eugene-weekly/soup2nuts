@@ -20,7 +20,7 @@ if ( isset( $home_section ) ) {
 }
 
 $count = isset( $posts->current_post ) ? $posts->current_post : 0;
-$position = ( in_array( $section, array( 'features', 'video' )) && ($count == 0)) ? $section : 'excerpt';?>
+$position = ( in_array( $section, array( 'features', 'video' )) && ( $count == 0 ) ) ? $section : 'excerpt'; ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'excerpted-post' ); ?>>
   <header class="entry-header">

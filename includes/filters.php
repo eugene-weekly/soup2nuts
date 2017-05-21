@@ -40,7 +40,7 @@ if ( ! function_exists( 'soup2nuts_pre_get_posts' ) ) :
       'compare' => 'EXISTS'
     );
 
-    //$existingMetaQuery[] = $expiredMetaQuery;
+    $existingMetaQuery[] = $expiredMetaQuery;
   }
 
 
@@ -59,8 +59,8 @@ if ( ! function_exists( 'soup2nuts_pre_get_posts' ) ) :
       'compare' => 'EXISTS'
     );
 
-    $existingMetaQuery[] = $thumbnailMetaQuery;
-    $existingMetaQuery[] = $expiredMetaQuery;
+    //$existingMetaQuery[] = $thumbnailMetaQuery;
+    //$existingMetaQuery[] = $expiredMetaQuery;
 
   }
 
