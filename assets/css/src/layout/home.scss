@@ -32,7 +32,7 @@
 
 .features-posts,
 .events-posts,
-.video-posts {
+.video-column-wrapper {
 
   @include media( $third-break ) {
     flex: 1 1 100%;
@@ -232,17 +232,55 @@
   }
 }
 
-.video-posts {
+.video-column-wrapper {
 
   flex-direction: column;
-
-  background-color: color( white );
 
   @include media( $third-break ) {
     flex: 0 1 flex-grid( 8 );
 
     width: flex-grid( 8 );
-    margin-top: 0;
+  }
+
+  .video-posts {
+
+    background-color: color( white );
+
+    @include media( $third-break ) {
+      margin-top: 0;
+    }
+
+    .section-footer {
+      padding-top: 2em;
+    }
+
+    > .excerpted-post {
+      flex-direction: column;
+
+      margin-right: 0;
+      padding-bottom: 0;
+
+      box-shadow: none;
+
+      .entry-header {
+        flex: 0 1 auto;
+        order: 2;
+
+        margin-left: flex-gutter( 6 );
+        margin-right: flex-gutter( 6 );
+        padding-right: 0;
+        padding-bottom: 2em;
+        padding-left: 0;
+
+        border-bottom: 1px solid color( red );
+      }
+
+      .entry-hero {
+        flex: 1 1 550px;
+        order: 1;
+        margin-bottom: 1em;
+      }
+    }
   }
 
   .section-footer {

@@ -17,8 +17,18 @@ foreach( array( 'features', 'news', 'arts', 'culture', 'events', 'galleries', 'v
 
   if ( $posts->have_posts() ) :
 
-    $excludedPosts = array_merge( $excludedPosts, wp_list_pluck( $posts->posts, 'ID' ) ); ?>
+    $excludedPosts = array_merge( $excludedPosts, wp_list_pluck( $posts->posts, 'ID' ) );
 
+    if (( $home_section == 'events' )) {
+
+      // ad block above Events
+      include( locate_template( 'partials/module-ad.php', false ) );
+    }
+
+    // video column wrapper
+    if (( $home_section == 'video' )) { ?>
+      <div class="video-column-wrapper">
+    <?php } ?>
     <section class="<?php echo $home_section; ?>-posts home-posts">
 
       <?php if ( !in_array( $home_section, array( 'features', 'events' ) ) ) : ?>
@@ -35,6 +45,7 @@ foreach( array( 'features', 'news', 'arts', 'culture', 'events', 'galleries', 'v
 
           <div class="right-column">
             <?php include( locate_template( 'partials/content-excerpt.php', false ) );
+            // ad block above the fold
             include( locate_template( 'partials/module-ad.php', false ) ); ?>
           </div> <!-- right-column -->
 
@@ -57,7 +68,14 @@ foreach( array( 'features', 'news', 'arts', 'culture', 'events', 'galleries', 'v
     </section><!-- <?php echo $home_section; ?> posts -->
   <?php endif;
 
+  if (( $home_section == 'video' )) {
+    // ad block after video
+    include( locate_template( 'partials/module-ad.php', false ) ); ?>
+    </div>
+  <?php }
+
   if (( $home_section == 'events' )) {
+    // ad block after events
     include( locate_template( 'partials/module-ad.php', false ) );
   }
 
