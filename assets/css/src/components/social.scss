@@ -2,7 +2,8 @@
  * Social
  */
 
-.widget_wpcom_social_media_icons_widget {
+.widget_wpcom_social_media_icons_widget,
+.author-social {
 
   ul { @include no-list; }
 
@@ -87,4 +88,27 @@
 .sd-social-icon .sd-content ul li[class*='share-'] a.sd-button {
   background-color: color( black ) !important;
   color: color( white ) !important;
+}
+
+.author-social {
+  @include no-list;
+
+  li { display: inline-block; }
+
+
+  .genericon {
+    padding: 0.5em;
+
+    background-color: color( black );
+    color: color( white );
+
+    border-radius: 50%;
+
+    &:hover,
+    &:focus {
+      background-color: color( red );
+    }
+  }
+
+
 }

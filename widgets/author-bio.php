@@ -25,10 +25,10 @@ class AuthorBio extends WP_Widget {
 
     $title = ( !empty( $instance[ 'title' ] ) ) ? $instance[ 'title' ] : null;
 
-    $author_meta = get_user_meta( $author->ID );
     $author_photo = get_avatar( $author->ID, 300 );
     $author_name = get_the_author_meta( 'display_name', $author->ID );
     $author_bio = get_the_author_meta( 'description', $author->ID );
+    $author_social = get_user_meta( $author->ID, 'social-links', false);
 
     echo $before_widget; ?>
     <?php if ( !empty( $title ) ) : ?>
@@ -44,6 +44,17 @@ class AuthorBio extends WP_Widget {
 
     <?php if ( !empty( $author_bio ) ) : ?>
       <p><?php echo $author_bio; ?></p>
+    <?php endif; ?>
+
+    <?php if ( !empty( $author_social ) ) : ?>
+      <ul class="author-social">
+        <?php foreach ($author_social[0] as $service=>$social) :
+          if (empty( $social ) ) continue; ?>
+        <li>
+          <a href="<?php the_author_social( $service, $social ); ?>" class="genericon genericon-<?php echo $service; ?> social-icon-<?php echo $service; ?>"><span class="visuallyhidden">Follow <?php echo $author_name; ?> on <?php echo ucfirst( $service ); ?>.</span></a>
+        </li>
+      <?php endforeach; ?>
+      </ul>
     <?php endif; ?>
 
     <?php echo $after_widget;

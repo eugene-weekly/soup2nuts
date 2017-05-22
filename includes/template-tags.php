@@ -381,3 +381,44 @@ function the_social_header( ) {
 
 }
 endif;
+
+
+
+if ( ! function_exists( 'the_author_social' ) ) :
+/** @TODO: Update this
+ *
+ * Display category, tag, or term description.
+ *
+ * @param string $before Optional. Content to prepend to the description. Default empty.
+ * @param string $after  Optional. Content to append to the description. Default empty.
+ */
+function the_author_social( $service, $author ) {
+
+  if ( !$service || !$author )
+    return;
+
+  $social_url = null;
+
+  switch ($service) {
+    case 'twitter':
+      $social_url = 'https://twitter.com/' . $author;
+      break;
+
+    case 'facebook':
+      $social_url = $author;
+      break;
+
+    case 'instagram':
+    $social_url = 'https://instagram.com/' . $author;
+      break;
+
+    default:
+      break;
+  }
+
+  if ( !empty( $social_url )) {
+    echo( esc_url($social_url) );
+  }
+
+}
+endif; //the_author_social
