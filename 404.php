@@ -24,7 +24,7 @@ get_header(); ?>
             'title_li' => '',
           );
 
-          wp_list_categories( $category_list_args ); ?>
+          //wp_list_categories( $category_list_args ); ?>
 
           <?php //get_search_form(); ?>
 
