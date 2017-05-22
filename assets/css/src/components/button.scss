@@ -1,0 +1,26 @@
+/**
+ * Button
+ */
+
+.button {
+  @include pad( 0.5em );
+
+  background-color: color( red );
+  color: color( white );
+
+  text-align: center;
+  text-decoration: none;
+
+  &:hover {
+    background-color: color( white );
+    color: color( red );
+  }
+
+  &.button-grey {
+    background-color: color( grey );
+
+    &:hover {
+      background-color: color( white );
+    }
+  }
+}

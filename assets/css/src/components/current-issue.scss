@@ -1,0 +1,42 @@
+/**
+ * Current Issue
+ */
+
+.current_issue {
+  background-color: color( white );
+
+  box-shadow: $box-shadow;
+
+  header {
+    @extend %h4;
+
+    @include pad( 1em 0 );
+
+    font-weight: 900;
+    text-transform: uppercase;
+    text-align: center;
+
+    color: color( red );
+  }
+
+  figure {
+    @include pad( 0 1em );
+
+    text-align: center;
+  }
+
+  footer {
+    display: flex;
+    flex-wrap: nowrap;
+    align-content: space-between;
+
+    @include pad( 1em );
+
+    .button {
+      flex: 1 1 48%;
+
+      margin-left: flex-gutter();
+      margin-right: flex-gutter();
+    }
+  }
+}
