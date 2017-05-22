@@ -10,4 +10,8 @@
     font-weight: 600;
     font-size: em( 24 );
   }
+
+  .author-social {
+    @include no-list;
+  }
 }

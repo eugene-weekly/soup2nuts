@@ -13,6 +13,29 @@
     @include media( $third-break ) {
       @include span-columns( 8 );
     }
+
+    .mobile-author-sidebar {
+      display: flex;
+      justify-content: center;
+
+      padding-left: flex-gutter(4);
+      padding-right: flex-gutter(4);
+
+      @include media( $third-break ) {
+        @include visuallyhidden;
+      }
+
+      .author_bio {
+        flex: 0 0 auto;
+
+        max-width: 300px;
+        margin: 0;
+
+        .author-social {
+          text-align: center;
+        }
+      }
+    }
   }
 
   .widget-area {
@@ -21,6 +44,14 @@
       @include span-columns( 3 );
 
       @include shift( 1 );
+    }
+
+    .author_bio {
+      display: none;
+
+      @include media( $third-break ) {
+        display: block;
+      }
     }
   }
 
@@ -36,7 +67,7 @@
     box-shadow: $box-shadow;
 
     > * {
-      flex: 1 0 100%;
+      flex: 1 0 auto;
     }
   }
 

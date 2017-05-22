@@ -10,6 +10,10 @@
 get_header(); ?>
 
   <div id="primary" class="content-area">
+    <div class="mobile-author-sidebar">
+      <?php the_widget( 'AuthorBio' ); ?><!-- CurrentIssue -->
+    </div>
+
     <main id="main" class="site-main" role="main">
 
     <?php if ( have_posts() ) : ?>
