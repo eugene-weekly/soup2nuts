@@ -34,10 +34,18 @@ if ( ! function_exists( 'soup2nuts_pre_get_posts' ) ) :
 
     $existingMetaQuery[ 'relation' ] = 'AND';
     $expiredMetaQuery = array(
-      'key' => 'expiration-date',
-      'value' => date( time() ),
-      'type' => 'DATE',
-      'compare' => 'EXISTS'
+      'relation' => 'OR',
+      array(
+        'key' => 'expiration-date',
+        'value' => 0,
+        'compare' => '='
+      ),
+      array(
+        'key' => 'expiration-date',
+        'value' => date( time() ),
+        'type' => 'DATE',
+        'compare' => '>'
+      )
     );
 
     $existingMetaQuery[] = $expiredMetaQuery;
@@ -464,3 +472,40 @@ if ( ! function_exists( 'soup2nuts_sharing_filter' ) ) :
 endif; // excerpt_length
 
 add_filter( 'loop_start', 'soup2nuts_sharing_filter' );
+
+
+if ( ! function_exists( 'soup2nuts_community_required_fields' ) ) :
+
+  /**
+   * Community Events Required Fields
+   *
+   * @param $fields (array)
+   *
+   * @return $fields (array)
+   *
+   * @since 0.1.0
+   */
+
+  function soup2nuts_community_required_fields( $fields ) {
+
+    if ( ! is_array( $fields ) ) {
+        return $fields;
+    }
+
+    $fields = array_merge(array_diff($fields, array('EventImage','organizer','EventURL')));
+
+    $fields[] = 'venue';
+    $fields[] = 'tax_input';
+    $fields[] = 'post_content';
+    $fields[] = 'event-time';
+    $fields[] = 'EventStartDate';
+    $fields[] = 'EventStartHour';
+    $fields[] = 'EventStartMinute';
+    $fields[] = 'EventStartMeridian';
+
+    return $fields;
+  }
+
+endif;
+
+add_filter( 'tribe_events_community_required_fields', 'soup2nuts_community_required_fields', 10, 1 );

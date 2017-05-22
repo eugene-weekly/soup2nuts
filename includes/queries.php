@@ -395,8 +395,6 @@ if ( ! function_exists( 'get_related_posts' ) ) :
 
     $related_to = ( isset( $related_to ) ) ? $related_to : $post;
 
-    pre_printr( $related_post_ids );
-
     $related_post_ids = get_post_meta( $related_to->ID, 'related', true );
     $related_post_ids = ( empty( $related_post_ids ) ) ? array() : wp_list_pluck( $related_post_ids, 'related_post' );
 
@@ -451,3 +449,29 @@ if ( ! function_exists( 'get_related_posts' ) ) :
   }
 
 endif; //get_related_posts
+
+
+
+if ( ! function_exists( 'get_current_issue' ) ) :
+ /**
+  * Return Current Issue.
+  *
+  * @uses WP_Query
+  *
+  * @since 0.1.0
+  */
+
+  function get_current_issue() {
+
+    $currentIssueArgs = array(
+      'suppress_filters' => true,
+      'posts_per_page' => 1,
+      'post_type' => 'issue',
+    );
+
+    //pre_printr( $currentIssue );
+    return new WP_Query( $currentIssueArgs );
+
+  }
+
+endif; //get_current_issue

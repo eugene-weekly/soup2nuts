@@ -16,8 +16,11 @@
     <?php the_content(); ?>
   </div><!-- .entry-content -->
 
-  <footer class="entry-footer">
+  <?php include( locate_template( 'partials/module-ad.php', false ) ); ?>
 
+  <footer class="entry-footer">
+    <?php soup2nuts_entry_footer(); ?>
   </footer><!-- .entry-footer -->
 </article><!-- #post-## -->
 
+<?php get_sidebar(); ?>

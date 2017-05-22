@@ -130,6 +130,7 @@ if ( ! function_exists( 'soup2nuts_posted_on' ) ) :
  * Prints HTML with meta information for the current post-date/time and author.
  */
 function soup2nuts_posted_on() {
+  $id = get_the_ID();
 
   if ( in_array( get_post_type( $id ), array( 'post', 'promotion' )) ) {
     /* translators: used between list items, there is a space after the comma */
@@ -202,7 +203,7 @@ function soup2nuts_entry_footer() {
   }
 
   if ( is_singular() ) {
-    $tags_list = get_the_tag_list( '', esc_html__( ', ', 'soup2nuts' ) );
+    $tags_list = get_the_tag_list( '', esc_html__( ' / ', 'soup2nuts' ) );
     if ( $tags_list ) {
       printf( '<span class="tags-links"><strong>Tags: </strong>' . esc_html__( '%1$s', 'soup2nuts' ) . '</span>', $tags_list ); // WPCS: XSS OK.
     }

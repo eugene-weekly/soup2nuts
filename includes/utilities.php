@@ -19,10 +19,9 @@ function get_the_subhead( $post = 0 ) {
 
   $post = get_post( $post );
 
-
   $id = isset( $post->ID ) ? $post->ID : 0;
   //$post_meta = get_post_meta( $id, 'post_details', true );
-  $post_meta = ( metadata_exists( 'post', $id, 'post_details' ) ) ? get_post_meta( $id, 'post_details', true ) : get_post_meta( $id, '', true );
+  $post_meta = ( metadata_exists( 'post', $id, 'post_details' ) ) ? get_post_meta( $id, 'post_details', false ) : get_post_meta( $id, '', false );
 
   //pre_printr($post_meta);
 
@@ -53,7 +52,7 @@ function get_the_subhead( $post = 0 ) {
 
 
   /**
-  * Filter the post title.
+  * Filter the post subhead.
   *
   * @since 0.71
   *
@@ -119,6 +118,9 @@ function guess_hero_size( $origin, $position = 0 ) {
     case 'arts':
     case 'culture':
     case 'galleries':
+    case 'latest':
+    case 'more_features':
+    case 'popular':
 
       $deduced_size = ( $position == 0 ) ? 'medium' : 'thumbnail';
       break;

@@ -64,6 +64,8 @@ foreach( array( 'features', 'news', 'arts', 'culture', 'events', 'galleries', 'v
   if (( $home_section == 'promotions' )) { ?>
     <div class="promotions-ad-column">
       <?php include( locate_template( 'partials/module-ad.php', false ) ); ?>
+      <?php the_widget( 'CurrentIssue' ); ?><!-- CurrentIssue -->
+
     </div>
   <?php }
 

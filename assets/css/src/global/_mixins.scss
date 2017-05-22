@@ -5,6 +5,157 @@
 @import "bourbon/bourbon";
 @import "grid-settings";
 @import "neat/neat";
+// Site Extends
+/* Featured Excerpts */
+%featured-excerpt {
+
+  flex-wrap: wrap;
+
+  padding-bottom: 0;
+  border-bottom: 0;
+
+  @include media( $third-break ) {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    align-content: stretch;
+
+    padding-bottom: 0em;
+  }
+
+  &.no-post-img {
+    .entry-hero {
+      position: relative;
+
+      background-color: color( grey );
+
+      &:after {
+
+        content: 'No Image!';
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        max-width: 50%;
+
+        text-align: center;
+
+        transform: translate( -50%, -50% );
+      }
+    }
+  }
+
+  &:after {
+    flex: 1 1 auto;
+    order: 5;
+
+    content: '';
+
+    display: block;
+    height: 0px;
+    width: 100%;
+    max-width: 100%;
+    margin-left: flex-gutter( 4 );
+    margin-right: flex-gutter( 4 );
+
+    border-bottom: 1px solid color( red );
+
+    @include media( $third-break ) {
+      width: auto
+    }
+
+    .features-posts & { display: none; }
+  }
+
+  .entry-header {
+    flex: 1 1 100%;
+    order: 3;
+
+    margin: 0 0 1em;
+    @include pad( 0 flex-gutter( 4 ) 1em );
+
+    @include media( $third-break ) {
+      flex: 0 1 auto;
+    }
+
+  }
+
+  .entry-hero {
+    flex: 1 1 100%;
+    order: 1;
+
+
+    min-height: 200px;
+    max-height: 50vh;
+    max-width: 100%;
+    margin-bottom: 1em;
+    overflow: hidden;
+
+
+    @include media( $third-break ) {
+      flex: 1 1 auto;
+
+      //width: 100%;
+      min-height: 270px;
+      max-height: 270px;
+    }
+
+    img {
+      height: auto;
+      width: 100%;
+      max-height: none;
+      //min-height: 100%;
+      //min-width: 100%;
+    }
+  }
+
+  .entry-excerpt {
+    flex: 1 1 100%;
+    order: 4;
+
+    @include pad( 0 flex-gutter( 4 ) 1em );
+
+    @include media( $third-break ) {
+      flex: 1 1 auto;
+    }
+  }
+
+  .entry-footer {
+    flex: 1 1 100%;
+
+    display: none;
+
+    @include media( $third-break ) {
+      flex: 0 1 auto;
+    }
+  }
+
+  &.no-post-img {
+
+    padding-top: 2em;
+
+    .entry-header {
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+  }
+}
+
+/* Small Excerpt */
+%small-excerpt {
+
+  .entry-header {
+    order: 1;
+
+    padding-left: flex-gutter();
+  }
+
+  .entry-hero {
+    flex: 0 0 150px;
+    order: 0;
+  }
+}
+
 
 // =Site Mixins
 

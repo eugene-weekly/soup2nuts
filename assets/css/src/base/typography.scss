@@ -130,6 +130,15 @@ blockquote {
   .entry-subhead {
     font-size: em( 30, 18 );
   }
+
+  .entry-footer {
+    .tags-links {
+      text-transform: uppercase;
+      font-style: italic;
+
+      a { text-decoration: none; }
+    }
+  }
 }
 
 

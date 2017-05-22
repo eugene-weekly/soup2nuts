@@ -33,6 +33,11 @@ function meta_fields() {
     'description' => 'Subheading, visible in thumbnails, lists, and posts.'
   ) );
 
+  $issue_url = new Fieldmanager_Textfield( 'Link to issue', array(
+    'description' => 'Probably should be an Issuu url.',
+    'input_type' => 'url',
+  ) );
+
   $featured = new Fieldmanager_Checkbox( array(
     'name' => 'featured',
     'label' => 'Feature this post on the home page.',
@@ -119,69 +124,69 @@ function meta_fields() {
   ) );
 
 
-    $user_details = new Fieldmanager_Group( array(
-      'name' => 'user_details',
-      'tabbed' => true,
-      'serialize_data' => false,
-      'add_to_prefix' => false,
-      'children' => array(
-        'tab-1' => new Fieldmanager_Group( array(
-          'label' => 'Social Links',
-          'serialize_data' => false,
-          'add_to_prefix' => false,
-          'children' => array(
-            'social-links' => $social_links,
-          )
-        ) ),
-      ),
-    ) );
-    $user_details->add_user_form( 'Author Details', 'user' );
-
-      $post_details = new Fieldmanager_Group( array(
-        'name' => 'post_details',
-        'tabbed' => true,
+  $user_details = new Fieldmanager_Group( array(
+    'name' => 'user_details',
+    'tabbed' => true,
+    'serialize_data' => false,
+    'add_to_prefix' => false,
+    'children' => array(
+      'tab-1' => new Fieldmanager_Group( array(
+        'label' => 'Social Links',
         'serialize_data' => false,
         'add_to_prefix' => false,
         'children' => array(
-          'tab-1' => new Fieldmanager_Group( array(
-            'label' => 'Post Details',
-            'serialize_data' => false,
-            'add_to_prefix' => false,
-            'children' => array(
-              'alt-title' => $alt_title,
-              'sub-head' => $sub_head,
-              'featured' => $featured,
-              'full-screen' => $full_screen,
-              'no-hero' => $no_hero,
-            )
-          ) ),
-          'tab-2' => new Fieldmanager_Group( array(
-            'label' => 'Related Posts',
-            'serialize_data' => false,
-            'add_to_prefix' => false,
-            'children' => array(
-              'related' => $related_posts,
-            )
-          ) ),
-          'tab-3' => new Fieldmanager_Group( array(
-            'label' => 'Gallery',
-            'serialize_data' => false,
-            'add_to_prefix' => false,
-            'children' => array(
-              'hero-gallery' => $hero_gallery,
-            )
-          ) ),
-          'tab-4' => new Fieldmanager_Group( array(
-            'label' => 'Video',
-            'serialize_data' => false,
-            'add_to_prefix' => false,
-            'children' => array(
-              'hero-video' => $hero_video,
-            )
-          ) ),
-        ),
-      ) );
-      $post_details->add_meta_box( 'Post Details', 'post' );
+          'social-links' => $social_links,
+        )
+      ) ),
+    ),
+  ) );
+  $user_details->add_user_form( 'Author Details', 'user' );
+
+  $post_details = new Fieldmanager_Group( array(
+    'name' => 'post_details',
+    'tabbed' => true,
+    'serialize_data' => false,
+    'add_to_prefix' => false,
+    'children' => array(
+      'tab-1' => new Fieldmanager_Group( array(
+        'label' => 'Post Details',
+        'serialize_data' => false,
+        'add_to_prefix' => false,
+        'children' => array(
+          'alt-title' => $alt_title,
+          'sub-head' => $sub_head,
+          'featured' => $featured,
+          'full-screen' => $full_screen,
+          'no-hero' => $no_hero,
+        )
+      ) ),
+      'tab-2' => new Fieldmanager_Group( array(
+        'label' => 'Related Posts',
+        'serialize_data' => false,
+        'add_to_prefix' => false,
+        'children' => array(
+          'related' => $related_posts,
+        )
+      ) ),
+      'tab-3' => new Fieldmanager_Group( array(
+        'label' => 'Gallery',
+        'serialize_data' => false,
+        'add_to_prefix' => false,
+        'children' => array(
+          'hero-gallery' => $hero_gallery,
+        )
+      ) ),
+      'tab-4' => new Fieldmanager_Group( array(
+        'label' => 'Video',
+        'serialize_data' => false,
+        'add_to_prefix' => false,
+        'children' => array(
+          'hero-video' => $hero_video,
+        )
+      ) ),
+    ),
+  ) );
+  $post_details->add_meta_box( 'Post Details', 'post' );
 
 
   $promotion_details = new Fieldmanager_Group( array(
@@ -195,6 +200,17 @@ function meta_fields() {
     ),
   ) );
   $promotion_details->add_meta_box( 'Promotion Details', 'promotion' );
+
+
+  $issue_details = new Fieldmanager_Group( array(
+    'name' => 'issue_details',
+    'serialize_data' => false,
+    'add_to_prefix' => false,
+    'children' => array(
+      'issue-url' => $issue_url,
+    ),
+  ) );
+  $issue_details->add_meta_box( 'Issue Details', 'issue' );
 
 
   $event_details = new Fieldmanager_Group( array(
@@ -212,4 +228,5 @@ function meta_fields() {
 add_action( 'fm_user', 'meta_fields' );
 add_action( 'fm_post_post', 'meta_fields' );
 add_action( 'fm_post_promotion', 'meta_fields' );
+add_action( 'fm_post_issue', 'meta_fields' );
 add_action( 'fm_post_tribe_events', 'meta_fields' );

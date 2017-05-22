@@ -6,7 +6,6 @@
  */
 
 ?>
-
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
   <figure class="entry-hero">
     <?php the_hero_image( 'hero' ); ?>
