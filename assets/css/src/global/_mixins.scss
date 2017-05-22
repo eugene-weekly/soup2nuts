@@ -118,6 +118,8 @@
     @include media( $third-break ) {
       flex: 1 1 auto;
     }
+
+    .features-posts & { display: none; }
   }
 
   .entry-footer {

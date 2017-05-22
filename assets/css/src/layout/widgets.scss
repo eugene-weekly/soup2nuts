@@ -16,25 +16,27 @@
 
 .widget-area {
 
-  .single &,
-  .page & {
-    display: flex;
+  .single .content-area + &,
+  .page .content-area + & {
 
     @include media( $third-break ) {
-      flex-wrap: nowrap;
     }
 
     .widget {
-      flex: 0 1 25%;
 
       @include media( $third-break ) {
-        flex-wrap: nowrap;
+        float: left;
+        width: flex-grid( 4 );
+        max-width: 300px;
       }
 
       &:not( :last-child ) {
         @include media( $third-break ) {
           margin-right: flex-gutter();
         }
+      }
+
+      &.related_posts {
       }
     }
   }
@@ -68,5 +70,12 @@
 .widget.most_featured_event {
   .excerpted-post {
     @extend %featured-excerpt;
+  }
+}
+
+.widget.most_featured_feature {
+
+  .hero-caption {
+    @include visuallyhidden;
   }
 }

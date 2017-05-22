@@ -74,6 +74,7 @@
   background-color: transparent;
 
   .excerpted-post {
+    .entry-excerpt,
     &:after { display: none; }
 
     @include media( $third-break ) {

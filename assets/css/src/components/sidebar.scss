@@ -1,0 +1,46 @@
+/**
+ * Sidebar
+ */
+
+.single,
+.page {
+  .site-content > .widget-area {
+    padding-top: 2em;
+    padding-bottom: 2em;
+
+    background-color: color( light-grey );
+
+    @include media( $third-break ) {
+      width: 100%;
+
+    }
+
+    &:before,
+    &:after {
+      //content: '';
+
+      position: absolute;
+      z-index: -1;
+      width: calc( 50vw - (#{$max-width} * 0.5) );
+      height: calc( 100% + 2em );
+
+      background-color: color( light-grey );
+      transform: translateY(-2em);
+    }
+
+    &:before {
+      transform: translateX(-100%);
+
+    }
+
+    &:after {
+      transform: translateX(100%);
+    }
+
+    .widget {
+      background-color: color(white);
+      box-shadow: $box-shadow;
+    }
+  }
+
+}

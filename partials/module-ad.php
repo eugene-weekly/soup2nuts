@@ -24,6 +24,8 @@ $position = isset( $posts->current_post ) ? $posts->current_post : 1;
 
 $position = ( $position < 1 ) ? 1 : $position;
 
+$tag_code = null;
+
 if ( !empty( $section ) ) {
   switch ($section) {
     case 'single':

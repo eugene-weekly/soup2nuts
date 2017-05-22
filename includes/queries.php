@@ -227,8 +227,9 @@ if ( ! function_exists( 'featured_post' ) ) :
     );
 
     $featuredPostArgs['meta_query'][ 'relation' ] = 'AND';
-
+    
     $featured_post = new WP_Query( $featuredPostArgs );
+
     if ( (!$featured_post->have_posts()) || ($featured_post->found_posts < $count) ) {
 
       $backupPostArgs = array(

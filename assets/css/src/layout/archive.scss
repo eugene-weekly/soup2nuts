@@ -21,6 +21,15 @@
     }
   }
 
+  &.category {
+    .site-main {
+      .excerpted-post {
+        .entry-excerpt { display: none; }
+      }
+    }
+  }
+
+
   &.paged {
     .site-content {
       display: flex;
@@ -53,28 +62,6 @@
       }
 
       .excerpted-post {
-        @include media( $third-break ) {
-          flex: 1 0 auto;
-        }
-
-        > * {
-          @include media( $third-break ) {
-            order: 1;
-
-            max-width: flex-grid( 8 );
-          }
-        }
-
-        .entry-hero {
-          @include media( $third-break ) {
-            flex: 0 0 150px;
-            order: 0;
-
-            margin-right: flex-gutter();
-          }
-        }
-
-        .entry-excerpt { display: none; }
       }
     }
 
@@ -82,4 +69,5 @@
       flex: 0 0 flex-grid( 4 );
     }
   }
+
 }

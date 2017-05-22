@@ -270,6 +270,10 @@ blockquote {
   @extend %h5;
 }
 
+.widget .entry-subhead {
+  font-size: em( 16 );
+}
+
 .section-footer .archive-link {
   @extend %h5;
 
