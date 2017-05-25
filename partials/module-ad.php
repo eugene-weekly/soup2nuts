@@ -29,15 +29,21 @@ $tag_code = null;
 if ( !empty( $section ) ) {
   switch ($section) {
     case 'single':
-      $tag_code = '300x600';
+      $tag_code = ( $position == 0 ) ? '300x600-post-sidebar-atf' : '300x600-post-footer-atf';
       break;
 
     case 'events':
-      $tag_code = '728x90';
+      $tag_code = ( $position == 0 ) ? '900x250-home-before-events' : '900x250-home-after-events';
       break;
 
     case 'promotions':
+      $tag_code = '300x250-promotions-btf';
+      break;
+
     case 'features':
+      $tag_code = '300x250';
+      break;
+
     default:
       $tag_code = '300x250';
       break;

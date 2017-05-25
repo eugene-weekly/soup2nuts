@@ -16,7 +16,7 @@ function meta_fields() {
          'description' => 'Enter a Twitter username (no @).',
        ) ),
        'facebook' => new Fieldmanager_Textfield( 'Facebook', array(
-         'description' => 'Enter a Facebook username (no @).',
+         'description' => 'Enter a Facebook URL (not just a User Name)',
        ) ),
        'instagram' => new Fieldmanager_Textfield( 'Instagram', array(
          'description' => 'Enter an Instagram username (no @).',
@@ -34,7 +34,7 @@ function meta_fields() {
   ) );
 
   $issue_url = new Fieldmanager_Textfield( 'Link to issue', array(
-    'description' => 'Probably should be an Issuu url.',
+    'description' => 'Enter the issue&rsquo;s url.',
     'input_type' => 'url',
   ) );
 

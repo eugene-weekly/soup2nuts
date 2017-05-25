@@ -383,7 +383,7 @@ add_filter( 'nav_menu_css_class', 'soup2nuts_nav_menu_item_class', 10, 2 );
  * Returns a "Continue Reading" link for excerpts
  */
 function soup2nuts_continue_reading_link() {
-	return ' <a href="'. esc_url( get_permalink() ) . '">' . __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'soup2nuts') . '</a>';
+  return ' <a href="'. esc_url( get_permalink() ) . '">' . __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'soup2nuts') . '</a>';
 }
 
 /**
@@ -393,7 +393,7 @@ function soup2nuts_continue_reading_link() {
  * function tied to the excerpt_more filter hook.
  */
 function soup2nuts_auto_excerpt_more( $more ) {
-	return ' &hellip;' . soup2nuts_continue_reading_link();
+  return ' &hellip;' . soup2nuts_continue_reading_link();
 }
 add_filter( 'excerpt_more', 'soup2nuts_auto_excerpt_more' );
 
@@ -404,17 +404,17 @@ add_filter( 'excerpt_more', 'soup2nuts_auto_excerpt_more' );
  * function tied to the get_the_excerpt filter hook.
  */
 function soup2nuts_custom_excerpt_more( $output ) {
-	if ( has_excerpt() && ! is_attachment() ) {
-		$output .= soup2nuts_continue_reading_link();
-	}
-	return $output;
+  if ( has_excerpt() && ! is_attachment() ) {
+  $output .= soup2nuts_continue_reading_link();
+  }
+  return $output;
 }
 add_filter( 'get_the_excerpt', 'soup2nuts_custom_excerpt_more' );
 
 add_action( 'admin_head', 'showhiddencustomfields' );
 
 function showhiddencustomfields() {
-	echo "<style type='text/css'>#postcustom .hidden { display: table-row; }</style>
+  echo "<style type='text/css'>#postcustom .hidden { display: table-row; }</style>
 ";
 }
 
@@ -509,3 +509,137 @@ if ( ! function_exists( 'soup2nuts_community_required_fields' ) ) :
 endif;
 
 add_filter( 'tribe_events_community_required_fields', 'soup2nuts_community_required_fields', 10, 1 );
+
+
+
+if ( ! function_exists( 'soup2nuts_ad_tag_ids' ) ) :
+
+  /**
+   * Ad Tag IDs
+   *
+   * @param $fields (array)
+   *
+   * @return $fields (array)
+   *
+   * @since 0.1.0
+   */
+
+  function soup2nuts_ad_tag_ids( $ad_tag_ids ) {
+
+      $ad_tag_ids[] =
+        array(
+          'tag' => '300x250-home-atf',
+          'url_vars' => array(
+            'tag' => '300x250-home-atf',
+          	'sz' => '300x250',
+          	'width' => '300',
+          	'height' => '250',
+          ),
+          'enable_ui_mapping' => 1
+        );
+
+      $ad_tag_ids[] = array(
+        'tag' => '900x250-home-before-events',
+        'url_vars' => array(
+          'tag' => '900x250-home-before-events',
+        	'sz' => '900x250',
+        	'width' => '900',
+        	'height' => '250',
+      	),
+        'enable_ui_mapping' => 1
+      );
+
+      $ad_tag_ids[] = array(
+        'tag' => '900x250-home-after-events',
+        'url_vars' => array(
+          'tag' => '900x250-home-after-events',
+          'sz' => '900x250',
+          'width' => '900',
+          'height' => '250',
+      	),
+        'enable_ui_mapping' => 1
+      );
+
+      $ad_tag_ids[] = array(
+        'tag' => '728x90-home-after-video',
+        'url_vars' => array(
+          'tag' => '728x90-home-after-video',
+        	'sz' => '300x250',
+        	'width' => '300',
+        	'height' => '250',
+      	),
+        'enable_ui_mapping' => 1
+      );
+
+      $ad_tag_ids[] = array(
+        'tag' => '300x250-promotions-btf',
+        'url_vars' => array(
+          'tag' => '300x250-promotions-btf',
+        	'sz' => '300x250',
+        	'width' => '300',
+        	'height' => '250',
+      	),
+        'enable_ui_mapping' => 1
+      );
+
+      $ad_tag_ids[] = array(
+        'tag' => '300x250-arts-atf',
+        'url_vars' => array(
+          'tag' => '300x250-arts-atf',
+        	'sz' => '300x250',
+        	'width' => '300',
+        	'height' => '250',
+      	),
+        'enable_ui_mapping' => 1
+      );
+
+      $ad_tag_ids[] = array(
+        'tag' => '300x250-news-atf',
+        'url_vars' => array(
+          'tag' => '300x250-news-atf',
+        	'sz' => '300x250',
+        	'width' => '300',
+        	'height' => '250',
+      	),
+        'enable_ui_mapping' => 1
+      );
+
+      $ad_tag_ids[] = array(
+        'tag' => '300x250-culture-atf',
+        'url_vars' => array(
+          'tag' => '300x250-culture-atf',
+        	'sz' => '300x250',
+        	'width' => '300',
+        	'height' => '250',
+      	),
+        'enable_ui_mapping' => 1
+      );
+
+      $ad_tag_ids[] = array(
+        'tag' => '300x600-post-sidebar-atf',
+        'url_vars' => array(
+          'tag' => '300x600-post-sidebar-atf',
+        	'sz' => '300x600',
+        	'width' => '300',
+        	'height' => '600',
+      	),
+        'enable_ui_mapping' => 1
+      );
+
+      $ad_tag_ids[] = array(
+        'tag' => '300x600-post-footer-btf',
+        'url_vars' => array(
+          'tag' => '300x600-post-footer-btf',
+        	'sz' => '300x600',
+        	'width' => '300',
+        	'height' => '600',
+      	),
+        'enable_ui_mapping' => 1
+      );
+
+    return $ad_tag_ids;
+  }
+
+endif;
+
+add_filter( 'acm_ad_tag_ids', 'soup2nuts_ad_tag_ids' );

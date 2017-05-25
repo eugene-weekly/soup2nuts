@@ -22,7 +22,7 @@ foreach( array( 'features', 'news', 'arts', 'culture', 'events', 'galleries', 'v
     if (( $home_section == 'events' )) {
 
       // ad block above Events
-      include( locate_template( 'partials/module-ad.php', false ) );
+      do_action( 'acm_tag', '900x250-home-before-events' );
     }
 
     // video column wrapper
@@ -46,7 +46,7 @@ foreach( array( 'features', 'news', 'arts', 'culture', 'events', 'galleries', 'v
           <div class="right-column">
             <?php include( locate_template( 'partials/content-excerpt.php', false ) );
             // ad block above the fold
-            include( locate_template( 'partials/module-ad.php', false ) ); ?>
+            do_action( 'acm_tag', '300x250-home-atf' );  ?>
           </div> <!-- right-column -->
 
         <?php else :
@@ -70,18 +70,18 @@ foreach( array( 'features', 'news', 'arts', 'culture', 'events', 'galleries', 'v
 
   if (( $home_section == 'video' )) {
     // ad block after video
-    include( locate_template( 'partials/module-ad.php', false ) ); ?>
+    do_action( 'acm_tag', '728x90-home-after-video' );  ?>
     </div>
   <?php }
 
   if (( $home_section == 'events' )) {
     // ad block after events
-    include( locate_template( 'partials/module-ad.php', false ) );
+    do_action( 'acm_tag', '900x250-home-after-events' );
   }
 
   if (( $home_section == 'promotions' )) { ?>
     <div class="promotions-ad-column">
-      <?php include( locate_template( 'partials/module-ad.php', false ) ); ?>
+      <?php do_action( 'acm_tag', '300x250-promotions-btf' );  ?>
       <?php the_widget( 'CurrentIssue' ); ?><!-- CurrentIssue -->
     </div>
   <?php }

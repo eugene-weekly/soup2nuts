@@ -31,7 +31,7 @@ class CurrentIssue extends WP_Widget {
       <footer>
         <a href="<?php echo esc_url( get_the_permalink( get_page_id_by_slug( 'wheres-my-weekly' ))); ?>" class="button">Find a Paper</a>
       <?php if ( get_post_meta( get_the_ID(), 'issue-url', true ) ) : ?>
-        <a href="<?php echo esc_url( get_post_meta( get_the_ID(), 'issue-url', true ) ); ?>" class="button button-grey">View on Issuu</a>
+        <a href="<?php echo esc_url( get_post_meta( get_the_ID(), 'issue-url', true ) ); ?>" class="button button-grey">Read this Issue</a>
       <?php endif; ?>
       </footer>
     </aside>
