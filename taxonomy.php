@@ -42,7 +42,8 @@ get_header(); ?>
 
                 <div class="right-column">
                   <?php include( locate_template( 'partials/content-excerpt.php', false ) );
-                  include( locate_template( 'partials/module-ad.php', false ) ); ?>
+                  // unique tags per tax
+                  do_action( 'acm_tag', '300x250-home-atf' ); ?>
                 </div> <!-- right-column -->
 
               <?php else :

@@ -3,10 +3,7 @@
  */
 
 .related_posts {
-  .hero-caption,
-  .entry-subhead,
-  .entry-excerpt,
-  .entry-footer {
+  .hero-caption {
     @include visuallyhidden;
   }
 

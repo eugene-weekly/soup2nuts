@@ -23,7 +23,7 @@
   <div class="entry-content">
     <?php the_content(); ?>
   </div><!-- .entry-content -->
-  <?php include( locate_template( 'partials/module-ad.php', false ) ); ?>
+  <?php do_action( 'acm_tag', '300x600-post-sidebar-atf' ); ?>
 
   <footer class="entry-footer">
     <?php soup2nuts_entry_footer(); ?>

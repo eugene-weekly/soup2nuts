@@ -15,8 +15,7 @@ class TwoMostFeatured extends WP_Widget {
     // output
     extract( $args );
 
-    $count = ( !empty( $instance[ 'count' ] ) ) ? $instance[ 'count' ] : 1;
-    $featured_feature = featured_post( $count, array(), array( $post->ID), 'posts' );
+    $featured_feature = featured_post( 1, array(), array( $post->ID), 'posts' );
 
     echo $before_widget;
 
@@ -28,7 +27,7 @@ class TwoMostFeatured extends WP_Widget {
     endwhile;
     wp_reset_postdata();
 
-    $featured_event = featured_events( $count, array( $post->ID ), 'posts' );
+    $featured_event = featured_events( 1, array( $post->ID ), 'posts' );
 
     while ( $featured_event->have_posts() ) : $featured_event->the_post();
 

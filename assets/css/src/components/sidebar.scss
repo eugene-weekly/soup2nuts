@@ -5,6 +5,7 @@
 .single,
 .page {
   .site-content > .widget-area {
+    position: relative;
     padding-top: 2em;
     padding-bottom: 2em;
 
@@ -12,35 +13,38 @@
 
     @include media( $third-break ) {
       width: 100%;
-
     }
 
     &:before,
     &:after {
-      //content: '';
+      content: '';
 
       position: absolute;
+      top: 0;
+      bottom: 0;
       z-index: -1;
-      width: calc( 50vw - (#{$max-width} * 0.5) );
-      height: calc( 100% + 2em );
+      width: 50vw;
 
       background-color: color( light-grey );
-      transform: translateY(-2em);
     }
 
     &:before {
-      transform: translateX(-100%);
-
+      right: 50%;
     }
 
     &:after {
-      transform: translateX(100%);
+      left: 50%;
     }
 
-    .widget {
+    .widget,
+    .widget.two_most_featured .excerpted-post {
       background-color: color(white);
       box-shadow: $box-shadow;
     }
-  }
 
+    .widget.two_most_featured {
+      background-color: transparent;
+      box-shadow: none;
+    }
+  }
 }

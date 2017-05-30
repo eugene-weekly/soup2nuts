@@ -156,7 +156,8 @@
   .latest-posts &:first-of-type,
   .popular-posts &:first-of-type,
   .events-posts &,
-  .more_features-posts & {
+  .more_features-posts &,
+  .related_posts &:first-of-type {
     @extend %featured-excerpt;
   }
 
@@ -192,10 +193,9 @@
 }
 
 // Singular
-
-.single,
-.singular,
-.page {
+.single .site-main,
+.singular .site-main,
+.page .site-main {
 
   .hentry {
     @include media( $third-break ) {

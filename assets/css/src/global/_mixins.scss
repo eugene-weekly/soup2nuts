@@ -167,7 +167,7 @@
   //padding-right: flex-gutter();
 
   @include media( $max-width ) {
-    overflow: hidden;
+    //overflow: hidden;
     margin-left: auto;
     margin-right: auto;
     padding-left: 0;
