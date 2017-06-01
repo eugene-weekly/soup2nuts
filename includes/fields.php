@@ -197,6 +197,7 @@ function meta_fields() {
       'alt-title' => $alt_title,
       'sub-head' => $sub_head,
       'expiration-date' => $expiration_date,
+      'no-hero' => $no_hero,
     ),
   ) );
   $promotion_details->add_meta_box( 'Promotion Details', 'promotion' );

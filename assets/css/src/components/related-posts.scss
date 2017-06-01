@@ -3,13 +3,21 @@
  */
 
 .related_posts {
+
   .hero-caption {
     @include visuallyhidden;
   }
 
-  .excerpted-post:nth-of-type(2),
-  .excerpted-post:nth-of-type(3) {
-    @extend %small-excerpt;
+  .excerpted-post {
 
+    .entry-footer { display: none; }
+
+    &:nth-of-type(2),
+    &:nth-of-type(3) {
+      @extend %small-excerpt;
+
+      margin-left: flex-gutter( 4 );
+      margin-right: flex-gutter( 4 );
+    }
   }
 }

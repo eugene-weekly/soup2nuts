@@ -558,9 +558,27 @@ if ( ! function_exists( 'soup2nuts_ad_tag_ids' ) ) :
         'tag' => '728x90-home-after-video',
         'url_vars' => array(
           'tag' => '728x90-home-after-video',
-        	'sz' => '300x250',
-        	'width' => '300',
-        	'height' => '250',
+        	'sz' => '728x90',
+        	'width' => '728',
+        	'height' => '90',
+      	),
+        'enable_ui_mapping' => 1
+      ), array(
+        'tag' => '728x90-before-gallery',
+        'url_vars' => array(
+          'tag' => '728x90-before-gallery',
+          'sz' => '728x90',
+        	'width' => '728',
+        	'height' => '90',
+      	),
+        'enable_ui_mapping' => 1
+      ), array(
+        'tag' => '728x90-before-video',
+        'url_vars' => array(
+          'tag' => '728x90-before-video',
+          'sz' => '728x90',
+        	'width' => '728',
+        	'height' => '90',
       	),
         'enable_ui_mapping' => 1
       ), array(
