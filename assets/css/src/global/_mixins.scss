@@ -166,7 +166,7 @@
   //padding-left: flex-gutter();
   //padding-right: flex-gutter();
 
-  @include media( $max-width ) {
+  @include media( $sixth-break ) {
     //overflow: hidden;
     margin-left: auto;
     margin-right: auto;

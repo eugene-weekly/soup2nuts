@@ -1,5 +1,5 @@
 module.exports = function( grunt ) {
-  
+
   'use strict';
 
   // Project configuration
@@ -41,7 +41,7 @@ module.exports = function( grunt ) {
             return dest.replace( '/js/', '/maps/' ) + '.map';
           },
           mangle: {
-            except: [ 'jQuery' ]
+            reserved: [ '$','jQuery' ]
           }
         }
       }
@@ -76,7 +76,7 @@ module.exports = function( grunt ) {
 
     watch:  {
       scripts: {
-        files: [ '<%= dirs.js %>/src/**/*.js', '<%= dirs.vendor %>/**/*.js' ],
+        files: [ '<%= dirs.js %>/src/**/*.js' ],
         tasks: [ 'scripts' ]
       }
     }

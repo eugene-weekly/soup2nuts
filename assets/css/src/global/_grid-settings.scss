@@ -28,7 +28,7 @@ $col-width: $column + $gutter;
 
 /* breakpoints */
 $tall-enough: new-breakpoint( min-height 5000px min-width $tablet 12 );
-$sixth-break: new-breakpoint( min-width 1400px 12 );
+$sixth-break: new-breakpoint( min-width 1500px 12 );
 $fifth-break: new-breakpoint( min-width $max-width 12 );
 $less-than-wide: new-breakpoint( max-width $max-width 12 );
 $fourth-break: new-breakpoint( min-width $landscape 12 );

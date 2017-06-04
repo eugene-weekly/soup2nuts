@@ -582,6 +582,15 @@ if ( ! function_exists( 'soup2nuts_ad_tag_ids' ) ) :
       	),
         'enable_ui_mapping' => 1
       ), array(
+        'tag' => '728x90-before-calendar',
+        'url_vars' => array(
+          'tag' => '728x90-before-calendar',
+          'sz' => '728x90',
+        	'width' => '728',
+        	'height' => '90',
+      	),
+        'enable_ui_mapping' => 1
+      ), array(
         'tag' => '300x250-promotions-btf',
         'url_vars' => array(
           'tag' => '300x250-promotions-btf',
