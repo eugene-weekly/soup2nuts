@@ -114,7 +114,7 @@
   &.excerpted-post-list {
 
     @include media( $third-break ) {
-      flex: 1 0 auto;
+      flex: 1 0 100%;
     }
 
     > * {
