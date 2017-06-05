@@ -26,7 +26,11 @@ module.exports = function( grunt ) {
         },
         options: {
           watchTask: true,
-          open: false
+          ghostMode: false,
+          open: false,
+          notify: false,
+          reloadDebounce: 10000,
+          reloadThrottle: 10
         }
       }
     }
