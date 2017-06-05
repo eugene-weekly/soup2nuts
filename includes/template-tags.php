@@ -11,7 +11,7 @@ if ( ! function_exists( 'the_posts_navigation' ) ) :
 /**
  * Display navigation to next/previous set of posts when applicable.
  *
- * @todo Remove this function when WordPress 4.3 is released.
+ * @todo write this.
  */
 function the_posts_navigation() {
   // Don't print empty markup if there's only one page.
@@ -19,16 +19,19 @@ function the_posts_navigation() {
     return;
   }
   ?>
+  <h1>NAV</h1>
   <nav class="navigation posts-navigation" role="navigation">
     <h2 class="screen-reader-text"><?php esc_html_e( 'Posts navigation', 'soup2nuts' ); ?></h2>
     <div class="nav-links">
 
       <?php if ( get_next_posts_link() ) : ?>
-      <div class="nav-previous"><?php next_posts_link( esc_html__( 'Older posts', 'soup2nuts' ) ); ?></div>
+      <div class="nav-previous"><?php next_posts_link( esc_html__( '&larr; Previous', 'soup2nuts' ) ); ?></div>
       <?php endif; ?>
 
+      <?php pre_printr('blerg'); ?>
+
       <?php if ( get_previous_posts_link() ) : ?>
-      <div class="nav-next"><?php previous_posts_link( esc_html__( 'Newer posts', 'soup2nuts' ) ); ?></div>
+      <div class="nav-next"><?php previous_posts_link( esc_html__( 'Next &rarr;', 'soup2nuts' ) ); ?></div>
       <?php endif; ?>
 
     </div><!-- .nav-links -->

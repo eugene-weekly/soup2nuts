@@ -155,6 +155,78 @@
   }
 }
 
+.tribe-events-loop {
+
+}
+
+.tribe-events-page-title {
+  @extend %h3;
+
+  margin-bottom: -1em;
+}
+
+.tribe-events-sub-nav {
+  span { display: none; }
+
+  .tribe-events-nav-left,
+  .tribe-events-nav-right {
+    a {
+      display: block;
+      @include pad(0.5rem 1rem);
+
+      background-color: color( light-grey );
+      color: color( black );
+
+      font-size: em( 14, 18 );
+      font-style: italic;
+      text-transform: uppercase;
+
+      transition: all 0.25s ease-out;
+
+      &:before,
+      &:after {
+        color: color( red );
+
+        font-style: normal;
+
+        transform: translateX( 0 );
+      }
+
+      &:hover,
+      &:focus {
+        background-color: color( grey );
+        color: color( light-grey );
+      }
+    }
+  }
+
+  .tribe-events-nav-left {
+    a {
+      &:before {
+        content: "←";
+      }
+
+      &:hover:before,
+      &:focus:before {
+        transform: translateX( -1em );
+      }
+    }
+  }
+  .tribe-events-nav-right {
+    a {
+      &:after {
+        content: "→";
+      }
+
+      &:hover:after,
+      &:focus:after {
+        transform: translateX( 1em );
+      }
+    }
+  }
+}
+
+
 .tribe-events-loop .type-tribe_events {
   @extend .excerpted-post;
 

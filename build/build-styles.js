@@ -54,7 +54,13 @@ module.exports = function( grunt ) {
     },
     watch:  {
       sass: {
-        files: [ '<%= dirs.sass %>/**/*.scss' ],
+        files: [
+          '<%= dirs.sass %>/*.scss',
+          '<%= dirs.sass %>/base/*.scss',
+          '<%= dirs.sass %>/components/*.scss',
+          '<%= dirs.sass %>/global/*.scss',
+          '<%= dirs.sass %>/layout/*.scss'
+        ],
         tasks: [ 'modernizr', 'styles' ]
       },
     }
