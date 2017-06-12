@@ -134,6 +134,8 @@
       }
 
       .entry-hero {
+        margin-left: 0;
+
         @include media( $third-break ) {
           min-height: auto;
         }
@@ -155,9 +157,6 @@
       > * {
         flex: 0 0 auto;
       }
-
-
-
 
       @include media( $third-break ) {
       }
@@ -189,6 +188,17 @@
   }
 
   .excerpted-post {
+    &:first-of-type {
+
+      .entry-hero {
+        margin-left: 0;
+      }
+
+      .entry-header {
+        margin-bottom: 0;
+      }
+    }
+
     &:nth-of-type( n+2 ) {
       margin-left: flex-gutter( 4 );
       margin-right: flex-gutter( 4 );
@@ -199,13 +209,12 @@
 .events-posts {
 
   @include media( $third-break ) {
-
-
     min-height: 400px;
-
   }
 
   .excerpted-post {
+
+    .entry-hero { margin-left: 0; }
 
     @include media( $third-break ) {
       flex: 0 1 flex-grid( 4 );
@@ -287,7 +296,6 @@
       }
     }
   }
-
 }
 
 .promotions-posts {
@@ -301,9 +309,11 @@
   }
 
   .excerpted-post {
+    &:first-of-type { border-bottom: 0; }
+
     &:nth-of-type( n+2 ) {
-      margin-left: flex-gutter();
-      margin-right: flex-gutter();
+      //margin-left: 0;
+      //margin-right: 0;
     }
   }
 }

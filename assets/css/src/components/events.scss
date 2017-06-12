@@ -52,6 +52,11 @@
 #tribe-bar-form {
   backround-color: color( grey );
 
+  @include media( $third-break ) {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
   label {
 
   }
@@ -68,66 +73,136 @@
     padding-bottom: 5px;
   }
 
-
-
   .tribe-bar-submit input[type=submit] {
     background-color: color( red );
   }
+
+
+  #tribe-bar-views {
+
+    @include media( $third-break ) {
+      flex: 0 1 flex-grid( 3, 12 );
+      order: 2;
+
+      width: auto;
+      left: auto;
+    }
+
+    .tribe-bar-views-inner {
+
+      padding: 0.75em 0;
+
+      background: color( red );
+      color: color( white );
+
+      > * {
+      }
+
+      label {
+        display: inline-block;
+        //float: left;
+
+      }
+
+      .tribe-bar-views-list {
+
+        //display: inline-block;
+        top: 1em;
+        right: 1em;
+        left: auto;
+
+        width: auto;
+        float: none;
+      }
+    }
+
+    & + .tribe-bar-filters {
+      width: auto;
+      right: auto;
+
+      @include media( $third-break ) {
+        flex: 1 1 flex-grid( 9, 12 );
+      }
+    }
+  }
+
 }
 
 
-#tribe-bar-views {
-
-  @include media( $third-break ) {
-
-  }
-
-  .tribe-bar-views-inner {
-
-    background: color( red );
-    color: color( white );
-
-    label {
-      display: inline-block;
-      float: left;
-    }
-
-    .tribe-bar-views-list {
-      display: inline-block;
-    }
-  }
-}
 
 
 #tribe_events_filters_wrapper {
 
   #tribe_events_filter_control {
+    margin-bottom: 0;
+
+    font-weight: 300;
+    font-style: italic;
+    text-transform: uppercase;
 
   }
 
   .tribe-events-filters-content {
+    background-color: transparent;
+
+    border-right: 0;
+    border-left: 0;
+
     .tribe-events-filters-label {
 
-
+      font-weight: 300;
+      font-style: italic;
+      text-transform: uppercase;
     }
   }
 
   .tribe_events_filter_item {
-  }
+    margin-bottom: 2em;
 
-  .tribe-events-filters-group-heading {
-  }
+    .tribe-events-filters-group-heading {
+      padding: 0.33em 1em 0.33em 1.5em;
 
-  .tribe-events-filter-group {
+      font-size: em( 12, 12 );
+      font-style: italic;
+      text-transform: uppercase;
 
-    label {
+      &:before {
+        margin-left: -1em;
 
-      input[type=checkbox] {
+        border-top-width: 10px;
+        border-left-width: 5px;
+        border-right-width: 5px;
+      }
+    }
 
+    .tribe-events-filter-group {
+      border-bottom: 0;
+
+      li {
+        background-color: transparent;
       }
 
-      span {
+      label {
+        padding-top: 0.33em;
+        padding-bottom: 0.33em;
 
+        font-size: em( 16, 12 );
+
+        border-bottom: 0;
+
+        input[type=checkbox] {}
+
+        span {}
+      }
+    }
+
+    &.closed {
+      .tribe-events-filters-group-heading {
+        &:before {
+          border-bottom-width: 5px;
+          border-left-width: 10px;
+          border-top-width: 5px;
+        }
       }
     }
   }
@@ -135,7 +210,10 @@
 
 #tribe_events_filters_reset {
 
-
+  font-weight: 300;
+  font-style: italic;
+  text-transform: uppercase;
+  text-decoration: none;
 }
 
 .tribe-events-page-title {}
@@ -147,8 +225,16 @@
 }
 
 .tribe-events-list-separator-month {
+  @extend %h5;
+
+  margin: 1em 0;
+  padding: 5px 10px;
+
   background-color: color( red );
   color: color( white );
+
+  font-size: em( 16, 14 );
+  text-align: left;
 
   span {
 
@@ -159,10 +245,14 @@
 
 }
 
-.tribe-events-page-title {
-  @extend %h3;
+.tribe-events-list h2.tribe-events-page-title {
+  @extend %h4;
 
-  margin-bottom: -1em;
+  margin-bottom: -1.25em;
+
+  font-size: em( 24 );
+  font-style: normal;
+
 }
 
 .tribe-events-sub-nav {
@@ -227,8 +317,9 @@
 }
 
 
-.tribe-events-loop .type-tribe_events {
+.tribe-events-list .tribe-events-loop .type-tribe_events {
   @extend .excerpted-post;
+  @extend .excerpted-post-list;
 
   display: flex;
   flex-direction: column;
@@ -242,6 +333,8 @@
   padding-top: 0;
   padding-bottom: 1em;
 
+  border-top: 0;
+
   @include media( $third-break ) {
     max-height: 150px;
   }
@@ -252,6 +345,8 @@
   }
 
   .tribe-events-event-image {
+    @extend .entry-hero;
+
     flex: 1 1 150px;
     order: 1;
 
