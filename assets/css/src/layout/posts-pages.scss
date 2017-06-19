@@ -85,7 +85,8 @@
   &:nth-of-type(2):not(
     .archive.paged .excerpted-post,
     .tribe-events-loop .type-tribe_events,
-    .more_features-posts .excerpted-post
+    .more_features-posts .excerpted-post,
+    .events-posts.home-posts .excerpted-post
   ) {
     padding-top: 2em;
 
