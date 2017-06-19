@@ -165,11 +165,14 @@
   max-width: $max-width;
   //padding-left: flex-gutter();
   //padding-right: flex-gutter();
+  
+  @include media( $max-width ) {
+    margin-left: auto;
+    margin-right: auto;
+  }
 
   @include media( $sixth-break ) {
     //overflow: hidden;
-    margin-left: auto;
-    margin-right: auto;
     padding-left: 0;
     padding-right: 0;
   }

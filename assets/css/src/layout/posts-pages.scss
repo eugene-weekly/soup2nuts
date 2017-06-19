@@ -82,7 +82,7 @@
     padding-bottom: 1em;
   }
 
-  &:nth-of-type(2) {
+  &:nth-of-type(2):not( .archive.paged .excerpted-post, .tribe-events-loop .type-tribe_events ) {
     padding-top: 2em;
 
     border-top: 1px solid color( red );
@@ -142,6 +142,8 @@
     }
 
     .entry-hero {
+      margin-left: 0;
+
       @include media( $third-break ) {
         flex: 0 0 auto;
         order: 0;
