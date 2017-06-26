@@ -5,9 +5,10 @@
 @import "bourbon/bourbon";
 @import "grid-settings";
 @import "neat/neat";
+
 // Site Extends
 /* Featured Excerpts */
-%featured-excerpt {
+@mixin featured-excerpt {
 
   flex-wrap: wrap;
 
@@ -144,7 +145,7 @@
 }
 
 /* Small Excerpt */
-%small-excerpt {
+@mixin small-excerpt {
 
   .entry-header {
     order: 1;
@@ -165,7 +166,7 @@
   max-width: $max-width;
   //padding-left: flex-gutter();
   //padding-right: flex-gutter();
-  
+
   @include media( $max-width ) {
     margin-left: auto;
     margin-right: auto;

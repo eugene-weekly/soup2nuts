@@ -171,11 +171,11 @@
   .events-posts &,
   .more_features-posts &,
   .related_posts &:first-of-type {
-    @extend %featured-excerpt;
+    @include featured-excerpt;
   }
 
   .archive.author & {
-    @extend %small-excerpt;
+    @include small-excerpt;
   }
 
   .entry-header {

@@ -14,7 +14,7 @@
 
     &:nth-of-type(2),
     &:nth-of-type(3) {
-      @extend %small-excerpt;
+      @include small-excerpt;
 
       margin-left: flex-gutter( 4 );
       margin-right: flex-gutter( 4 );

@@ -72,12 +72,15 @@
 
   > .excerpted-post {
 
+    &:after {
+      display: none;
+    }
+
     @include media( $third-break ) {
       flex: 1 1 flex-grid( 8 );
 
       margin-right: flex-gutter();
       margin-bottom: 0;
-
     }
 
     .entry-header {
@@ -85,11 +88,12 @@
     }
 
     .entry-hero {
+      margin-left: 0;
+
       @include media( $third-break ) {
         position: relative;
         height: 550px;
         max-height: none;
-        margin-left: 0;
         margin-right: 0;
         overflow: hidden;
       }
@@ -130,7 +134,7 @@
         flex: 1 1 auto;
         //flex: 1 1 auto; // needs ad
 
-        //max-height: 443px;
+        max-height: 443px;
       }
 
       .entry-hero {
@@ -251,6 +255,8 @@
 
   flex-direction: column;
 
+  flex-basis: 100%;
+
   @include media( $third-break ) {
     flex: 0 1 flex-grid( 8 );
 
@@ -303,26 +309,29 @@
 }
 
 .promotions-posts {
+  padding-left: flex-gutter();
+  padding-right: flex-gutter();
+
   @include media( $third-break ) {
 
     flex: 0 1 flex-grid( 8 );
-    padding-left: flex-gutter();
-    padding-right: flex-gutter();
 
     box-shadow: $box-shadow;
   }
 
-  .excerpted-post {
-    &:first-of-type { border-bottom: 0; }
+  .section-header {
+    position: relative;
+    z-index: 1;
 
-    &:nth-of-type( n+2 ) {
-      //margin-left: 0;
-      //margin-right: 0;
+    .section-title {
+      transform: translateY(-1em);
     }
   }
 }
 
 .promotions-ad-column {
+  flex: 1 1 auto;
+
   @include media( $third-break ) {
     flex: 0 1 flex-grid( 4 );
   }

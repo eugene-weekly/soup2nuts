@@ -78,7 +78,7 @@
 .widget.two_most_featured,
 .widget.most_featured_event {
   .excerpted-post {
-    @extend %featured-excerpt;
+    @include featured-excerpt;
 
     &.tribe_events {
       .entry-footer {

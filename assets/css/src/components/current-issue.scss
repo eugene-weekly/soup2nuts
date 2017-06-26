@@ -3,6 +3,7 @@
  */
 
 .current_issue {
+
   background-color: color( white );
 
   box-shadow: $box-shadow;
@@ -20,9 +21,15 @@
   }
 
   figure {
+    height: 500px;
     @include pad( 0 1em );
 
     text-align: center;
+
+    img {
+      max-height: 100%;
+      width: auto;
+    }
   }
 
   footer {

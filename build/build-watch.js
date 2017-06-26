@@ -29,8 +29,9 @@ module.exports = function( grunt ) {
           ghostMode: false,
           open: false,
           notify: false,
+          reloadDelay: 2000,
           reloadDebounce: 1000,
-          reloadThrottle: 2
+          reloadThrottle: 1
         }
       }
     }
