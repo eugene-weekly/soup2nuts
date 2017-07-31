@@ -15,7 +15,7 @@ class TwoMostFeatured extends WP_Widget {
     // output
     extract( $args );
 
-    $featured_feature = featured_post( 1, array(), array( $post->ID), 'posts' );
+    $featured_feature = featured_post( 1, array(), array( $post->ID ), 'posts' );
 
     echo $before_widget;
 
