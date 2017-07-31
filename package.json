@@ -13,7 +13,9 @@
     "start": "grunt live",
     "build": "grunt"
   },
-  "dependencies": {},
+  "dependencies": {
+    "node-sass": "^4.5.3"
+  },
   "devDependencies": {
     "autoprefixer": "^7.0.1",
     "cssnano": "^3.10.0",
