@@ -108,6 +108,11 @@ if ( ! function_exists( 'soup2nuts_template_include' ) ) :
 
         $template = ( empty( $taxonomy ) ) ? $template : $taxonomy;
       }
+    } elseif ( is_post_format_archive( array( 'gallery', 'video' ) ) ) {
+      $archive = locate_template( array( 'archive.php' ) );
+
+      $template = ( empty( $archive ) ) ? $template : $archive;
+
     } elseif ( is_singular( 'post' ) ) {
       if ( get_post_meta( get_the_ID(), 'full-screen', true ) ) {
         $full_screen = locate_template( array( 'single-fullscreen.php' ) );
@@ -440,6 +445,18 @@ if ( ! function_exists( 'soup2nuts_archive_title' ) ) :
       } else {
         $title = single_cat_title( '', false );
       }
+    }
+
+    if ( is_tag() ) {
+      if ( is_paged() ) {
+        $title = single_tag_title( '', false ) . ' Archive';
+      } else {
+        $title = single_tag_title( '', false );
+      }
+    }
+
+    if ( is_search() ) {
+      $title = 'Search Results: ' . esc_html( get_search_query( false ) );
     }
 
     return $title;
