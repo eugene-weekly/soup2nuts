@@ -306,6 +306,43 @@ function the_category_link( $category_name ) {
 endif;
 
 
+if ( ! function_exists( 'the_archive_link' ) ) :
+/** @TODO: Update this
+ *
+ * Display category, tag, or term description.
+ *
+ * @param string $before Optional. Content to prepend to the description. Default empty.
+ * @param string $after  Optional. Content to append to the description. Default empty.
+ */
+function the_archive_link( $section_name ) {
+  if ( !isset( $section_name ) )
+    return;
+
+  $link = null;
+  $categories = array( 'news', 'arts', 'culture' );
+  $formats = array( 'gallery', 'video' );
+  $post_types = array( 'events', 'promotions' );
+
+  if ( in_array( $section_name, $categories ) ) :
+
+    $link = get_category_link( get_cat_ID( $section_name ) );
+
+  elseif ( in_array( $section_name, $formats ) ) :
+
+    $link = get_post_format_link( section_normalizer( $section_name ) );
+
+  elseif ( in_array( $section_name, $post_types ) ) :
+
+    $link = get_post_type_archive_link( section_normalizer( $section_name ) );
+
+  endif;
+
+  echo $link;
+
+}
+endif;
+
+
 
 if ( ! function_exists( 'related_posts' ) ) :
 /** @TODO: Update this
