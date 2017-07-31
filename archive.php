@@ -28,10 +28,14 @@ get_header(); ?>
            * called content-___.php (where ___ is the Post Format name) and that will be used instead.
            */
            //get_template_part( 'partials/content', get_post_format() );
-           if ( !is_paged() ) {
-             get_template_part( 'partials/content', 'excerpt' );
-           } else {
+           if ( is_paged() ||
+            has_post_format( array('video', 'gallery') ) ||
+            is_post_type_archive('promotion') ||
+            is_search() ||
+            is_tag() ) {
              get_template_part( 'partials/content', 'excerpt-list' );
+           } else {
+             get_template_part( 'partials/content', 'excerpt' );
            }
         ?>
 

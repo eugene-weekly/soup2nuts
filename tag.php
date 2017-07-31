@@ -6,4 +6,4 @@
  *
  * @package soup2nuts
  */
-locate_template( 'taxonomy.php', true ) ?>
+locate_template( 'archive.php', true ) ?>
