@@ -134,6 +134,10 @@
 
 #tribe_events_filters_wrapper {
 
+  .tribe-filters-open & {
+    height: auto;
+  }
+
   #tribe_events_filter_control {
     margin-bottom: 0;
 
@@ -294,6 +298,8 @@
         background-color: color( grey );
         color: color( light-grey );
       }
+
+      span { display: none; }
     }
   }
 

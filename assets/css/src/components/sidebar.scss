@@ -42,9 +42,12 @@
       box-shadow: $box-shadow;
     }
 
-    .widget.two_most_featured {
+    .widget.two_most_featured,
+    .widget.acm_ad_zones {
       background-color: transparent;
       box-shadow: none;
     }
+
+    .widget.acm_ad_zones { text-align: center; }
   }
 }

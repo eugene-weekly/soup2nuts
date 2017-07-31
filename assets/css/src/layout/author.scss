@@ -5,7 +5,9 @@
 .archive.author {
 
   .site-content {
-    margin-top: 2em;
+    @include media( $third-break ) {
+      margin-top: 2em;
+    }
   }
 
   .content-area {
@@ -18,8 +20,9 @@
       display: flex;
       justify-content: center;
 
-      padding-left: flex-gutter(4);
-      padding-right: flex-gutter(4);
+      padding: 2em flex-gutter(4);
+
+      background-color: color( light-grey );
 
       @include media( $third-break ) {
         @include visuallyhidden;

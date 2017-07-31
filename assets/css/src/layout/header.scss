@@ -32,8 +32,8 @@
 
     height: 125px;
     margin-bottom: 10px;
-    padding-left: $half-gutter;
-    padding-right: $half-gutter;
+    padding-left: $gutter;
+    padding-right: $gutter;
   }
 
   @include media( $tall-enough ) {

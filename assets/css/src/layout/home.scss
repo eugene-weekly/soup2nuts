@@ -171,7 +171,7 @@
 .news-posts,
 .arts-posts,
 .culture-posts,
-.galleries-posts,
+.gallery-posts,
 .video-posts {
 
   margin-top: 2em;
@@ -241,7 +241,7 @@
 }
 
 
-.galleries-posts {
+.gallery-posts {
   margin-top: 0;
 
   > .excerpted-post {
@@ -284,6 +284,8 @@
       margin-right: 0;
       padding-bottom: 0;
 
+      border-bottom: 0;
+      
       box-shadow: none;
 
       .entry-header {

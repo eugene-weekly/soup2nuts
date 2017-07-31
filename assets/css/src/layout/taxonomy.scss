@@ -24,6 +24,7 @@
   }
 }
 
+.features-posts,
 .latest-posts,
 .more_features-posts,
 .popular-posts {
@@ -39,6 +40,8 @@
       transform: translateY(-1em);
     }
   }
+
+  .right-column { margin-top: -2em; }
 }
 
 
@@ -86,7 +89,7 @@
 
     &:nth-of-type(2) {
       padding-top: 0;
-      
+
       border-top: 0;
     }
 

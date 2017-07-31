@@ -82,12 +82,12 @@
     padding-bottom: 1em;
   }
 
-  &:nth-of-type(2):not(
-    .archive.paged .excerpted-post,
-    .tribe-events-loop .type-tribe_events,
-    .more_features-posts .excerpted-post,
-    .events-posts.home-posts .excerpted-post
-  ) {
+  &:nth-of-type(2)
+  :not(.archive.paged .excerpted-post)
+  :not(.archive.tax-post_format .excerpted-post)
+  :not(.tribe-events-loop .type-tribe_events)
+  :not(.more_features-posts .excerpted-post)
+  :not(.events-posts.home-posts .excerpted-post) {
     padding-top: 2em;
 
     border-top: 1px solid color( red );
@@ -147,7 +147,7 @@
     }
 
     .entry-hero {
-      margin-left: 0;
+      margin-left: flex-gutter();
 
       @include media( $third-break ) {
         flex: 0 0 auto;
@@ -155,6 +155,7 @@
 
         max-width: 150px;
         margin-right: flex-gutter();
+        margin-left: 0;
       }
     }
 
@@ -165,17 +166,13 @@
   .news-posts &:first-of-type,
   .arts-posts &:first-of-type,
   .culture-posts &:first-of-type,
-  .galleries-posts &:first-of-type,
+  .gallery-posts &:first-of-type,
   .latest-posts &:first-of-type,
   .popular-posts &:first-of-type,
   .events-posts &,
   .more_features-posts &,
   .related_posts &:first-of-type {
     @include featured-excerpt;
-  }
-
-  .archive.author & {
-    @include small-excerpt;
   }
 
   .entry-header {
@@ -356,8 +353,17 @@
   }
 
   .format-gallery .entry-hero,
-  .format-video .entry-hero {
+  .post_format-post-format-video .entry-hero {
     max-height: none;
+  }
+
+  .post_format-post-format-video {
+    //outline: 10px dashed red;
+
+    .entry-hero {
+
+      background-color: color( black );
+    }
   }
 
   .no-post-hero {

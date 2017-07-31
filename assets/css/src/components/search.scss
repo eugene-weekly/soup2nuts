@@ -284,3 +284,7 @@
     }
   }
 }
+
+.search-results {
+  @include two-column-archive-list;
+}

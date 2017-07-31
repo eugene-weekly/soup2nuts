@@ -30,42 +30,10 @@
   }
 
 
-  &.paged {
-    .site-content {
-      display: flex;
-      flex: nowrap;
-
-      overflow: visible;
-
-      @include media( $third-break ) {
-        margin-top: 2em;
-      }
-    }
-
-    .content-area {
-      flex: 1 1 flex-grid( 7 );
-      margin-right: flex-gutter();
-      margin-bottom: 2em;
-      padding-right: flex-gutter();
-      padding-left: flex-gutter();
-
-      background-color: color( white );
-
-      box-shadow: $box-shadow;
-    }
-
-    .site-main {
-      .section-header {
-        margin-top: -1em;
-        margin-right: auto;
-        margin-bottom: 1em;
-        margin-left: auto;
-      }
-    }
-
-    .widget-area {
-      flex: 0 0 flex-grid( 4 );
-    }
+  &.paged ,
+  &.tax-post_format,
+  &.post-type-archive-promotion,
+  &.tag {
+    @include two-column-archive-list();
   }
-
 }
