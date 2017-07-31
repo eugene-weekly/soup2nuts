@@ -107,7 +107,7 @@ function meta_fields() {
    'description' => 'Type to find a Gallery. Ignored if Post Format is not Gallery.',
    'datasource' => new Fieldmanager_Datasource_Post( array(
      'query_args' => array(
-       'post_type' => 'ai_galleries'
+       'post_type' => 'ai_gallery'
      )
    ) ),
   ) );
