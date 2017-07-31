@@ -117,7 +117,7 @@ function guess_hero_size( $origin, $position = 0 ) {
     case 'news':
     case 'arts':
     case 'culture':
-    case 'galleries':
+    case 'gallery':
     case 'latest':
     case 'more_features':
     case 'popular':
@@ -635,6 +635,68 @@ if ( ! function_exists( 'get_the_slug' ) ) :
     do_action('after_slug', $slug);
 
     return $slug;
+  }
+
+endif; // get_the_slug
+
+
+if ( ! function_exists( 'is_post_format_archive' ) ) :
+
+
+/** Is the query for a post format archive page?
+ *
+ * If the $format parameter is specified, this function will check
+ * if the query is for one of the formats specified.
+ *
+ * @since 3.9.0
+ *
+ * @param mixed $format Optional. Format slug or array of format slugs, without the post-format prefix.
+ * @return bool
+ */
+function is_post_format_archive( $format = '' ) {
+
+  global $wp_query;
+
+  if ( ! isset( $wp_query ) ) {
+    return false;
+  }
+
+  if ( ! empty( $format ) ) {
+    $format = (array) $format;
+
+    foreach ( $format as &$value ) {
+      $value = 'post-format-' . $value;
+    }
+  }
+
+  return $wp_query->is_tax( 'post_format', $format );
+}
+
+endif; // is_post_format_archive
+
+
+if ( ! function_exists( 'section_normalizer' ) ) :
+
+  /**
+   * Get the "proper" name for an item referred to by a "section"
+   *
+   * @param $section
+   *
+   * @return string
+   *
+   * @since 0.1.0
+   */
+
+  function section_normalizer( $section) {
+
+    $section_item_names = array(
+      'events' => 'tribe_events',
+      'gallery' => 'gallery',
+      'video' => 'video',
+      'promotions' => 'promotion',
+    );
+
+    return ( $section_item_names[ $section ] ) ? $section_item_names[ $section ] : $section;
   }
 
 endif; // get_the_slug
