@@ -9,7 +9,7 @@
 
 $excludedPosts = array();
 
-foreach( array( 'features', 'news', 'arts', 'culture', 'events', 'galleries', 'video', 'promotions' ) as $home_section ) :
+foreach( array( 'features', 'news', 'arts', 'culture', 'events', 'gallery', 'video', 'promotions' ) as $home_section ) :
 
   $posts = home_posts( $home_section, $excludedPosts );
 
@@ -60,7 +60,7 @@ foreach( array( 'features', 'news', 'arts', 'culture', 'events', 'galleries', 'v
       <?php if ( !in_array( $home_section, array( 'features', 'events' ) ) ) : ?>
 
       <footer class="section-footer news-footer">
-        <a href="<?php the_category_link( $home_section ); ?>" class="archive-link" rel="archive">Explore <span class="category-name"><?php echo ucwords( $home_section ); ?></span><span class="svg_icon-explore"><?php icon_sprite( 'icon-explore' ); ?></span></a>
+        <a href="<?php the_archive_link( $home_section ); ?>" class="archive-link" rel="archive">Explore <span class="category-name"><?php echo ucwords( $home_section ); ?></span><span class="svg_icon-explore"><?php icon_sprite( 'icon-explore' ); ?></span></a>
       </footer>
 
       <?php endif; ?>
