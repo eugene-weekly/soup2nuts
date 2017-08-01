@@ -28,7 +28,7 @@
       flex: 1 1 100%;
 
       @include media( $third-break ) {
-        flex: 1 1 flex-grid( 8 );
+        flex: 1 1 flex-grid(8);
 
         padding-left: flex-gutter();
         padding-right: flex-gutter();
@@ -70,9 +70,9 @@
   margin-bottom: 2em;
   padding-bottom: 2em;
 
-  background-color: color( white );
+  background-color: color(white);
 
-  border-bottom: 1px solid color( red );
+  border-bottom: 1px solid color(red);
 
   &:last-of-type {
     margin-bottom: 1.5em;
@@ -90,7 +90,7 @@
   :not(.events-posts.home-posts .excerpted-post) {
     padding-top: 2em;
 
-    border-top: 1px solid color( red );
+    border-top: 1px solid color(red);
   }
 
   .archive.paged & {
@@ -123,27 +123,22 @@
   }
 
   &.excerpted-post-list {
-
     @include media( $third-break ) {
       flex: 1 0 100%;
     }
 
     > * {
-
       @include media( $third-break ) {
         flex: 0 1 auto;
         order: 1;
-
 
         //max-width: flex-grid( 8 );
       }
     }
 
-
     .entry-header,
     .entry-excerpt {
       flex: 0 1 auto;
-
     }
 
     .entry-hero {
@@ -159,7 +154,9 @@
       }
     }
 
-    .entry-excerpt { display: block; }
+    .entry-excerpt {
+      display: block;
+    }
   }
 
   .features-posts &,
@@ -176,7 +173,7 @@
   }
 
   .entry-header {
-    flex: 1 1 flex-grid( 8 );
+    flex: 1 1 flex-grid(8);
   }
 
   .entry-title {
@@ -188,7 +185,7 @@
   }
 
   .entry-hero {
-    flex: 1 1 flex-grid( 4 );
+    flex: 1 1 flex-grid(4);
     margin-left: flex-gutter();
   }
 
@@ -197,8 +194,8 @@
       display: block;
       padding: 7px 18px 3px;
 
-      background-color: color( red );
-      color: color( white );
+      background-color: color(red);
+      color: color(white);
     }
   }
 }
@@ -207,7 +204,6 @@
 .single .site-main,
 .singular .site-main,
 .page .site-main {
-
   .hentry {
     @include media( $third-break ) {
       display: flex;
@@ -221,8 +217,8 @@
   .entry-header,
   .entry-content,
   .entry-footer {
-    padding-left: flex-gutter( 4 );
-    padding-right: flex-gutter( 4 );
+    padding-left: flex-gutter(4);
+    padding-right: flex-gutter(4);
 
     @include media( $third-break ) {
       padding-left: 0;
@@ -238,7 +234,7 @@
     }
 
     @include media( $fifth-break ) {
-      padding-left: flex-grid( 1 );
+      padding-left: flex-grid(1);
     }
 
     .sd-sharing-enabled {
@@ -259,7 +255,7 @@
 
     &.in-content-hero {
       display: block;
-      max-height: calc( 500px + 3em );
+      max-height: calc(500px + 3em);
       max-width: 500px;
 
       @include media( $less-than-wide ) {
@@ -296,7 +292,7 @@
         display: inline-block;
         margin-left: 1em;
 
-        color: color( grey );
+        color: color(grey);
       }
     }
   }
@@ -316,7 +312,7 @@
     }
 
     @include media( $fifth-break ) {
-      padding-left: flex-grid( 1 );
+      padding-left: flex-grid(1);
     }
   }
 
@@ -331,21 +327,21 @@
     }
   }
 
-  .entry-footer:not( .widget .entry-footer ) {
+  .entry-footer:not(.widget .entry-footer) {
     @include media( $third-break ) {
       flex: 0 1 60%;
       order: 5;
     }
 
     @include media( $fifth-break ) {
-      padding-left: flex-grid( 1 );
+      padding-left: flex-grid(1);
     }
 
     .tags-links {
       display: block;
       padding-top: 1em;
 
-      border-top: 1px solid color( red );
+      border-top: 1px solid color(red);
     }
   }
 
@@ -357,33 +353,21 @@
     max-height: none;
   }
 
-  .post_format-post-format-video {
-    //outline: 10px dashed red;
-
-    .entry-hero {
-
-      background-color: color( black );
-    }
-  }
-
   .no-post-hero {
-
     .widget-area {
-
       @include media( $third-break ) {
         //margin-top: calc( 333px + 5em );
       }
     }
   }
 
-  .hentry:not(.category-letters, .category-slant, .category-biz_beat, .category-spray-schedule, .category-pollution-update, .category-activist-alert ) {
+  .hentry:not(.category-letters, .category-slant, .category-biz_beat, .category-spray-schedule, .category-pollution-update, .category-activist-alert) {
     .entry-content {
       > p:first-child,
       > figure:first-child + p {
-
         &:first-letter {
           float: left;
-          margin-right: flex-gutter( 8 );
+          margin-right: flex-gutter(8);
           margin-top: 0.1em;
           margin-bottom: 0;
 
