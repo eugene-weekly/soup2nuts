@@ -55,7 +55,6 @@
 
     @include media( $third-break ) {
       border: 0;
-
     }
   }
 }
@@ -240,6 +239,10 @@
 .gallery-posts {
   margin-top: 0;
 
+  @include media( $third-break ) {
+    margin-bottom: 2em;
+  }
+
   > .excerpted-post {
     .entry-subhead {
       @include visuallyhidden;
@@ -256,6 +259,7 @@
     flex: 0 1 flex-grid(8);
 
     width: flex-grid(8);
+    margin-bottom: 2em;
   }
 
   .video-posts {
