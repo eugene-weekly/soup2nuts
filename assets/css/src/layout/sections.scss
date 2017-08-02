@@ -2,7 +2,6 @@
  * Sections
  */
 
-
 .section-header {
   text-align: center;
 }
@@ -13,12 +12,12 @@
   margin-right: auto;
   padding: 5px 10px;
 
-  background-color: color( red );
-  color: color( white );
+  background-color: color(red);
+  color: color(white);
 }
 
 .section-footer {
-
+  padding-bottom: 1em;
   text-align: center;
 
   @include media( $third-break ) {
@@ -26,16 +25,15 @@
   }
 
   .archive-link {
-    color: color( black );
+    color: color(black);
 
     text-decoration: none;
-
   }
 
   .category-name {
     display: block;
 
-    color: color( red );
+    color: color(red);
   }
 
   .svg_icon-explore {

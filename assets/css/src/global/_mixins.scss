@@ -163,16 +163,18 @@
 @mixin two-column-archive-list {
   .site-content {
     display: flex;
-    flex: nowrap;
+    flex-wrap: wrap;
 
     overflow: visible;
 
     @include media( $third-break ) {
+      flex-wrap: nowrap;
       margin-top: 2em;
     }
   }
 
   .content-area {
+    flex: 1 0 100%;
     flex: 1 1 flex-grid( 7 );
     margin-right: flex-gutter();
     margin-bottom: 2em;
@@ -182,11 +184,21 @@
     background-color: color( white );
 
     box-shadow: $box-shadow;
+
+    @include media( $third-break ) {
+      flex: 1 1 flex-grid( 7 );
+    }
   }
 
   .site-main {
+    margin-top: 2em;
+
+    @include media( $third-break ) {
+      margin-top: 1em;
+    }
+    
     .section-header {
-      margin-top: -1em;
+      margin-top: -2em;
       margin-right: auto;
       margin-bottom: 1em;
       margin-left: auto;
@@ -194,7 +206,11 @@
   }
 
   .widget-area {
-    flex: 0 0 flex-grid( 4 );
+    flex: 1 0 100%;
+
+    @include media( $third-break ) {
+      flex: 0 0 flex-grid( 4 );
+    }
   }
 }
 
@@ -250,7 +266,7 @@
 }
 
 @mixin wide-triangle {
-  margin-bottom: -2em;
+  //margin-bottom: -2em;
 
   &:before {
     content: '';

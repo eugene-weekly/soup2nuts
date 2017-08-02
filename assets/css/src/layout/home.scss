@@ -19,21 +19,19 @@
   flex: 1 1 100%;
 
   @include media( $third-break ) {
-    flex: 0 1 flex-grid( 4 );
+    flex: 0 1 flex-grid(4);
 
     //margin-left: flex-gutter();
     //margin-right: flex-gutter();
     margin-bottom: 2em;
 
-    background-color: color( white );
+    background-color: color(white);
   }
 }
-
 
 .features-posts,
 .events-posts,
 .video-column-wrapper {
-
   @include media( $third-break ) {
     flex: 1 1 100%;
 
@@ -53,31 +51,30 @@
   }
 
   .excerpted-post {
+    box-shadow: $box-shadow;
 
     @include media( $third-break ) {
       border: 0;
 
-      box-shadow: $box-shadow;
     }
   }
 }
 
 .features-posts {
-
   @include media( $third-break ) {
     height: 720px;
   }
 
-  > .section-header {}
+  > .section-header {
+  }
 
   > .excerpted-post {
-
     &:after {
       display: none;
     }
 
     @include media( $third-break ) {
-      flex: 1 1 flex-grid( 8 );
+      flex: 1 1 flex-grid(8);
 
       margin-right: flex-gutter();
       margin-bottom: 0;
@@ -97,7 +94,6 @@
         margin-right: 0;
         overflow: hidden;
       }
-
 
       > img {
         @include media( $third-break ) {
@@ -120,7 +116,7 @@
   }
 
   > .right-column {
-    flex: 1 1 flex-grid( 4 );
+    flex: 1 1 flex-grid(4);
 
     display: flex;
     flex-direction: column;
@@ -147,7 +143,6 @@
     }
 
     .ad {
-
       flex: 0 1 250px;
 
       display: flex;
@@ -173,11 +168,15 @@
 .culture-posts,
 .gallery-posts,
 .video-posts {
-
   margin-top: 2em;
+  margin-bottom: 2em;
+
+  background-color: color(white);
+
+  box-shadow: $box-shadow;
 
   @include media( $third-break ) {
-    box-shadow: $box-shadow;
+    margin-bottom: 0;
   }
 
   .section-header {
@@ -193,7 +192,6 @@
 
   .excerpted-post {
     &:first-of-type {
-
       .entry-hero {
         margin-left: 0;
       }
@@ -203,25 +201,25 @@
       }
     }
 
-    &:nth-of-type( n+2 ) {
-      margin-left: flex-gutter( 4 );
-      margin-right: flex-gutter( 4 );
+    &:nth-of-type(n + 2) {
+      margin-left: flex-gutter(4);
+      margin-right: flex-gutter(4);
     }
   }
 }
 
 .events-posts {
-
   @include media( $third-break ) {
     min-height: 400px;
   }
 
   .excerpted-post {
-
-    .entry-hero { margin-left: 0; }
+    .entry-hero {
+      margin-left: 0;
+    }
 
     @include media( $third-break ) {
-      flex: 0 1 flex-grid( 4 );
+      flex: 0 1 flex-grid(4);
 
       margin-bottom: 0;
     }
@@ -230,16 +228,14 @@
       padding-top: 0;
     }
   }
-
 }
 
 .home-posts + .ad,
-.events-posts + .ad  {
+.events-posts + .ad {
   flex: 1 0 100%;
 
   margin-bottom: 4em;
 }
-
 
 .gallery-posts {
   margin-top: 0;
@@ -252,20 +248,18 @@
 }
 
 .video-column-wrapper {
-
   flex-direction: column;
 
   flex-basis: 100%;
 
   @include media( $third-break ) {
-    flex: 0 1 flex-grid( 8 );
+    flex: 0 1 flex-grid(8);
 
-    width: flex-grid( 8 );
+    width: flex-grid(8);
   }
 
   .video-posts {
-
-    background-color: color( white );
+    background-color: color(white);
 
     box-shadow: $box-shadow;
 
@@ -285,20 +279,20 @@
       padding-bottom: 0;
 
       border-bottom: 0;
-      
+
       box-shadow: none;
 
       .entry-header {
         flex: 0 1 auto;
         order: 2;
 
-        margin-left: flex-gutter( 6 );
-        margin-right: flex-gutter( 6 );
+        margin-left: flex-gutter(6);
+        margin-right: flex-gutter(6);
         padding-right: 0;
         padding-bottom: 2em;
         padding-left: 0;
 
-        border-bottom: 1px solid color( red );
+        border-bottom: 1px solid color(red);
       }
 
       .entry-hero {
@@ -311,14 +305,21 @@
 }
 
 .promotions-posts {
-  padding-left: flex-gutter();
-  padding-right: flex-gutter();
+  margin-bottom: 2em;
+  padding-right: flex-gutter(6);
+  padding-bottom: 2em;
+  padding-left: flex-gutter(6);
+
+  background-color: color(white);
+
+  box-shadow: $box-shadow;
 
   @include media( $third-break ) {
+    flex: 0 1 flex-grid(8);
 
-    flex: 0 1 flex-grid( 8 );
-
-    box-shadow: $box-shadow;
+    margin-bottom: 2em;
+    padding-right: flex-gutter();
+    padding-left: flex-gutter();
   }
 
   .section-header {
@@ -335,6 +336,6 @@
   flex: 1 1 auto;
 
   @include media( $third-break ) {
-    flex: 0 1 flex-grid( 4 );
+    flex: 0 1 flex-grid(4);
   }
 }

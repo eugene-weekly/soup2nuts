@@ -15,6 +15,16 @@
     background-color: color(white);
   }
 
+  &:not( .features-posts, .more_features-posts ) {
+    background-color: color(white);
+
+    box-shadow: $box-shadow;
+  }
+
+  &.features-posts {
+    margin-top: 0;
+  }
+
   .excerpted-post {
     .entry-hero {
       margin-left: 0;
@@ -34,12 +44,14 @@
     height: 0;
 
     .section-title {
-      transform: translateY(-1em);
+      //transform: translateY(-1em);
     }
   }
 
   .right-column:not(.home *) {
-    margin-top: -2em;
+    @include media( $third-break ) {
+      margin-top: -2em;
+    }
   }
 }
 
@@ -81,6 +93,8 @@
   background-color: transparent;
 
   .excerpted-post {
+    box-shadow: $box-shadow;
+
     .entry-excerpt,
     &:after {
       display: none;
@@ -90,10 +104,6 @@
       padding-top: 0;
 
       border-top: 0;
-    }
-
-    @include media( $third-break ) {
-      box-shadow: $box-shadow;
     }
   }
 }

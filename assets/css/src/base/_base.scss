@@ -15,19 +15,22 @@ html {
 
 *,
 *:before,
-*:after { /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+*:after {
+  /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
   box-sizing: inherit;
 }
 
 // Elements
 body {
-  background: color( white ); /* Fallback for when there is no custom background color defined. */
+  background: color(
+    white
+  ); /* Fallback for when there is no custom background color defined. */
 
   &.home,
-  &.archive:not( .events-archive ) {
-    @include media( $third-break ) {
-      background: color( background-body ); /* Fallback for when there is no custom background color defined. */
-    }
+  &.archive:not(.events-archive) {
+    background: color(
+      background-body
+    ); /* Fallback for when there is no custom background color defined. */
   }
 
   &.show-nav {
@@ -50,7 +53,9 @@ body {
   }
 }
 
-nav { @include no-list; }
+nav {
+  @include no-list;
+}
 
 h1,
 h2,
@@ -102,27 +107,35 @@ table {
 }
 
 a {
-  color: color( link );
+  color: color(link);
 
   //&:visited { color: color( link-visited ); }
 
   &:hover,
   &:focus,
-  &:active { color: color( red ); }
+  &:active {
+    color: color(red);
+  }
 
-  &:focus { outline: thin dotted; }
+  &:focus {
+    outline: thin dotted;
+  }
 
   &:hover,
-  &:active { outline: 0; }
+  &:active {
+    outline: 0;
+  }
 
   transition: 0.25s all ease-out;
 
   nav & {
-    color: color( black );
+    color: color(black);
 
     &:hover,
     &:focus,
-    &:active { color: color( red ); }
+    &:active {
+      color: color(red);
+    }
   }
 }
 
@@ -168,8 +181,8 @@ a {
     clip: auto !important;
     z-index: 100000; /* Above WP toolbar. */
 
-    background-color: color( background-screen );
-    color: color( text-screen );
+    background-color: color(background-screen);
+    color: color(text-screen);
     box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
 
     font-weight: bold;

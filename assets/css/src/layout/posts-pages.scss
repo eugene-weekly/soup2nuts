@@ -94,6 +94,8 @@
   }
 
   .archive.paged & {
+    flex: 1 1 100%;
+    
     margin-bottom: 1em;
     padding-bottom: 1em;
   }
