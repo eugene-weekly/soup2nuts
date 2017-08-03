@@ -3,7 +3,7 @@
  */
 
 .post_format-post-format-video {
-  &.excerpted-post {
+  @at-root .features-posts &.excerpted-post {
     .entry-hero {
       display: flex;
       align-items: center;

@@ -87,7 +87,9 @@
   :not(.archive.tax-post_format .excerpted-post)
   :not(.tribe-events-loop .type-tribe_events)
   :not(.more_features-posts .excerpted-post)
-  :not(.events-posts.home-posts .excerpted-post) {
+  :not(.events-posts.home-posts .excerpted-post)
+  :not(.entry-date)
+  :not(.entry-meta) {
     padding-top: 2em;
 
     border-top: 1px solid color(red);
@@ -95,7 +97,7 @@
 
   .archive.paged & {
     flex: 1 1 100%;
-    
+
     margin-bottom: 1em;
     padding-bottom: 1em;
   }

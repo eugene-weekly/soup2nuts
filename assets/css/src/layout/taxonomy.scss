@@ -15,7 +15,7 @@
     background-color: color(white);
   }
 
-  &:not( .features-posts, .more_features-posts ) {
+  &:not(.features-posts, .more_features-posts) {
     background-color: color(white);
 
     box-shadow: $box-shadow;
@@ -50,7 +50,7 @@
 
   .right-column:not(.home *) {
     @include media( $third-break ) {
-      margin-top: -2em;
+      //margin-top: -2em;
     }
   }
 }
