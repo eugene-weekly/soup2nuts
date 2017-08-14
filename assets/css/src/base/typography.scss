@@ -2,14 +2,16 @@
  * Typography
  */
 
-html { font-size: 100%; }
+html {
+  font-size: 100%;
+}
 
 body,
 button,
 input,
 select,
 textarea {
-  color: copy( text-main );
+  color: copy(text-main);
 
   font-family: $alianza;
   font-size: $base-font-size;
@@ -19,20 +21,19 @@ textarea {
 h1,
 %h1 {
   font-weight: 900;
-  font-size: em( 64 );
+  font-size: em(64);
   font-family: $alianza;
   line-height: 0.9;
 }
 
 h2,
 %h2 {
-
 }
 
 h3,
 %h3 {
   font-weight: 900;
-  font-size: em( 36 );
+  font-size: em(36);
   font-family: $alianza;
   line-height: 1;
 }
@@ -41,7 +42,7 @@ h4,
 %h4 {
   font-style: italic;
   font-weight: 400;
-  font-size: em( 18 );
+  font-size: em(18);
   font-family: $alianza;
   line-height: 1.25;
 }
@@ -50,7 +51,7 @@ h5,
 %h5 {
   font-style: italic;
   font-weight: 900;
-  font-size: em( 16 );
+  font-size: em(16);
   font-family: $alianza;
   line-height: 1.25;
   text-transform: uppercase;
@@ -60,7 +61,7 @@ h6,
 %h6 {
   font-style: normal;
   font-weight: 900;
-  font-size: em( 16 );
+  font-size: em(16);
   font-family: $alianza;
   line-height: 1.25;
   letter-spacing: 1px;
@@ -81,7 +82,7 @@ blockquote {
   @extend %h4;
 
   font-weight: 900;
-  font-size: em( 18, 16 );
+  font-size: em(18, 16);
   text-transform: uppercase;
 
   .sub-menu .menu-item {
@@ -90,23 +91,29 @@ blockquote {
   }
 }
 
-
 .entry-meta {
   @extend %h5;
 
   font-weight: 700;
-  font-size: em( 12, 16 );
+  font-size: em(12, 16);
   text-transform: uppercase;
 }
 
-.hentry:not(.category-letters, .category-slant, .category-biz_beat, .category-spray-schedule, .category-pollution-update, .category-activist-alert ) {
+.entry-footer .tags-links {
+  @extend %h5;
+
+  font-weight: 700;
+  font-size: em(14, 16);
+  text-transform: uppercase;
+}
+
+.hentry:not(.category-letters, .category-slant, .category-biz_beat, .category-spray-schedule, .category-pollution-update, .category-activist-alert) {
   .entry-content {
     > p:first-child,
     > figure:first-child + p {
-
       &:first-letter {
         font-weight: 900;
-        font-size: em( 108, 18 );
+        font-size: em(108, 18);
         line-height: 0.66;
       }
     }
@@ -114,7 +121,6 @@ blockquote {
 }
 
 .excerpted-post {
-
   .entry-footer {
     @extend %h5;
   }
@@ -124,11 +130,10 @@ blockquote {
 .singular,
 .page {
   .entry-title {
-
   }
 
   .entry-subhead {
-    font-size: em( 30, 18 );
+    font-size: em(30, 18);
   }
 
   .entry-footer {
@@ -136,25 +141,26 @@ blockquote {
       text-transform: uppercase;
       font-style: italic;
 
-      a { text-decoration: none; }
+      a {
+        text-decoration: none;
+      }
     }
   }
 }
 
-
 .hero-caption {
   @extend %h6;
 
-  font-size: em( 10, 16 );
+  font-size: em(10, 16);
+  font-weight: 400;
 
   @include media( $third-break ) {
-    font-size: em( 14, 16 );
+    font-size: em(14, 16);
   }
 
   .photo-credit {
     font-style: italic;
-    font-weight: 400;
-    font-size: em( 12, 14 );
+    font-size: em(12, 14);
     text-transform: none;
   }
 }
@@ -173,11 +179,11 @@ blockquote {
     }
 
     .event-month {
-      font-size: em( 32, 36 );
+      font-size: em(32, 36);
     }
 
     .event-date {
-      font-size: em( 56, 36 );
+      font-size: em(56, 36);
     }
   }
 }
@@ -190,7 +196,6 @@ blockquote {
   }
 
   input[type=text] {
-
   }
 
   .tribe-bar-submit input[type=submit] {
@@ -198,69 +203,54 @@ blockquote {
   }
 }
 
-
 #tribe-bar-views {
   .tribe-bar-views-inner {
-    label {}
+    label {
+    }
 
-    .tribe-bar-views-list {}
+    .tribe-bar-views-list {
+    }
   }
 }
 
-
 #tribe_events_filters_wrapper {
-
   #tribe_events_filter_control {
-
   }
 
   .tribe-events-filters-content {
     .tribe-events-filters-label {
-
-
     }
   }
 
   .tribe_events_filter_item {
-
-
   }
 
   .tribe-events-filters-group-heading {
-
-
   }
 
   .tribe-events-filter-group {
-
     label {
-
       input[type=checkbox] {
-
       }
 
       span {
-
       }
     }
   }
 }
 
 #tribe_events_filters_reset {
-
-
 }
 
-.tribe-events-page-title {}
+.tribe-events-page-title {
+}
 
 #tribe-events-header {
-
-
-  .tribe-events-sub-nav {}
+  .tribe-events-sub-nav {
+  }
 }
 
 .tribe-events-list-separator-month {
-
   span {
     @extend %h5;
   }
@@ -271,7 +261,7 @@ blockquote {
 }
 
 .widget .entry-subhead {
-  font-size: em( 16 );
+  font-size: em(16);
 }
 
 .section-footer .archive-link {
@@ -280,20 +270,24 @@ blockquote {
   font-style: normal;
   line-height: 0.33;
 
-  .category-name { font-style: italic; }
+  .category-name {
+    font-style: italic;
+  }
 }
 
 .site-footer {
   font-weight: 400;
-  font-size: em( 16 );
+  font-size: em(16);
   font-family: $alianza;
   line-height: 1.25;
   text-align: center;
 
-  .copyright { font-size: em( 12, 16); }
+  .copyright {
+    font-size: em(12, 16);
+  }
 }
 
 .search-field {
   font-weight: 600;
-  font-size: em( 13.5, 18 );
+  font-size: em(13.5, 18);
 }

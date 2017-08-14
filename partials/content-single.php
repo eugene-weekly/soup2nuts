@@ -27,11 +27,13 @@ if ( in_array( $format, array('video','gallery') ) )
   <div class="entry-content">
     <?php the_content(); ?>
   </div><!-- .entry-content -->
-  <?php if ( !in_array( $format, array('video','gallery') ) )
-    do_action( 'acm_tag', '300x600-post-sidebar-atf' ); ?>
 
   <footer class="entry-footer">
     <?php soup2nuts_entry_footer(); ?>
   </footer><!-- .entry-footer -->
+
+
+  <?php if ( !in_array( $format, array('video','gallery') ) )
+    do_action( 'acm_tag', '300x600-post-sidebar-atf' ); ?>
 
 </article><!-- #post-## -->

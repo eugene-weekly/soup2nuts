@@ -3,9 +3,8 @@
  */
 
 .ad {
-
-  .single .entry-content + &,
-  .page .entry-content + & {
+  .single .entry-footer + &,
+  .page .entry-footer + & {
     > * {
       margin-left: auto;
     }

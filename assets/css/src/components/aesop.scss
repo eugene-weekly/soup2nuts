@@ -8,62 +8,75 @@
 
 .aesop-image-component {
   .aesop-img-enlarge,
-  .aesop-image-component-caption
-   {
+  .aesop-image-component-caption {
     font-family: $alianza;
   }
   .aesop-img-enlarge {
     font-style: italic;
   }
   .aesop-image-component-caption {
-    font-weight: 900;
-    font-size: em( 16 );
+    color: color(black);
+
+    font-weight: 400;
+    font-size: em(16);
     font-family: $alianza;
     line-height: 1.25;
     text-transform: uppercase;
+
+    .aesop-cap-cred {
+      display: inline;
+      margin: 0;
+      padding: 0;
+
+      color: color(grey);
+
+      font-style: italic;
+      font-size: em(12, 14);
+      text-transform: none;
+
+      border: 0;
+    }
   }
 
   .aesop-component-align-left {
-
     @include media( $fifth-break ) {
-      margin-left: flex-grid( -1 );
+      margin-left: flex-grid(-1);
     }
   }
   .aesop-component-align-right {
-
     @include media( $fifth-break ) {
-      margin-right: flex-grid( -1 );
+      margin-right: flex-grid(-1);
     }
   }
-
 }
 
 .aesop-quote-component {
-
   &.aesop-quote-type-pull {
-
     font-weight: 400;
 
     &.aesop-component-align-left {
       border-left-width: 1px;
-      border-left-color: color( red );
+      border-left-color: color(red);
     }
     &.aesop-component-align-right {
       border-right-width: 1px;
-      border-right-color: color( red );
+      border-right-color: color(red);
     }
 
     .aesop-quote-component-cite {
-      color: color( grey );
+      color: color(grey);
     }
   }
 }
 
 .aesop-gallery-component {
-
 }
 
-#swipebox-caption { font-family: $alianza; }
+#swipebox-caption {
+  font-family: $alianza;
+}
 
 // Gallery Fix from Aesop Support
-#primary { max-width: 100%; }
+#primary {
+  max-width: 100%;
+}

@@ -12,25 +12,23 @@
 }
 
 /* Search widget. */
-.widget_search .search-submit {}
+.widget_search .search-submit {
+}
 
 .widget-area {
-
   .single .content-area + &,
   .page .content-area + & {
-
     @include media( $third-break ) {
     }
 
     .widget {
-
       @include media( $third-break ) {
         float: left;
-        width: flex-grid( 4 );
+        width: flex-grid(4);
         //max-width: 300px;
       }
 
-      &:not( :last-child ) {
+      &:not(:last-child) {
         @include media( $third-break ) {
           margin-right: flex-gutter();
         }
@@ -45,8 +43,8 @@
     display: block;
     padding: 7px 18px 3px;
 
-    background-color: color( red );
-    color: color( white );
+    background-color: color(red);
+    color: color(white);
   }
 }
 
@@ -74,11 +72,14 @@
   }
 }
 
-
 .widget.two_most_featured,
 .widget.most_featured_event {
   .excerpted-post {
     @include featured-excerpt;
+
+    &:after {
+      display: none;
+    }
 
     &.tribe_events {
       .entry-footer {
@@ -90,7 +91,6 @@
 
 .widget.two_most_featured,
 .widget.most_featured_feature {
-
   .hero-caption {
     @include visuallyhidden;
   }

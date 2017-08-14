@@ -289,6 +289,7 @@
     .hero-caption {
       margin-left: flex-gutter();
       margin-right: flex-gutter();
+      margin-bottom: 1em;
 
       text-align: right;
 
@@ -309,7 +310,8 @@
     margin-bottom: 0.5em;
   }
 
-  .entry-content {
+  .entry-content,
+  .entry-footer {
     @include media( $third-break ) {
       flex: 0 1 60%;
       order: 3;
@@ -320,18 +322,19 @@
     }
   }
 
-  .entry-content + .ad {
+  .entry-footer + .ad {
     @include media( $third-break ) {
       flex: 0 1 40%;
       order: 4;
       align-self: flex-start;
 
       //max-width: 300px;
+      padding-left: flex-gutter();
       padding-top: 3em;
     }
   }
 
-  .entry-footer:not(.widget .entry-footer) {
+  .entry-footer {
     @include media( $third-break ) {
       flex: 0 1 60%;
       order: 5;
