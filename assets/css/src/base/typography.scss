@@ -24,6 +24,7 @@ h1,
   font-size: em(64);
   font-family: $alianza;
   line-height: 0.9;
+  hyphens: auto;
 }
 
 h2,
@@ -36,6 +37,7 @@ h3,
   font-size: em(36);
   font-family: $alianza;
   line-height: 1;
+  hyphens: auto;
 }
 
 h4,
@@ -45,6 +47,7 @@ h4,
   font-size: em(18);
   font-family: $alianza;
   line-height: 1.25;
+  hyphens: auto;
 }
 
 h5,
@@ -55,6 +58,7 @@ h5,
   font-family: $alianza;
   line-height: 1.25;
   text-transform: uppercase;
+  hyphens: auto;
 }
 
 h6,
@@ -66,6 +70,7 @@ h6,
   line-height: 1.25;
   letter-spacing: 1px;
   text-transform: uppercase;
+  hyphens: auto;
 }
 
 blockquote {

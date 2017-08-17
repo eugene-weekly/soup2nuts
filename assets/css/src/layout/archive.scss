@@ -2,15 +2,12 @@
  * Archive
  */
 
-
 .archive {
-
   .site-content {
     @include container;
   }
 
   .site-main {
-
     display: flex;
     flex-wrap: wrap;
 
@@ -21,16 +18,17 @@
     }
   }
 
-  &.category {
+  &.category:not(.paged) {
     .site-main {
       .excerpted-post {
-        .entry-excerpt { display: none; }
+        .entry-excerpt {
+          display: none;
+        }
       }
     }
   }
 
-
-  &.paged ,
+  &.paged:not(.author),
   &.tax-post_format,
   &.post-type-archive-promotion,
   &.tag {
