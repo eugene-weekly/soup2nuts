@@ -52,5 +52,9 @@ get_header(); ?>
     </main><!-- #main -->
   </div><!-- #primary -->
 
-<?php get_sidebar( 'archive-sidebar' ); ?>
+<?php if ( is_search() ) {
+  get_sidebar( 'search-sidebar' );
+} else {
+  get_sidebar( 'archive-sidebar' );
+} ?>
 <?php get_footer(); ?>
