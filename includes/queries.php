@@ -166,7 +166,6 @@
 
        $featured_post_args = array();
 
-
        if ( $section == 'features') {
          $post__in = array_merge( $featured_posts, $featured_events );
        } else {

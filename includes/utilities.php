@@ -114,12 +114,16 @@ function guess_hero_size( $origin, $position = 0 ) {
       $deduced_size = ( $position == 0 ) ? 'large' : 'medium';
       break;
 
+    case 'more_features':
+
+      $deduced_size = 'medium';
+      break;
+
     case 'news':
     case 'arts':
     case 'culture':
     case 'gallery':
     case 'latest':
-    case 'more_features':
     case 'popular':
 
       $deduced_size = ( $position == 0 ) ? 'medium' : 'thumbnail';
