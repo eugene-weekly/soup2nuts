@@ -87,6 +87,14 @@
       width: flex-grid(8);
     }
   }
+
+  .category & .format-video {
+    .entry-hero {
+      @include media( $less-than-third-break ) {
+        padding: 3em 0;
+      }
+    }
+  }
 }
 
 .more_features-posts {

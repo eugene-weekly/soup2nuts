@@ -19,7 +19,6 @@ function the_posts_navigation() {
     return;
   }
   ?>
-  <h1>NAV</h1>
   <nav class="navigation posts-navigation" role="navigation">
     <h2 class="screen-reader-text"><?php esc_html_e( 'Posts navigation', 'soup2nuts' ); ?></h2>
     <div class="nav-links">
@@ -28,7 +27,25 @@ function the_posts_navigation() {
       <div class="nav-previous"><?php next_posts_link( esc_html__( '&larr; Previous', 'soup2nuts' ) ); ?></div>
       <?php endif; ?>
 
-      <?php pre_printr('blerg'); ?>
+      <?php $pagination_args = array(
+      	'base'               => '%_%',
+      	'format'             => '?paged=%#%',
+      	'total'              => 1,
+      	'current'            => 0,
+      	'show_all'           => false,
+      	'end_size'           => 1,
+      	'mid_size'           => 2,
+      	'prev_next'          => true,
+      	'prev_text'          => __('« Previous'),
+      	'next_text'          => __('Next »'),
+      	'type'               => 'plain',
+      	'add_args'           => false,
+      	'add_fragment'       => '',
+      	'before_page_number' => '',
+      	'after_page_number'  => ''
+      );
+
+      echo paginate_links( $pagination_args ); ?>
 
       <?php if ( get_previous_posts_link() ) : ?>
       <div class="nav-next"><?php previous_posts_link( esc_html__( 'Next &rarr;', 'soup2nuts' ) ); ?></div>
