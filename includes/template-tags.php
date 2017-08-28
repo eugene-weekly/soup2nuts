@@ -7,48 +7,32 @@
  * @package soup2nuts
  */
 
-if ( ! function_exists( 'the_posts_navigation' ) ) :
+if ( ! function_exists( 'archive_pagination' ) ) :
 /**
  * Display navigation to next/previous set of posts when applicable.
  *
  * @todo write this.
  */
-function the_posts_navigation() {
+function archive_pagination() {
+
   // Don't print empty markup if there's only one page.
   if ( $GLOBALS[ 'wp_query' ]->max_num_pages < 2 ) {
     return;
   }
   ?>
   <nav class="navigation posts-navigation" role="navigation">
-    <h2 class="screen-reader-text"><?php esc_html_e( 'Posts navigation', 'soup2nuts' ); ?></h2>
+    <h2 class="screen-reader-text"><?php esc_html_e( __('Posts navigation', 'soup2nuts') ); ?></h2>
     <div class="nav-links">
 
-      <?php if ( get_next_posts_link() ) : ?>
-      <div class="nav-previous"><?php next_posts_link( esc_html__( '&larr; Previous', 'soup2nuts' ) ); ?></div>
+      <?php if ( get_previous_posts_link() ) : ?>
+      <div class="nav-previous"><?php previous_posts_link( '&larr; <span>Previous</span>', 'soup2nuts' ); ?></div>
       <?php endif; ?>
 
-      <?php $pagination_args = array(
-      	'base'               => '%_%',
-      	'format'             => '?paged=%#%',
-      	'total'              => 1,
-      	'current'            => 0,
-      	'show_all'           => false,
-      	'end_size'           => 1,
-      	'mid_size'           => 2,
-      	'prev_next'          => true,
-      	'prev_text'          => __('« Previous'),
-      	'next_text'          => __('Next »'),
-      	'type'               => 'plain',
-      	'add_args'           => false,
-      	'add_fragment'       => '',
-      	'before_page_number' => '',
-      	'after_page_number'  => ''
-      );
-
-      echo paginate_links( $pagination_args ); ?>
-
-      <?php if ( get_previous_posts_link() ) : ?>
-      <div class="nav-next"><?php previous_posts_link( esc_html__( 'Next &rarr;', 'soup2nuts' ) ); ?></div>
+      <div class="page-count">
+        <span class="current-page"><?php echo $GLOBALS[ 'wp_query' ]->query[ 'paged' ]; ?></span> of <?php echo $GLOBALS[ 'wp_query' ]->max_num_pages; ?>
+      </div>
+      <?php if ( get_next_posts_link() ) : ?>
+      <div class="nav-next"><?php next_posts_link( __('<span>Next</span> &rarr;', 'soup2nuts') ); ?></div>
       <?php endif; ?>
 
     </div><!-- .nav-links -->

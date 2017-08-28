@@ -41,7 +41,7 @@ get_header(); ?>
 
       <?php endwhile; ?>
 
-      <?php the_posts_navigation(); ?>
+      <?php archive_pagination(); ?>
 
     <?php else : ?>
 

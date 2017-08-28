@@ -11,7 +11,6 @@
     @include no-list;
 
     ul {
-
       @include media( $third-break ) {
         //position: absolute;
         //top: 1.5em;
@@ -22,7 +21,6 @@
       }
 
       ul {
-
         @include media( $third-break ) {
           //top: 0;
           //left: -999em;
@@ -31,16 +29,21 @@
 
       li {
         &:hover > ul,
-        &.focus > ul { left: 100%; }
+        &.focus > ul {
+          left: 100%;
+        }
       }
 
-      a {}
+      a {
+      }
 
       :hover > a,
-      .focus > a { }
+      .focus > a {
+      }
 
       a:hover,
-      a.focus { }
+      a.focus {
+      }
     }
 
     li:hover > ul,
@@ -55,7 +58,8 @@
     position: relative;
 
     &:hover > a,
-    &.focus > a { }
+    &.focus > a {
+    }
   }
 
   a {
@@ -67,11 +71,11 @@
 
   .current_page_item > a,
   .current-menu-item > a,
-  .current_page_ancestor > a { }
+  .current_page_ancestor > a {
+  }
 }
 
 .menu-item {
-
   .icon {
     height: 25px;
     width: 25px;
@@ -84,8 +88,9 @@
 }
 
 .menu-item-more {
-
-  > a { color: color( black ); }
+  > a {
+    color: color(black);
+  }
 
   .sub-menu {
     max-height: 0;
@@ -101,7 +106,6 @@
   }
 }
 
-
 .menu-toggle {
   flex: 1 1 auto;
 
@@ -113,7 +117,6 @@
   cursor: pointer;
 
   @include media( $third-break ) {
-
   }
 
   .icon {
@@ -125,7 +128,6 @@
 }
 
 .site-header {
-
   .main-navigation {
     position: relative;
 
@@ -135,8 +137,8 @@
       left: 0 - flex-gutter();
       z-index: 5;
 
-      width: calc( 100vw - 43px );
-      max-height: calc( 100vh - 50px );
+      width: calc(100vw - 43px);
+      max-height: calc(100vh - 50px);
       margin-bottom: 10vh;
       padding-right: flex-gutter();
       padding-bottom: 1em;
@@ -144,13 +146,13 @@
       overflow: scroll;
       -webkit-overflow-scrolling: touch;
 
-      background-color: color( white );
+      background-color: color(white);
 
-      border-top: 1px solid color( grey );
+      border-top: 1px solid color(grey);
 
       box-shadow: 0;
 
-      transform: translateX( -110% );
+      transform: translateX(-110%);
       transition: all 0.25s ease-out;
 
       @include media( $third-break ) {
@@ -160,34 +162,32 @@
 
         width: auto;
         min-width: 320px;
-        max-width: calc( 100vw - 43px );
-        max-height: calc( 100vh - 125px );
+        max-width: calc(100vw - 43px);
+        max-height: calc(100vh - 125px);
 
         border-top: 0;
 
-        transform: translateX( 100% );
+        transform: translateX(100%);
       }
 
       @include media( $tall-enough ) {
-
       }
 
       @at-root .show-nav & {
         //padding-bottom: 3em;
 
-        transform: translateX( 0 );
+        transform: translateX(0);
 
-        box-shadow: 5px 10px 10px rgba( 26, 25, 25, 0.4);
+        box-shadow: 5px 10px 10px rgba(26, 25, 25, 0.4);
 
         @include media( $third-break ) {
           //width: calc( 100vw - 43px );
           //max-width: 480px;
-          max-height: calc( 100vh - 125px );
-          transform: translateX( 0 );
+          max-height: calc(100vh - 125px);
+          transform: translateX(0);
         }
 
         @include media( $tall-enough ) {
-
         }
       }
     }
@@ -210,36 +210,29 @@
 
       display: block;
 
-      color: color( red );
+      color: color(red);
 
       @include media( $third-break ) {
-
       }
 
       &:hover,
       &:focus,
       &:active {
-
         > .sub-menu {
-
           @include media( $third-break ) {
-
           }
         }
       }
 
       &.menu-item-has-icon {
         a {
-
           * {
           }
         }
       }
 
-
       &.menu-item-calendar {
         order: 1;
-
       }
 
       a {
@@ -247,22 +240,20 @@
         flex-wrap: nowrap;
         align-items: center;
 
-        border-bottom: 1px solid color( red );
+        border-bottom: 1px solid color(red);
 
         @include media( $third-break ) {
-
         }
       }
 
       &.menu-item-more {
-
         .icon {
           flex: 0 1 15px;
 
           height: 15px;
           width: 15px;
 
-          fill: color( grey );
+          fill: color(grey);
 
           transform: rotate(0);
           transition: transform 0.25s ease-out;
@@ -288,8 +279,7 @@
       margin-left: flex-gutter();
 
       .menu-item {
-
-        color: color( black );
+        color: color(black);
 
         //border-bottom: 1px solid color( black );
 
@@ -298,7 +288,7 @@
         }
 
         a {
-          border-color: color( black );
+          border-color: color(black);
         }
       }
     }
@@ -341,7 +331,9 @@
     flex: 1 1 auto;
 
     &.current-menu-item {
-      a { color: color( red ); }
+      a {
+        color: color(red);
+      }
     }
   }
 
@@ -398,7 +390,7 @@
 
           opacity: 0;
 
-          color: color( red );
+          color: color(red);
 
           white-space: nowrap;
 
@@ -425,7 +417,6 @@
 }
 
 .site-footer {
-
   .navigation-menu {
     @include container;
 
@@ -434,15 +425,14 @@
   }
 
   .menu {
-
     display: flex;
     flex-wrap: wrap;
 
     padding-top: 1em;
     padding-bottom: 1em;
 
-    border-top: 1px solid color( grey );
-    border-bottom: 1px solid color( grey );
+    border-top: 1px solid color(grey);
+    border-bottom: 1px solid color(grey);
 
     @include media( $third-break ) {
       flex-wrap: nowrap;
@@ -458,7 +448,7 @@
         flex: 0 1 auto;
       }
 
-      &:nth-child( 2n ) {
+      &:nth-child(2n) {
         text-align: right;
       }
     }
@@ -467,23 +457,21 @@
       display: block;
       padding: 0.5em 1em;
 
-      color: color( white );
+      color: color(white);
 
       text-decoration: none;
 
       &:hover,
       &:focus,
       &:active {
-        color: color( red );
+        color: color(red);
       }
     }
   }
 }
 
 .comment-navigation,
-.posts-navigation,
 .post-navigation {
-
   .site-main & {
     margin: 0 0 1.5em;
     overflow: hidden;
@@ -502,4 +490,55 @@
   }
 }
 
-.posts-navigation {}
+.posts-navigation {
+  .archive.paged & {
+    flex: 1 1 100%;
+
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+
+    > * {
+      flex: 0 1 auto;
+    }
+
+    .nav-previous {
+      align-self: flex-start;
+    }
+
+    .nav-next {
+      align-self: flex-end;
+    }
+
+    .page-count {
+      .current-page {
+        position: relative;
+        z-index: 2;
+
+        display: inline-block;
+        margin-right: 0.75em;
+        padding: 0 0.25em;
+        overflow: visible;
+
+        background-color: color(white);
+
+        box-shadow: 2px 2px 0 2px color(red);
+
+        outline: 1px solid color(red);
+      }
+    }
+
+    a {
+      color: color(red);
+
+      span {
+        color: color(black);
+      }
+    }
+  }
+}

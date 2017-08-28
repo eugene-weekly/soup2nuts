@@ -160,6 +160,10 @@
 
     .entry-excerpt {
       display: block;
+
+      *:last-child {
+        margin-bottom: 0;
+      }
     }
   }
 

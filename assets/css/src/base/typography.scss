@@ -29,6 +29,11 @@ h1,
 
 h2,
 %h2 {
+  font-weight: 900;
+  font-size: em(48);
+  font-family: $alianza;
+  line-height: 0.9;
+  hyphens: auto;
 }
 
 h3,
@@ -131,6 +136,14 @@ blockquote {
   }
 }
 
+.excerpted-post-list {
+  .entry-excerpt {
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
 .single,
 .singular,
 .page {
@@ -167,6 +180,24 @@ blockquote {
     font-style: italic;
     font-size: em(12, 14);
     text-transform: none;
+  }
+}
+
+.posts-navigation {
+  @extend %h6;
+
+  font-weight: 400;
+  font-size: em(12, 16);
+
+  .nav-previous,
+  .nav-next {
+    span {
+      font-style: italic;
+    }
+  }
+
+  a {
+    text-decoration: none;
   }
 }
 
