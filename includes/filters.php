@@ -711,10 +711,33 @@ if ( ! function_exists( 'soup2nuts_acm_output_html' ) ) :
    */
 
   function soup2nuts_acm_output_html( $output_html, $tag_id ) {
-    //return 'blerg';
     return '<div class="ad">' . $output_html . '</div>' . "\n";
   }
 
 endif;
 
 add_filter( 'acm_output_html_after_tokens_processed','soup2nuts_acm_output_html', 5, 2 );
+
+
+if ( ! function_exists( 'soup2nuts_oembed_dataparse' ) ) :
+
+  /**
+   * Filter oembed Output HTML
+   *
+   * @param $output_html (str)
+   *
+   * @return $tag_id (str)
+   *
+   * @since 0.1.0
+   */
+
+  function soup2nuts_oembed_dataparse( $return, $data, $url ) {
+    if ($data->provider_name == 'YouTube') {
+        $data->html = str_replace('feature=oembed', 'feature=oembed&#038;rel=0&#038;showinfo=0', $data->html);
+        return $data->html;
+    } else return $return;
+  }
+
+endif;
+
+add_filter( 'oembed_dataparse','soup2nuts_oembed_dataparse', 10, 3 );

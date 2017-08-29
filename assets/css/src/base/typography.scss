@@ -292,8 +292,15 @@ blockquote {
   }
 }
 
+.tribe-event-schedule-details {
+  @extend %h4;
+}
+
 .widget-area .widget-title {
   @extend %h5;
+
+  font-weight: 400;
+  font-size: em(16, 12.45);
 }
 
 .widget .entry-subhead {
