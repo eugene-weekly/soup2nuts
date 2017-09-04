@@ -166,6 +166,12 @@ blockquote {
   }
 }
 
+.full-screen {
+  .entry-header {
+    text-align: center;
+  }
+}
+
 .hero-caption {
   @extend %h6;
 

@@ -52,4 +52,10 @@
       text-align: center;
     }
   }
+
+  &.is-full-screen {
+    .site-content > .widget-area {
+      @include container;
+    }
+  }
 }

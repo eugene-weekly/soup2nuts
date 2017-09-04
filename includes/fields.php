@@ -197,6 +197,7 @@ function meta_fields() {
       'alt-title' => $alt_title,
       'sub-head' => $sub_head,
       'expiration-date' => $expiration_date,
+      'full-screen' => $full_screen,
       'no-hero' => $no_hero,
     ),
   ) );

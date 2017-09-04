@@ -113,7 +113,7 @@ if ( ! function_exists( 'soup2nuts_template_include' ) ) :
 
       $template = ( empty( $archive ) ) ? $template : $archive;
 
-    } elseif ( is_singular( 'post' ) ) {
+    } elseif ( is_singular() ) {
       if ( get_post_meta( get_the_ID(), 'full-screen', true ) ) {
         $full_screen = locate_template( array( 'single-fullscreen.php' ) );
 
@@ -185,6 +185,9 @@ if ( ! function_exists( 'soup2nuts_body_class' ) ) :
 
     if ( is_home() || is_search() )
       $classes[] = 'archive';
+
+    if ( is_singular &&  get_post_meta( $post->ID, 'full-screen', true ) )
+      $classes[] = 'is-full-screen';
 
     return $classes;
   }

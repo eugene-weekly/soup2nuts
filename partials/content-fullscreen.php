@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying single posts.
+ * Template part for displaying full-screen posts.
  *
  * @package soup2nuts
  */
@@ -29,7 +29,5 @@
   <footer class="entry-footer">
     <?php soup2nuts_entry_footer(); ?>
   </footer><!-- .entry-footer -->
-
-  <?php get_sidebar(); ?>
 
 </article><!-- #post-## -->

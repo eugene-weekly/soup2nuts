@@ -35,6 +35,41 @@
       }
     }
   }
+
+  .is-full-screen.page &,
+  .is-full-screen.single & {
+    max-width: 100%;
+
+    @include media( $third-break ) {
+      position: relative;
+      z-index: -1;
+
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .content-area {
+      @include media( $third-break ) {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      .entry-header,
+      .entry-content,
+      .entry-footer {
+        padding-left: flex-gutter();
+        padding-right: flex-gutter();
+
+        @include media( $third-break ) {
+          flex-basis: 100%;
+
+          max-width: $max-width;
+          padding-left: flex-grid(3);
+          padding-right: flex-grid(3);
+        }
+      }
+    }
+  }
 }
 
 .hentry {
@@ -388,5 +423,30 @@
         }
       }
     }
+  }
+}
+
+// Full Screen Posts
+.single .site-main .full-screen {
+  justify-content: center;
+
+  .entry-hero {
+    text-align: center;
+    @include media( $third-break ) {
+    }
+  }
+
+  .entry-header,
+  .entry-content,
+  .entry-footer {
+  }
+
+  .entry-header {
+  }
+
+  .entry-content {
+  }
+
+  .entry-footer {
   }
 }

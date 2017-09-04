@@ -17,9 +17,9 @@
 
   height: 50px;
 
-  background-color: color( white );
+  background-color: color(white);
 
-  box-shadow: 0 3px 5px rgba( 26, 25, 25, 0.09);
+  box-shadow: 0 3px 5px rgba(26, 25, 25, 0.09);
 
   @include media( $third-break ) {
     flex-direction: column;
@@ -38,6 +38,12 @@
 
   @include media( $tall-enough ) {
     height: 225px;
+  }
+
+  .is-full-screen & {
+    @include media( $third-break ) {
+      margin-bottom: 0;
+    }
   }
 
   //> * { outline: 1px solid red; }
@@ -87,11 +93,12 @@
 
     @include media( $tall-enough ) {
       //flex: 0 1 46px;
-
     }
   }
 
-  .widget { margin-bottom: 0; }
+  .widget {
+    margin-bottom: 0;
+  }
 
   .widget_wpcom_social_media_icons_widget {
     display: none;
@@ -176,5 +183,4 @@
 
   .widget_search {
   }
-
 }
