@@ -4,21 +4,23 @@
 
 .widget_wpcom_social_media_icons_widget,
 .author-social {
-
-  ul { @include no-list; }
+  ul {
+    @include no-list;
+  }
 
   .genericon {
-    font-size: em( 28, 16 );
+    font-size: em(28, 16);
     line-height: 1;
 
-    color: color( black );
+    color: color(black);
 
     transition: all 0.25s ease-out;
   }
 
   .site-header & {
-
-    .widgettitle { display: none; }
+    .widgettitle {
+      display: none;
+    }
 
     ul {
       display: flex;
@@ -36,23 +38,22 @@
     }
 
     .genericon {
-      color: color( black );
+      color: color(black);
 
-      font-size: em( 24, 16 );
+      font-size: em(24, 16);
 
       @include media( $tall-enough ) {
-        font-size: em( 40, 16 );
+        font-size: em(40, 16);
       }
 
       &:hover,
       &:focus {
-        color: color( red );
+        color: color(red);
       }
     }
   }
 
   .site-footer & {
-
     @include media( $third-break ) {
       max-width: 75vh;
       margin-left: auto;
@@ -70,45 +71,45 @@
     }
 
     .genericon {
+      font-size: 1.4em;
       padding: 0.5em;
 
-      background-color: color( white );
-      color: color( black );
+      background-color: color(white);
+      color: color(black);
 
       border-radius: 50%;
 
       &:hover,
       &:focus {
-        background-color: color( red );
+        background-color: color(red);
       }
     }
   }
 }
 
 .sd-social-icon .sd-content ul li[class*='share-'] a.sd-button {
-  background-color: color( black ) !important;
-  color: color( white ) !important;
+  background-color: color(black) !important;
+  color: color(white) !important;
 }
 
 .author-social {
   @include no-list;
 
-  li { display: inline-block; }
-
+  li {
+    display: inline-block;
+  }
 
   .genericon {
     padding: 0.5em;
 
-    background-color: color( black );
-    color: color( white );
+    background-color: color(black);
+    color: color(white);
 
     border-radius: 50%;
 
     &:hover,
     &:focus {
-      background-color: color( red );
+      background-color: color(red);
     }
   }
-
-
 }

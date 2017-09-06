@@ -404,8 +404,8 @@
     .tribe-events-content {
       order: 1;
 
-      padding-left: flex-gutter();
-      padding-right: flex-gutter();
+      padding-left: flex-gutter() !important;
+      padding-right: flex-gutter() !important;
 
       color: color(black);
     }

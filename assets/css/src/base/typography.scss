@@ -144,14 +144,21 @@ blockquote {
   }
 }
 
-.single,
-.singular,
-.page {
+.single .content-area,
+.singular .content-area,
+.page .content-area {
   .entry-title {
+    @include media( $less-than-third-break ) {
+      font-size: em(48, 18);
+    }
   }
 
   .entry-subhead {
     font-size: em(30, 18);
+
+    @include media( $less-than-third-break ) {
+      font-size: em(22.5, 18);
+    }
   }
 
   .entry-footer {
@@ -166,7 +173,7 @@ blockquote {
   }
 }
 
-.full-screen {
+.single .full-screen .content-area {
   .entry-header {
     text-align: center;
   }
