@@ -183,6 +183,7 @@
     .entry-hero {
       flex-basis: 150px;
 
+      min-width: 150px;
       margin-left: flex-gutter();
 
       @include media( $third-break ) {
