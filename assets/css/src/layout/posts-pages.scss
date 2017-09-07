@@ -220,6 +220,7 @@
 
   .entry-header {
     flex: 1 1 flex-grid(8);
+    order: 2;
   }
 
   .entry-title {
@@ -232,7 +233,8 @@
 
   .entry-hero {
     flex: 1 1 flex-grid(4);
-    margin-left: flex-gutter();
+    order: 1;
+    margin-right: flex-gutter();
   }
 
   .entry-footer {
