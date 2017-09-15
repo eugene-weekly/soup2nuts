@@ -23,21 +23,15 @@ $count = isset( $posts->current_post ) ? $posts->current_post : 0;
 $position = ( in_array( $section, array( 'features', 'video' )) && ( $count == 0 ) ) ? $section : 'excerpt'; ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'excerpted-post excerpted-post-list' ); ?>>
-  <div class="excerpt-content-container">
-    <header class="entry-header">
-      <?php the_title( sprintf( '<h3 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
+  <header class="entry-header">
+    <?php the_title( sprintf( '<h3 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
 
-      <?php the_subhead( sprintf( '<h4 class="entry-subhead"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h4>' ); ?>
+    <?php the_subhead( sprintf( '<h4 class="entry-subhead"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h4>' ); ?>
 
-      <div class="entry-meta">
-        <?php soup2nuts_excerpt_meta(); ?>
-      </div><!-- .entry-meta -->
-    </header><!-- .entry-header -->
-
-    <div class="entry-excerpt">
-      <?php the_excerpt(); ?>
-    </div>
-  </div>
+    <div class="entry-meta">
+      <?php soup2nuts_excerpt_meta(); ?>
+    </div><!-- .entry-meta -->
+  </header><!-- .entry-header -->
 
   <?php if ( has_post_thumbnail() ) : ?>
   <figure class="entry-hero">
@@ -46,6 +40,10 @@ $position = ( in_array( $section, array( 'features', 'video' )) && ( $count == 0
     </a>
   </figure><!-- .entry-hero -->
   <?php endif; ?>
+
+  <div class="entry-excerpt">
+    <?php the_excerpt(); ?>
+  </div>
 
   <footer class="entry-footer">
     <?php soup2nuts_entry_footer(); ?>

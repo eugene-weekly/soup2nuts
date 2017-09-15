@@ -25,7 +25,7 @@ class AuthorBio extends WP_Widget {
 
     $title = ( !empty( $instance[ 'title' ] ) ) ? $instance[ 'title' ] : null;
 
-    $author_photo = get_avatar( $author->ID, 300 );
+    $author_photo = get_avatar( $author->ID, 500 );
     $author_name = get_the_author_meta( 'display_name', $author->ID );
     $author_bio = get_the_author_meta( 'description', $author->ID );
     $author_social = get_user_meta( $author->ID, 'social-links', false);

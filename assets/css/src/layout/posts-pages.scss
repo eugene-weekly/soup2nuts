@@ -118,13 +118,13 @@
   }
 
   &:nth-of-type(2)
-  :not(.archive.paged .excerpted-post)
-  :not(.archive.tax-post_format .excerpted-post)
-  :not(.tribe-events-loop .type-tribe_events)
-  :not(.more_features-posts .excerpted-post)
-  :not(.events-posts.home-posts .excerpted-post)
-  :not(.entry-date)
-  :not(.entry-meta) {
+    :not(.archive.paged .excerpted-post)
+    :not(.archive.tax-post_format .excerpted-post)
+    :not(.tribe-events-loop .type-tribe_events)
+    :not(.more_features-posts .excerpted-post)
+    :not(.events-posts.home-posts .excerpted-post)
+    :not(.entry-date)
+    :not(.entry-meta) {
     padding-top: 2em;
 
     border-top: 1px solid color(red);
@@ -162,42 +162,51 @@
   }
 
   &.excerpted-post-list {
+    flex-wrap: wrap;
+
     @include media( $third-break ) {
       flex: 1 0 100%;
     }
 
     > * {
       @include media( $third-break ) {
-        flex: 0 1 auto;
-        order: 1;
+        //flex: 0 1 auto;
+        //order: 1;
 
         //max-width: flex-grid( 8 );
       }
     }
 
-    .entry-header,
-    .entry-excerpt {
-      flex: 0 1 auto;
+    .entry-header {
+      flex: 1 0 100%;
+      order: 0;
+
+      margin-bottom: 0.5em;
     }
 
     .entry-hero {
-      flex-basis: 150px;
+      flex: 0 0 150px;
+      order: 1;
 
-      min-width: 150px;
-      margin-left: flex-gutter();
+      margin-top: 0.5em;
+      margin-right: flex-gutter();
 
       @include media( $third-break ) {
-        flex: 0 0 auto;
-        order: 0;
+        //flex: 0 0 auto;
 
         max-width: 150px;
-        margin-right: flex-gutter();
-        margin-left: 0;
       }
     }
 
     .entry-excerpt {
+      flex: 1 1 1%;
+      order: 2;
+
       display: block;
+
+      p {
+        margin-top: 0;
+      }
 
       *:last-child {
         margin-bottom: 0;

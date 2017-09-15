@@ -18,7 +18,7 @@ if ( isset( $home_section ) ) {
   $section = $tax_section;
 
 }
-
+pre_printr($posts);
 $count = isset( $posts->current_post ) ? $posts->current_post : 0;
 $position = ( in_array( $section, array( 'features', 'video' )) && ( $count == 0 ) ) ? $section : 'excerpt'; ?>
 

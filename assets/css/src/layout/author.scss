@@ -3,7 +3,6 @@
  */
 
 .archive.author {
-
   .site-content {
     @include media( $third-break ) {
       margin-top: 2em;
@@ -11,7 +10,6 @@
   }
 
   .content-area {
-
     @include media( $third-break ) {
       @include span-columns( 8 );
     }
@@ -20,9 +18,9 @@
       display: flex;
       justify-content: center;
 
-      padding: 2em flex-gutter(4);
+      padding-bottom: 2em;
 
-      background-color: color( light-grey );
+      background-color: color(light-grey);
 
       @include media( $third-break ) {
         @include visuallyhidden;
@@ -31,8 +29,21 @@
       .author_bio {
         flex: 0 0 auto;
 
-        max-width: 300px;
         margin: 0;
+
+        > * {
+          max-width: 300px;
+          margin-left: flex-gutter(4);
+          margin-right: flex-gutter(4);
+        }
+
+        .avatar {
+          width: 100%;
+          max-width: 100%;
+          margin-right: auto;
+          margin-bottom: 2em;
+          margin-left: auto;
+        }
 
         .author-social {
           text-align: center;
@@ -42,7 +53,6 @@
   }
 
   .widget-area {
-
     @include media( $third-break ) {
       @include span-columns( 3 );
 
@@ -65,7 +75,7 @@
     margin-bottom: 4em;
     padding: 2em flex-gutter();
 
-    background-color: color( white );
+    background-color: color(white);
 
     box-shadow: $box-shadow;
 

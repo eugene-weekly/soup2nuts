@@ -31,7 +31,12 @@ class RelatedPosts extends WP_Widget {
     <?php while ( $related_posts->have_posts() ) : $related_posts->the_post();
 
       $section = 'sidebar';
-      include( locate_template( 'partials/content-excerpt.php', false ) );
+
+      if ( $related_posts->current_post == 1 ) {
+        include( locate_template( 'partials/content-excerpt.php', false ) );
+      } else {
+        include( locate_template( 'partials/content-excerpt-list.php', false ) );
+      }
 
     endwhile;
     wp_reset_postdata();

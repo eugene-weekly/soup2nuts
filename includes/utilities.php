@@ -125,11 +125,11 @@ function guess_hero_size( $origin, $position = 0 ) {
     case 'gallery':
     case 'latest':
     case 'popular':
+    case 'sidebar':
 
       $deduced_size = ( $position == 0 ) ? 'medium' : 'thumbnail';
       break;
 
-    case 'sidebar':
     case 'more_features':
     case 'events':
 

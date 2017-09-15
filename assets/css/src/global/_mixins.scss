@@ -35,7 +35,7 @@
     flex: 1 1 auto;
     order: 5;
 
-    content: '';
+    content: "";
 
     display: block;
     height: 0px;
@@ -83,6 +83,8 @@
       //width: 100%;
       min-height: 270px;
       max-height: 270px;
+      margin-right: 0;
+      margin-left: 0;
     }
 
     img {
@@ -253,7 +255,7 @@
   //margin-bottom: -2em;
 
   &:before {
-    content: '';
+    content: "";
 
     position: absolute;
     right: 0;
@@ -353,7 +355,7 @@
 
 // Clearfix
 @mixin clearfix() {
-  content: '';
+  content: "";
   display: table;
 }
 

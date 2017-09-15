@@ -87,7 +87,7 @@
   }
 }
 
-.sd-social-icon .sd-content ul li[class*='share-'] a.sd-button {
+.sd-social-icon .sd-content ul li[class*="share-"] a.sd-button {
   background-color: color(black) !important;
   color: color(white) !important;
 }
@@ -104,6 +104,8 @@
 
     background-color: color(black);
     color: color(white);
+
+    font-size: em(22, 16);
 
     border-radius: 50%;
 
