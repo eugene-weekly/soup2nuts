@@ -114,11 +114,6 @@ function guess_hero_size( $origin, $position = 0 ) {
       $deduced_size = ( $position == 0 ) ? 'large' : 'medium';
       break;
 
-    case 'more_features':
-
-      $deduced_size = 'medium';
-      break;
-
     case 'news':
     case 'arts':
     case 'culture':
@@ -133,7 +128,7 @@ function guess_hero_size( $origin, $position = 0 ) {
     case 'more_features':
     case 'events':
 
-      $deduced_size = 'medium';
+      $deduced_size = 'in-content';
       break;
 
     default:
