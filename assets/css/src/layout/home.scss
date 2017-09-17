@@ -175,7 +175,7 @@
   box-shadow: $box-shadow;
 
   @include media( $third-break ) {
-    margin-bottom: 0;
+    //margin-bottom: 0;
   }
 
   .section-header {
@@ -233,7 +233,7 @@
 .events-posts + .ad {
   flex: 1 0 100%;
 
-  margin-bottom: 4em;
+  margin-bottom: 2em;
 }
 
 .gallery-posts {

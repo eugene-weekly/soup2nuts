@@ -3,6 +3,25 @@
  */
 
 .ad {
+  max-width: 100vw;
+
+  &.ad-900x250-home-before-events-container,
+  &.ad-900x250-home-after-events-container {
+    @include media( max-width 900px ) {
+      display: none;
+    }
+  }
+
+  &.ad-728x90-home-after-video-container {
+    @include media( max-width 728px ) {
+      display: none;
+    }
+  }
+
+  > * {
+    max-width: 100% !important;
+  }
+
   .single .entry-footer + &,
   .page .entry-footer + & {
     > * {
@@ -14,7 +33,7 @@
     }
   }
 
-  .events-posts + & {
+  .home-posts + & {
     > div {
       margin-left: auto;
       margin-right: auto;

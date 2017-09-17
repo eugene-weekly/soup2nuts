@@ -74,7 +74,9 @@
     min-height: 200px;
     max-height: 50vh;
     max-width: 100%;
+    margin-right: 0;
     margin-bottom: 1em;
+    margin-left: 0;
     overflow: hidden;
 
     @include media( $third-break ) {
@@ -83,8 +85,6 @@
       //width: 100%;
       min-height: 270px;
       max-height: 270px;
-      margin-right: 0;
-      margin-left: 0;
     }
 
     img {
