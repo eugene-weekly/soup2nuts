@@ -47,6 +47,8 @@ function soup2nuts_setup() {
    */
   add_theme_support( 'post-thumbnails' );
 
+  add_post_type_support( 'page', 'excerpt' );
+
   add_post_type_support( 'attachment:audio', 'thumbnail' );
   add_post_type_support( 'attachment:video', 'thumbnail' );
 
