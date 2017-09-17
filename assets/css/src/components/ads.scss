@@ -12,6 +12,7 @@
     }
   }
 
+  &.ad-728x90-before-gallery-container,
   &.ad-728x90-home-after-video-container {
     @include media( max-width 728px ) {
       display: none;
@@ -20,6 +21,11 @@
 
   > * {
     max-width: 100% !important;
+  }
+
+  .single .site-main > &:first-child {
+    margin-top: 1em;
+    margin-bottom: 1.5em;
   }
 
   .single .entry-footer + &,
@@ -33,6 +39,7 @@
     }
   }
 
+  .single .site-main > &:first-child,
   .home-posts + & {
     > div {
       margin-left: auto;
