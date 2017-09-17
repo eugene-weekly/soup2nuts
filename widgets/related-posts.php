@@ -32,7 +32,7 @@ class RelatedPosts extends WP_Widget {
 
       $section = 'sidebar';
 
-      if ( $related_posts->current_post == 1 ) {
+      if ( $related_posts->current_post == 0 ) {
         include( locate_template( 'partials/content-excerpt.php', false ) );
       } else {
         include( locate_template( 'partials/content-excerpt-list.php', false ) );
