@@ -17,6 +17,7 @@
     .mobile-author-sidebar {
       display: flex;
       justify-content: center;
+      max-width: 100%;
 
       padding-bottom: 2em;
 
@@ -29,6 +30,7 @@
       .author_bio {
         flex: 0 0 auto;
 
+        max-width: 100%;
         margin: 0;
 
         > * {
@@ -38,7 +40,8 @@
         }
 
         .avatar {
-          width: 100%;
+          //width: 100%;
+          height: auto;
           max-width: 100%;
           margin-right: auto;
           margin-bottom: 2em;
