@@ -63,7 +63,7 @@ $organizer = tribe_get_organizer();
       <span><?php echo tribe_get_cost(null, true); ?></span>
     </div>
     <?php endif; ?>
-    
+
   </div>
   <!-- .tribe-events-event-meta -->
   <?php do_action('tribe_events_after_the_meta') ?>
@@ -81,4 +81,4 @@ $organizer = tribe_get_organizer();
 do_action( 'tribe_events_after_the_content' ); ?>
 </div>
 <!-- Event Image -->
-<?php echo tribe_event_featured_image( null, 'thumbnail' ) ?>
+<?php echo tribe_event_featured_image( null, 'medium' ) ?>
