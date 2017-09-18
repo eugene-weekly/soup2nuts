@@ -90,6 +90,7 @@ function soup2nuts_setup() {
    */
    add_image_size( 'in-content', 500, 500, false );
    add_image_size( 'hero', 1300, 844, true );
+   add_image_size( 'wide-hero', 2600, 1688, true );
 
    /**
     * Aesop Styles

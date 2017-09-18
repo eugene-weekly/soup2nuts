@@ -62,10 +62,17 @@
 
         @include media( $third-break ) {
           flex-basis: 100%;
+          align-self: center;
 
-          max-width: $max-width;
-          padding-left: flex-grid(3);
-          padding-right: flex-grid(3);
+          max-width: $max-width/2;
+          //padding-left: flex-grid(3);
+          //padding-right: flex-grid(3);
+        }
+
+        @include media( $sixth-break ) {
+          //padding-left: flex-grid(4);
+          //padding-right: flex-grid(4);
+          max-width: $max-width*0.66;
         }
       }
     }
@@ -290,7 +297,7 @@
   }
 
   .entry-hero {
-    max-height: 90vh;
+    max-height: calc(90vh - 125px);
     margin-bottom: 1.5em;
     overflow: hidden;
 
@@ -432,7 +439,9 @@
 
 // Full Screen Posts
 .single .site-main .full-screen {
-  justify-content: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
 
   .entry-hero {
     text-align: center;
