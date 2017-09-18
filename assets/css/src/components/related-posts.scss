@@ -3,6 +3,12 @@
  */
 
 .related_posts {
+  .search-results & {
+    padding-bottom: 1em;
+
+    background-color: color(white);
+  }
+
   .hero-caption {
     @include visuallyhidden;
   }
