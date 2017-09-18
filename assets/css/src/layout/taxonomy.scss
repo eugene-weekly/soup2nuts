@@ -32,7 +32,7 @@
   }
 }
 
-.features-posts,
+.features-posts:not(.home-posts),
 .latest-posts,
 .more_features-posts,
 .popular-posts {
