@@ -714,7 +714,7 @@ if ( ! function_exists( 'soup2nuts_acm_output_html' ) ) :
    */
 
   function soup2nuts_acm_output_html( $output_html, $tag_id ) {
-    return '<div class="ad ad-' . $tag_id . '-container">' . $output_html . '</div>' . "\n";
+    return '<div class="ad ad-' . $tag_id . '-container"><div class="ad-wrapper">' . $output_html . '</div></div>' . "\n";
   }
 
 endif;

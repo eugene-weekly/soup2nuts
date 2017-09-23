@@ -30,18 +30,37 @@
 
   .single .entry-footer + &,
   .page .entry-footer + & {
-    > * {
+    @include media( $less-than-third-break ) {
+      display: flex;
+      align-items: center;
+    }
+
+    .ad-wrapper {
       margin-left: auto;
 
-      @include media( $less-than-second-break ) {
+      @include media( $less-than-third-break ) {
+        flex: 0 0 auto;
         margin-right: auto;
+      }
+
+      @include media( $third-break ) {
+        position: relative;
+        height: 100%;
+      }
+
+      > * {
+        @include media( $third-break ) {
+          position: sticky;
+          top: 2em;
+          left: 100%;
+        }
       }
     }
   }
 
   .single .site-main > &:first-child,
   .home-posts + & {
-    > div {
+    .ad-wrapper > div {
       margin-left: auto;
       margin-right: auto;
     }

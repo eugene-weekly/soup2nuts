@@ -32,7 +32,7 @@
   }
 }
 
-.features-posts:not(.home-posts),
+.features-posts:not(.home-posts):not(.taxonomy-posts),
 .latest-posts,
 .more_features-posts,
 .popular-posts {
@@ -79,6 +79,8 @@
 
     @include media( $less-than-third-break ) {
       @include wide-triangle;
+
+      height: 0;
     }
 
     @include media( $third-break ) {

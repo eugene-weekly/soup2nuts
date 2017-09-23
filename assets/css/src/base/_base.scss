@@ -48,8 +48,8 @@ body {
 
 .site {
   @include media( $third-break ) {
-    overflow-x: hidden;
-    overflow-y: auto;
+    //overflow-x: hidden;
+    //overflow-y: auto;
   }
 }
 

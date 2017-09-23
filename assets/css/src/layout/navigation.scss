@@ -152,8 +152,11 @@
 
       box-shadow: 0;
 
-      transform: translateX(-110%);
       transition: all 0.25s ease-out;
+
+      @include media( $less-than-third-break ) {
+        transform: translateX(-110%);
+      }
 
       @include media( $third-break ) {
         top: 100%;
@@ -167,7 +170,8 @@
 
         border-top: 0;
 
-        transform: translateX(100%);
+        transform: scaleX(0);
+        transform-origin: right;
       }
 
       @include media( $tall-enough ) {
@@ -176,15 +180,17 @@
       @at-root .show-nav & {
         //padding-bottom: 3em;
 
-        transform: translateX(0);
-
         box-shadow: 5px 10px 10px rgba(26, 25, 25, 0.4);
+
+        @include media( $less-than-third-break ) {
+          transform: translateX(0);
+        }
 
         @include media( $third-break ) {
           //width: calc( 100vw - 43px );
           //max-width: 480px;
           max-height: calc(100vh - 125px);
-          transform: translateX(0);
+          transform: scaleX(1);
         }
 
         @include media( $tall-enough ) {

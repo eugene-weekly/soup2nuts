@@ -376,11 +376,12 @@
     @include media( $third-break ) {
       flex: 0 1 40%;
       order: 4;
-      align-self: flex-start;
+      align-self: stretch;
 
       //max-width: 300px;
       padding-left: flex-gutter();
       padding-top: 3em;
+
     }
   }
 
