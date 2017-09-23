@@ -260,6 +260,7 @@
   .type-tribe_events {
     .tribe-events-event-image {
       margin-left: 0;
+      margin-right: 0;
     }
   }
 }
@@ -436,6 +437,8 @@
     }
 
     .tribe-events-content {
+      width: auto;
+      float: none;
     }
   }
 
