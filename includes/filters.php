@@ -413,7 +413,8 @@ add_filter( 'excerpt_more', 'soup2nuts_auto_excerpt_more' );
  */
 function soup2nuts_custom_excerpt_more( $output ) {
   if ( has_excerpt() && ! is_attachment() ) {
-  $output .= soup2nuts_continue_reading_link();
+    $output = wp_strip_all_tags( $output, true );
+    $output .= soup2nuts_continue_reading_link();
   }
   return $output;
 }

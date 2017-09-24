@@ -19,22 +19,16 @@ function archive_pagination() {
   if ( $GLOBALS[ 'wp_query' ]->max_num_pages < 2 ) {
     return;
   }
+  $current_page = (is_search() && !is_paged()) ? 1 : $GLOBALS[ 'wp_query' ]->query[ 'paged' ];
   ?>
   <nav class="navigation posts-navigation" role="navigation">
     <h2 class="screen-reader-text"><?php esc_html_e( __('Posts navigation', 'soup2nuts') ); ?></h2>
     <div class="nav-links">
-
-      <?php if ( get_previous_posts_link() ) : ?>
       <div class="nav-previous"><?php previous_posts_link( '&larr; <span>Previous</span>', 'soup2nuts' ); ?></div>
-      <?php endif; ?>
-
       <div class="page-count">
-        <span class="current-page"><?php echo $GLOBALS[ 'wp_query' ]->query[ 'paged' ]; ?></span> of <?php echo $GLOBALS[ 'wp_query' ]->max_num_pages; ?>
+        <span class="current-page"><?php echo $current_page; ?></span> of <?php echo $GLOBALS[ 'wp_query' ]->max_num_pages; ?>
       </div>
-      <?php if ( get_next_posts_link() ) : ?>
       <div class="nav-next"><?php next_posts_link( __('<span>Next</span> &rarr;', 'soup2nuts') ); ?></div>
-      <?php endif; ?>
-
     </div><!-- .nav-links -->
   </nav><!-- .navigation -->
   <?php

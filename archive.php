@@ -31,9 +31,11 @@ get_header(); ?>
            if ( is_paged() ||
             has_post_format( array('video', 'gallery') ) ||
             is_post_type_archive('promotion') ||
-            is_search() ||
+            ( is_search() && ('tribe_events' !== get_post_type()))||
             is_tag() ) {
              get_template_part( 'partials/content', 'excerpt-list' );
+           } elseif('tribe_events' == get_post_type()) {
+             get_template_part( 'tribe-events/list', 'single-event' );
            } else {
              get_template_part( 'partials/content', 'excerpt' );
            }

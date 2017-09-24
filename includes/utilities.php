@@ -474,7 +474,7 @@ function get_the_photo_caption( $post_id, $img_id ) {
   $caption = false;
 
 
-  if ( $img_id && !is_home() && !is_front_page() && !is_archive() ) {
+  if ( $img_id && !is_home() && !is_front_page() && !is_archive() && !is_search()) {
     $img_content = get_post( $img_id );
 
     $caption = ( isset( $img_content->post_excerpt ) ) ? $img_content->post_excerpt : $caption;

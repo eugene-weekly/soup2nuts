@@ -393,6 +393,8 @@ if ( ! function_exists( 'get_related_posts' ) ) :
 
     global $post;
 
+
+
     $related_to = ( isset( $related_to ) ) ? $related_to : $post;
 
     $related_post_ids = get_post_meta( $related_to->ID, 'related', true );
@@ -402,11 +404,12 @@ if ( ! function_exists( 'get_related_posts' ) ) :
     $backfill_needed = $count - count( $related_post_ids );
 
     if ( $backfill_needed > 0 ) {
+      $most_featured = featured_post( 1, array(), array( $post->ID ), 'id' );
 
       $backfill_query_args = array(
         'post_type' => 'post',
         'posts_per_page' => $backfill_needed,
-        'post__not_in' => array_merge( array( $related_to->ID ), $related_post_ids ),
+        'post__not_in' => array_merge( array( $related_to->ID ), $related_post_ids, $most_featured ),
         'tax_query' => array(
           'relation' => 'OR',
         ),
