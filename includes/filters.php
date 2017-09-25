@@ -391,7 +391,7 @@ add_filter( 'nav_menu_css_class', 'soup2nuts_nav_menu_item_class', 10, 2 );
  * Returns a "Continue Reading" link for excerpts
  */
 function soup2nuts_continue_reading_link() {
-  return ' <a href="'. esc_url( get_permalink() ) . '">' . __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'soup2nuts') . '</a>';
+  return ' <a href="'. esc_url( get_permalink() ) . '">' . __( 'Continue reading&nbsp;<span class="meta-nav">&rarr;</span>', 'soup2nuts') . '</a>';
 }
 
 /**

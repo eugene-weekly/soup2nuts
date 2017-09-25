@@ -187,6 +187,7 @@ function meta_fields() {
     ),
   ) );
   $post_details->add_meta_box( 'Post Details', 'post' );
+  $post_details->add_meta_box( 'Post Details', 'style-guide' );
 
 
   $promotion_details = new Fieldmanager_Group( array(
@@ -231,4 +232,5 @@ add_action( 'fm_user', 'meta_fields' );
 add_action( 'fm_post_post', 'meta_fields' );
 add_action( 'fm_post_promotion', 'meta_fields' );
 add_action( 'fm_post_issue', 'meta_fields' );
+add_action( 'fm_post_style-guide', 'meta_fields' );
 add_action( 'fm_post_tribe_events', 'meta_fields' );
