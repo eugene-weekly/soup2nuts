@@ -57,6 +57,7 @@
 
 #tribe-events-pg-template {
   max-width: 100%;
+  padding-top: 10px;
 }
 
 #tribe-bar-form {
@@ -223,8 +224,8 @@
 #tribe-events-header {
   .tribe-events-sub-nav {
     li a {
-      background: transparent;
-      color: color(red);
+      //background: transparent;
+      //color: color(red);
     }
   }
 }
@@ -256,6 +257,18 @@
   }
 }
 
+.tribe-events-back {
+  font-weight: 500;
+  font-style: italic;
+  text-align: center;
+  text-transform: uppercase;
+
+  &:first-letter {
+    font-size: 6;
+    line-height: 1;
+  }
+}
+
 .tribe-events-list .tribe-events-loop {
   .type-tribe_events {
     .tribe-events-event-image {
@@ -281,26 +294,28 @@
     //display: none;
   }
 
+  li,
   .tribe-events-nav-left,
   .tribe-events-nav-right {
     a {
       display: block;
-      @include pad(0.5rem 1rem);
+      @include pad(1rem 1rem);
 
       background-color: color(light-grey);
       color: color(black);
 
       font-size: em(14, 18);
       font-style: italic;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
 
       transition: all 0.25s ease-out;
 
-      &:before,
-      &:after {
+      span {
         color: color(red);
 
         font-style: normal;
+        font-weight: 700;
 
         transform: translateX(0);
       }
@@ -312,7 +327,7 @@
       }
 
       span {
-        display: none;
+        //display: none;
       }
     }
   }
@@ -425,13 +440,14 @@
       @include media( $third-break ) {
         flex: 0 0 150px;
 
-        max-width: 150px;
+        max-width: 150px + $gutter;
+        margin-right: flex-gutter();
       }
 
       .wp-post-image {
         @include media( $third-break ) {
           max-height: 150px;
-          max-width: 150px;
+          max-width: 150px + $gutter;
         }
       }
     }
@@ -545,5 +561,20 @@
     max-width: $max-width * 0.5;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .tribe-events-event-image {
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+
+  .tribe-events-schedule {
+    padding: 0;
+
+    background: transparent;
+
+    font-size: 1.25;
+
+    border: 0;
   }
 }
