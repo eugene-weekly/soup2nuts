@@ -331,31 +331,6 @@
       }
     }
   }
-
-  .tribe-events-nav-left {
-    a {
-      &:before {
-        content: "←";
-      }
-
-      &:hover:before,
-      &:focus:before {
-        transform: translateX(-1em);
-      }
-    }
-  }
-  .tribe-events-nav-right {
-    a {
-      &:after {
-        content: "→";
-      }
-
-      &:hover:after,
-      &:focus:after {
-        transform: translateX(1em);
-      }
-    }
-  }
 }
 
 .tribe-events-list .tribe-events-loop {

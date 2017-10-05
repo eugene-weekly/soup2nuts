@@ -18,12 +18,31 @@
       display: none;
     }
 
+    &.has-post-img {
+      .entry-excerpt {
+        @include visuallyhidden;
+      }
+    }
+
     &:nth-of-type(2),
     &:nth-of-type(3) {
       //@include small-excerpt;
 
       margin-left: flex-gutter(4);
       margin-right: flex-gutter(4);
+
+      &.has-post-img {
+        flex-wrap: nowrap;
+
+        .entry-header {
+          flex: 1 1 auto;
+          order: 1;
+        }
+        .entry-hero {
+          flex: 0 1 150px;
+          order: 0;
+        }
+      }
     }
   }
 }
