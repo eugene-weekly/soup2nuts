@@ -27,7 +27,7 @@ pre {
   margin-bottom: 1.6em;
   padding: 1.6em;
 
-  background: color( background-pre );
+  background: color(background-pre);
 
   font-family: monospace;
   font-size: 0.9375em;
@@ -44,13 +44,13 @@ var {
 
 abbr,
 acronym {
-  border-bottom: 1px dotted color( border-abbr );
+  border-bottom: 1px dotted color(border-abbr);
   cursor: help;
 }
 
 mark,
 ins {
-  background: color( background-ins );
+  background: color(background-ins);
   text-decoration: none;
 }
 
@@ -64,7 +64,7 @@ big {
   letter-spacing: 0.125em;
   font-weight: 800;
 
-  text-shadow: -1px -1px 0 rgba( color( red ), 0.95 );
+  text-shadow: -1px -1px 0 rgba(color(red), 0.95);
 
   @include media( $third-break ) {
     //font-size: em( 17, 16 );
@@ -72,7 +72,6 @@ big {
 }
 
 .entry-header {
-
   a {
     text-decoration: none;
 
@@ -83,16 +82,18 @@ big {
   }
 
   .entry-meta {
+    .post-category,
+    .byline {
+      &:after {
+        content: " / ";
+
+        color: color(grey);
+      }
+    }
 
     .post-category {
-      &:after {
-        content: ' / ';
-
-        color: color( grey );
-      }
-
       &:first-child {
-        color: color( red );
+        color: color(red);
       }
     }
 

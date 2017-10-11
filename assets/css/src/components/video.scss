@@ -3,6 +3,10 @@
  */
 
 .post_format-post-format-video {
+  .entry-hero {
+    margin-right: 0;
+  }
+
   @at-root .features-posts &.excerpted-post {
     .entry-hero {
       display: flex;

@@ -107,7 +107,7 @@ blockquote {
   @extend %h5;
 
   font-weight: 700;
-  font-size: em(14, 16);
+  font-size: em(12, 16);
   text-transform: uppercase;
 }
 
@@ -358,6 +358,6 @@ blockquote {
 }
 
 .search-field {
-  font-weight: 600;
-  font-size: em(13.5, 18);
+  font-weight: 400;
+  font-style: normal;
 }

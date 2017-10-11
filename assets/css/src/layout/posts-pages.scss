@@ -57,8 +57,8 @@
       .entry-header,
       .entry-content,
       .entry-footer {
-        padding-left: flex-gutter();
-        padding-right: flex-gutter();
+        //padding-left: flex-gutter();
+        //padding-right: flex-gutter();
 
         @include media( $third-break ) {
           flex-basis: 100%;
@@ -196,7 +196,7 @@
       order: 1;
 
       margin-top: 0.5em;
-      margin-right: flex-gutter();
+      margin-right: flex-gutter(8);
 
       @include media( $third-break ) {
         //flex: 0 0 auto;
@@ -381,7 +381,6 @@
       //max-width: 300px;
       padding-left: flex-gutter();
       padding-top: 3em;
-
     }
   }
 
@@ -404,6 +403,21 @@
   }
 
   .widget-area {
+  }
+
+  .page {
+    justify-content: center;
+
+    @include media( $third-break ) {
+      //max-width: flex-grid(10);
+      //margin-left: flex-gutter(2);
+
+      padding-left: 0;
+    }
+
+    .entry-header {
+      @include visuallyhidden;
+    }
   }
 
   .format-gallery .entry-hero,

@@ -104,18 +104,19 @@ function meta_fields() {
   $hero_gallery = new Fieldmanager_Autocomplete( array(
    'name' => 'hero-gallery',
    'label' => 'Hero Gallery:',
-   'description' => 'Type to find a Gallery. Ignored if Post Format is not Gallery.',
+   'description' => 'Type to find a Gallery.',
    'datasource' => new Fieldmanager_Datasource_Post( array(
      'query_args' => array(
        'post_type' => 'ai_gallery'
-     )
+     ),
+     'use_ajax' => true
    ) ),
   ) );
 
   $hero_video = new Fieldmanager_Textfield( array(
     'name' => 'hero-video',
     'label' => 'Hero Video',
-    'description' => 'Show a video above the post. Ignored if Post Format is not Video',
+    'description' => 'Show a video above the post.',
     'input_type' => 'url',
     'attributes' => array(
       'placeholder' => 'https://www.youtube.com/watch?v=4OZjma8iLtE',
@@ -192,14 +193,39 @@ function meta_fields() {
 
   $promotion_details = new Fieldmanager_Group( array(
     'name' => 'promotion_details',
+    'tabbed' => true,
     'serialize_data' => false,
     'add_to_prefix' => false,
     'children' => array(
-      'alt-title' => $alt_title,
-      'sub-head' => $sub_head,
-      'expiration-date' => $expiration_date,
-      'full-screen' => $full_screen,
-      'no-hero' => $no_hero,
+      'tab-1' => new Fieldmanager_Group( array(
+        'label' => 'Post Details',
+        'serialize_data' => false,
+        'add_to_prefix' => false,
+        'children' => array(
+          'alt-title' => $alt_title,
+          'sub-head' => $sub_head,
+          'expiration-date' => $expiration_date,
+          'featured' => $featured,
+          'full-screen' => $full_screen,
+          'no-hero' => $no_hero,
+        )
+      ) ),
+      'tab-2' => new Fieldmanager_Group( array(
+        'label' => 'Gallery',
+        'serialize_data' => false,
+        'add_to_prefix' => false,
+        'children' => array(
+          'hero-gallery' => $hero_gallery,
+        )
+      ) ),
+      'tab-3' => new Fieldmanager_Group( array(
+        'label' => 'Video',
+        'serialize_data' => false,
+        'add_to_prefix' => false,
+        'children' => array(
+          'hero-video' => $hero_video,
+        )
+      ) ),
     ),
   ) );
   $promotion_details->add_meta_box( 'Promotion Details', 'promotion' );
