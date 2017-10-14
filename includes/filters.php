@@ -186,7 +186,7 @@ if ( ! function_exists( 'soup2nuts_body_class' ) ) :
     if ( is_home() || is_search() )
       $classes[] = 'archive';
 
-    if ( is_singular &&  get_post_meta( $post->ID, 'full-screen', true ) )
+    if ( is_singular() &&  get_post_meta( $post->ID, 'full-screen', true ) )
       $classes[] = 'is-full-screen';
 
     return $classes;
@@ -518,11 +518,8 @@ if ( ! function_exists( 'soup2nuts_community_required_fields' ) ) :
     $fields[] = 'venue';
     $fields[] = 'tax_input';
     $fields[] = 'post_content';
-    $fields[] = 'event-time';
     $fields[] = 'EventStartDate';
-    $fields[] = 'EventStartHour';
-    $fields[] = 'EventStartMinute';
-    $fields[] = 'EventStartMeridian';
+    $fields[] = 'EventStartTime';
 
     return $fields;
   }
