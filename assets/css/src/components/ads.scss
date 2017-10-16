@@ -69,7 +69,7 @@
   .single .widget-area & .ad-wrapper > div,
   .page .widget-area & .ad-wrapper > div {
     margin-left: auto;
-    margin-right: auto;
+    margin-right: flex-gutter(4);
   }
 }
 
