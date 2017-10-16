@@ -21,7 +21,7 @@
     @include media( $third-break ) {
     }
 
-    .widget {
+    > .widget {
       @include media( $third-break ) {
         float: left;
         width: flex-grid(4);

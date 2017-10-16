@@ -689,6 +689,15 @@ if ( ! function_exists( 'soup2nuts_ad_tag_ids' ) ) :
         	'height' => '600',
       	),
         'enable_ui_mapping' => 1
+      ), array(
+        'tag' => '300x250-post-footer-btf',
+        'url_vars' => array(
+          'tag' => '300x250-post-footer-btf',
+        	'sz' => '300x250',
+        	'width' => '300',
+        	'height' => '250',
+      	),
+        'enable_ui_mapping' => 1
       )
     );
     return $ad_tag_ids;

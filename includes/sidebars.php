@@ -14,8 +14,27 @@
  */
 function soup2nuts_widgets_init() {
   register_sidebar( array(
-    'name'          => esc_html__( 'Post Sidebar', 'soup2nuts' ),
-    'id'            => 'post-sidebar',
+    'name'          => esc_html__( 'Post Widgets Column 1', 'soup2nuts' ),
+    'id'            => 'post-sidebar-1',
+    'description'   => '',
+    'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</aside>',
+    'before_title'  => '<h1 class="widget-title">',
+    'after_title'   => '</h1>',
+  ) );
+  register_sidebar( array(
+    'name'          => esc_html__( 'Post Widgets Column 2', 'soup2nuts' ),
+    'id'            => 'post-sidebar-2',
+    'description'   => '',
+    'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</aside>',
+    'before_title'  => '<h1 class="widget-title">',
+    'after_title'   => '</h1>',
+  ) );
+
+  register_sidebar( array(
+    'name'          => esc_html__( 'Post Widgets Column 3', 'soup2nuts' ),
+    'id'            => 'post-sidebar-3',
     'description'   => '',
     'before_widget' => '<aside id="%1$s" class="widget %2$s">',
     'after_widget'  => '</aside>',
