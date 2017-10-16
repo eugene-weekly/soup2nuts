@@ -174,15 +174,19 @@ function soup2nuts_posted_on() {
 
   $posted_on = sprintf(
     esc_html_x( 'Posted on %s', 'post date', 'soup2nuts' ),
-    '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+    '<span class="posted-on"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a></span>'
   );
 
   $byline = sprintf(
     esc_html_x( 'by %s', 'post author', 'soup2nuts' ),
-    '<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
+    '<span class="byline"><span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span></span>'
   );
 
-  echo '<span class="byline"> ' . $byline . '</span><span class="posted-on">' . $posted_on . '</span>'; // WPCS: XSS OK.
+  if ( get_post_type( $id ) !== 'promotion' ) {
+    echo $byline;
+  } 
+
+  echo $posted_on; // WPCS: XSS OK.
 
   if ( function_exists( 'sharing_display' ) ) { echo sharing_display(); }
 }
