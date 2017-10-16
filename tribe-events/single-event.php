@@ -68,8 +68,12 @@ $event_id = get_the_ID();
         <?php the_content(); ?>
       </div>
       <!-- .tribe-events-single-event-description -->
-      <?php do_action( 'tribe_events_single_event_after_the_content' ) ?>
 
+      <div class="event-links">
+        <?php do_action( 'tribe_events_single_event_after_the_content' ) ?>
+
+        <?php if ( function_exists( 'sharing_display' ) ) { echo sharing_display(); } ?>
+      </div>
       <!-- Event meta -->
       <?php do_action( 'tribe_events_single_event_before_the_meta' ) ?>
       <?php tribe_get_template_part( 'modules/meta' ); ?>
