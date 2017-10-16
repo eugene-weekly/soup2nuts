@@ -498,7 +498,8 @@
 
 .posts-navigation {
   .search-results &,
-  .archive.paged & {
+  .archive.paged &,
+  .archive.tax-post_format & {
     flex: 1 1 100%;
 
     margin-bottom: 1em;

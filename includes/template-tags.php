@@ -19,7 +19,7 @@ function archive_pagination() {
   if ( $GLOBALS[ 'wp_query' ]->max_num_pages < 2 ) {
     return;
   }
-  $current_page = (is_search() && !is_paged()) ? 1 : $GLOBALS[ 'wp_query' ]->query[ 'paged' ];
+  $current_page = (!is_paged()) ? 1 : $GLOBALS[ 'wp_query' ]->query[ 'paged' ];
   ?>
   <nav class="navigation posts-navigation" role="navigation">
     <h2 class="screen-reader-text"><?php esc_html_e( __('Posts navigation', 'soup2nuts') ); ?></h2>
@@ -184,7 +184,7 @@ function soup2nuts_posted_on() {
 
   if ( get_post_type( $id ) !== 'promotion' ) {
     echo $byline;
-  } 
+  }
 
   echo $posted_on; // WPCS: XSS OK.
 
