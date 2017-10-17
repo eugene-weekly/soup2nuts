@@ -609,6 +609,15 @@ if ( ! function_exists( 'soup2nuts_ad_tag_ids' ) ) :
       	),
         'enable_ui_mapping' => 1
       ), array(
+        'tag' => '728x90-event-single',
+        'url_vars' => array(
+          'tag' => '728x90-event-single',
+          'sz' => '728x90',
+        	'width' => '728',
+        	'height' => '90',
+      	),
+        'enable_ui_mapping' => 1
+      ), array(
         'tag' => '300x250-promotions-btf',
         'url_vars' => array(
           'tag' => '300x250-promotions-btf',
@@ -675,6 +684,15 @@ if ( ! function_exists( 'soup2nuts_ad_tag_ids' ) ) :
         'tag' => '300x600-post-sidebar-atf',
         'url_vars' => array(
           'tag' => '300x600-post-sidebar-atf',
+        	'sz' => '300x600',
+        	'width' => '300',
+        	'height' => '600',
+      	),
+        'enable_ui_mapping' => 1
+      ), array(
+        'tag' => '300x600-archive-sidebar',
+        'url_vars' => array(
+          'tag' => '300x600-archive-sidebar',
         	'sz' => '300x600',
         	'width' => '300',
         	'height' => '600',

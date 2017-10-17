@@ -21,6 +21,7 @@ $events_label_plural = tribe_get_event_label_plural();
 $event_id = get_the_ID();
 
 ?>
+  <?php do_action( 'acm_tag', '728x90-event-single' );  ?>
 
   <div id="tribe-events-content" class="tribe-events-single">
 
