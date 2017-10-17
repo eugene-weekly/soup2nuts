@@ -578,7 +578,12 @@
 
   .event-links {
     display: flex;
-    flex-wrap: nowrap;
+    flex-direction: column;
+
+    @include media( $third-break ) {
+      flex-wrap: nowrap;
+      flex-direction: row;
+    }
 
     .tribe-events-cal-links {
       flex: 0 1 auto;
