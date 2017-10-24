@@ -50,7 +50,11 @@ if ( ! function_exists( 'soup2nuts_pre_get_posts' ) ) :
 
     $existingMetaQuery[] = $expiredMetaQuery;
   }
+  // Hide Events from Tag archives
+  if ( get_query_var( 'tag' ) ) {
 
+    $query->set( 'post_type', array('post') );
+  }
 
   if ( $query->is_home() || $query->is_front_page() ) {
 
