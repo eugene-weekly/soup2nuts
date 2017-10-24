@@ -166,6 +166,9 @@
     .entry-header {
       flex: 1 1 100%;
     }
+    .entry-excerpt {
+      order: 4;
+    }
   }
 
   &.excerpted-post-list {
