@@ -73,7 +73,12 @@ h6,
 }
 
 blockquote {
-  @extend %h3;
+  @extend %h4;
+
+  font-weight: 300;
+  font-size: em(24, 18);
+
+  color: color(red);
 
   cite {
     @extend %h5;

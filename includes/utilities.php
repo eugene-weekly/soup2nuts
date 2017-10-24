@@ -25,9 +25,9 @@ function get_the_subhead( $post = 0 ) {
 
   //pre_printr($post_meta);
 
+  $subhead = '';
   if ( in_array( get_post_type( $id ), array( 'post', 'promotion' )) ) {
 
-    $subhead = '';
 
     $subhead = isset( $post_meta['subhead'] ) ? $post_meta['subhead'] : $subhead;
     $subhead = isset( $post_meta['sub-head'] ) ? $post_meta['sub-head'] : $subhead;

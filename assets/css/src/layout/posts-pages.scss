@@ -372,6 +372,19 @@
     }
   }
 
+  .entry-content {
+    blockquote {
+      @include media ($fourth-break) {
+        max-width: flex-grid(6);
+        float: left;
+      }
+
+      @include media( $fifth-break ) {
+        margin-left: 0 - flex-gutter(2);
+      }
+    }
+  }
+
   .entry-footer + .ad {
     @include media( $third-break ) {
       flex: 0 1 40%;
