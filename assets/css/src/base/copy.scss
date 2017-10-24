@@ -59,7 +59,8 @@ big {
 }
 
 .section-title,
-.tribe-events-list-separator-month {
+.tribe-events-list-separator-month,
+.tribe_events.excerpted-post .entry-footer .featured-event {
   text-align: center;
   letter-spacing: 0.125em;
   font-weight: 800;
@@ -69,6 +70,10 @@ big {
   @include media( $third-break ) {
     //font-size: em( 17, 16 );
   }
+}
+
+.tribe_events.excerpted-post .entry-footer .featured-event {
+  text-align: left;
 }
 
 .entry-header {
