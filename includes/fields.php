@@ -50,6 +50,16 @@ function meta_fields() {
     'description' => 'Widescreen Hero, content in a center column.',
   ) );
 
+  $title_over_hero = new Fieldmanager_Checkbox( array(
+    'name' => 'title-over-hero',
+    'label' => 'Float the title and subtitle over the hero',
+    'description' => 'Pulls the title and subtitle up over the hero image. Be sure to check that the image has enough contrast.',
+    'display_if' => array(
+      'src' => 'full-screen',
+      'value' => true
+    )
+  ) );
+
   $no_hero = new Fieldmanager_Checkbox( array(
     'name' => 'no-hero',
     'label' => '&ldquo;No Hero&rdquo; Post Format.',
@@ -107,7 +117,7 @@ function meta_fields() {
    'description' => 'Type to find a Gallery.',
    'datasource' => new Fieldmanager_Datasource_Post( array(
      'query_args' => array(
-       'post_type' => 'ai_gallery'
+       'post_type' => array( 'ai_gallery' )
      ),
      'use_ajax' => true
    ) ),
@@ -158,6 +168,7 @@ function meta_fields() {
           'sub-head' => $sub_head,
           'featured' => $featured,
           'full-screen' => $full_screen,
+          'title-over-hero' => $title_over_hero,
           'no-hero' => $no_hero,
         )
       ) ),

@@ -19,7 +19,7 @@
   'hierarchical'      => true,
   'show_ui'           => true,
   'show_in_nav_menus' => false,
-  'supports'          => array( 'title', 'editor' ),
+  'supports'          => array( 'title', 'editor', 'thumbnail', 'page-attributes' ),
   'has_archive'       => false,
   'rewrite'           => true,
   'query_var'         => true,

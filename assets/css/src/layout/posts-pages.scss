@@ -475,8 +475,26 @@
   align-items: center;
 
   .entry-hero {
+    min-height: calc(100vh - 50px);
+    overflow: hidden;
+
     text-align: center;
+
+    img {
+      height: 100%;
+      min-width: 100%;
+      max-width: none;
+      margin: 0 -100%;
+
+      vertical-align: middle;
+
+      @include media( $third-break ) {
+        width: auto;
+      }
+    }
+
     @include media( $third-break ) {
+      min-height: calc(100vh - 125px);
     }
   }
 
@@ -492,5 +510,33 @@
   }
 
   .entry-footer {
+  }
+}
+
+.single .site-main .title-over-hero {
+  .entry-hero {
+    margin-bottom: 0;
+  }
+
+  .entry-header {
+    position: absolute;
+    top: calc(100vh - 50px);
+    left: flex-gutter();
+    right: 33%;
+
+    color: color(white);
+
+    transform: translateY(0 - (100% + flex-gutter()));
+
+    @include media( $third-break ) {
+      top: calc(100vh - 125px);
+      right: 66%;
+
+      transform: translateY(0 - (100% + flex-gutter(2)));
+    }
+
+    .entry-meta .posted-on {
+      color: color(white);
+    }
   }
 }
