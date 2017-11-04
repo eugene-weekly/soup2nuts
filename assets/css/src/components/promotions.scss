@@ -1,0 +1,13 @@
+/**
+ * Promotions
+ */
+
+.promotion {
+  &.excerpted-post {
+    .entry-hero {
+      @include media( $third-break ) {
+        max-width: 150px;
+      }
+    }
+  }
+}

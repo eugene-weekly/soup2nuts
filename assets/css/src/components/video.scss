@@ -4,13 +4,18 @@
 
 .post_format-post-format-video {
   .entry-hero {
+  }
+  .video-posts &.excerpted-post .entry-hero {
     margin-right: 0;
   }
 
-  @at-root .features-posts &.excerpted-post {
+  .features-posts &.excerpted-post,
+  .taxonomy-posts &.excerpted-post:first-of-type {
     .entry-hero {
       display: flex;
       align-items: center;
+
+      margin-right: 0;
 
       background-color: color(black);
 
