@@ -42,7 +42,7 @@
 
     @include media( $third-break ) {
       position: relative;
-      z-index: -1;
+      z-index: 1;
 
       padding-left: 0;
       padding-right: 0;
