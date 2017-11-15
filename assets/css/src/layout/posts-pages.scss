@@ -536,9 +536,7 @@
     left: flex-gutter();
     right: 33%;
 
-    background-color: rgba(26, 25, 25, 0.55);
     color: color(white);
-    box-shadow: 0 0 25px 25px rgba(26, 25, 25, 0.55);
 
     transform: translateY(0 - (100% + flex-gutter()));
 
@@ -547,6 +545,11 @@
       right: 66%;
 
       transform: translateY(0 - (100% + flex-gutter(2)));
+    }
+
+    .entry-title,
+    .entry-meta {
+      text-shadow: 1px 1px 16px rgba(0, 0, 0, 0.98);
     }
 
     .entry-meta .posted-on {
