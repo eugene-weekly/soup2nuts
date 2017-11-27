@@ -198,12 +198,14 @@ a {
 .alignleft {
   display: inline;
   float: left;
+  clear: left;
   margin-right: 1.5em;
 }
 
 .alignright {
   display: inline;
   float: right;
+  clear: right;
   margin-left: 1.5em;
 }
 

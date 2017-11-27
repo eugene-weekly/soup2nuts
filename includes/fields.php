@@ -60,6 +60,16 @@ function meta_fields() {
     )
   ) );
 
+  $hero_shadow = new Fieldmanager_Checkbox( array(
+    'name' => 'hero-shadow',
+    'label' => 'Add a shadow between the title and the hero image',
+    'description' => 'Hey, I told you to check if the image had enough contrast. In case it didn&rsquo;t, click this.',
+    'display_if' => array(
+      'src' => 'title-over-hero',
+      'value' => true
+    )
+  ) );
+
   $no_hero = new Fieldmanager_Checkbox( array(
     'name' => 'no-hero',
     'label' => '&ldquo;No Hero&rdquo; Post Format.',
@@ -169,6 +179,7 @@ function meta_fields() {
           'featured' => $featured,
           'full-screen' => $full_screen,
           'title-over-hero' => $title_over_hero,
+          'hero-shadow' => $hero_shadow,
           'no-hero' => $no_hero,
         )
       ) ),
