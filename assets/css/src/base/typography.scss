@@ -179,7 +179,8 @@ blockquote {
   }
 }
 
-.hero-caption {
+.hero-caption,
+.wp-caption-text {
   @extend %h6;
 
   font-size: em(10, 16);

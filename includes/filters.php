@@ -227,7 +227,6 @@ if ( ! function_exists( 'soup2nuts_post_class' ) ) :
     if ( get_post_meta( get_the_ID(), 'title-over-hero', true ) )
       $classes[] = 'title-over-hero';
 
-
     if ( get_post_meta( get_the_ID(), 'hero-shadow', true ) )
       $classes[] = 'hero-shadow';
 
