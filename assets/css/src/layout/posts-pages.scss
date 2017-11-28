@@ -526,26 +526,30 @@
 }
 
 .is-full-screen.single .entry-content {
-  .alignleft {
-    margin-right: flex-gutter();
-    margin-left: 0 - flex-gutter();
-  }
+  @include media( $third-break ) {
+    .alignleft {
+      margin-right: flex-gutter();
+      margin-left: 0;
+    }
 
-  .alignright {
-    margin-right: 0 - flex-gutter();
-    margin-left: flex-gutter();
-  }
+    .alignright {
+      margin-right: 0;
+      margin-left: flex-gutter();
+    }
 
-  .alignleft + .alignright {
-    margin-left: 0 - flex-gutter(2);
-    + * {
-      clear: both;
+    .alignleft + .alignright {
+      margin-left: 0;
+      + * {
+        clear: both;
+      }
     }
   }
 
-  .aligncenter {
-    margin-left: 0 - flex-gutter();
-    margin-right: 0 - flex-gutter();
+  @include media( $fourth-break ) {
+    .aligncenter {
+      margin-left: 0 - flex-gutter(2);
+      margin-right: 0 - flex-gutter(2);
+    }
   }
 }
 
