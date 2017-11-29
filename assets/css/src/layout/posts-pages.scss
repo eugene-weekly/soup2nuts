@@ -546,6 +546,7 @@
   }
 
   @include media( $fourth-break ) {
+    .aesop-component-align-center,
     .aligncenter {
       margin-left: 0 - flex-gutter(2);
       margin-right: 0 - flex-gutter(2);
