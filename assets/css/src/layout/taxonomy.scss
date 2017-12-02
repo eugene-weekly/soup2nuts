@@ -32,11 +32,11 @@
   }
 }
 
-.features-posts:not(.home-posts):not(.taxonomy-posts),
+.features-posts:not(.home-posts),
 .latest-posts,
 .more_features-posts,
 .popular-posts {
-  margin-top: 2em;
+  margin-top: 1em;
 
   .section-header {
     //position: relative;
