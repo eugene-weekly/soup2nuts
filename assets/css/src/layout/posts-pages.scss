@@ -526,6 +526,23 @@
 }
 
 .is-full-screen.single .entry-content {
+  @include media( $less-than-third-break ) {
+    .alignleft,
+    .alignright {
+      display: block;
+      margin-right: auto;
+      margin-left: auto;
+      float: none;
+      clear: both;
+
+      vertical-align: top;
+
+      .wp-caption-text {
+        max-width: 100%;
+      }
+    }
+  }
+
   @include media( $third-break ) {
     .alignleft {
       margin-right: flex-gutter();
