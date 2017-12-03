@@ -111,6 +111,7 @@ function meta_fields() {
        'related_post' => new Fieldmanager_Autocomplete( array(
          'name' => 'related_post',
          'label' => 'Related Post:',
+         'show_edit_link' => true,
          'description' => 'Type to find a Related Post.',
          'datasource' => new Fieldmanager_Datasource_Post( array(
            'query_args' => array(
@@ -127,7 +128,7 @@ function meta_fields() {
    'description' => 'Type to find a Gallery.',
    'datasource' => new Fieldmanager_Datasource_Post( array(
      'query_args' => array(
-       'post_type' => array( 'ai_gallery' )
+       'post_type' => array( 'ai_galleries' )
      ),
      'use_ajax' => true
    ) ),
@@ -276,9 +277,11 @@ function meta_fields() {
   $event_details->add_meta_box( 'Event Details', 'tribe_events' );
 }
 
-add_action( 'fm_user', 'meta_fields' );
-add_action( 'fm_post_post', 'meta_fields' );
-add_action( 'fm_post_promotion', 'meta_fields' );
-add_action( 'fm_post_issue', 'meta_fields' );
-add_action( 'fm_post_style-guide', 'meta_fields' );
-add_action( 'fm_post_tribe_events', 'meta_fields' );
+if ( is_admin() && ( !defined( 'DOING_AJAX') || ! DOING_AJAX ) ) {
+  add_action( 'fm_user', 'meta_fields' );
+  add_action( 'fm_post_post', 'meta_fields' );
+  add_action( 'fm_post_promotion', 'meta_fields' );
+  add_action( 'fm_post_issue', 'meta_fields' );
+  add_action( 'fm_post_style-guide', 'meta_fields' );
+  add_action( 'fm_post_tribe_events', 'meta_fields' );
+}
