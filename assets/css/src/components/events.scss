@@ -60,7 +60,14 @@
   padding-top: 10px;
 }
 
-#tribe-bar-form {
+#tribe-events-bar {
+  @include media( $less-than-third-break ) {
+    margin-bottom: 1.5em;
+  }
+}
+
+#tribe-bar-form,
+.tribe-bar-mini {
   backround-color: color(grey);
 
   @include media( $third-break ) {
@@ -77,12 +84,26 @@
   .tribe-bar-date-filter,
   .tribe-bar-search-filter,
   .tribe-bar-submit {
-    padding-top: 0px;
-    padding-bottom: 0px;
+    //padding-top: 0px;
+    //padding-bottom: 0px;
   }
 
-  .tribe-bar-submit input[type="submit"] {
-    background-color: color(red);
+  .tribe-bar-submit {
+    padding-top: 12px;
+    padding-bottom: 14px;
+
+    input[type="submit"] {
+      height: 100%;
+
+      background-color: color(red);
+
+      text-shadow: none;
+    }
+  }
+
+  #tribe-bar-collapse-toggle {
+    padding-top: 9px;
+    padding-bottom: 9px;
   }
 
   #tribe-bar-views {
@@ -95,28 +116,44 @@
     }
 
     .tribe-bar-views-inner {
-      padding: 0.75em 0;
+      padding: 0;
 
-      background: color(red);
+      background: transparent;
       color: color(white);
 
       > * {
       }
 
       label {
-        display: inline-block;
-        //float: left;
+        @include visuallyhidden;
       }
 
       .tribe-bar-views-list {
         //display: inline-block;
-        top: 0.75em;
+        top: 1em;
         right: 1em;
-        left: auto;
-        width: auto;
+        bottom: 1em;
+        //right: 1em;
+        //left: auto;
+        //width: auto;
         min-width: 111px;
+        padding-right: 15px;
 
         float: none;
+
+        @include media( $less-than-third-break ) {
+          top: 0;
+          right: 0;
+          bottom: 0;
+          z-index: 3;
+          padding-right: 0;
+        }
+
+        .tribe-bar-views-option a span {
+          //height: 100%;
+          padding-top: 10px;
+          padding-bottom: 10px;
+        }
       }
     }
 
@@ -131,9 +168,28 @@
   }
 }
 
+.tribe-filters-open {
+  @include media( $less-than-third-break ) {
+    overflow-x: hidden;
+  }
+}
+
 #tribe_events_filters_wrapper {
   .tribe-filters-open & {
     height: auto;
+
+    &.tribe-events-filters-vertical {
+      @include media( $less-than-third-break ) {
+        position: absolute !important;
+        top: auto !important;
+        //right: auto !important;
+        //left: auto !important;
+        bottom: auto !important;
+        z-index: 3 !important;
+
+        background-color: color(light-grey);
+      }
+    }
   }
 
   #tribe_events_filter_control {
@@ -384,6 +440,9 @@
         }
       }
     }
+    .tribe-events-content {
+      word-wrap: break-word;
+    }
 
     .type-tribe_events:not(.tribe-event-featured) {
       @extend .excerpted-post;
@@ -409,6 +468,8 @@
       > * {
         flex: 0 1 auto;
         order: 2;
+
+        max-width: 100%;
       }
 
       .tribe-events-event-image {
