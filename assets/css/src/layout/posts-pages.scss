@@ -545,11 +545,13 @@
 
   @include media( $third-break ) {
     .alignleft {
+      max-width: (50% - (flex-gutter())) !important;
       margin-right: flex-gutter();
       margin-left: 0;
     }
 
     .alignright {
+      max-width: (50% - (flex-gutter())) !important;
       margin-right: 0;
       margin-left: flex-gutter();
     }
