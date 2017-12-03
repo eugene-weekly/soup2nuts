@@ -158,7 +158,8 @@
         flex: 0 0 auto;
       }
 
-      @include media( $third-break ) {
+      @include media( $less-than-third-break ) {
+        margin-bottom: 1.5em;
       }
     }
   }

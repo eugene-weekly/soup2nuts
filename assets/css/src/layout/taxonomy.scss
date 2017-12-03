@@ -47,10 +47,16 @@
       transform: translateY(-1em);
     }
   }
+}
 
-  .right-column:not(.home *) {
-    @include media( $third-break ) {
-      //margin-top: -2em;
+.features-posts:not(.home-posts) {
+  @include media( $less-than-third-break ) {
+    margin-top: 0;
+
+    .section-header {
+      .section-title {
+        transform: translateY(0);
+      }
     }
   }
 }
