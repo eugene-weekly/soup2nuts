@@ -130,7 +130,6 @@ function meta_fields() {
      'query_args' => array(
        'post_type' => array( 'ai_galleries' )
      ),
-     'use_ajax' => true
    ) ),
   ) );
 
@@ -277,11 +276,9 @@ function meta_fields() {
   $event_details->add_meta_box( 'Event Details', 'tribe_events' );
 }
 
-if ( is_admin() && ( !defined( 'DOING_AJAX') || ! DOING_AJAX ) ) {
-  add_action( 'fm_user', 'meta_fields' );
-  add_action( 'fm_post_post', 'meta_fields' );
-  add_action( 'fm_post_promotion', 'meta_fields' );
-  add_action( 'fm_post_issue', 'meta_fields' );
-  add_action( 'fm_post_style-guide', 'meta_fields' );
-  add_action( 'fm_post_tribe_events', 'meta_fields' );
-}
+add_action( 'fm_user', 'meta_fields' );
+add_action( 'fm_post_post', 'meta_fields' );
+add_action( 'fm_post_promotion', 'meta_fields' );
+add_action( 'fm_post_issue', 'meta_fields' );
+add_action( 'fm_post_style-guide', 'meta_fields' );
+add_action( 'fm_post_tribe_events', 'meta_fields' );
