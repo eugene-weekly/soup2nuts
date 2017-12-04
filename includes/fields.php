@@ -54,20 +54,12 @@ function meta_fields() {
     'name' => 'title-over-hero',
     'label' => 'Float the title and subtitle over the hero',
     'description' => 'Pulls the title and subtitle up over the hero image. Be sure to check that the image has enough contrast.',
-    'display_if' => array(
-      'src' => 'full-screen',
-      'value' => true
-    )
   ) );
 
   $hero_shadow = new Fieldmanager_Checkbox( array(
     'name' => 'hero-shadow',
     'label' => 'Add a shadow between the title and the hero image',
     'description' => 'Hey, I told you to check if the image had enough contrast. In case it didn&rsquo;t, click this.',
-    'display_if' => array(
-      'src' => 'title-over-hero',
-      'value' => true
-    )
   ) );
 
   $no_hero = new Fieldmanager_Checkbox( array(
