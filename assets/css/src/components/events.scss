@@ -489,7 +489,7 @@
 
         .wp-post-image {
           @include media( $third-break ) {
-            max-height: 150px;
+            //max-height: 150px;
             max-width: 150px + $gutter;
           }
         }
