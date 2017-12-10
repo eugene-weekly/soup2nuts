@@ -135,7 +135,7 @@
       position: absolute;
       top: 50px;
       left: 0 - flex-gutter();
-      z-index: 5;
+      z-index: 999;
 
       width: calc(100vw - 43px);
       max-height: calc(100vh - 50px);
