@@ -37,18 +37,18 @@ if ( ! function_exists( 'soup2nuts_pre_get_posts' ) ) :
       'relation' => 'OR',
       array(
         'key' => 'expiration-date',
-        'value' => 0,
-        'compare' => '='
+        'value' => '',
+        'compare' => '=',
       ),
       array(
         'key' => 'expiration-date',
-        'value' => date( time() ),
+        'value' => date( 'Y-m-d' ),
         'type' => 'DATE',
         'compare' => '>'
       )
     );
 
-    $existingMetaQuery[] = $expiredMetaQuery;
+    //$existingMetaQuery[] = $expiredMetaQuery;
   }
   // Hide Events from Tag archives
   if ( get_query_var( 'tag' ) ) {

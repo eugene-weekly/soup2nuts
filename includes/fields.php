@@ -89,7 +89,11 @@ function meta_fields() {
   $expiration_date = new Fieldmanager_Datepicker( array(
    'name' => 'expiration-date',
    'label' => 'Expires On',
-   'description' => 'Set a date to expire this promotion.'
+   'description' => 'Set a date to expire this promotion.',
+   'date_format' => 'Y-m-d',
+   'js_opts' => array(
+     'dateFormat' => 'yy-mm-dd',
+   ),
  ) );
 
 
