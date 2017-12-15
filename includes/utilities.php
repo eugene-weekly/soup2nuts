@@ -672,6 +672,62 @@ function is_post_format_archive( $format = '' ) {
 endif; // is_post_format_archive
 
 
+if ( ! function_exists( 'is_legit_video' ) ) :
+
+
+/** Is this a valid video post?
+ *
+ * If the $format parameter is specified, this function will check
+ * if the query is for one of the formats specified.
+ *
+ * @since 3.9.0
+ *
+ * @param mixed $format Optional. Format slug or array of format slugs, without the post-format prefix.
+ * @return bool
+ */
+function is_legit_video( $post ) {
+
+  if ( $post == null )
+    global $post;
+
+  $post_meta = get_post_meta( $post->ID );
+
+  $is_video = ( has_post_format( 'video', $post->ID ) && $post_meta['hero-video'] ) ? true : false;
+
+  return $is_video;
+}
+
+endif; // is_legit_video
+
+
+if ( ! function_exists( 'is_legit_gallery' ) ) :
+
+
+/** Is this a valid gallery post?
+ *
+ * If the $format parameter is specified, this function will check
+ * if the query is for one of the formats specified.
+ *
+ * @since 3.9.0
+ *
+ * @param mixed $format Optional. Format slug or array of format slugs, without the post-format prefix.
+ * @return bool
+ */
+function is_legit_gallery( $post ) {
+
+  if ( $post == null )
+    global $post;
+
+  $post_meta = get_post_meta( $post->ID );
+
+  $is_gallery = ( has_post_format( 'gallery', $post->ID ) && $post_meta['hero-gallery'] ) ? true : false;
+
+  return $is_gallery;
+}
+
+endif; // is_legit_video
+
+
 if ( ! function_exists( 'section_normalizer' ) ) :
 
   /**

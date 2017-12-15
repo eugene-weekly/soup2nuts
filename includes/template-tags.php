@@ -256,13 +256,13 @@ function the_hero_image( $size = 'hero', $position = 'hero' ) {
   if ( !empty( $post_meta[ 'no-hero' ][0] ) && ($position == 'hero') )
     return;
 
-  if ( (is_singular() && $position == 'hero')|| in_array( $position, array( 'features', 'video' ) ) ) {
+  if ( (is_singular() && $position == 'hero') || in_array( $position, array( 'features', 'video' ) ) ) {
 
-    if ( has_post_format( 'gallery', $post->ID ) && $post_meta['hero-gallery'] ) {
+    if ( is_legit_gallery( $post ) && is_singular() ) {
       // Aesop Gallery
       $heroImg = do_shortcode( '[aesop_gallery id="' . $post_meta['hero-gallery'][0] . '"]' );
 
-    } elseif ( has_post_format( 'video', $post->ID ) && $post_meta['hero-video'] ) {
+    } elseif ( is_legit_video( $post )) {
 
       // Video
       $heroImg = apply_filters( 'the_content', $post_meta['hero-video'][0] );
