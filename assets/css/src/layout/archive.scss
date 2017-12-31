@@ -22,7 +22,7 @@
 
   &.category:not(.paged) {
     .site-main {
-      .excerpted-post {
+      .excerpted-post:not(.no-post-img) {
         .entry-excerpt {
           display: none;
         }

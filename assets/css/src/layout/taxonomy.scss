@@ -111,7 +111,7 @@
   .excerpted-post {
     box-shadow: $box-shadow;
 
-    .entry-excerpt,
+    &:not(.no-post-img) .entry-excerpt,
     &:after {
       display: none;
     }
