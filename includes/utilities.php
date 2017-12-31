@@ -692,7 +692,15 @@ function is_legit_video( $post ) {
 
   $post_meta = get_post_meta( $post->ID );
 
-  $is_video = ( has_post_format( 'video', $post->ID ) && $post_meta['hero-video'] ) ? true : false;
+  $is_video = false;
+
+  if ( $post_meta['hero-video'] ) {
+    if ( $post->post_type != 'post' ) {
+      $is_video = true;
+    } elseif( has_post_format( 'video', $post->ID )) {
+      $is_video = true;
+    }
+  }
 
   return $is_video;
 }
@@ -720,12 +728,20 @@ function is_legit_gallery( $post ) {
 
   $post_meta = get_post_meta( $post->ID );
 
-  $is_gallery = ( has_post_format( 'gallery', $post->ID ) && $post_meta['hero-gallery'] ) ? true : false;
+  $is_gallery = false;
+
+  if ( $post_meta['hero-gallery'] ) {
+    if ( $post->post_type != 'post' ) {
+      $is_gallery = true;
+    } elseif( has_post_format( 'gallery', $post->ID )) {
+      $is_gallery = true;
+    }
+  }
 
   return $is_gallery;
 }
 
-endif; // is_legit_video
+endif; // is_legit_gallery
 
 
 if ( ! function_exists( 'section_normalizer' ) ) :

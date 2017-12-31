@@ -254,7 +254,7 @@ if ( ! function_exists( 'soup2nuts_the_content' ) ) :
     $post_meta = get_post_meta( $post->ID );
 
 
-    if ( is_singular('post') && $post_meta[ 'no-hero' ][0] )
+    if ( is_singular() && $post_meta[ 'no-hero' ][0] )
       $content = sprintf(
         '<figure class="entry-hero in-content-hero alignleft">%s</figure>%s',
         get_the_hero_image( 'in-content' ),
