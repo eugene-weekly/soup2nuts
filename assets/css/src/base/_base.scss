@@ -88,7 +88,6 @@ hr {
 img,
 svg,
 svg use,
-.post .entry-content iframe,
 embed,
 object,
 figure {
@@ -96,6 +95,8 @@ figure {
   //max-height: 100%;
   max-width: 100%; /* Adhere to container width. */
 }
+
+.post .entry-content iframe {max-width: 100%;}
 
 figure {
   margin: 0;
