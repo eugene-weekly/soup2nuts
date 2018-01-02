@@ -21,18 +21,18 @@ class RelatedPosts extends WP_Widget {
       $title = 'Recent Posts';
     }
 
-    $related_posts = get_related_posts();
+    $posts = get_related_posts();
 
     echo $before_widget; ?>
     <?php if ( !empty( $title ) ) : ?>
       <h5 class="widget-title"><?php echo $title; ?></h5>
     <?php endif; ?>
 
-    <?php while ( $related_posts->have_posts() ) : $related_posts->the_post();
+    <?php while ( $posts->have_posts() ) : $posts->the_post();
 
       $section = 'sidebar';
 
-      if ( $related_posts->current_post == 0 ) {
+      if ( $posts->current_post == 0 ) {
         include( locate_template( 'partials/content-excerpt.php', false ) );
       } else {
         include( locate_template( 'partials/content-excerpt-list.php', false ) );
