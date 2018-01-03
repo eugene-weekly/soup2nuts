@@ -17,22 +17,12 @@
   .aesop-image-component-caption {
     color: color(black);
 
-    font-weight: 400;
-    font-size: em(16);
-    font-family: $alianza;
-    line-height: 1.25;
-    text-transform: uppercase;
-
     .aesop-cap-cred {
       display: inline;
       margin: 0;
       padding: 0;
 
       color: color(grey);
-
-      font-style: italic;
-      font-size: em(12, 14);
-      text-transform: none;
 
       border: 0;
     }

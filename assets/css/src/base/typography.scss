@@ -180,7 +180,8 @@ blockquote {
 }
 
 .hero-caption,
-.wp-caption-text {
+.wp-caption-text,
+.aesop-image-component-caption {
   @extend %h6;
 
   font-size: em(10, 16);
