@@ -221,6 +221,12 @@ if ( ! function_exists( 'soup2nuts_post_class' ) ) :
     if ( !empty( $post_meta[ 'no-hero' ][0] ))
       $classes[] = 'no-post-hero';
 
+    if ( is_legit_video($post) )
+      $classes[] = 'has-video-hero';
+
+    if ( is_legit_gallery($post) )
+      $classes[] = 'has-gallery-hero';
+
     if ( get_post_meta( get_the_ID(), 'full-screen', true ) )
       $classes[] = 'full-screen';
 
