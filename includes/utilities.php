@@ -693,8 +693,8 @@ function is_legit_video( $post ) {
   $post_meta = get_post_meta( $post->ID );
 
   $is_video = false;
-
-  if ( $post_meta['hero-video'] ) {
+  
+  if ( !empty($post_meta['hero-video'][0]) ) {
     if ( $post->post_type != 'post' ) {
       $is_video = true;
     } elseif( has_post_format( 'video', $post->ID )) {
@@ -730,7 +730,7 @@ function is_legit_gallery( $post ) {
 
   $is_gallery = false;
 
-  if ( $post_meta['hero-gallery'] ) {
+  if ( !empty($post_meta['hero-gallery'][0]) ) {
     if ( $post->post_type != 'post' ) {
       $is_gallery = true;
     } elseif( has_post_format( 'gallery', $post->ID )) {
