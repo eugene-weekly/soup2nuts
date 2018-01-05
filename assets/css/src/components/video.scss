@@ -2,7 +2,13 @@
  * Video
  */
 
-.entry-hero .youtube-player { max-width: 100%; }
+.entry-hero .youtube-player {
+  max-width: 100%;
+
+  @include media( $less-than-third-break ) {
+    //height: 320px;
+  }
+}
 
 .post_format-post-format-video {
   .entry-hero {

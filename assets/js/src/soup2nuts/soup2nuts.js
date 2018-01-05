@@ -21,7 +21,7 @@
   /**
    * FitVids
    */
-   jQuery(".format-video > .entry-hero").fitVids();
+   jQuery(".has-video-hero > .entry-hero").fitVids();
 
 
   /**
