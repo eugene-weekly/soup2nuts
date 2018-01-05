@@ -245,12 +245,6 @@
   @include media( $third-break ) {
     margin-bottom: 2em;
   }
-
-  > .excerpted-post {
-    .entry-subhead {
-      @include visuallyhidden;
-    }
-  }
 }
 
 .video-column-wrapper {
