@@ -310,9 +310,12 @@
   }
 
   .entry-hero {
-    max-height: calc(90vh - 125px);
     margin-bottom: 1.5em;
     overflow: hidden;
+
+    > * {
+      max-height: calc(90vh - 125px);
+    }
 
     @include media( $third-break ) {
       flex: 1 1 100%;
@@ -350,9 +353,12 @@
     }
 
     .hero-caption {
-      margin-left: flex-gutter();
-      margin-right: flex-gutter();
-      margin-bottom: 1em;
+      position: relative;
+      z-index: 2;
+
+      padding: 0.5em flex-gutter() 1em;
+
+      background-color: color(white);
 
       text-align: right;
 
@@ -487,29 +493,31 @@
   align-items: center;
 
   .entry-hero {
-    height: calc(100vh - 50px);
-    min-height: calc(100vh - 50px);
-    max-height: calc(100vh - 50px);
     overflow: hidden;
 
     text-align: center;
 
-    @include media( $third-break ) {
-      height: calc(100vh - 125px);
-      min-height: calc(100vh - 125px);
-      max-height: calc(100vh - 125px);
-    }
 
     img {
       display: block;
-      height: 100%;
+      height: calc(100vh - 50px);
+      min-height: calc(100vh - 50px);
+      max-height: calc(100vh - 50px);
       width: 100%;
       max-width: none;
 
       object-fit: cover;
 
       font-family: "object-fit: contain;object-position: center;";
+
+      @include media( $third-break ) {
+        height: calc(100vh - 125px);
+        min-height: calc(100vh - 125px);
+        max-height: calc(100vh - 125px);
+      }
     }
+
+    .hero-caption { padding-top: 1em; }
   }
 
   .entry-header,
