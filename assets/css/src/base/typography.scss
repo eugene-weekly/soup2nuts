@@ -184,13 +184,14 @@ blockquote {
 .aesop-image-component-caption {
   @extend %h6;
 
-  font-size: em(10, 16);
+  font-size: em(10, 16) !important;
   font-weight: 400;
 
   @include media( $third-break ) {
-    font-size: em(14, 16);
+    font-size: em(14, 16) !important;
   }
 
+  .aesop-cap-cred,
   .photo-credit {
     font-style: italic;
     font-size: em(12, 14);
