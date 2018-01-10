@@ -134,11 +134,10 @@
     padding-bottom: 1em;
   }
 
-  &:nth-of-type(2)
+  &::nth-of-type(2)
     :not(.archive.paged .excerpted-post)
     :not(.archive.tax-post_format .excerpted-post)
     :not(.tribe-events-loop .type-tribe_events)
-    :not(.more_features-posts .excerpted-post)
     :not(.events-posts.home-posts .excerpted-post)
     :not(.entry-date)
     :not(.entry-meta) {

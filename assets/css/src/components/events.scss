@@ -425,6 +425,8 @@
         flex: 0 0 auto;
       }
 
+      abbr { text-decoration: none; }
+
       .tribe-events-gmap {
         display: block;
       }
@@ -599,6 +601,7 @@
     }
   }
 }
+
 
 .single-tribe_events {
   #tribe-events-header,
