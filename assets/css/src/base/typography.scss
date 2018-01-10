@@ -248,10 +248,11 @@ blockquote {
     @extend %h6;
   }
 
-  .tribe-events-event-cost {
+  .tribe-events-list & .tribe-events-event-cost {
     @extend %h3;
 
-    font-style: italic;
+    font-style: italic !important;
+    font-size: 1.4em;
   }
 
   .tribe-events-content p {
