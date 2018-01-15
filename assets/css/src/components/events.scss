@@ -650,18 +650,7 @@
     }
 
     .tribe-events-cal-links {
-      flex: 0 1 auto;
-
-      display: flex;
-      align-items: center;
-
-      margin-right: flex-gutter();
-
-      .tribe-events-button {
-        flex: 0 0 auto;
-
-        margin-top: 0;
-      }
+      display: none;
     }
 
     .sharedaddy {
