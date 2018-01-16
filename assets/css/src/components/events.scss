@@ -439,6 +439,8 @@
 
           background: transparent;
           color: inherit;
+
+          border: 0;
         }
       }
     }
@@ -468,7 +470,7 @@
       }
 
       > * {
-        flex: 0 1 auto;
+        flex: 1 1 auto;
         order: 2;
 
         max-width: 100%;
