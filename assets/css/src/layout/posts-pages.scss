@@ -383,6 +383,8 @@
     @include media( $third-break ) {
       flex: 0 1 60%;
       order: 3;
+
+      max-width: 60%;
     }
 
     @include media( $fifth-break ) {
@@ -405,7 +407,7 @@
 
   .entry-footer + .ad {
     @include media( $third-break ) {
-      flex: 0 1 40%;
+      flex: 0 1 1%;
       order: 4;
       align-self: stretch;
 
