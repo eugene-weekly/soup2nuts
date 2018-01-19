@@ -161,11 +161,10 @@
 
   .content-area {
     flex: 1 0 100%;
-    flex: 1 1 flex-grid(7);
-    margin-right: flex-gutter();
+    margin-right: 0;
     margin-bottom: 2em;
-    padding-right: flex-gutter();
-    padding-left: flex-gutter();
+    padding-right: flex-gutter(4);
+    padding-left: flex-gutter(4);
 
     background-color: color(white);
 
@@ -173,6 +172,10 @@
 
     @include media( $third-break ) {
       flex: 1 1 flex-grid(7);
+
+      margin-right: flex-gutter();
+      padding-right: flex-gutter();
+      padding-left: flex-gutter();
     }
   }
 

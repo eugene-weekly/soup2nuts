@@ -82,7 +82,11 @@
     }
 
     .entry-header {
-      @include pad( 0 flex-gutter( 8 ) );
+      @include pad( 0 flex-gutter( 4 ) );
+
+      @include media( $third-break ) {
+        @include pad( 0 flex-gutter( 8 ) );
+      }
     }
 
     .entry-hero {
@@ -287,8 +291,8 @@
         flex: 0 1 auto;
         order: 2;
 
-        margin-left: flex-gutter(6);
-        margin-right: flex-gutter(6);
+        margin-left: flex-gutter(5.25);
+        margin-right: flex-gutter(5.25);
         padding-right: 0;
         padding-bottom: 2em;
         padding-left: 0;
