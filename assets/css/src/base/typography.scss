@@ -336,6 +336,9 @@ blockquote {
 
 .tribe-events-read-more {
   @extend %h5;
+
+  font-size: em(12, 16);
+  letter-spacing: .105em;
 }
 
 .widget-area .widget-title {
