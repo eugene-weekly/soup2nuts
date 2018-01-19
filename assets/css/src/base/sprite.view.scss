@@ -1,6 +1,5 @@
 @mixin icon {
 	background: url(#{$svg}/sprite.view.svg) no-repeat;
-  background-size: contain;
 
 	@at-root .no-svg & {
 		background: url(#{$img}/sprite.view.png) no-repeat;
@@ -146,3 +145,4 @@
 	width: 110.35px;
 	height: 45.3px;
 }
+
