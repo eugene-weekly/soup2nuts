@@ -368,6 +368,8 @@
       transition: all 0.25s ease-out;
 
       span {
+        top: 15px;
+
         color: color(red);
 
         font-style: normal;
@@ -387,6 +389,18 @@
       }
     }
   }
+
+  .tribe-events-nav-left {
+    a span {
+      left: 5px;
+    }
+  }
+  .tribe-events-nav-right {
+    a span {
+      right: 5px;
+    }
+  }
+
 }
 
 .tribe-events-list {
