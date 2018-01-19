@@ -58,11 +58,11 @@
      </div>
 
      <!-- Event Cost -->
-     <?php if (tribe_get_cost()) : ?>
+     <?php /* if (tribe_get_cost()) : ?>
      <div class="tribe-events-event-cost">
        <span><?php echo tribe_get_cost(null, true); ?></span>
      </div>
-     <?php endif; ?>
+     <?php endif; */ ?>
 
    </div>
    <!-- .tribe-events-event-meta -->

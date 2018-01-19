@@ -52,10 +52,10 @@ $event_id = get_the_ID();
 
     <div class="tribe-events-schedule tribe-clearfix">
       <?php echo tribe_events_event_schedule_details( $event_id, '<h3>', '</h3>' ); ?>
-      <?php if ( tribe_get_cost() ) : ?>
+      <?php /* if ( tribe_get_cost() ) : ?>
       <span>&bull;</span>
       <span class="tribe-events-cost"><?php echo tribe_get_cost( null, true ) ?></span>
-      <?php endif; ?>
+      <?php endif; */ ?>
     </div>
 
 
