@@ -87,11 +87,15 @@
     flex-direction: column;
 
     margin-bottom: 4em;
-    padding: 2em flex-gutter(9);
+    padding: 2em flex-gutter(4);
 
     background-color: color(white);
 
     box-shadow: $box-shadow;
+
+    @include media( $third-break ) {
+      padding: 2em flex-gutter(9);
+    }
 
     > * {
       flex: 1 0 auto;
