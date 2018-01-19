@@ -40,7 +40,7 @@ class AuthorBio extends WP_Widget {
       <h3><?php the_author_meta( 'display_name', $author->ID ) ?></h3>
     <?php endif; ?>
     <?php if ( get_the_author_meta( 'description', $author->ID ) ) : ?>
-      <?php the_author_meta( 'description', $author->ID ) ?>
+      <p><?php the_author_meta( 'description', $author->ID ) ?></p>
     <?php endif; ?>
 
     <?php if ( !empty( $author_social ) ) : ?>
