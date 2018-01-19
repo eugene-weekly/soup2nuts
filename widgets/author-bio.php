@@ -26,8 +26,6 @@ class AuthorBio extends WP_Widget {
     $title = ( !empty( $instance[ 'title' ] ) ) ? $instance[ 'title' ] : null;
 
     $author_photo = get_avatar( $author->ID, 500 );
-    $author_name = get_the_author_meta( 'display_name', $author->ID );
-    $author_bio = get_the_author_meta( 'description', $author->ID );
     $author_social = get_user_meta( $author->ID, 'social-links', false);
 
     echo $before_widget; ?>
@@ -38,11 +36,11 @@ class AuthorBio extends WP_Widget {
     <?php if ( !empty( $author_photo ) )
       echo $author_photo; ?>
 
-    <?php if ( !empty( $author_name ) ) : ?>
-      <h3><?php echo $author_name; ?></h3>
+    <?php if ( get_the_author_meta( 'display_name', $author->ID ) ) : ?>
+      <h3><?php the_author_meta( 'display_name', $author->ID ) ?></h3>
     <?php endif; ?>
-    <?php if ( !empty( $author_bio ) ) : ?>
-      <?php echo $author_bio; ?>
+    <?php if ( get_the_author_meta( 'description', $author->ID ) ) : ?>
+      <?php the_author_meta( 'description', $author->ID ) ?>
     <?php endif; ?>
 
     <?php if ( !empty( $author_social ) ) : ?>
