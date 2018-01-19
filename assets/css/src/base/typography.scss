@@ -185,16 +185,18 @@ blockquote {
   @extend %h6;
 
   font-size: em(10, 16) !important;
-  font-weight: 400;
+  font-weight: 700;
 
   @include media( $third-break ) {
-    font-size: em(14, 16) !important;
+    font-size: em(12, 16) !important;
+    font-weight: 700;
   }
 
   .aesop-cap-cred,
   .photo-credit {
     font-style: italic;
     font-size: em(12, 14);
+    font-weight: 400;
     text-transform: none;
   }
 }
