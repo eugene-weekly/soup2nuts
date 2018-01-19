@@ -332,6 +332,10 @@ blockquote {
   @extend %h4;
 }
 
+.tribe-events-read-more {
+  @extend %h5;
+}
+
 .widget-area .widget-title {
   @extend %h5;
 
