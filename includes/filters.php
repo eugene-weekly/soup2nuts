@@ -267,7 +267,7 @@ if ( ! function_exists( 'soup2nuts_the_content' ) ) :
           get_the_hero_image( 'in-content' ),
           $content
         );
-        
+
     }
 
     return $content;
@@ -461,6 +461,10 @@ if ( ! function_exists( 'soup2nuts_archive_title' ) ) :
    */
 
   function soup2nuts_archive_title( $title ) {
+
+    if ( $title == 'Archives: Promotions' ) {
+      $title = 'Archives: Sponsored Content';
+    }
 
     if ( is_category() ) {
       if ( is_paged() ) {

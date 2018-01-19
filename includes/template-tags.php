@@ -147,7 +147,7 @@ function soup2nuts_posted_on() {
       }
 
       if ( get_post_type( $id ) == 'promotion' ) {
-        printf( '<a href="%1$s" class="post-category">%2$s</a>', esc_url( get_post_type_archive_link( 'promotion' ) ), 'Promotion' );
+        printf( '<a href="%1$s" class="post-category">%2$s</a>', esc_url( get_post_type_archive_link( 'promotion' ) ), 'Sponsored Content' );
       }
 
       echo '</span> ';
@@ -155,8 +155,8 @@ function soup2nuts_posted_on() {
     }
 
     if ( get_post_type( $id ) == 'promotion' ) {
-      
-      printf( '<span class="excerpt-meta-item meta-item post-categories"><a href="%1$s" class="post-category">%2$s</a></span>', esc_url( get_post_type_archive_link( 'promotion' ) ), 'Promotion' );
+
+      printf( '<span class="excerpt-meta-item meta-item post-categories"><a href="%1$s" class="post-category">%2$s</a></span>', esc_url( get_post_type_archive_link( 'promotion' ) ), 'Sponsored Content' );
 
     }
 

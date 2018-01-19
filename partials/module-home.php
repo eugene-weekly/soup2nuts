@@ -12,6 +12,7 @@ $excludedPosts = array();
 foreach( array( 'features', 'news', 'arts', 'culture', 'events', 'gallery', 'video', 'promotions' ) as $home_section ) :
 
   $posts = home_posts( $home_section, $excludedPosts );
+  $sectionName = ( $home_section == 'promotions' ) ? 'Sponsored Content' : $home_section;
 
   //pre_printr( $posts );
 
@@ -34,7 +35,7 @@ foreach( array( 'features', 'news', 'arts', 'culture', 'events', 'gallery', 'vid
       <?php if ( !in_array( $home_section, array( 'features', 'events' ) ) ) : ?>
 
       <header class="section-header news-header">
-        <h5 class="section-title"><?php echo ucwords( $home_section ); ?></h5>
+        <h5 class="section-title"><?php echo ucwords( $sectionName ); ?></h5>
       </header>
 
       <?php endif;
@@ -60,7 +61,7 @@ foreach( array( 'features', 'news', 'arts', 'culture', 'events', 'gallery', 'vid
       <?php if ( !in_array( $home_section, array( 'features', 'events' ) ) ) : ?>
 
       <footer class="section-footer news-footer">
-        <a href="<?php the_archive_link( $home_section ); ?>" class="archive-link" rel="archive">Explore <span class="category-name"><?php echo ucwords( $home_section ); ?></span><span class="svg_icon-explore"><?php icon_sprite( 'icon-explore' ); ?></span></a>
+        <a href="<?php the_archive_link( $home_section ); ?>" class="archive-link" rel="archive">Explore <span class="category-name"><?php echo ucwords( $sectionName ); ?></span><span class="svg_icon-explore"><?php icon_sprite( 'icon-explore' ); ?></span></a>
       </footer>
 
       <?php endif; ?>
