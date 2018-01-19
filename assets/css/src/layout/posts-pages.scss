@@ -313,7 +313,7 @@
     overflow: hidden;
 
     > * {
-      max-height: calc(90vh - 125px);
+      max-height: none;
       object-fit: cover;
     }
 

@@ -41,9 +41,8 @@ class AuthorBio extends WP_Widget {
     <?php if ( !empty( $author_name ) ) : ?>
       <h3><?php echo $author_name; ?></h3>
     <?php endif; ?>
-
     <?php if ( !empty( $author_bio ) ) : ?>
-      <p><?php echo $author_bio; ?></p>
+      <?php echo $author_bio; ?>
     <?php endif; ?>
 
     <?php if ( !empty( $author_social ) ) : ?>
