@@ -314,6 +314,7 @@
 
     > * {
       max-height: calc(90vh - 125px);
+      object-fit: cover;
     }
 
     @include media( $third-break ) {

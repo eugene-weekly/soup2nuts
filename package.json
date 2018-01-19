@@ -14,7 +14,7 @@
     "build": "grunt"
   },
   "dependencies": {
-    "node-sass": "^4.5.3"
+    "node-sass": "^4.7.2"
   },
   "devDependencies": {
     "autoprefixer": "^7.0.1",
