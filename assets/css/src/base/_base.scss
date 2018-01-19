@@ -36,11 +36,17 @@ body {
   &.show-nav {
     @include media( $less-than-third-break ) {
       overflow: hidden;
+
+      max-height: 100vh;
     }
 
     #content {
       @include media( $less-than-third-break ) {
         pointer-events: none;
+
+        overflow: hidden;
+
+        max-height: calc(100vh - 50px);
       }
     }
   }
