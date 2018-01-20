@@ -317,6 +317,16 @@
   }
 }
 
+.tribe-events-day .tribe-events-day-time-slot {
+  > h5 {
+    margin-bottom: 1.5em;
+  }
+
+  .type-tribe_events:last-of-type {
+    border-bottom: 0 !important;
+  }
+}
+
 .tribe-events-back {
   font-weight: 500;
   font-style: italic;
@@ -376,8 +386,6 @@
       display: block;
       @include pad(1rem 1rem);
 
-      background-color: color(light-grey);
-      color: color(black);
 
       font-size: em(14, 18);
       font-style: italic;
@@ -385,6 +393,12 @@
       text-transform: uppercase;
 
       transition: all 0.25s ease-out;
+      
+      &:link,
+      &:visited {
+        background-color: color(light-grey);
+        color: color(black);
+      }
 
       span {
         top: 15px;
@@ -397,8 +411,7 @@
         transform: translateX(0);
       }
 
-      &:hover,
-      &:focus {
+      &:hover {
         background-color: color(grey);
         color: color(light-grey);
       }
@@ -441,6 +454,8 @@
 
     .tribe-events-list-event-title {
       margin-top: 0;
+
+      line-height: 1.1;
     }
 
     .tribe-events-event-meta {
@@ -448,6 +463,8 @@
       flex-direction: column;
       flex-wrap: nowrap;
       align-items: flex-start;
+
+      padding-top: 6px;
 
       background-color: transparent;
 
