@@ -499,7 +499,8 @@
   .search-results &,
   .archive.paged &,
   .archive.tax-post_format &,
-  .archive.date & {
+  .archive.date &,
+  .archive.tag & {
     flex: 1 1 100%;
 
     margin-bottom: 1em;
