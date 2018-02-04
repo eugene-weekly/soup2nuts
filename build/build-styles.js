@@ -27,6 +27,7 @@ module.exports = function( grunt ) {
         files: {
           '<%= dirs.css %>/soup2nuts.css': '<%= dirs.sass %>/soup2nuts.scss',
           '<%= dirs.css %>/admin.css': '<%= dirs.sass %>/admin.scss',
+          '<%= dirs.css %>/login.css': '<%= dirs.sass %>/login.scss',
           '<%= dirs.css %>/editor.css': '<%= dirs.sass %>/editor.scss'
         }
       }

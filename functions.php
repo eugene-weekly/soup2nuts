@@ -193,6 +193,26 @@ endif; // soup2nuts_admin_scripts_styles
 
 add_action( 'admin_enqueue_scripts', 'soup2nuts_admin_scripts_styles' );
 
+if ( ! function_exists( 'soup2nuts_login_scripts_styles' ) ) :
+  /**
+   * Enqueue admin scripts and styles.
+   *
+   * @uses wp_enqueue_script
+   * @uses wp_enqueue_style
+   *
+   * @since 0.1.0
+   */
+
+  function soup2nuts_login_scripts_styles() {
+
+    //wp_enqueue_script( 'soup2nuts-admin', get_template_directory_uri() . "/assets/js/admin.js", array(), VERSION, true );
+
+    wp_enqueue_style( 'soup2nuts-login', get_template_directory_uri() . "/assets/css/login.css", false );
+  }
+endif; // soup2nuts_login_scripts_styles
+
+add_action( 'login_enqueue_scripts', 'soup2nuts_login_scripts_styles', 10 );
+
 
 if ( ! function_exists( 'soup2nuts_editor_styles' ) ) :
   /**

@@ -792,3 +792,39 @@ if ( ! function_exists( 'soup2nuts_oembed_dataparse' ) ) :
 endif;
 
 add_filter( 'oembed_dataparse','soup2nuts_oembed_dataparse', 10, 3 );
+
+
+if ( ! function_exists( 'soup2nuts_login_logo_url' ) ) :
+
+  /**
+   * Login Logo
+   *
+   * @return $url (url)
+   *
+   * @since 0.1.0
+   */
+
+  function soup2nuts_login_logo_url( ) {
+    return home_url();
+  }
+endif;
+
+add_action( 'login_headerurl','soup2nuts_login_logo_url' );
+
+
+if ( ! function_exists( 'soup2nuts_login_logo_url_title' ) ) :
+
+  /**
+   * Login Logo
+   *
+   * @return $title (str)
+   *
+   * @since 0.1.0
+   */
+
+  function soup2nuts_login_logo_url_title( ) {
+    return 'Oh, you again…';
+  }
+endif;
+
+add_action( 'login_headertitle','soup2nuts_login_logo_url_title' );

@@ -1,0 +1,29 @@
+/**
+* Eugene Weekly 2017
+* http://eugeneweekly.com
+*
+* Copyright (c) 2015 Nate Bedortha @ OK/No Way
+*/
+
+@import "global/global";
+@import "base/base";
+@import "base/sprite.view.scss";
+
+.login h1 a {;
+	@extend %logo-ew-type;
+
+
+	width: 320px;
+	height: 131px;
+	background-size: 802px;
+
+
+	
+	color: #999;
+	margin: 0 auto 25px;
+	padding: 0;
+	text-decoration: none;
+	outline: none;
+	overflow: hidden;
+	display: block;
+}
