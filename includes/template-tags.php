@@ -217,6 +217,8 @@ function soup2nuts_entry_footer() {
     $tags_list = get_the_tag_list( '', esc_html__( ' / ', 'soup2nuts' ) );
     if ( $tags_list ) {
       printf( '<span class="tags-links">Tags: ' . esc_html__( '%1$s', 'soup2nuts' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+    } else {
+      printf( '<hr class="empty-footer"/>');
     }
   }
 }

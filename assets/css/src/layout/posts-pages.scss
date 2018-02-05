@@ -65,7 +65,7 @@
           align-self: center;
 
           width: $max-width/2;
-          max-width: $max-width/2;
+          max-width: $max-width/2 ;
           //padding-left: flex-grid(3);
           //padding-right: flex-grid(3);
         }
@@ -80,10 +80,16 @@
           //padding-right: flex-grid(4);
           width: $max-width*0.66;
           max-width: $max-width*0.66;
+          margin-left: calc( #{$max-width}*0.66 - 750px);
+          margin-right: calc( #{$max-width}*0.66 - 750px);
         }
       }
 
       .entry-header {
+      }
+
+      .empty-footer {
+
       }
     }
   }
