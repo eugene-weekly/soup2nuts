@@ -1,8 +1,8 @@
 /**
-* Eugene Weekly 2017
+* Eugene Weekly 2018
 * http://eugeneweekly.com
 *
-* Copyright (c) 2015 Nate Bedortha @ OK/No Way
+* Copyright (c) 2018 Nate Bedortha @ OK/No Way
 */
 
  ( function( window, undefined ) {

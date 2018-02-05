@@ -3,7 +3,7 @@
  *  Utility functions.
  *
  * @package WordPress
- * @subpackage Eugene Weekly 2017
+ * @subpackage Eugene Weekly 2018
  */
 
 
