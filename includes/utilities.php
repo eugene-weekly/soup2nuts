@@ -156,7 +156,7 @@ function get_the_hero_image( $size, $hero_origin = false ) {
 
   $heroImgID = get_post_thumbnail_id( $hero_origin );
   //$heroImgID = $heroImgObject['ID'];
-  $heroImgSrc = wp_get_attachment_image( $heroImgID, $size, false, array( 'class' => 'aesop-lazy-img_not-yet' ) );
+  $heroImgSrc = wp_get_attachment_image( $heroImgID, $size, false, array( 'class' => 'aesop-lazy-img_not-yet', 'style' => '' ) );
   $heroImgMeta = wp_get_attachment_metadata( $heroImgID );
   $heroImg = wp_image_add_srcset_and_sizes( $heroImgSrc, $heroImgMeta, $heroImgID );
 
@@ -168,6 +168,19 @@ function get_the_hero_image( $size, $hero_origin = false ) {
       $figcaption = '<figcaption class="event-caption">' . $figcaption . '</figcaption>';
     } else {
       $figcaption = '<figcaption class="hero-caption">' . $figcaption . '</figcaption>';
+    }
+
+    if ( $hero_origin = 'in-content' ) {
+      //pre_printr($heroImgMeta);
+      $maxWidth = $heroImgMeta['sizes']['in-content']['width'];
+
+      if ( 0 < $maxWidth ) {
+        $style = '<style>@media screen and (min-width: 568px) {#post-thumbnail-' . $heroImgID . '{max-width:' . $maxWidth . 'px;}}</style>';
+      }
+
+      if (!empty( $style )) {
+        $figcaption .= $style;
+      }
     }
 
   }
@@ -693,7 +706,7 @@ function is_legit_video( $post ) {
   $post_meta = get_post_meta( $post->ID );
 
   $is_video = false;
-  
+
   if ( !empty($post_meta['hero-video'][0]) ) {
     if ( $post->post_type != 'post' ) {
       $is_video = true;
