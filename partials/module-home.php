@@ -83,6 +83,7 @@ foreach( array( 'features', 'news', 'arts', 'culture', 'events', 'gallery', 'vid
   if (( $home_section == 'promotions' )) { ?>
     <div class="promotions-ad-column">
       <?php the_widget( 'CurrentIssue' ); ?><!-- CurrentIssue -->
+      
       <?php do_action( 'acm_tag', '300x250-promotions-btf' );  ?>
     </div>
   <?php }
