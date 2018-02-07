@@ -345,6 +345,9 @@
   }
   .ad {
     padding: $half-gutter flex-gutter(6);
-    text-align: center;
+    .ad-wrapper > * {
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 }
