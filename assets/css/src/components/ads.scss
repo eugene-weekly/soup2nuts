@@ -58,18 +58,9 @@
     }
   }
 
-  .single .site-main > &:first-child,
-  .home-posts + & {
-    .ad-wrapper > div {
-      margin-left: auto;
-      margin-right: auto;
-    }
-  }
-
-  .single .widget-area & .ad-wrapper > div,
-  .page .widget-area & .ad-wrapper > div {
+  .ad-wrapper > div {
     margin-left: auto;
-    margin-right: flex-gutter(4);
+    margin-right: auto;
   }
 }
 

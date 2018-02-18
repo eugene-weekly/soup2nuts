@@ -393,7 +393,7 @@
       text-transform: uppercase;
 
       transition: all 0.25s ease-out;
-      
+
       &:link,
       &:visited {
         background-color: color(light-grey);
@@ -627,7 +627,8 @@
 
       .tribe-events-list-event-title,
       .tribe-events-event-meta,
-      .tribe-events-content {
+      .tribe-events-content,
+      .event-is-recurring {
         color: color(black);
       }
 
@@ -705,6 +706,14 @@
     h3 {
       font-weight: 200;
     }
+
+    .recurringinfo {
+      font-size: em(16);
+      font-weight: 200;
+
+    }
+
+    .event-is-recurring { color: inherit; }
   }
 
   .event-links {
