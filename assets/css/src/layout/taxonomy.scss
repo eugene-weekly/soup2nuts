@@ -86,7 +86,7 @@
     @include media( $less-than-third-break ) {
       @include wide-triangle;
 
-      height: 0;
+      height: 0.66em !important;
     }
 
     @include media( $third-break ) {

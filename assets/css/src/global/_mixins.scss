@@ -257,26 +257,31 @@
 @mixin wide-triangle {
   //margin-bottom: -2em;
 
-  &:before {
-    content: "";
+  @include media( $less-than-third-break ) {
+    background-color: color(red);
 
-    position: absolute;
-    right: 0;
-    left: 0;
-    z-index: -1;
+    &:before {
+      content: "";
 
-    height: 100%;
-    width: 100%;
+      position: absolute;
+      top: 0.66em;
+      right: 0;
+      left: 0;
+      z-index: -1;
 
-    border-left: 50vw solid transparent;
-    border-right: 50vw solid transparent;
+      height: 100%;
+      width: 100%;
 
-    border-top: 3.5em solid color(red);
-  }
+      border-left: 50vw solid transparent;
+      border-right: 50vw solid transparent;
 
-  > * {
-    max-width: 60%;
-    background-color: transparent;
+      border-top: 1.66em solid color(red);
+    }
+
+    > * {
+      max-width: 80%;
+      background-color: transparent;
+    }
   }
 }
 
