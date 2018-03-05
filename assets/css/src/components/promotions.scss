@@ -3,6 +3,11 @@
  */
 
 .promotion {
+  .single .site-main  &.hentry {
+    @include media( $third-break ) {
+      justify-content: center;
+    }
+  }
   &.excerpted-post {
     .entry-hero {
       @include media( $third-break ) {
